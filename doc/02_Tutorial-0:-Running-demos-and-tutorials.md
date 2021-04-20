@@ -21,7 +21,7 @@ o80_console
 
 Note: when o80_mujoco is closed, o80_console and o80_plotting must be restarted.
 
-All the above can be started with the default configuration.
+All the command above trigger a configuration dialog, but all can be started with the default configuration.
 
 In a last terminal, start the frontend, for example:
 
