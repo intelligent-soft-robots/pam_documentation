@@ -1,4 +1,4 @@
-# UNDER CONSTRUCTION !
+# Tutorial 4: join control, table, balls, etc
 
 ## Tutorial's demo
 

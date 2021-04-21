@@ -1,4 +1,4 @@
-# UNDER CONSTRUCTION
+# Tutorial 2: reading robot data
 
 ## Reading robot data
 

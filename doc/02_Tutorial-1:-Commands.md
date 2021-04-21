@@ -1,5 +1,5 @@
-# UNDER CONSTRUCTION !
-# Tutorial
+
+# Tutorial 1: commands
 
 ## Starting a Mujoco simulated robot
 

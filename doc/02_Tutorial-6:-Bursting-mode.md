@@ -1,3 +1,5 @@
+# Tutorial 6: bursting mode
+
 ## Introduction
 
 In the previous tutorial, we started the robot backend via:

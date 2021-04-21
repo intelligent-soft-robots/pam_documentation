@@ -1,11 +1,12 @@
+# Using the real robot
 
-# PAM Interface
+## method 1: PAM Interface
 
 pam_interface provides a python interface to the Pneumatic Artificial Muscle (PAM) (pam) developed at the Intelligent Soft Robots Laboratory (Empirical Inference Department, Max Planck Institute for Intelligent Systems).
 
 ![PAM_ROBOT](https://ei.is.tuebingen.mpg.de/uploads/publication/image/18667/2PAMcompressed.jpg)
 
-## Robot overview
+### Robot overview
 
 PAM is a robotic arm with 4 rotating joints. Each joint is controlled via 2 artificial muscles (agonist and antagonist muscle). Motion of the joint is obtained by tuning the pressure applied to these two muscles (i.e. applying contractions to the muscles). The robot is connected to a pressure source.
 
@@ -23,22 +24,22 @@ The pam_interface provides a python API for:
 
 The angular position of the joint is provided relative to the posture of the joint when the FPGA was started. This may not be very useful. The sensors of the robot will provide the absolute position of the joint once the joint crossed a "reference" middle position. If the "reference found" is true, then the joint crossed at some point this middle position and the angular position is absolute. If not, it is relative.
 
-## Installation
+### Installation
 
-### On ubuntu
+#### On ubuntu
 
 pam_interface follows the [general guidelines of IRS](https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki), and is provided by the treep project PAM.
 
 Ubuntu is not supported by the FPGA controlling the robot. Installing pam_interface allows only to run the pam server over a dummy virtual robot (see below), useful only for debug.
 
-### On the control desktop
+#### On the control desktop
 
 The control desktop runs CentOS and should have all the required dependencies already installed.
 You may therefore simply use treep to clone PAM, and compile as usual.
 
-## Usage
+### Usage
 
-### starting the server
+#### starting the server
 
 After compilation and sourcing of the workspace, the pam_server is available, and can be started:
 
@@ -57,14 +58,14 @@ The above obviously assumes you are working from the robot control workstation.
 See somewhere below for the instructions on how to start the robot (beyond the server)
 
 
-### printed data
+#### printed data
 
 Once the server started, it will print in the terminal, for each of the 4 dofs:
 
 - the value of the encoder (if the reference has not been found), the angular position of the joint otherwise (in degree)
 - the value of the observed and desired pressure for the agonist and antagonist muscles.
 
-## sending desired pressures and reading sensors
+#### sending desired pressures and reading sensors
 
 In another terminal, you may start a script using the following API:
 
@@ -87,7 +88,7 @@ robot_state is an instance of [RobotState](https://github.com/intelligent-soft-r
 
 See its documentation [here](to do: point to the right url)
 
-# Starting the real robot
+### Starting the real robot
 
 Parts :
 
@@ -126,7 +127,7 @@ Stopping steps:
 3. Close pressure supply valve
 5. Turn off electronics
 
-## Checking the robot
+### Checking the robot
 
 The executable [pam_check](https://github.com/intelligent-soft-robots/pam_interface/blob/master/bin/pam_check) can be run once the server started and the pressure applied to the robot. It will apply pressure to each muscle one by one and generating plots of the observed/desired pressure.
 
@@ -141,21 +142,21 @@ You may run the check over only (the two muscles of) 1 joint:
 pam_check 0 
 ```
 
-# O80 PAM
+## Method 2: O80 PAM
 
 o80_pam is a wrappers over [pam_interface](https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html) providing [o80](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html) functionalities.
 
 This documentation assumes you are familiar with both *pam_interface* and *o80*.
 
-## Installation
+### Installation
 
 Follow the [general guidelines](https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki), using either the treep project "PAM" or the treep project "PAM_MUJOCO" (if you'd like to use o80_pam over a PAM robot simulated by Mujoco).
 
 If using mujoco, you also need to copy a mujoco licence key (mjkey.txt) in the folder /opt/mujoco/ (create the folder is necessary).
 
-## Usage
+### Usage
 
-### Starting a o80 server
+#### Starting a o80 server
 
 In terminal, assuming the workspace has been [sourced](https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki/05_Compiling-a-project) :
 
@@ -183,7 +184,7 @@ To start a server over the real robot (on cent-os control desktop, **assuming yo
 o80_pam real
 ```
 
-## Checking all is working
+#### Checking all is working
 
 Once the o80 server started, you may check all is working fine by running in another terminal :
 
@@ -193,19 +194,19 @@ o80_pam_check
 
 This executable will changes the pressure on each muscle one by one.
 
-### Performing a series of swing motion
+#### Performing a series of swing motion
 
 ```bash
 o80_pam_lengthcables
 ```
 
-### Python user code
+#### Python user code
 
 You may send commands to the robot and receiving observations from it via an o80 based API.
 The [o80 API](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html) is fully supported.
 To get an example of usage of this PAI, see the demos folder. For example, this [demo](https://github.com/intelligent-soft-robots/o80_pam/blob/master/demos/demo.py). 
 
-### Mirroring real robot by mujoco simulated robot
+#### Mirroring real robot by mujoco simulated robot
 
 Once a o80_pam server is started:
 

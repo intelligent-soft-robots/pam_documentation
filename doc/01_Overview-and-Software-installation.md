@@ -1,4 +1,6 @@
-# Overview 
+# Overview and software installation
+
+## Overview
 
 ![pam robot](https://ei.is.tuebingen.mpg.de/uploads/publication/image/18667/2PAMcompressed.jpg)
 
@@ -21,7 +23,7 @@ User may then use a python (or a c++) API for interacting with the shared memory
 
 There are quite a few types of commands that can be written in the shared memory. The system is based on [o80](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html), and it is advised to read o80's documentation before going further.
 
-# Software installation 
+## Software installation 
 
 Installing the software will results in:
 
@@ -31,7 +33,7 @@ Installing the software will results in:
 
 The executables will be used to start the backend connecting to the robot, while the python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).
 
-## step 1: install ubuntu
+### step 1: install ubuntu
 
 The software is supported only Ubuntu 18.04. It is likely to work on slightly older and newer version, but this has not been properly tested.
 
@@ -44,7 +46,7 @@ sudo ./setup_ubuntu install all
 ```
 This will install various packages via pip, pip3 and aptitude (including ROS).
 
-## step 2: install mujoco
+### step 2: install mujoco
 
 - create a folder /opt/mpi-is (may require sudo rights)
 - create a folder /opt/mujoco (also sudo)
@@ -61,16 +63,16 @@ sudo chmod -R 777 ./mpi-is
 sudo chmod -R 777 ./mujoco
 ```
 
-## step 3: python dependencies
+### step 3: python dependencies
 
 - call: ```pip3 install isr_meta```
 - call: ```pip3 install colcon-common-extensions```
 
-## step 4: clone the sources from git
+### step 4: clone the sources from git
 
 The software requires more than one repository to execute. In these instructions we use the [treep](https://gitlab.is.tue.mpg.de/amd-clmc/treep) project manager to help with this.
 
-### requirements
+#### requirements
 
 - You must first register your ssh-key to github. See instructions [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
@@ -80,7 +82,7 @@ The software requires more than one repository to execute. In these instructions
 pip3 install treep
 ```
 
-### cloning using treep
+#### cloning using treep
 
 ```bash
 mkdir Software
@@ -96,7 +98,7 @@ treep --clone PAM_MUJOCO
 # checking the workspace status
 treep --status
 ```
-## compile using colcon
+#### compile using colcon
 
 For these instructions to work, python3 needs to be the default python (either system-wide or using a virtual environment).
 To check the default version of python, in a terminal:
@@ -128,7 +130,7 @@ For the software to work, the install folder needs to be sourced in all new term
 echo "sourcing workspace"
 source /path/to/Software/workspace/install/setup.bash
 ```  
-## step 5: check things are ok
+### step 5: check things are ok
 
 In a python3 terminal:
 
