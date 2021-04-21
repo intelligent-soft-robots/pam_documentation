@@ -30,8 +30,6 @@ add_documentation()
 # Install and export #
 ######################\
 
-install(DIRECTORY include/ DESTINATION include)
-install(DIRECTORY internal/ DESTINATION include)
 install(
   TARGETS ${all_targets}
   EXPORT ${all_target_exports}
