@@ -27,9 +27,9 @@ There are quite a few types of commands that can be written in the shared memory
 
 Installing the software will results in:
 
-- having some executables installed on your system (e.g. 'o80_pam' already mentioned above)
-- having some python packages installed
-- useful for advanced users: some c++ libraries installed
+ - having some executables installed on your system (e.g. 'o80_pam' already mentioned above)
+ - having some python packages installed
+ - useful for advanced users: some c++ libraries installed
 
 The executables will be used to start the backend connecting to the robot, while the python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).
 
@@ -48,12 +48,12 @@ This will install various packages via pip, pip3 and aptitude (including ROS).
 
 ### step 2: install mujoco
 
-- create a folder /opt/mpi-is (may require sudo rights)
-- create a folder /opt/mujoco (also sudo)
-- download [mujoco200 for linux](https://www.roboti.us/index.html) 
-- unzip mujoco200 in /opt/mpi-is (should result in folder /opt/mpi-is/mujoco200_linux)
-- copy the licence file mjkey.txt to /opt/mujoco/
-- open the permissions of the /opt/mpi-is and /opt/mujoco folders:
+ - create a folder /opt/mpi-is (may require sudo rights)
+ - create a folder /opt/mujoco (also sudo)
+ - download [mujoco200 for linux](https://www.roboti.us/index.html) 
+ - unzip mujoco200 in /opt/mpi-is (should result in folder /opt/mpi-is/mujoco200_linux)
+ - copy the licence file mjkey.txt to /opt/mujoco/
+ - open the permissions of the /opt/mpi-is and /opt/mujoco folders:
 
 ```bash
 cd /opt
@@ -65,8 +65,8 @@ sudo chmod -R 777 ./mujoco
 
 ### step 3: python dependencies
 
-- call: ```pip3 install isr_meta```
-- call: ```pip3 install colcon-common-extensions```
+ - call: ```pip3 install isr_meta```
+ - call: ```pip3 install colcon-common-extensions```
 
 ### step 4: clone the sources from git
 
@@ -74,9 +74,8 @@ The software requires more than one repository to execute. In these instructions
 
 #### requirements
 
-- You must first register your ssh-key to github. See instructions [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-- treep is likely to be already installed on your machine. If not:
+ - You must first register your ssh-key to github. See instructions [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+ - treep is likely to be already installed on your machine. If not:
 
 ```bash
 pip3 install treep
@@ -149,5 +148,5 @@ You may check the software is correctly installed (cf instructions for client in
 
 These pages will also help:
 
-- overview of [cmake usage](https://github.com/machines-in-motion/machines-in-motion.github.io/wiki/use_cmake)
-- overview of [superbuilds](https://github.com/machines-in-motion/machines-in-motion.github.io/wiki/super_build_and_cmake), such as colcon and ament
+ - overview of [cmake usage](https://github.com/machines-in-motion/machines-in-motion.github.io/wiki/use_cmake)
+ - overview of [superbuilds](https://github.com/machines-in-motion/machines-in-motion.github.io/wiki/super_build_and_cmake), such as colcon and ament
