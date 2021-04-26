@@ -51,8 +51,8 @@ To install, first select a version by visiting : [http://people.tuebingen.mpg.de
 ```bash
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_ubuntu20.04_py3.8_1.0.tar.gz
 tar -zxvf ./pam_ubuntu20.04_py3.8_1.0.tar.gz
-sudo ./apt_dependencies
-sudo ./pip3_dependencies
+sudo ./apt-dependencies
+sudo ./pip3-dependencies
 sudo ./create_config_dirs
 sudo ./install_mujoco
 ./configure
@@ -73,8 +73,8 @@ sudo ldconfig
 # (select another version from http://people.tuebingen.mpg.de/mpi-is-software/pam/older/ if you do not want the latest)
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_source.tar.gz
 tar -zxvf ./pam_source.tar.gz
-sudo ./apt_dependencies
-sudo ./pip3_dependencies
+sudo ./apt-dependencies
+sudo ./pip3-dependencies
 sudo ./create_config_dirs
 sudo ./install_mujoco
 ./configure
@@ -124,7 +124,7 @@ wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pip3-dependenc
 sudo ./apt-dependencies
 sudo ./create_config_dirs
 sudo ./install_mujoco
-sudo ./pip3_dependencies
+sudo ./pip3-dependencies
 ```
 
 #### Cloning the repositories
