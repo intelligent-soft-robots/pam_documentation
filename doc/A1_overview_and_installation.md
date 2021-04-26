@@ -21,7 +21,7 @@ The command above spawns a "backend" process which connects to the robot. This p
 
 User may then use a python (or a c++) API for interacting with the shared memory, i.e. reading the state of the robot (written by the backend) or writing commands to it (which will then be read by the backend and applied to the robot).
 
-There are quite a few types of commands that can be written in the shared memory. The system is based on [o80](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html), and it is advised to read o80's documentation before going further.
+There are quite a few types of commands that can be written in the shared memory. The system is based on o80, and it is advised to read o80's [documentation](http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html) before going further.
 
 ## Software installation 
 
@@ -33,18 +33,32 @@ Installing the software will results in:
 
 The executables will be used to start the backend connecting to the robot, while the python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).
 
-### step 1: install ubuntu
+Note that you need a valid [mujoco key](https://www.roboti.us/license.html) to use the mujoco simulated robot.  
 
-The software is supported only Ubuntu 18.04. It is likely to work on slightly older and newer version, but this has not been properly tested.
+### From tar archives
 
-To get all required dependencies, after installation of 18.04, clone the [ubuntu installation scripts](https://github.com/machines-in-motion/ubuntu_installation_scripts) repository and run the setup_ubuntu script:
+The below will:
+- install mujoco in /usr/local/
+- create configuration files in /opt/mpi-is
+- install (c++) libraries and python packages
+
+#### binaries
+
+pam software's binaries are available only for ubuntu18.04/python3.6 and ubuntu20.04/python3.8.
+
+To install, first select a version by visiting : [http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/](http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/) or [http://people.tuebingen.mpg.de/mpi-is-software/pam/older/](http://people.tuebingen.mpg.de/mpi-is-software/pam/older/). Then, for example (update with your selected version):
 
 ```bash
-git clone https://github.com/machines-in-motion/ubuntu_installation_scripts.git
-cd ubuntu_installation_scripts/official
-sudo ./setup_ubuntu install all
+wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_ubuntu20.04_py3.8_1.0.tar.gz
+tar -zxvf ./pam_ubuntu20.04_py3.8_1.0.tar.gz
+sudo ./apt_dependencies
+sudo ./pip3_dependencies
+sudo ./create_config_dirs
+sudo ./install_mujoco
+./configure
+sudo make install # note: 'make install' is directly called, no call previous call to 'make'
+sudo ldconfig
 ```
-This will install various packages via pip, pip3 and aptitude (including ROS).
 
 ### step 2: install mujoco
 
@@ -56,80 +70,101 @@ This will install various packages via pip, pip3 and aptitude (including ROS).
  - open the permissions of the /opt/mpi-is and /opt/mujoco folders:
 
 ```bash
-cd /opt
-sudo chown -R root:users ./mpi-is
-sudo chown -R root:users ./mujoco
-sudo chmod -R 777 ./mpi-is
-sudo chmod -R 777 ./mujoco
+# (select another version from http://people.tuebingen.mpg.de/mpi-is-software/pam/older/ if you do not want the latest)
+wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_source.tar.gz
+tar -zxvf ./pam_source.tar.gz
+sudo ./apt_dependencies
+sudo ./pip3_dependencies
+sudo ./create_config_dirs
+sudo ./install_mujoco
+./configure
+make
+sudo make install
+sudo ldconfig
 ```
 
-### step 3: python dependencies
+#### mujoco key
+
+Copy your mujoco key (mjkey.txt) in /opt/mujoco.
 
  - call: ```pip3 install isr_meta```
  - call: ```pip3 install colcon-common-extensions```
 
-### step 4: clone the sources from git
+### Via colcon workspace
 
-The software requires more than one repository to execute. In these instructions we use the [treep](https://gitlab.is.tue.mpg.de/amd-clmc/treep) project manager to help with this.
+This is the recommanded way for developpers of the PAM software (as opposed to the users of it).
 
-#### requirements
+[Colcon](https://colcon.readthedocs.io/en/released/) is the built system of [ROS2](https://docs.ros.org/en/foxy/index.html).
+The instructions below will result in the setup of a colcon workspace. Possibly, if you would like to use o80 in a ROS2 project, you may copy the cloned packages to an existing workspace.
+
+#### Adding your ssh key to github
+
+See: [github documentation](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh).
+
+All the following instructions assume your ssh key has been activated, i.e.:
+
+```bash
+# replace id_rsa by your key file name
+ssh-add ~/.ssh/id_rsa
+```
 
  - You must first register your ssh-key to github. See instructions [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
  - treep is likely to be already installed on your machine. If not:
 
+#### Dependencies and configuration folder
+
+in a terminal:
+
 ```bash
-pip3 install treep
+mkdir /tmp/pam && /tmp/pam
+wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/apt-dependencies
+wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/create_config_dirs
+wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/install_mujoco
+wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pip3-dependencies
+sudo ./apt-dependencies
+sudo ./create_config_dirs
+sudo ./install_mujoco
+sudo ./pip3_dependencies
 ```
 
-#### cloning using treep
+#### Cloning the repositories
+
+Creating a folder and cloning the treep configuration:
 
 ```bash
-mkdir Software
+mkdir Software # you may use another folder name
 cd Software
-# clone the treep configuration
 git clone git@github.com:intelligent-soft-robots/treep_isr.git
-# list the list of projects
-treep --projects
-# get information about the project "PAM"
-treep --project PAM_MUJOCO
-# cloning all the repos of the project "PAM"
+```
+
+Cloning all the required repositories:
+
+```bash
 treep --clone PAM_MUJOCO
-# checking the workspace status
-treep --status
-```
-#### compile using colcon
-
-For these instructions to work, python3 needs to be the default python (either system-wide or using a virtual environment).
-To check the default version of python, in a terminal:
-
-```bash
-python --version
 ```
 
-If this output something like 3.X, all is good. Otherwise you may want to use a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/).
-
-We use colcon to compile the workspace. In a terminal
+#### Compilation
 
 ```bash
-cd /path/to/Software/workspace
+cd /path/to/Software
+cd workspace
 colcon build
 ```
 
-If all goes smooth, compilation will run for a while and will result in the creation of an "install" folder.
-This install folder can be "activated" by sourcing it, i.e. in a terminal:
+This will result in a "install" folder containing the compiled binaries
+
+### Activating the workspace
+
+In each new terminal, the workspace needs to be sourced:
 
 ```bash
-cd /path/to/Software/workspace/install
-source ./install/setup.bash
+source /path/to/Software/install/setup.bash
 ```
-For the software to work, the install folder needs to be sourced in all new terminals. A convenient way of doing this is to update the file ~/.bashrc:
 
-```bash
-# add this to ~/.bashrc file
-echo "sourcing workspace"
-source /path/to/Software/workspace/install/setup.bash
+Possibly, you may want to add the line above to the ~/.bashrc file (so that each new terminal source the workspace automatically).
+
 ```  
-### step 5: check things are ok
+###  Checking things are ok
 
 In a python3 terminal:
 
@@ -150,3 +185,4 @@ These pages will also help:
 
  - overview of [cmake usage](https://github.com/machines-in-motion/machines-in-motion.github.io/wiki/use_cmake)
  - overview of [superbuilds](https://github.com/machines-in-motion/machines-in-motion.github.io/wiki/super_build_and_cmake), such as colcon and ament
+

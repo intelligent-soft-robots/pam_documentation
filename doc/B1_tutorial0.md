@@ -1,4 +1,4 @@
-# How to run demos
+# Tutorial 0: How to run tutorial demos
 
 Code for demos and tutorials can be found in the pam_demos [repository](https://github.com/intelligent-soft-robots/pam_demos).
 
