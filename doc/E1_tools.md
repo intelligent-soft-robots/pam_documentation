@@ -92,14 +92,14 @@ treep --status # still provides the status of all repositories.
 
 An ament package contains typically:
 
-- C++ code, in the include/package_name and the source folders
-- python wrappers over this C++ code in the srcpy folder
-- native python code in the python folder
-- unit tests in the tests folder
-- configuration files
-- a demos folder, containing source code providing example of usage of the code provided by the package
-- a package.xml file listing dependencies
-- a CMakeLists.txt file containing the CMake commands required for compilation.
+ - C++ code, in the include/package_name and the source folders
+ - python wrappers over this C++ code in the srcpy folder
+ - native python code in the python folder
+ - unit tests in the tests folder
+ - configuration files
+ - a demos folder, containing source code providing example of usage of the code provided by the package
+ - a package.xml file listing dependencies
+ - a CMakeLists.txt file containing the CMake commands required for compilation.
 
 The [context](https://github.com/intelligent-soft-robots/context) and [pam_interface](https://github.com/intelligent-soft-robots/pam_interface) repositories provide examples of a packages containing most of the above.
 

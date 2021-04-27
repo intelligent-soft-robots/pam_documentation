@@ -27,9 +27,11 @@ There are quite a few types of commands that can be written in the shared memory
 
 Installing the software will results in:
 
- - having some executables installed on your system (e.g. 'o80_pam' already mentioned above)
- - having some python packages installed
- - useful for advanced users: some c++ libraries installed
+ -having some executables installed on your system (e.g. 'o80_pam' already mentioned above)
+ 
+ -having some python packages installed
+ 
+ -useful for advanced users: some c++ libraries installed
 
 The executables will be used to start the backend connecting to the robot, while the python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).
 
@@ -38,9 +40,12 @@ Note that you need a valid [mujoco key](https://www.roboti.us/license.html) to u
 ### From tar archives
 
 The below will:
-- install mujoco in /usr/local/
-- create configuration files in /opt/mpi-is
-- install (c++) libraries and python packages
+
+ -install mujoco in /usr/local/
+ 
+ -create configuration files in /opt/mpi-is
+ 
+ -install (c++) libraries and python packages
 
 #### binaries
 
@@ -60,17 +65,9 @@ sudo make install # note: 'make install' is directly called, no call previous ca
 sudo ldconfig
 ```
 
-### step 2: install mujoco
-
- - create a folder /opt/mpi-is (may require sudo rights)
- - create a folder /opt/mujoco (also sudo)
- - download [mujoco200 for linux](https://www.roboti.us/index.html) 
- - unzip mujoco200 in /opt/mpi-is (should result in folder /opt/mpi-is/mujoco200_linux)
- - copy the licence file mjkey.txt to /opt/mujoco/
- - open the permissions of the /opt/mpi-is and /opt/mujoco folders:
+#### sources
 
 ```bash
-# (select another version from http://people.tuebingen.mpg.de/mpi-is-software/pam/older/ if you do not want the latest)
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_source.tar.gz
 tar -zxvf ./pam_source.tar.gz
 sudo ./apt-dependencies
@@ -86,9 +83,6 @@ sudo ldconfig
 #### mujoco key
 
 Copy your mujoco key (mjkey.txt) in /opt/mujoco.
-
- - call: ```pip3 install isr_meta```
- - call: ```pip3 install colcon-common-extensions```
 
 ### Via colcon workspace
 
@@ -126,6 +120,10 @@ sudo ./create_config_dirs
 sudo ./install_mujoco
 sudo ./pip3-dependencies
 ```
+
+#### mujoco key
+
+Copy your mujoco key (mjkey.txt) in /opt/mujoco.
 
 #### Cloning the repositories
 
@@ -179,10 +177,3 @@ You may also try in a terminal:
 ```bash
 o80_mujoco
 ```
-You may check the software is correctly installed (cf instructions for client installation above).
-
-These pages will also help:
-
- - overview of [cmake usage](https://github.com/machines-in-motion/machines-in-motion.github.io/wiki/use_cmake)
- - overview of [superbuilds](https://github.com/machines-in-motion/machines-in-motion.github.io/wiki/super_build_and_cmake), such as colcon and ament
-
