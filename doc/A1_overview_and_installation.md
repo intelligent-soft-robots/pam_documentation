@@ -61,7 +61,7 @@ sudo ./pip3-dependencies
 sudo ./create_config_dirs
 sudo ./install_mujoco
 ./configure
-sudo make install # note: 'make install' is directly called, no call previous call to 'make'
+sudo make install # note: 'make install' is directly called, no previous call to 'make'
 sudo ldconfig
 ```
 
@@ -161,7 +161,7 @@ source /path/to/Software/install/setup.bash
 
 Possibly, you may want to add the line above to the ~/.bashrc file (so that each new terminal source the workspace automatically).
 
-```  
+
 ###  Checking things are ok
 
 In a python3 terminal:
