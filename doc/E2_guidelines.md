@@ -57,26 +57,37 @@ black /path/to/folder
 
 Once the code on the branch you are working on is ready (i.e. clean, tested, documented, formatted and with demos), you request for it to be merged with the master branch:
 
- - visit the repository on github
- - click on the link "Pull requests"
- - create a new pull request, asign yourself and select reviewers using the web interface
- - select an appropriate label.
+- visit the repository on github
+
+- click on the link "Pull requests"
+
+- create a new pull request, asign yourself and select reviewers using the web interface
+
+- select an appropriate label.
 
 It is good manner to squash all the commits of the branch before a code review (see below), as this makes the work of the reviewer easier. See for example these [instructions](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
 In the pull request text:
 
- - describe what functionality you added or updated, and why
- - describe how you know the code you wrote works (e.g. running unit tests and/or demos)
- - confirm you followed the guidelines and used the formatting tools
+- describe what functionality you added or updated, and why
+
+- describe how you know the code you wrote works (e.g. running unit tests and/or demos)
+
+- confirm you followed the guidelines and used the formatting tools
 
 Note that yourself will certainly also be requested to perform review. If so:
- - check the guidelines have been followed
- - check demos have been provided
- - check the code is modular and properly commented
- - check unit tests exist
- - avoid requested micro optimization of the code, and request non consequentials modification of the code
- - avoid requesting the development of new features (e.g. "this is useful, but you can also add ..."), as one could argue you could also add these extra features yourself. 
+
+- check the guidelines have been followed
+
+- check demos have been provided
+
+- check the code is modular and properly commented
+
+- check unit tests exist
+
+- avoid requested micro optimization of the code, and request non consequentials modification of the code
+
+- avoid requesting the development of new features (e.g. "this is useful, but you can also add ..."), as one could argue you could also add these extra features yourself. 
 
 
 
