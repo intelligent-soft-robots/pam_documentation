@@ -27,11 +27,11 @@ There are quite a few types of commands that can be written in the shared memory
 
 Installing the software will results in:
 
- -having some executables installed on your system (e.g. 'o80_pam' already mentioned above)
+- having some executables installed on your system (e.g. 'o80_pam' already mentioned above)
  
- -having some python packages installed
+- having some python packages installed
  
- -useful for advanced users: some c++ libraries installed
+- useful for advanced users: some c++ libraries installed
 
 The executables will be used to start the backend connecting to the robot, while the python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).
 
@@ -41,11 +41,11 @@ Note that you need a valid [mujoco key](https://www.roboti.us/license.html) to u
 
 The below will:
 
- -install mujoco in /usr/local/
+- install mujoco in /usr/local/
  
- -create configuration files in /opt/mpi-is
+- create configuration files in /opt/mpi-is
  
- -install (c++) libraries and python packages
+- install (c++) libraries and python packages
 
 #### binaries
 
@@ -102,8 +102,9 @@ All the following instructions assume your ssh key has been activated, i.e.:
 ssh-add ~/.ssh/id_rsa
 ```
 
- - You must first register your ssh-key to github. See instructions [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
- - treep is likely to be already installed on your machine. If not:
+- You must first register your ssh-key to github. See instructions [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+- treep is likely to be already installed on your machine. If not:
 
 #### Dependencies and configuration folder
 
