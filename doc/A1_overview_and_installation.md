@@ -105,13 +105,16 @@ ssh-add ~/.ssh/id_rsa
 - You must first register your ssh-key to github. See instructions [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 - treep is likely to be already installed on your machine. If not:
+```bash
+pip install treep
+```
 
 #### Dependencies and configuration folder
 
 in a terminal:
 
 ```bash
-mkdir /tmp/pam && /tmp/pam
+mkdir /tmp/pam && cd /tmp/pam
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/apt-dependencies
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/create_config_dirs
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/install_mujoco
