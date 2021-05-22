@@ -6,30 +6,13 @@ In tutorial 1, we covered duration, speed and direct commands. This tutorial int
 
 "Iteration" refers to the backend, i.e. the control iteration of the robot. At each control iteration, the backend reads the commands queue, compute the desired pressure to apply to the robot, applies it to the robot, read the current state of the robot from sensors and write a corresponding Observation in the shared memory.
 
-After starting a simulated robot:
-
-```bash
-o80_mujoco
-```
-you may start a console:
-
-```bash
-o80_console
-```
-This allows you to see the increasing control iteration count.
-
 Iteration commands allows to specify using a python frontend the value of the desired pressure for upcoming iteration numbers.
+
+Tutorial 3 is started similarly to tutorials 1 and 2.
 
 ## Getting the current iteration number
 
-After starting the simulated robot (*o80_mujoco*):
-
-```python
-import time
-import o80
-import o80_pam
-
-frontend = o80_pam.FrontEnd("o80_pam_robot")
+frontend = handle.frontends["robot"]
 # newest iteration
 iteration = frontend.latest().get_iteration()
 ```

@@ -12,9 +12,19 @@ We developed some software allowing for the control of the robot (or a [mujoco](
 
 Once the software installed, the typical workflow starts with calling in a terminal:
 
+For starting the real robot:
+
 ```bash
 o80_pam
-# or o80_mujoco, for a mujoco simulated robot
+```
+
+For starting a simulated robot:
+
+```bash
+pam_mujoco mujoco_id
+# arbritrary_id is an arbitrary string used
+# to distinguish between all the simulated robots
+# that may run in parallel
 ```
 
 The command above spawns a "backend" process which connects to the robot. This process reads continuously (i.e. at a frequency of 200Hz or more) the state of the robot and writes it in a shared memory. Also, it reads the shared memory for commands to apply to the robot. 
@@ -27,7 +37,7 @@ There are quite a few types of commands that can be written in the shared memory
 
 Installing the software will results in:
 
-- having some executables installed on your system (e.g. 'o80_pam' already mentioned above)
+- having some executables installed on your system (e.g. 'o80_pam' or 'pam_mujoco' already mentioned above)
  
 - having some python packages installed
  
@@ -179,5 +189,5 @@ import context
 You may also try in a terminal:
 
 ```bash
-o80_mujoco
+pam_mujoco test
 ```

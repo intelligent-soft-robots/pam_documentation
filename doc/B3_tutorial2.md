@@ -2,19 +2,14 @@
 
 ## Reading robot data
 
-Once a robot backend started, for example:
+Tutorial 2 is started similarly to tutorial 1.
 
-```bash
-o80_mujoco
-```
-
-it starts dumping at each of its iteration in a rotating shared memory an instance of Observation. Observation is a class encapsulating information about the robot.
-
-It is possible to use a frontend to read these instances via Python:
+While in tutorial 1 the frontend was used to send command to the pressure controlled robot,
+in tutorial 2 the frontend is used to read the robot data.
 
 ```python
-import o80_pam
-frontend = o80_pam.FrontEnd("o80_pam_robot")
+handle = get_handle()
+frontend = handle.frontends["robot"]
 observation = frontend.latest()
 ```
 observation is an instance of Observation. It contains has the following method:

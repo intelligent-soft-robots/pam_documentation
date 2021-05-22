@@ -2,47 +2,62 @@
 
 ## Tutorial's demo
 
-A running example can be found in the (pam_demos)[https://github.com/intelligent-soft-robots/pam_demos] repository. 
-
-In a first terminal start the backend:
-
-```python
-python ./tutorial_4_backend.py
-```
-in a second terminal, run the frontend:
-
-```python
-python ./tutorial_4_frontend.py
-```
-
-## Mujoco model files
-
-### Overview
-
-When the o80_mujoco executable is called:
+This demo is started similarly to tutorials 1 to 3, with the exception that pam_mujoco should
+be start with mujoco_id *tutorial_4*
 
 ```bash
-o80_mujoco
+pan_mujoco tutorial_4
 ```
-A mujoco simulated pam robot is started.
- Mujoco relies on a xml model file to simulate a robot. When o80_mujoco is called, such a model file is created in /tmp/o80_pam_robot/o80_pam_robot.xml and mujoco loads it.
 
-Generation of the xml model is based on template files. You can see these templates [here](https://github.com/intelligent-soft-robots/pam_mujoco/tree/master/models). In the o80_mujoco (python) [source](https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/bin/o80_mujoco), there is this line:
+then
 
 ```python
-pam_mujoco.model_factory(model_name,robot1=True)
-# model_name is an arbitrary string
+python ./tutorial_4.py
 ```
 
-This line triggers the generation of a mujoco model xml file corresponding only to a robot, and this is indeed what o80_mujoco spawn.
+## Handle and mujoco xml files
 
-Alternatively, the function "model_factory" can be called with other arguments. For example: 
+The source code of tutorial 4 starts with the mujoco simulation configuration:
 
 ```python
-pam_mujoco.model_factory(model_name,robot1=True,nb_balls=2)
+robot = pam_mujoco.MujocoRobot("robot",
+                               control=pam_mujoco.MujocoRobot.JOINT_CONTROL)
+ball1 = pam_mujoco.MujocoItem("ball1",
+                              control=pam_mujoco.MujocoItem.CONSTANT_CONTROL,
+                              color=(1,0,0,1))
+ball2 = pam_mujoco.MujocoItem("ball2",
+                              control=pam_mujoco.MujocoItem.CONSTANT_CONTROL,
+                              color=(0,0,1,1),
+                              contact_type=pam_mujoco.ContactTypes.table)
+hit_point = pam_mujoco.MujocoItem("hit_point",
+                                  control=pam_mujoco.MujocoItem.CONSTANT_CONTROL)
+graphics=True
+accelerated_time=False
+handle = pam_mujoco.MujocoHandle("tutorial_4",
+                                 table=True,
+                                 robot1=robot,
+                                 balls=(ball1,ball2),
+                                 hit_points=(hit_point,),
+                                 graphics=graphics,
+                                 accelerated_time=accelerated_time)
+
 ```
 
-The line above will result in the generation of a xml file corresponding to a robot, plus 2 balls.
+The code above requests *pam_mujoco* (via the shared memory) to start a simulation with a joint controlled robot along with 2 balls and a hit point (a graphical market).
+
+Once the (waiting) instance of *pam_mujoco* reads (from the shared memory) this request, the first action it does it to create a corresponding mujoco xml configuration file in the *tmp* folder. In this specific case, the model file is created in:
+
+```bash
+/tmp/tutorial_4/tutorial_4.xml
+```
+
+The handle requests the configuration file to describe an environment with 1 robot, 2 balls, a hit point and to display a table, and indeed this is what pam_mujoco spawns.
+
+On top of this, the handle requests the robot to be joint controlled, and the balls and hit point to be also be controlled.
+
+
+
+
 
 ### Model factory
 
