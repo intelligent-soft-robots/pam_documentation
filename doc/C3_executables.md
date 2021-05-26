@@ -96,37 +96,37 @@ It takes a mujoco_id as argument, and kills the corresponding pam_mujoco instanc
 
 Kills all running instances of pam_mujoco
 
-### o80_plotting
+## o80_plotting
 
 Starts a live plot of a pressure controlled robot. It shows the measured pressures, the desired pressure and the frequency of backend.
 Works for pressure controlled robots started with o80_dummy, o80_real or pam_mujoco.
 
-### o80_console
+## o80_console
 
 Starts to live print information about a pressure robot in the console. Indicate the current pressures, the desired pressures and joint angles. Works for pressure controlled robots started with o80_dummy, o80_real or pam_mujoco.
 
 *Known bug* : will crash if the terminal is not broad enough.
 
-### o80_introspection
+## o80_introspection
 
 Debug tool for o80. It will display live the status of all command exchange between the frontend and the backend of a o80 system running on the provided segment_id.
 
-### o80_logger
+## o80_logger
 
 Starts a process that will collect data regarding a pressure controlled robot. See [tutorial 5](B6_tutorial5.html)
 
-### pam_server
+## pam_server
 
 pam_server is a low level interface to either a dummy or the real pam robot. See [here](C2_real_robot.html) for more information.
 
-### pam_check
+## pam_check
 
 Started after pam_server, will increase then decrease the pressure of each muscles. See [here](C2_real_robot.html) for more information.
 
-### o80_check
+## o80_check
 
 Similar to pam_check, but to be started after o80_real, o80_dummy or pam_mujoco (if simulating a pressure controlled robot)
 
-### o80_swing_demo
+## o80_swing_demo
 
 Has a pressure robot executing a series of swing motions, to be started after o80_real, o80_dummy or pam_mujoco (if simulating a pressure controlled robot)

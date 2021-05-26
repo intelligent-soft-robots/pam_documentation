@@ -1,4 +1,3 @@
-
 # More info: Mujoco handle and contacts
 
 

@@ -1,4 +1,4 @@
-# How to: Using the real robot
+# More info: Using the real robot
 
 ## method 1: PAM Interface
 
