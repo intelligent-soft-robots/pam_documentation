@@ -2,71 +2,50 @@
 
 Code for demos and tutorials can be found in the pam_demos [repository](https://github.com/intelligent-soft-robots/pam_demos).
 
-## Most demos
-
 The typical process to run a demo or a tutorial is:
 
-in a first terminal, start o80_mujoco:
+In a terminal, start pam_mujoco, with the correct mujoco_id:
 
 ```bash
-o80_mujoco
-```
-Optionally, in two other terminals you can start the console and the plot:
-
-```bash
-o80_plotting
+pam_mujoco mujoco_id
 ```
 
+The "mujoco_id" to use depends on the demo, and is indicated in the source file of the demo, or in the readme. For example, for tutorial 1:
+
 ```bash
-o80_console
+pam_mujoco tutorials_1_to_3
 ```
 
-Note: when o80_mujoco is closed, o80_console and o80_plotting must be restarted.
-
-All the command above trigger a configuration dialog, but all can be started with the default configuration.
-
-In a last terminal, start the frontend, for example:
+This will spawn a xterminal. Alternatively, you may start:
 
 ```bash
-cd /path/to/pam_demos
-python tutorial_1.py
-# tutorial_1.py can be run several times without the need to restart o80_mujoco
+pam_mujoco_no_xterms tutorials_1_to_3
 ```
 
-## Specialized backend demos
+which will start the simulation in the background of the current terminal.
 
-Some demos/tutorials do not use the backend instantiated by "o80_mujoco". Rather, that use a specialized backend. 
-These demos are splitted in two files: something_backend.py and something_frontend.py.
-
-In these cases, the procedure to run is, for example:
+You may then run the demo, for example:
 
 ```bash
-cd /path/to/pam_demos
-python tutorial_4_backend.py
-```
-and in another terminal:
-
-```bash
-cd /path/to/pam_demos
-python tutorial_4_frontend.py
-# tutorial_4_frontend can be run several times without restarting tutorial_4_backend.py
+python ./tutorial_1.py
+# python should be of version 3.x
 ```
 
-## Bursting mode demos
+Note that you may run the demo several times without the need to restart pam_mujoco.
 
-Some demos are named something_bursting.py.
+The mujoco simulation can be stopped.
 
-In this case, o80_mujoco must be started in "bursting mode":
+If you started with a x-terminal, you may simply close the terminal. Alternatively, you may call:
 
 ```bash
-o80_mujoco --bursting_mode
+pam_mujoco_stop tutorials_1_to_3
 ```
 
-then the demo can be executed, e.g:
+or:
 
 ```bash
-cd /path/to/pam_demos
-python tutorial_6_bursting.py
+pam_mujoco_stop_all
+# will stop all running pam_mujoco
 ```
 
 
