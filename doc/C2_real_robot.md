@@ -189,20 +189,17 @@ This executable will changes the pressure on each muscle one by one.
 #### Performing a series of swing motion
 
 ```bash
-o80_swing
+o80_swing_demo
 ```
 
 #### Python user code
 
-You may send commands to the robot and receiving observations from it via an o80 based API.
-The [o80 API](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html) is fully supported.
-To get an example of usage of this PAI, see the demos folder. For example, this [demo](https://github.com/intelligent-soft-robots/o80_real/blob/master/demos/demo.py). 
+See [tutorials 1 to 3](B2_tutorial1.html) for examples of a pressure controlled robot.
+The difference with the tutorials, which show interfacing with a mujoco simulated robot, is that no handle is required to access the frontend. Instead, the frontend can be accessed directly:
 
-#### Mirroring real robot by mujoco simulated robot
-
-Once a o80_real server is started:
-
-```bash
-pam_mujoco_mirroring
+```python
+import o80_pam
+segment_id="real_robot" # default segment_id when starting o80_real
+frontend = o80_pam.frontend(segment_id)
 ```
 

@@ -1,5 +1,5 @@
 
-# Mujoco handle and contacts
+# More info: Mujoco handle and contacts
 
 
 In the tutorials, handles are used to configure the mujoco simulation spawed by *pam_mujoco*. The handles are also used to interface with the simulated robots, balls and other items.
@@ -66,14 +66,14 @@ robot = pam_mujoco.MujocoRobot(segment_id,
 
 #### Pressure controlled
 
-Usage of pressure commands are shown in tutorials 1 to 3
+Usage of pressure commands are shown in [tutorials 1 to 3](B2_tutorial1.html)
 
 #### Joint controlled
 
-Usage of joint commands are shown in tutorials 4 to 7
+Usage of joint commands are shown in [tutorials 4 to 7](B5_tutorial4.html)
 
 
-## Items (balls, hit points, goals ...)
+## Items and contacts (balls, hit points, goals ...)
 
 An undefinite numbers of items can be added to the mujoco simulation, the limit being the capacities of the computer you run the simulation on.
 
@@ -97,7 +97,7 @@ item = pam_mujoco.MujocoItem(segment_id,
 - color: list of 4 float values between 0 and 1, RGB + alpha channel
 - control:
   - MujocoItem.NO_CONTROL: no active control (only mujoco physic engine)
-  - MujocoItem.NO_CONTROL: the item will be controlled exclusively by o80 and its frontend. If there is no active o80 command, the last command is continuously used
+  - MujocoItem.CONSTANT_CONTROL: the item will be controlled exclusively by o80 and its frontend. If there is no active o80 command, the last command is continuously used
   - MujocoItem.COMMAND_ACTIVE_CONTROL: the item is controlled by a mix of o80 commands and mujoco's physics engine. If an o80 command is active, the item is controlled by it. If no command is active, the item is "controlled" by mujoco's physical engine (e.g. gravity).
 - contact_type:
   - pam_mujoco.ContactTypes.no_contact (default): the item fly through the robots and the table
@@ -107,7 +107,7 @@ item = pam_mujoco.MujocoItem(segment_id,
 
 Once an instance of MujocoItem has been instantiated, it can be added to the handle, for example:
 
-```python3
+```python
 
 ball1 = pam_mujoco.MujocoItem("ball1")
 ball2 = pam_mujoco.MujocoItem("ball2")
@@ -115,4 +115,62 @@ handle = pam_mujoco.MujocoHandle(MUJOCO_ID,
                                  table=True,
                                  balls=(ball1,ball2))	
 ```
+
+The handle makes then the o80 frontend to the item control available:
+
+```python
+frontend = handle.frontends["ball1"]
+```
+
+See for example [tutorial 4](B5_tutorial4.html).
+
+### Contacts
+
+#### Contacts and handle
+
+If contacts has been activated for an item, the handle provides method to query them:
+
+```python
+ball = pam_mujoco.MujocoItem("ball",contact_type=pam_mujoco.ContactTypes.table)
+handle = pam_mujoco.MujocoHandle(mujoco_id,table=True,balls=(ball,))
+contact_information = handle.get_contact("ball")
+```
+
+"contact_information" is an instance of context.ContactInformation, which has the attributes:
+
+- contact_occured: true if there has been at least one contact, false otherwise
+- position: the 3d position of the first contact, if any (irrelevant data otherwise)
+- time_stamp: time stamp (in mujoco time) of the first contact, if any (irrelevant data otherwise)
+- minimal_distance: minimal distance between the item and the contactee (table or racket) if no contact occured (irrelevant data otherwise)
+
+Important to note:
+
+- get_contact only returns information regarding the *first* contact
+- once a first contact occurs, the o80 control of the item get *disabled* (i.e. commands added via the frontend will be ignored), i.e. the item motion is "controlled" only by the mujoco physical engine. 
+
+The above may seem peculiar, but matches our need related to have a robot learning to play table tennis using [HYSR](https://arxiv.org/abs/2006.05935): we command a tennis table ball (using o80) to "play" a prerecorded trajectory until contact with the robot's racket.
+
+The fact that only the first contact is recorded and that the item control get disabled is an obvious limitation, but the contact can be reset (i.e. contact_occured is set to false, minimal_distance is set to None, and o80 control is restarted):
+
+```python
+handle.reset_contact("ball")
+```
+
+It is also possible to deactivate the contact:
+
+```python
+handle.deactivate_contact("ball")
+```
+
+For example, after the above the ball would go through the table rather than bouncing on it.
+The contact can be reactivated:
+
+```python
+handle.activate_contact("ball")
+```
+
+#### Customized contacts
+
+A side note: for modeling the contact, we override Mujoco's engine to apply a custom contact model, see this [file](https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/include/pam_mujoco/recompute_state_after_contact.hpp).
+
 

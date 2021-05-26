@@ -22,6 +22,8 @@ python3 ./tutorial_1.py
 
 Here some comments regarding the source code similar of the one of tutorial 1.
 
+```python
+
 # configuring pam_mujoco and getting an interface to it.
 # More on handle somewhere below.
 # In this specific case, this will configure pam_mujoco
@@ -42,8 +44,8 @@ frontend.add_command([pressure]*4,[pressure]*4,
 
 # sending the command to the robot, and waiting for its completion.
 frontend.pulse_and_wait()
-
 ```
+
 You should observe the pressures of all muscles raising to 20000 in 5 seconds.
 
 Note that you can add more than one command at once:
