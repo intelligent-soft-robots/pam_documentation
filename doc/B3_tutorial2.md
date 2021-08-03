@@ -37,6 +37,12 @@ print("positions",observation.get_positions())
 # finite difference applied on positions, in radian per seconds                                                                             
 print("velocities",observation.get_velocities())
 
+# these methods are available only for simulated robots:
+
+print("cartesian position of the racket",observation.get_cartesian_position())
+
+print("orientation of the racket",observation.get_cartesian_orientation())
+
 # on the real robot, encoders do not read a proper value until                                                                              
 # the joint moved through a certain reference position. If ref_found                                                                        
 # is False for a given join, it means the join did not yet go through this                                                                  
@@ -46,6 +52,8 @@ print("references found",observation.get_references_found())
 # the measured frequency of the backend at the time the observation was created.                                                            
 frequency = observation.get_frequency()
 ```
+
+
 You may get a history of observations:
 
 ```python
