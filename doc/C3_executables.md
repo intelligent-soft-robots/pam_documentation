@@ -130,3 +130,7 @@ Similar to pam_check, but to be started after o80_real, o80_dummy or pam_mujoco 
 ## o80_swing_demo
 
 Has a pressure robot executing a series of swing motions, to be started after o80_real, o80_dummy or pam_mujoco (if simulating a pressure controlled robot)
+
+### pam_mirroring_real_robot
+
+see this [page](C4_mirroring.html).
