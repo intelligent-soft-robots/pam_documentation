@@ -95,7 +95,7 @@ Parts :
 - the "electronic box", which is turned on via the power outlet
 - the pressure valve (against the wall). Horizontal means closed
 - the emergency stop button, which blocks the pressure
-- the control software server (pam_interface or o80_pam)
+- the control software server (pam_interface or o80_real)
 
 Warning :
 
@@ -114,8 +114,10 @@ Starting state:
 
 Starting steps:
 
+ 0. "Push" with your finger the encoder of the 4th (i.e. last before the racket) joint. Sometimes connection with the encoder gets lost, resulting in a constant angle value being returned for this joint. 
+
  1. Start electronic box (switch power outlet on)
- 2. Start server (pam_interface or o80_pam)
+ 2. Start server (pam_interface or o80_real)
  3. Turn on pressure on valve (vertical)
  4. Release emergency button: pressures should reach their minimum values as set in the used json configuration file
  5. Observe robot. A short motion (i.e. half a second) should be observed. If the robot keeps moving, press emergency button
@@ -144,13 +146,13 @@ pam_check 0
 
 ## Method 2: O80 PAM
 
-o80_pam is a wrappers over [pam_interface](https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html) providing [o80](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html) functionalities.
+o80_real is a wrappers over [pam_interface](https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html) providing [o80](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html) functionalities.
 
 This documentation assumes you are familiar with both *pam_interface* and *o80*.
 
 ### Installation
 
-Follow the [general guidelines](https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki), using either the treep project "PAM" or the treep project "PAM_MUJOCO" (if you'd like to use o80_pam over a PAM robot simulated by Mujoco).
+Follow the [general guidelines](https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki), using either the treep project "PAM" or the treep project "PAM_MUJOCO" (if you'd like to use o80_real over a PAM robot simulated by Mujoco).
 
 If using mujoco, you also need to copy a mujoco licence key (mjkey.txt) in the folder /opt/mujoco/ (create the folder is necessary).
 
@@ -162,12 +164,6 @@ To start a server over a dummy robot (no real physics, no graphics, just for deb
 
 ```bash
 o80_dummy
-```
-
-To start a server over a mujoco simulated robot:
-
-```bash
-o80_mujoco
 ```
 
 To start a server over the real robot (on cent-os control desktop, **assuming you follow the procedure provided in the pam_interface [documentation](https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html)**)
