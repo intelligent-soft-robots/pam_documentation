@@ -1,5 +1,10 @@
 # Developer's guide 2: Guidelines
 
+
+> Always code as if the guy who ends up maintaining your code will be a violent
+> psychopath who knows where you live.  *— John Woods*
+
+
 This section describes the rules to follow to get new code integrated in any of the repository.
 
 ## Working on a git branch
