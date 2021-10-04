@@ -65,11 +65,11 @@ robot = pam_mujoco.MujocoRobot(segment_id,
 
 #### Pressure controlled
 
-Usage of pressure commands are shown in [tutorials 1 to 3](B2_tutorial1.html)
+Usage of pressure commands are shown in [tutorials 1 to 3](B2_tutorial1)
 
 #### Joint controlled
 
-Usage of joint commands are shown in [tutorials 4 to 7](B5_tutorial4.html)
+Usage of joint commands are shown in [tutorials 4 to 7](B5_tutorial4)
 
 
 ## Items and contacts (balls, hit points, goals ...)
@@ -121,7 +121,7 @@ The handle makes then the o80 frontend to the item control available:
 frontend = handle.frontends["ball1"]
 ```
 
-See for example [tutorial 4](B5_tutorial4.html).
+See for example [tutorial 4](B5_tutorial4).
 
 ### Contacts
 

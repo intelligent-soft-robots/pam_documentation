@@ -1,6 +1,6 @@
 # More info: list of executables
 
-Once the [installation](A1_overview_and_installation.html) procedure completed, various executables are installed.
+Once the [installation](A1_overview_and_installation) procedure completed, various executables are installed.
 
 ## Dialog
 
@@ -33,18 +33,18 @@ The above will start directly o80_dummy using the specified values (and the defa
 
 ## o80_dummy
 
-Starts a o80 backend connected to a "dummy" pressure controlled pam robot. No graphics, no realistic physics (at all). Used for debug and testing. See [tutorials 1 to 3](B2_tutorial1.html) for control.
+Starts a o80 backend connected to a "dummy" pressure controlled pam robot. No graphics, no realistic physics (at all). Used for debug and testing. See [tutorials 1 to 3](B2_tutorial1) for control.
 
 ## o80_real
 
 Starts a o80 backend connected to a pressure controlled real robot (on robot computer only).
-See also [tutorials 1 to 3](B2_tutorial1.html) for control examples.
+See also [tutorials 1 to 3](B2_tutorial1) for control examples.
 
 ## pam_mujoco
 
 Spawn a new terminal that host a mujoco simulation with (pressure controlled or joint controlled) robot(s), ball(s), goal(s), etc.
-See [tutorial 4](B5_tutorial4.html) for control example via a [handle](C1_handle.html).
-Note that mujoco_id used as argument to *pam_mujoco* must match the mujoco_id passed as argument to the [handle](C1_handle.html).
+See [tutorial 4](B5_tutorial4) for control example via a [handle](C1_handle).
+Note that mujoco_id used as argument to *pam_mujoco* must match the mujoco_id passed as argument to the [handle](C1_handle).
 
 For example:
 
@@ -86,7 +86,7 @@ It is expected that pam_mujoco_visualization is called *after*:
 pam_mujoco mujoco_id_from
 ```
 
-pam_mujoco will spawn a terminal hosting a pam_mujoco instance that will "mirror" the pam_mujoco instance running on mujoco_id "mujoco_id_from". Possibly useful if the pam_mujoco instance "mujoco_id_from" has been started without graphics, or has been started in burst mode (see [tutorial 6](B7_tutorial6.html)).
+pam_mujoco will spawn a terminal hosting a pam_mujoco instance that will "mirror" the pam_mujoco instance running on mujoco_id "mujoco_id_from". Possibly useful if the pam_mujoco instance "mujoco_id_from" has been started without graphics, or has been started in burst mode (see [tutorial 6](B7_tutorial6)).
 
 ## pam_mujoco_stop
 
@@ -113,15 +113,15 @@ Debug tool for o80. It will display live the status of all command exchange betw
 
 ## o80_logger
 
-Starts a process that will collect data regarding a pressure controlled robot. See [tutorial 5](B6_tutorial5.html)
+Starts a process that will collect data regarding a pressure controlled robot. See [tutorial 5](B6_tutorial5)
 
 ## pam_server
 
-pam_server is a low level interface to either a dummy or the real pam robot. See [here](C2_real_robot.html) for more information.
+pam_server is a low level interface to either a dummy or the real pam robot. See [here](C2_real_robot) for more information.
 
 ## pam_check
 
-Started after pam_server, will increase then decrease the pressure of each muscles. See [here](C2_real_robot.html) for more information.
+Started after pam_server, will increase then decrease the pressure of each muscles. See [here](C2_real_robot) for more information.
 
 ## o80_check
 
@@ -133,4 +133,4 @@ Has a pressure robot executing a series of swing motions, to be started after o8
 
 ### pam_mirroring_real_robot
 
-see this [page](C4_mirroring.html).
+see this [page](C4_mirroring).

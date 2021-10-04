@@ -190,7 +190,7 @@ o80_swing_demo
 
 #### Python user code
 
-See [tutorials 1 to 3](B2_tutorial1.html) for examples of a pressure controlled robot.
+See [tutorials 1 to 3](B2_tutorial1) for examples of a pressure controlled robot.
 The difference with the tutorials, which show interfacing with a mujoco simulated robot, is that no handle is required to access the frontend. Instead, the frontend can be accessed directly:
 
 ```python
