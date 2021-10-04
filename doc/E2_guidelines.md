@@ -271,7 +271,7 @@ Before you create a pull request (or at least before you assign reviewers):
   interface,
 - select an appropriate label.
 
-It is good manner to squash all the commits of the branch before a code review (see below), as this makes the work of the reviewer easier. See for example these [instructions](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
+It is good manner to squash commits that logically belong together (e.g. multiple small changes on the same part of code) before a code review (see below), as this makes the work of the reviewer easier and leads to a cleaner git history. See for example these [instructions](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
 
 In the pull request text:
 
