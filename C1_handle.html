@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More info: Mujoco handle and contacts &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="More info: Using the real robot" href="C2_real_robot.html" />
+    <link rel="prev" title="Tutorial 6: bursting mode" href="B7_tutorial6.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More info: Mujoco handle and contacts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#robot-s">Robot(s)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mujocorobot">MujocoRobot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interfacing-with-robots">Interfacing with robots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pressure-controlled">Pressure controlled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#joint-controlled">Joint controlled</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#items-and-contacts-balls-hit-points-goals">Items and contacts (balls, hit points, goals …)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mujocoitem">MujocoItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contacts">Contacts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#contacts-and-handle">Contacts and handle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customized-contacts">Customized contacts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>More info: Mujoco handle and contacts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C1_handle.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="more-info-mujoco-handle-and-contacts">
+<h1>More info: Mujoco handle and contacts<a class="headerlink" href="#more-info-mujoco-handle-and-contacts" title="Permalink to this headline"></a></h1>
+<p>In the tutorials, handles are used to configure the mujoco simulation spawed by <em>pam_mujoco</em>. The handles are also used to interface with the simulated robots, balls and other items.</p>
+<p>This page provides a more complete documentation over handles.</p>
+<p>The signature of the constructor is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pam_mujoco</span>
+
+<span class="n">handle</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoHandle</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+                                 <span class="n">burst_mode</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                                 <span class="n">accelerated_time</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                                 <span class="n">graphics</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">time_step</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.002</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="p">:</span> <span class="n">MujocoRobot</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+                                 <span class="n">robot2</span><span class="p">:</span> <span class="n">MujocoRobot</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+                                 <span class="n">balls</span><span class="p">:</span> <span class="nb">list</span><span class="o">=</span><span class="p">[],</span>
+                                 <span class="n">goals</span><span class="p">:</span> <span class="nb">list</span><span class="o">=</span><span class="p">[],</span>
+                                 <span class="n">hit_points</span><span class="p">:</span> <span class="nb">list</span><span class="o">=</span><span class="p">[],</span>
+                                 <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="robot-s">
+<h2>Robot(s)<a class="headerlink" href="#robot-s" title="Permalink to this headline"></a></h2>
+<section id="mujocorobot">
+<h3>MujocoRobot<a class="headerlink" href="#mujocorobot" title="Permalink to this headline"></a></h3>
+<p>Currently, up to 2 robots can added to pam_mujoco.
+Robots are added by passing instances of <em>MujocoRobot</em> to the handle constructor.</p>
+<p>The signature of a MujocoRobot is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">robot</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoRobot</span><span class="p">(</span><span class="n">segment_id</span><span class="p">,</span>
+                               <span class="n">position</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.44</span><span class="p">],</span>
+                               <span class="n">orientation</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                               <span class="n">control</span><span class="o">=</span><span class="n">NO_CONTROL</span><span class="p">,</span>
+                               <span class="n">active_only_control</span><span class="o">=</span><span class="n">CONSTANT_CONTROL</span><span class="p">,</span>
+                               <span class="n">json_control_path</span><span class="o">=</span><span class="n">pam_interface</span><span class="o">.</span><span class="n">DefaultConfiguration</span><span class="o">.</span><span class="n">get_path</span><span class="p">(),</span>
+                               <span class="n">json_ago_hill_path</span><span class="o">=</span><span class="n">pam_models</span><span class="o">.</span><span class="n">get_default_config_path</span><span class="p">(),</span>
+                               <span class="n">json_antago_hill_path</span><span class="o">=</span><span class="n">pam_models</span><span class="o">.</span><span class="n">get_default_config_path</span><span class="p">())</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>segment_id is an arbitrary user string, that will be used to query the frontend to the robot</p></li>
+<li><p>position is the 3d position of the robot</p></li>
+<li><p>orientation is the xyaxes of the robot as required by mujoco (see mujoco <a class="reference external" href="http://www.mujoco.org/book/modeling.html#COrientation">documentation</a>)</p></li>
+<li><p>control may take the values:</p>
+<ul>
+<li><p>MujocoRobot.NO_CONTROL: no interface to the robot</p></li>
+<li><p>MujocoRobot.JOINT_CONTROL: the robot can be controlled via commands providing desired joint position (in radian) or angular velocity (radian per second). Note that this is not a control per se. This only means the joint’s positions and angular velocities are overwritten by the command’s values. Such commands are obviously only available on mujoco simulated robots (and not on the real robot)</p></li>
+<li><p>MujocoRobot.PRESSURE_CONTROL: the robot can be controlled via pressure commands</p></li>
+</ul>
+</li>
+<li><p>active_control_only:</p>
+<ul>
+<li><p>Mujoco.CONSTANT_CONTROL: the robot will be controlled exclusively by o80 and its frontend. If there is no active o80 command, the robot keep replaying the last command</p></li>
+<li><p>Mujoco.COMMAND_ACTIVE_CONTROL: the robot is controlled by a mix of o80 commands and mujoco’s physics engine. If an o80 command is active, the robot is controlled by it. If no command is active, the robot is “controlled” by mujoco’s physical engine (e.g. gravity). This has effect only on joint controlled robot (and not on pressure controlled robot)</p></li>
+</ul>
+</li>
+<li><p>json_control_path: for pressure controlled robot, path to the control configuration json file which specifies for example the minimal and maximal pressures that can be applied on each muscles (see ```/opt/mpi-is/ for default configuration files)</p></li>
+<li><p>json_ago/antago_hill_path: for pressure controlled robot, path to the configuration of the muscles</p></li>
+</ul>
+</section>
+<section id="interfacing-with-robots">
+<h3>Interfacing with robots<a class="headerlink" href="#interfacing-with-robots" title="Permalink to this headline"></a></h3>
+<section id="pressure-controlled">
+<h4>Pressure controlled<a class="headerlink" href="#pressure-controlled" title="Permalink to this headline"></a></h4>
+<p>Usage of pressure commands are shown in <a class="reference internal" href="B2_tutorial1.html"><span class="doc std std-doc">tutorials 1 to 3</span></a></p>
+</section>
+<section id="joint-controlled">
+<h4>Joint controlled<a class="headerlink" href="#joint-controlled" title="Permalink to this headline"></a></h4>
+<p>Usage of joint commands are shown in <a class="reference internal" href="B5_tutorial4.html"><span class="doc std std-doc">tutorials 4 to 7</span></a></p>
+</section>
+</section>
+</section>
+<section id="items-and-contacts-balls-hit-points-goals">
+<h2>Items and contacts (balls, hit points, goals …)<a class="headerlink" href="#items-and-contacts-balls-hit-points-goals" title="Permalink to this headline"></a></h2>
+<p>An undefinite numbers of items can be added to the mujoco simulation, the limit being the capacities of the computer you run the simulation on.</p>
+<p>Ball are physicals object with a small weight, while hit points and goals are only graphical markers.</p>
+<p>Balls, hit points and goals are added similarly.</p>
+<section id="mujocoitem">
+<h3>MujocoItem<a class="headerlink" href="#mujocoitem" title="Permalink to this headline"></a></h3>
+<p>To add an item, the first step is to create an instance of MujocoItem:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="n">segment_id</span><span class="p">,</span>
+                             <span class="n">color</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+			     <span class="n">control</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+			     <span class="n">contact_type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>segment_id is an arbitrary string, that will be used to query the related frontend</p></li>
+<li><p>color: list of 4 float values between 0 and 1, RGB + alpha channel</p></li>
+<li><p>control:</p>
+<ul>
+<li><p>MujocoItem.NO_CONTROL: no active control (only mujoco physic engine)</p></li>
+<li><p>MujocoItem.CONSTANT_CONTROL: the item will be controlled exclusively by o80 and its frontend. If there is no active o80 command, the last command is continuously used</p></li>
+<li><p>MujocoItem.COMMAND_ACTIVE_CONTROL: the item is controlled by a mix of o80 commands and mujoco’s physics engine. If an o80 command is active, the item is controlled by it. If no command is active, the item is “controlled” by mujoco’s physical engine (e.g. gravity).</p></li>
+</ul>
+</li>
+<li><p>contact_type:</p>
+<ul>
+<li><p>pam_mujoco.ContactTypes.no_contact (default): the item fly through the robots and the table</p></li>
+<li><p>pam_mujoco.ContactTypes.racket1: the item is affected by contact with the racket of the first robot</p></li>
+<li><p>pam_mujoco.ContactTypes.racket2: the item is affected by contact with the racket of the second robot</p></li>
+<li><p>pam_mujoco.ContactTypes.table: the item is affected by contact with the table</p></li>
+</ul>
+</li>
+</ul>
+<p>Once an instance of MujocoItem has been instantiated, it can be added to the handle, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">ball1</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="s2">&quot;ball1&quot;</span><span class="p">)</span>
+<span class="n">ball2</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="s2">&quot;ball2&quot;</span><span class="p">)</span>
+<span class="n">handle</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoHandle</span><span class="p">(</span><span class="n">MUJOCO_ID</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">balls</span><span class="o">=</span><span class="p">(</span><span class="n">ball1</span><span class="p">,</span><span class="n">ball2</span><span class="p">))</span>	
+</pre></div>
+</div>
+<p>The handle makes then the o80 frontend to the item control available:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frontend</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">frontends</span><span class="p">[</span><span class="s2">&quot;ball1&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>See for example <a class="reference internal" href="B5_tutorial4.html"><span class="doc std std-doc">tutorial 4</span></a>.</p>
+</section>
+<section id="contacts">
+<h3>Contacts<a class="headerlink" href="#contacts" title="Permalink to this headline"></a></h3>
+<section id="contacts-and-handle">
+<h4>Contacts and handle<a class="headerlink" href="#contacts-and-handle" title="Permalink to this headline"></a></h4>
+<p>If contacts has been activated for an item, the handle provides method to query them:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ball</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span><span class="n">contact_type</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">ContactTypes</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
+<span class="n">handle</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoHandle</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">,</span><span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">balls</span><span class="o">=</span><span class="p">(</span><span class="n">ball</span><span class="p">,))</span>
+<span class="n">contact_information</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">get_contact</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>“contact_information” is an instance of context.ContactInformation, which has the attributes:</p>
+<ul class="simple">
+<li><p>contact_occured: true if there has been at least one contact, false otherwise</p></li>
+<li><p>position: the 3d position of the first contact, if any (irrelevant data otherwise)</p></li>
+<li><p>time_stamp: time stamp (in mujoco time) of the first contact, if any (irrelevant data otherwise)</p></li>
+<li><p>minimal_distance: minimal distance between the item and the contactee (table or racket) if no contact occured (irrelevant data otherwise)</p></li>
+</ul>
+<p>Important to note:</p>
+<ul class="simple">
+<li><p>get_contact only returns information regarding the <em>first</em> contact</p></li>
+<li><p>once a first contact occurs, the o80 control of the item get <em>disabled</em> (i.e. commands added via the frontend will be ignored), i.e. the item motion is “controlled” only by the mujoco physical engine.</p></li>
+</ul>
+<p>The above may seem peculiar, but matches our need related to have a robot learning to play table tennis using <a class="reference external" href="https://arxiv.org/abs/2006.05935">HYSR</a>: we command a tennis table ball (using o80) to “play” a prerecorded trajectory until contact with the robot’s racket.</p>
+<p>The fact that only the first contact is recorded and that the item control get disabled is an obvious limitation, but the contact can be reset (i.e. contact_occured is set to false, minimal_distance is set to None, and o80 control is restarted):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">handle</span><span class="o">.</span><span class="n">reset_contact</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is also possible to deactivate the contact:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">handle</span><span class="o">.</span><span class="n">deactivate_contact</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For example, after the above the ball would go through the table rather than bouncing on it.
+The contact can be reactivated:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">handle</span><span class="o">.</span><span class="n">activate_contact</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="customized-contacts">
+<h4>Customized contacts<a class="headerlink" href="#customized-contacts" title="Permalink to this headline"></a></h4>
+<p>A side note: for modeling the contact, we override Mujoco’s engine to apply a custom contact model, see this <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/include/pam_mujoco/recompute_state_after_contact.hpp">file</a>.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="B7_tutorial6.html" class="btn btn-neutral float-left" title="Tutorial 6: bursting mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C2_real_robot.html" class="btn btn-neutral float-right" title="More info: Using the real robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

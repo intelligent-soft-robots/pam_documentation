@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer’s guide 3: packages overview &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer’s guide 4: advanced overview" href="E4_advanced_overview.html" />
+    <link rel="prev" title="Developer’s guide 2: guidelines" href="E2_guidelines.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: guidelines</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Developer’s guide 3: packages overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/E3_packages_overview.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-3-packages-overview">
+<h1>Developer’s guide 3: packages overview<a class="headerlink" href="#developer-s-guide-3-packages-overview" title="Permalink to this headline"></a></h1>
+<p>The software for the control of the PAM robot (real or mujoco simulated) is splitted over several packages.
+These packages are hosted either at the <a class="reference external" href="https://github.com/intelligent-soft-robots">github “Intelligent Soft Robots” organization</a>
+or at the <a class="reference external" href="https://github.com/machines-in-motion">github “Machines in Motion Laboratory” organization</a>.</p>
+<p>If you installed the software via treep/colcon or via the source tar ball (as described <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">here</span></a>), these package are also present on your machine.</p>
+<p>Here a graph providing the dependencies between all the packages.</p>
+<p><img alt="graph dependencies" src="https://intelligent-soft-robots.github.io/images/dependencies_graph.png" /></p>
+<p>Overview of all packages (bottom to top) :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/machines-in-motion/shared_memory">shared memory</a>: package for (realtime) <strong>interprocess sharing of data</strong> via a shared memory.</p></li>
+<li><p><a class="reference external" href="https://github.com/machines-in-motion/real_time_tools">realtime tools</a> : <strong>realtime utilities</strong>, e.g. spawning of realtime threads.</p></li>
+<li><p><a class="reference external" href="https://github.com/machines-in-motion/time_series">time series</a> : data structure built over the shared memory package: <strong>shared circular buffer</strong> enhanced with synchronization tools (e.g. condition variables triggered when a new item is append to the buffer).</p></li>
+<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/synchronizer">synchronizer</a>: tool for <strong>synchronizing processes</strong>, with interoperability between c++ and python. E.g. a python process may be used to set the frequency of a c++ process.</p></li>
+<li><p><a class="reference external" href="https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html">o80</a>: <strong>wrapper over time series and synchronizer</strong>. The time series API is enriched with methods for <strong>managing queues of commands</strong> via python.</p></li>
+<li><p><a class="reference external" href="https://intelligent-soft-robots.github.io/code_documentation/o80_example/docs/html/index.html">o80_example</a> : canonical example / tutorial of o80</p></li>
+<li><p><a class="reference external" href="https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html">pam_interface</a>: <strong>low level code / drivers for connecting to the PAM robot</strong>. See the <a class="reference external" href="https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html">documentation</a> of this package to see basic usage of this robot. This packages also contains the code for starting a <strong>dummy pam robot</strong> (i.e. a robot with the same API as the real robot, for debugging purposes).</p></li>
+</ul>
+<p>This package is host of the executables:</p>
+<ul class="simple">
+<li><p>pam_server (python) : starts a server process for control of either the real or a dummy robot</p></li>
+<li><p>pam_check (python): activates all dof of the robot one by one. Can also be used as an example on how to send/read command to pam_server</p></li>
+</ul>
+<p>It is also the host of this configuration file (installed in /opt/mpi-is):</p>
+<ul class="simple">
+<li><p>pam.json : for setting the minimum and maximum pressures to apply to the robot, as well as setting the server frequency</p></li>
+<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/o80_pam">o80_pam</a>: <strong>o80 API for control over the PAM robot</strong>. While pam_server only allows for direct commands, o80_pam allows for sending queues of commands to the robot.</p></li>
+</ul>
+<p>It also comes with the following python modules:</p>
+<ul class="simple">
+<li><p>o80_pressures : the class <strong>o80Pressures</strong> is a convenience class to send pressures commands to the robot (and reading state of the robot) via o80</p></li>
+<li><p>o80_robot_mirroring : the class <strong>o80RobotMirroring</strong> is a convenience class to send desired position/velocity commands to the robot. Can be used only for the control of mujoco robots (see o80_mujoco package below)</p></li>
+<li><p>o80_ball , o80_hit_point, o80_goal: the classes <strong>o80Goal</strong>, <strong>o80Ball</strong>, <strong>o80HitPoint</strong> are convenience classes to set position of ball/goal/hit points to mujoco robots</p></li>
+<li><p>joint_position_controller: the class <strong>JointPositionController</strong> implements a PID controller that will compute the control pressures to apply to the robot to reach a desired robot joint posture (in terms of radians for each dof).</p></li>
+</ul>
+<p>This package hosts these executables:</p>
+<ul class="simple">
+<li><p>o80_dummy : starts a <strong>control server</strong> over a dummy pam robot</p></li>
+<li><p>o80_real: starts a <strong>control server</strong> over the real robot</p></li>
+<li><p>o80_plotting: <strong>dynamic plotting</strong> of the state of the robot</p></li>
+<li><p>o80_console: terminal <strong>dynamic display of the state of the robot</strong></p></li>
+<li><p>o80_check: Commands are sent to each robot dof, one at a time. Useful to check if the robot has issues</p></li>
+<li><p>o80_swing_demo : python demo of code sending commands to a robot. Has the robot performing swing motions</p></li>
+<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/pam_models">pam_models</a>: <strong>artificial muscle models in c++</strong> (currently only the hill model). Included configuration files (installed in /opt/mpi-is):</p>
+<ul>
+<li><p>hill.json : all parameters of the model</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/context">context</a>: packages meant to host utility code useful to create environments. Currently, host the code for managing <strong>pre-recorded (table tennis) ball trajectories</strong> (in python, see ball_trajectories.py). The pre-recorded trajectories are installed in /opt/mpi-is/context</p></li>
+<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/pam_mujoco">pam_mujoco</a> : code for managing <strong>simulated PAM robot(s) in the context of table tennis</strong>. This package hosts the code for <strong>generating mujoco models of robots, table and balls</strong>, and starting a corresponding <strong>mujoco simulations</strong>. All items (robot, ball, etc) may be controlled via an <strong>o80 python API</strong>.
+The python packages hosts:</p>
+<ul>
+<li><p>models.py : the generate_model function allows to create customized mujoco model</p></li>
+<li><p>mujoco_handle.py : source code for the pam_mujoco handles</p></li>
+</ul>
+</li>
+</ul>
+<p>This package also hosts the executables:</p>
+<ul class="simple">
+<li><p>pam_mujoco : starts a mujoco simulated robot(s)</p></li>
+<li><p>pam_mujoco_no_xterms : starts a mujoco simulated robot(s)</p></li>
+<li><p>pam_mujoco_stop : killing an instance of pam_mujoco</p></li>
+<li><p>pam_mujoco_stop_all : killing all instances of pam_mujoco</p></li>
+<li><p>pam_mujoco_visualization: visualization of pam_mujoco (useful if the latest has not been started with graphics)</p></li>
+<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/pam_documentation">pam_documentation</a>: host of the documentation you are currently reading.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="E2_guidelines.html" class="btn btn-neutral float-left" title="Developer’s guide 2: guidelines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="E4_advanced_overview.html" class="btn btn-neutral float-right" title="Developer’s guide 4: advanced overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

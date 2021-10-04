@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial 2: reading robot data &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial 3: iteration commands" href="B4_tutorial3.html" />
+    <link rel="prev" title="Tutorial 1: Commands" href="B2_tutorial1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 2: reading robot data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reading-robot-data">Reading robot data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorial 2: reading robot data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/B3_tutorial2.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-2-reading-robot-data">
+<h1>Tutorial 2: reading robot data<a class="headerlink" href="#tutorial-2-reading-robot-data" title="Permalink to this headline"></a></h1>
+<section id="reading-robot-data">
+<h2>Reading robot data<a class="headerlink" href="#reading-robot-data" title="Permalink to this headline"></a></h2>
+<p>Tutorial 2 is started similarly to tutorial 1.</p>
+<p>While in tutorial 1 the frontend was used to send command to the pressure controlled robot,
+in tutorial 2 the frontend is used to read the robot data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">handle</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">()</span>
+<span class="n">frontend</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">frontends</span><span class="p">[</span><span class="s2">&quot;robot&quot;</span><span class="p">]</span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>observation is an instance of Observation. It contains has the following method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># at each backend iteration (i.e. control iteration of o80_mujoco), an observation is generated.                  </span>
+<span class="c1"># this gives the backend iteration number at which this observation was generated.                                                        </span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;iteration&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">())</span>
+
+<span class="c1"># the time stamp at which the observation was generated.                                                                                    </span>
+<span class="c1"># it is an integer representing time in nano seconds                                                                                        </span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span>
+
+<span class="c1"># the pressure of the muscles as measured by sensors                                                                                        </span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;observed pressures&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_observed_pressures</span><span class="p">())</span>
+
+<span class="c1"># the pressure of the muscles as the commands requested them to be.                                                                         </span>
+<span class="c1"># Difference with observed pressures comes from either imprecision                                                                          </span>
+<span class="c1"># and/or time for the system to reach the commanded pressures                                                                               </span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;desired pressures&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_desired_pressures</span><span class="p">())</span>
+
+<span class="c1"># as measured by the encoders, in radian                                                                                                    </span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;positions&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_positions</span><span class="p">())</span>
+
+<span class="c1"># finite difference applied on positions, in radian per seconds                                                                             </span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;velocities&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_velocities</span><span class="p">())</span>
+
+<span class="c1"># these methods are available only for simulated robots:</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;cartesian position of the racket&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_cartesian_position</span><span class="p">())</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;orientation of the racket&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_cartesian_orientation</span><span class="p">())</span>
+
+<span class="c1"># on the real robot, encoders do not read a proper value until                                                                              </span>
+<span class="c1"># the joint moved through a certain reference position. If ref_found                                                                        </span>
+<span class="c1"># is False for a given join, it means the join did not yet go through this                                                                  </span>
+<span class="c1"># position, and the values of positions and velocities (as above) are meaningless                                                           </span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;references found&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_references_found</span><span class="p">())</span>
+
+<span class="c1"># the measured frequency of the backend at the time the observation was created.                                                            </span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="n">observation</span><span class="o">.</span><span class="n">get_frequency</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You may get a history of observations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">observations</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">get_latest_observations</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">observation</span> <span class="ow">in</span> <span class="n">observations</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">observation</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Only a certain number of iteration are kept in memory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># requesting the last 10 millions observations. The rotating memory does not keep so many observations.                                     </span>
+<span class="c1"># so instead, it will return all contained informations.                                                                                    </span>
+<span class="c1"># to increase the memory size, the code needs to be recompiled after the &quot;QUEUE_SIZE&quot; (see o80_pam/srcpy/wrappers.cpp)                      </span>
+<span class="c1"># is increased.                                                                                                                             </span>
+<span class="c1"># note the reading and deserializing of so many observations from the shared memory takes some time                                         </span>
+<span class="n">observations</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">get_latest_observations</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;number of observations read: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">observations</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;spanning a duration of: {} seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span><span class="o">-</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>It is possible to request the observation corresponding to a specific backend iteration.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">latest_iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">latest_iteration</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;requested observation of iteration {}, received observation of iteration {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latest_iteration</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>You can also make sure you read all observations generated during a time window:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># getting latest observation and its iteration number                                                                                       </span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
+<span class="n">tagged_iteration</span> <span class="o">=</span> <span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+<span class="c1"># waiting                                                                                                                                   </span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># getting all new observations generated since                                                                                              </span>
+<span class="n">observations</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">get_observations_since</span><span class="p">(</span><span class="n">tagged_iteration</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;tagged iteration: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tagged_iteration</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;recovered observations from {} to {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">(),</span>
+                                                    <span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;spanning a duration of: {} seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span><span class="o">-</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>You may also force your python code to run at the frequency of the backend by waiting for new observations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can wait for a new observation to be written by the frontend                                                                          </span>
+<span class="n">time_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c1"># this is important to call this function before calling &quot;wait_for_next&quot; as below                                                           </span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">reset_next_index</span><span class="p">()</span>
+<span class="n">observations</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># this loop should run at the same frequency as the backend                                                                                 </span>
+<span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">time_start</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">observations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frontend</span><span class="o">.</span><span class="n">wait_for_next</span><span class="p">())</span>
+<span class="c1"># checking the frequency                                                                                                                    </span>
+<span class="n">duration</span> <span class="o">=</span> <span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span> <span class="o">-</span> <span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">observations</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">duration</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">)</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;collected {} observations at a frequency of {} hz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">observations</span><span class="p">),</span><span class="n">frequency</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <em>pulse</em> and <em>pulse_and_wait</em> presented previously and used then for sending commands, also return instances of Observation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Duration_us</span><span class="o">.</span><span class="n">seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">OVERWRITE</span><span class="p">)</span>
+<span class="c1"># pulse both sends the queue of commands and                                                                                                </span>
+<span class="c1"># returns the latest observations                                                                                                           </span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+
+<span class="c1"># waiting for the previous command to finish                                                                                                </span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># getting latest observation                                                                                                                </span>
+<span class="n">observation1</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Duration_us</span><span class="o">.</span><span class="n">seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="c1"># pulse_and_wait returns the observation                                                                                                    </span>
+<span class="c1"># generated at the iteration the command was finished                                                                                       </span>
+<span class="n">observation2</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">pulse_and_wait</span><span class="p">()</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="n">observation2</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span><span class="o">-</span><span class="n">observation1</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span><span class="o">*</span><span class="mf">1e-9</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;the command took around {} seconds to complete&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">duration</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="B2_tutorial1.html" class="btn btn-neutral float-left" title="Tutorial 1: Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="B4_tutorial3.html" class="btn btn-neutral float-right" title="Tutorial 3: iteration commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

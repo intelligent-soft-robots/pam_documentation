@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial 4: join control, table, balls, etc &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial 5: saving data to files" href="B6_tutorial5.html" />
+    <link rel="prev" title="Tutorial 3: iteration commands" href="B4_tutorial3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 4: join control, table, balls, etc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial-s-demo">Tutorial’s demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handle-and-mujoco-xml-files">Handle and mujoco xml files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-factory">Model factory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interacting-with-objects">Interacting with objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interacting-with-a-ball">Interacting with a ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detecting-contact">Detecting contact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#playing-a-recorded-ball-trajectory">Playing a recorded ball trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hybrid-controlling-a-ball-until-contact">Hybrid: controlling a ball until contact</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#goal-hitpoint">Goal, HitPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#joint-control">Joint Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorial 4: join control, table, balls, etc</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/B5_tutorial4.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-4-join-control-table-balls-etc">
+<h1>Tutorial 4: join control, table, balls, etc<a class="headerlink" href="#tutorial-4-join-control-table-balls-etc" title="Permalink to this headline"></a></h1>
+<section id="tutorial-s-demo">
+<h2>Tutorial’s demo<a class="headerlink" href="#tutorial-s-demo" title="Permalink to this headline"></a></h2>
+<p>This demo is started similarly to tutorials 1 to 3, with the exception that pam_mujoco should
+be start with mujoco_id <em>tutorial_4</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pan_mujoco tutorial_4
+</pre></div>
+</div>
+<p>then</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">./</span><span class="n">tutorial_4</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</section>
+<section id="handle-and-mujoco-xml-files">
+<h2>Handle and mujoco xml files<a class="headerlink" href="#handle-and-mujoco-xml-files" title="Permalink to this headline"></a></h2>
+<p>The source code of tutorial 4 starts with the mujoco simulation configuration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">robot</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoRobot</span><span class="p">(</span><span class="s2">&quot;robot&quot;</span><span class="p">,</span>
+                               <span class="n">control</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoRobot</span><span class="o">.</span><span class="n">JOINT_CONTROL</span><span class="p">)</span>
+<span class="n">ball1</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="s2">&quot;ball1&quot;</span><span class="p">,</span>
+                              <span class="n">control</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="o">.</span><span class="n">CONSTANT_CONTROL</span><span class="p">,</span>
+                              <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ball2</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="s2">&quot;ball2&quot;</span><span class="p">,</span>
+                              <span class="n">control</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="o">.</span><span class="n">CONSTANT_CONTROL</span><span class="p">,</span>
+                              <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                              <span class="n">contact_type</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">ContactTypes</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
+<span class="n">hit_point</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="s2">&quot;hit_point&quot;</span><span class="p">,</span>
+                                  <span class="n">control</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="o">.</span><span class="n">CONSTANT_CONTROL</span><span class="p">)</span>
+<span class="n">graphics</span><span class="o">=</span><span class="bp">True</span>
+<span class="n">accelerated_time</span><span class="o">=</span><span class="bp">False</span>
+<span class="n">handle</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoHandle</span><span class="p">(</span><span class="s2">&quot;tutorial_4&quot;</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="n">robot</span><span class="p">,</span>
+                                 <span class="n">balls</span><span class="o">=</span><span class="p">(</span><span class="n">ball1</span><span class="p">,</span><span class="n">ball2</span><span class="p">),</span>
+                                 <span class="n">hit_points</span><span class="o">=</span><span class="p">(</span><span class="n">hit_point</span><span class="p">,),</span>
+                                 <span class="n">graphics</span><span class="o">=</span><span class="n">graphics</span><span class="p">,</span>
+                                 <span class="n">accelerated_time</span><span class="o">=</span><span class="n">accelerated_time</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>The code above requests <em>pam_mujoco</em> (via the shared memory) to start a simulation with a joint controlled robot along with 2 balls and a hit point (a graphical market).</p>
+<p>Once the (waiting) instance of <em>pam_mujoco</em> reads (from the shared memory) this request, the first action it does it to create a corresponding mujoco xml configuration file in the <em>tmp</em> folder. In this specific case, the model file is created in:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/tmp/tutorial_4/tutorial_4.xml
+</pre></div>
+</div>
+<p>The handle requests the configuration file to describe an environment with 1 robot, 2 balls, a hit point and to display a table, and indeed this is what pam_mujoco spawns.</p>
+<p>On top of this, the handle requests the robot to be joint controlled, and the balls and hit point to be also be controlled.</p>
+<section id="model-factory">
+<h3>Model factory<a class="headerlink" href="#model-factory" title="Permalink to this headline"></a></h3>
+<p>The API of model factory is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pam_mujoco</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="c1"># arbitrary string</span>
+                                 <span class="n">time_step</span> <span class="o">=</span> <span class="mf">0.002</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">robot1_position</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.44</span><span class="p">],</span>
+                                 <span class="n">robot2</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">robot2_position</span><span class="o">=</span><span class="p">[</span><span class="mf">1.6</span><span class="p">,</span><span class="mf">3.4</span><span class="p">,</span><span class="o">-</span><span class="mf">0.44</span><span class="p">],</span>
+                                 <span class="n">robot2_orientation</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                                 <span class="n">goal</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">hit_point</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                                 <span class="n">ball_colors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                                 <span class="n">muscles</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Call to model_factory results in the generation of an Mujoco xml model file. The absolute path to this file is accessible:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You may all model_factory with arguments to add ball(s), a goal mark, a hit_point mark, a table or a second robot (goal and hit_point are simple visual markers). You may also request the robot not to have any muscle actuation.</p>
+<p>For example, the following script will start the simulation of 2 robots, a table, 3 balls and a goal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pam_mujoco</span>
+
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;tutorial_model&quot;</span>
+<span class="n">mujoco_id</span> <span class="o">=</span> <span class="s2">&quot;tutorial_mujoco_id&quot;</span>
+
+<span class="c1"># generation of a mujoco model xml file</span>
+<span class="c1"># corresponding to a table, 3 balls, 2 robots</span>
+<span class="c1"># and a goal (a goal is a simple visual marker)</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">robot2</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">goal</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># some config for mujoco</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">graphics</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># set to False if you do not need graphics</span>
+<span class="n">config</span><span class="o">.</span><span class="n">realtime</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># set to False if you prefer accelerated time</span>
+
+<span class="c1"># starting the mujoco simulation</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">init_mujoco</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">,</span><span class="n">items</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The simulation will run forever (or until the corresponding terminal is closed). It is possible to stop it by calling (in another script):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pam_mujoco</span>
+<span class="c1"># we are using the same mujoco id as the one used to start the simulation</span>
+<span class="n">mujoco_id</span> <span class="o">=</span> <span class="s2">&quot;tutorial_mujoco_id&quot;</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">request_stop</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="interacting-with-objects">
+<h2>Interacting with objects<a class="headerlink" href="#interacting-with-objects" title="Permalink to this headline"></a></h2>
+<section id="interacting-with-a-ball">
+<h3>Interacting with a ball<a class="headerlink" href="#interacting-with-a-ball" title="Permalink to this headline"></a></h3>
+<p>The script above started a simulation containing 3 simulated balls. These balls are subject to the (simulated) gravity, and will just fall forever. Not very exciting.</p>
+<p>o80 can be used to interact the simulated balls, e.g. forcing the position/velocity of the balls and/or getting information about the balls.</p>
+<p>To request the addition of a corresponding o80 backend to the simulation process, the script has to be updated:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># the mujoco xml model generated including 3 balls</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
+                                <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                <span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">robot2</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                <span class="n">goal</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># getting informations about the 3 generated balls</span>
+<span class="n">balls</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">]</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">graphics</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">config</span><span class="o">.</span><span class="n">realtime</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">init_mujoco</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># adding a o80 backend to send command </span>
+<span class="c1"># (and receiving information) to (from) the</span>
+<span class="c1"># first ball</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_ball_control</span><span class="p">(</span><span class="s2">&quot;ball0&quot;</span><span class="p">,</span><span class="n">balls</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># starting the mujoco simulation. The o80 backend</span>
+<span class="c1"># will listen to commands and write info about the ball</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">,</span><span class="n">items</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The method “add_o80_for_ball” reads “add an o80 backend to the Mujoco simulation”. Consequently, the ball is no longer subject to gravity but gets fully controlled based on user commands: one interact with the first ball via o80 frontend instantiated in another script (or another process in the same script):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pam_mujoco</span>
+<span class="c1">#  note: &quot;ball0&quot;: argument passed to &quot;add_o80_for_ball&quot; in the previous script</span>
+<span class="n">frontend_ball</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">BallFrontEnd</span><span class="p">(</span><span class="s2">&quot;ball0&quot;</span><span class="p">)</span> 
+
+<span class="c1"># getting the information about the ball</span>
+<span class="n">ball</span> <span class="o">=</span> <span class="n">frontend_ball</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">ball</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="n">ball</span><span class="o">.</span><span class="n">get_velocity</span><span class="p">()</span>
+
+<span class="c1"># forcing position and velocity to the ball:</span>
+<span class="n">target_position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">target_velocity</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">frontend_ball</span> <span class="o">=</span> <span class="n">add_command</span><span class="p">(</span><span class="n">target_position</span><span class="p">,</span><span class="n">target_velocity</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">frontend_ball</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The script above will move the ball to [1,1,1]</p>
+<p>Something similar can be done for the other balls, or the goal (replace “Ball” with “Goal”, e.g. add_o80_for_goal).</p>
+</section>
+<section id="detecting-contact">
+<h3>Detecting contact<a class="headerlink" href="#detecting-contact" title="Permalink to this headline"></a></h3>
+<p>As presented above, this allows control of a simulated ball:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_ball_control</span><span class="p">(</span><span class="s2">&quot;ball0&quot;</span><span class="p">,</span>
+                                <span class="n">balls</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This ball may enter in contact with the table and/or the racket of the robot(s). It is possible to retrieve related information.</p>
+<p>First, in the same way that a o80 backend was added to the mujoco simulation via the method “add_o80_ball_control”, contact controllers have to be added to the mujoco simulation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ball</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;table&quot;</span><span class="p">]</span>
+<span class="n">robot</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;robot&quot;</span><span class="p">]</span>
+<span class="c1"># adding controller for monitoring contact between</span>
+<span class="c1"># the racket of the robot and the ball</span>
+<span class="c1"># (&quot;contact_robot_ball&quot; is an arbitrary id for this contact)</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_robot1_contact</span><span class="p">(</span><span class="s2">&quot;contact_robot_ball&quot;</span><span class="p">,</span><span class="n">ball</span><span class="p">,</span><span class="n">robot</span><span class="p">)</span>
+<span class="c1"># same, but for contact with the table</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_table_contact</span><span class="p">(</span><span class="s2">&quot;contact_table_ball&quot;</span><span class="p">,</span><span class="n">ball</span><span class="p">,</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once the simulation started, corresponding information can be requested in another script via:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pam_mujoco</span>
+<span class="c1"># note the contact id is the same as above</span>
+<span class="n">contact</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">get_contact</span><span class="p">(</span><span class="s2">&quot;contact_table_ball&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>contact is the instance of a class providing the public attributes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># True if a contact ever occurred</span>
+<span class="n">contact</span><span class="o">.</span><span class="n">contact_occurred</span>
+<span class="c1"># position (x y z) of the first contact (if any)</span>
+<span class="n">contact</span><span class="o">.</span><span class="n">position</span>
+<span class="c1"># time stamp (int, nanoseconds) of the first contact (if any)</span>
+<span class="n">contact</span><span class="o">.</span><span class="n">time_stamp</span>
+<span class="c1"># minimal distance between ball and table,</span>
+<span class="c1"># useful in case no contact ever occurred</span>
+<span class="n">contact</span><span class="o">.</span><span class="n">minimal_distance</span>
+</pre></div>
+</div>
+<p>A limitation is that information about only the first contact is stored (i.e. not the history of contacts).</p>
+<p>You may reset the contact information in order to start monitoring new contact:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">reset_contact</span><span class="p">(</span><span class="s2">&quot;contact_table_ball&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="playing-a-recorded-ball-trajectory">
+<h3>Playing a recorded ball trajectory<a class="headerlink" href="#playing-a-recorded-ball-trajectory" title="Permalink to this headline"></a></h3>
+<p>We recorded trajectories of real ball being launched and bouncing on a table tennis table. A python API allows to query these trajectories.
+For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">context</span>
+<span class="n">index</span><span class="p">,</span><span class="n">trajectory_points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">BallTrajectories</span><span class="p">()</span><span class="o">.</span><span class="n">random_trajectory</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>This returns an index and a list of trajectory points.</p>
+<p>The index allows to retrieve the name of the file in which the returned trajectory has been stored:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">BallTrajectories</span><span class="p">()</span><span class="o">.</span><span class="n">get_file_name</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You may find the file in the folder /opt/mpi-is/context/trajectories/.</p>
+<p><code class="docutils literal notranslate"><span class="pre">trajectory_points</span></code> is a list of trajectory points providing a position and velocity attributes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">position</span> <span class="o">=</span> <span class="n">trajectory_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">position</span> <span class="c1"># x,y,z</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="n">trajectory_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">velocity</span> <span class="c1"># x,y,z</span>
+</pre></div>
+</div>
+<p>You may also retrieve a trajectory via an index:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trajectory_points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">BallTrajectories</span><span class="p">()</span><span class="o">.</span><span class="n">get_trajectory</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>To know which index correspond to which file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># prints list of files and related indexes.</span>
+<span class="c1"># you may call this in a python terminal</span>
+<span class="kn">import</span> <span class="nn">context</span>
+<span class="n">context</span><span class="o">.</span><span class="n">BallTrajectories</span><span class="p">()</span><span class="o">.</span><span class="n">print_index_files</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You may use an o80 ball frontend to replay a ball trajectory in mujoco, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frontend_ball</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">BallFrontEnd</span><span class="p">(</span><span class="s2">&quot;ball0&quot;</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span><span class="n">trajectory_points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">BallTrajectories</span><span class="p">()</span><span class="o">.</span><span class="n">random_trajectory</span><span class="p">())</span>
+<span class="n">duration_s</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="n">o80</span><span class="o">.</span><span class="n">Duration_us</span><span class="o">.</span><span class="n">milliseconds</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">duration_s</span><span class="o">*</span><span class="mi">1000</span><span class="p">))</span>
+<span class="n">total_duration</span> <span class="o">=</span> <span class="n">duration_s</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">trajectory_points</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">traj_point</span> <span class="ow">in</span> <span class="n">trajectory_points</span><span class="p">:</span>
+    <span class="n">frontend_ball</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">traj_point</span><span class="p">,</span><span class="n">position</span><span class="p">,</span><span class="n">traj_point</span><span class="o">.</span><span class="n">velocity</span><span class="p">,</span>
+                               <span class="n">duration</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">frontend_ball</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="hybrid-controlling-a-ball-until-contact">
+<h3>Hybrid: controlling a ball until contact<a class="headerlink" href="#hybrid-controlling-a-ball-until-contact" title="Permalink to this headline"></a></h3>
+<p>It is possible to use an o80 frontend to control a ball, but letting Mujoco’s physic engine taking over once a contact occured.</p>
+<p>Above, the function “add_o80_ball_control” was introduced. It was used to set an o80 backend for ball control in the mujoco simulation.</p>
+<p>An alternative method is: “add_o80_ball_control_until_contact”.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ball</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;table&quot;</span><span class="p">]</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_table_contact</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span><span class="n">ball</span><span class="p">,</span><span class="n">table</span><span class="p">)</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_ball_control_until_contact</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span><span class="s2">&quot;table&quot;</span><span class="p">,</span><span class="n">ball</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above will also add a o80 backend for ball control to the mujoco simulation. Similarly as when “add_o80_ball_control” was used (and with the exact same API), it is possible to control the ball’s position and velocity. But as soon as a contact is detected between the table and the ball, o80’s command will be ignored, and the ball with be from that time managed by Mujoco’s physic engine.</p>
+<p>Once the contact is reset:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">reset_contact</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="goal-hitpoint">
+<h2>Goal, HitPoint<a class="headerlink" href="#goal-hitpoint" title="Permalink to this headline"></a></h2>
+<p>Goal and HitPoint are visual markers. They can also be added to the mujoco’s model, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">nb_balls</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">goal</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">hit_point</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">goal</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;goal&quot;</span><span class="p">]</span>
+<span class="n">hit_point</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;hit_point&quot;</span><span class="p">]</span>
+
+<span class="c1"># to allow frontend to control the goal                                                                                                                                                                                                                                                   </span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_goal_control</span><span class="p">(</span><span class="s2">&quot;goal&quot;</span><span class="p">,</span><span class="n">goal</span><span class="p">)</span>
+
+<span class="c1"># to allow frontend to control the hit point                                                                                                                                                                                                                                              </span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_hit_point_control</span><span class="p">(</span><span class="s2">&quot;hit_point&quot;</span><span class="p">,</span><span class="n">hit_point</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>They can be controlled similarly to balls, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hit_point</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">HitPointFrontEnd</span><span class="p">(</span><span class="s2">&quot;hit_point&quot;</span><span class="p">)</span>
+<span class="n">goal</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">GoalFrontEnd</span><span class="p">(</span><span class="s2">&quot;goal&quot;</span><span class="p">)</span>
+
+<span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">goal</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">position</span><span class="p">,</span><span class="n">velocity</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">goal</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="joint-control">
+<h2>Joint Control<a class="headerlink" href="#joint-control" title="Permalink to this headline"></a></h2>
+<p>Mujoco simulated pam robot can be joint controlled (i.e. setting for each degree of freedom a desired joint angle and a desired angular velocity).</p>
+<p>For this, it is required to add a joint controller, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">nb_balls</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">goal</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">hit_point</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">ball_colors</span><span class="o">=</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">robot</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;robot&quot;</span><span class="p">]</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_joint_control</span><span class="p">(</span><span class="s2">&quot;robot&quot;</span><span class="p">,</span><span class="n">robot</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This allows to send robot control command via an o80 frontend, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">robot</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">JointFrontEnd</span><span class="p">(</span><span class="s2">&quot;robot&quot;</span><span class="p">)</span>
+<span class="n">joints</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span>
+          <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="n">joint_velocities</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="n">o80</span><span class="o">.</span><span class="n">Duration_us</span><span class="o">.</span><span class="n">seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">joints</span><span class="p">,</span><span class="n">joint_velocities</span><span class="p">,</span><span class="n">duration</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The frontend can also be used to query the robot state:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">observation</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
+<span class="n">observation</span><span class="o">.</span><span class="n">get_positions</span><span class="p">()</span>
+<span class="n">observation</span><span class="o">.</span><span class="n">get_velocities</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="B4_tutorial3.html" class="btn btn-neutral float-left" title="Tutorial 3: iteration commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="B6_tutorial5.html" class="btn btn-neutral float-right" title="Tutorial 5: saving data to files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

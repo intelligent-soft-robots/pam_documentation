@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial 3: iteration commands &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial 4: join control, table, balls, etc" href="B5_tutorial4.html" />
+    <link rel="prev" title="Tutorial 2: reading robot data" href="B3_tutorial2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 3: iteration commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-current-iteration-number">Getting the current iteration number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#waiting-for-an-iteration">waiting for an iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#synchronizing-the-frontend-and-the-backend">synchronizing the frontend and the backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relative-iteration">relative iteration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorial 3: iteration commands</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/B4_tutorial3.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-3-iteration-commands">
+<h1>Tutorial 3: iteration commands<a class="headerlink" href="#tutorial-3-iteration-commands" title="Permalink to this headline"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p>In tutorial 1, we covered duration, speed and direct commands. This tutorial introduce the iteration command.</p>
+<p>“Iteration” refers to the backend, i.e. the control iteration of the robot. At each control iteration, the backend reads the commands queue, compute the desired pressure to apply to the robot, applies it to the robot, read the current state of the robot from sensors and write a corresponding Observation in the shared memory.</p>
+<p>Iteration commands allows to specify using a python frontend the value of the desired pressure for upcoming iteration numbers.</p>
+<p>Tutorial 3 is started similarly to tutorials 1 and 2.</p>
+</section>
+<section id="getting-the-current-iteration-number">
+<h2>Getting the current iteration number<a class="headerlink" href="#getting-the-current-iteration-number" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frontend</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">frontends</span><span class="p">[</span><span class="s2">&quot;robot&quot;</span><span class="p">]</span>
+<span class="c1"># newest iteration</span>
+<span class="n">iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="waiting-for-an-iteration">
+<h2>waiting for an iteration<a class="headerlink" href="#waiting-for-an-iteration" title="Permalink to this headline"></a></h2>
+<p>In tutorial 2, the <em>read</em> method of the frontend was used to access from the shared memory an observation corresponding to a past iteration.
+The same method can be used to wait for an upcoming iteration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+<span class="n">future_iteration</span> <span class="o">=</span> <span class="n">iteration</span><span class="o">+</span><span class="mi">5000</span>
+<span class="c1"># will wait until the backend reaches this iteration number</span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">future_iteration</span><span class="p">)</span>
+<span class="n">reached_iteration</span> <span class="o">=</span> <span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span> <span class="c1"># will be equal to future_iteration</span>
+</pre></div>
+</div>
+</section>
+<section id="example">
+<h2>example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frontend</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">FrontEnd</span><span class="p">(</span><span class="s2">&quot;o80_pam_robot&quot;</span><span class="p">)</span>
+
+
+<span class="n">start_iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+
+<span class="n">pressure1</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">target_iteration1</span> <span class="o">=</span> <span class="n">start_iteration</span><span class="o">+</span><span class="mi">3000</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">pressure1</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">pressure1</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">target_iteration1</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+
+<span class="n">pressure2</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">target_iteration2</span> <span class="o">=</span> <span class="n">start_iteration</span><span class="o">+</span><span class="mi">6000</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">pressure2</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">pressure2</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">target_iteration2</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+
+<span class="n">pressure3</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">target_iteration3</span> <span class="o">=</span> <span class="n">start_iteration</span><span class="o">+</span><span class="mi">9000</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">pressure3</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">pressure3</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">target_iteration3</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sending commands&quot;</span><span class="p">)</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;waiting for iteration: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_iteration1</span><span class="p">))</span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">target_iteration1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;reached iteration: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;waiting for iteration: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_iteration2</span><span class="p">))</span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">target_iteration2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;reached iteration: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;waiting for iteration: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_iteration3</span><span class="p">))</span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">target_iteration3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;reached iteration: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>In this example, the desired pressure values that should be applied at exact backend iteration numbers are specified from the frontend.</p>
+</section>
+<section id="synchronizing-the-frontend-and-the-backend">
+<h2>synchronizing the frontend and the backend<a class="headerlink" href="#synchronizing-the-frontend-and-the-backend" title="Permalink to this headline"></a></h2>
+<p>This example of usage is a bit evolved:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pressure</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">target_iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span><span class="o">+</span><span class="mi">5</span>
+<span class="n">backend_frequency</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_frequency</span><span class="p">()</span>
+<span class="n">time_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;running frontend at 1/5th of backend frequency ({} Hz)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">backend_frequency</span><span class="o">/</span><span class="mf">5.0</span><span class="p">))</span>
+<span class="c1"># running 500 frontend control iteration</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+    <span class="n">previous_iteration</span> <span class="o">=</span> <span class="n">target_iteration</span>
+    <span class="c1"># control value that must be reached at the </span>
+    <span class="c1"># end of the *next* frontend control iteration</span>
+    <span class="n">target_iteration</span> <span class="o">+=</span> <span class="mi">5</span>
+    <span class="n">pressure</span><span class="o">+=</span><span class="mi">20</span>
+    <span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                         <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">target_iteration</span><span class="p">),</span>
+                         <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+    <span class="n">frontend</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+    <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">previous_iteration</span><span class="p">)</span>
+<span class="n">time_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;frequency: {} Hz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">500.0</span><span class="o">/</span><span class="p">(</span><span class="n">time_end</span><span class="o">-</span><span class="n">time_start</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>During the time the backend applies a command, the frontend computes the control value that should be applied at the next frontend control loop. This has the frontend running at a frequency enforced by the backend. This is important because the frontend is not realtime safe (because python is not realtime), while the backend may be.</p>
+</section>
+<section id="relative-iteration">
+<h2>relative iteration<a class="headerlink" href="#relative-iteration" title="Permalink to this headline"></a></h2>
+<p>So far, all iteration number were <em>absolute</em>, i.e. iteration numbers as counted since the start of the backend.</p>
+<p>It is possible to use relative iteration number, i.e. the iteration number as counted from a later time.</p>
+<p>The o80 class Iteration takes two extra boolean arguments:</p>
+<ul class="simple">
+<li><p>relative: if True (False is the default), it corresponds to a relative iteration number</p></li>
+<li><p>reset: if True (False is the default), a command using this instance of Iteration reset the iteration counter.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this corresponds to 1000 iterations counting                                                                                                                                                                                                                                            </span>
+<span class="c1"># from the moment the command is started                                                                                                                                                                                                                                                  </span>
+<span class="n">relative</span><span class="o">=</span><span class="bp">True</span>
+<span class="n">reset</span><span class="o">=</span><span class="bp">True</span>
+<span class="n">iteration</span> <span class="o">=</span> <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="n">relative</span><span class="p">,</span><span class="n">reset</span><span class="p">)</span>
+<span class="n">pressure</span><span class="o">=</span><span class="mi">0</span>
+<span class="c1"># i.e. reaching pressure 0 in 1000 iteration                                                                                                                                                                                                                                              </span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">iteration</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">obs1</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">pulse_and_wait</span><span class="p">()</span>
+<span class="c1"># this corresponds to iteration number 2000                                                                                                                                                                                                                                               </span>
+<span class="c1"># counting from relative iteration number at                                                                                                                                                                                                                                              </span>
+<span class="c1"># which the previous command was started.                                                                                                                                                                                                                                                 </span>
+<span class="n">relative</span><span class="o">=</span><span class="bp">True</span>
+<span class="n">reset</span><span class="o">=</span><span class="bp">False</span>
+<span class="n">iteration</span> <span class="o">=</span> <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="n">relative</span><span class="p">,</span><span class="n">reset</span><span class="p">)</span>
+<span class="n">pressure</span><span class="o">=</span><span class="mi">16000</span>
+<span class="c1"># i.e. reaching pressure 16000 in 1000 iterations                                                                                                                                                                                                                                         </span>
+<span class="c1"># (previous command took 1000 iterations, and this                                                                                                                                                                                                                                        </span>
+<span class="c1">#  want to reach a relative iteration number 2000)                                                                                                                                                                                                                                        </span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">iteration</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">obs2</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">pulse_and_wait</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;number of iterations of second commands: &quot;</span>
+      <span class="s2">&quot;{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obs2</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span><span class="o">-</span><span class="n">obs1</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="B3_tutorial2.html" class="btn btn-neutral float-left" title="Tutorial 2: reading robot data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="B5_tutorial4.html" class="btn btn-neutral float-right" title="Tutorial 4: join control, table, balls, etc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

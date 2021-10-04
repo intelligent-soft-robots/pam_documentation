@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer’s guide 1: tools &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer’s guide 2: guidelines" href="E2_guidelines.html" />
+    <link rel="prev" title="More info: mirroring real robot" href="C4_mirroring.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer’s guide 1: tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#github">Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#treep">Treep</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-repository">configuration repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloning">cloning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status">status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pull">pull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calling-from-anywhere">calling from anywhere</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ament-packages">Ament packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#colcon">Colcon</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-only-one-package">Compiling only one package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pybind11">Pybind11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unit-tests">Unit-tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Developer’s guide 1: tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/E1_tools.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-1-tools">
+<h1>Developer’s guide 1: tools<a class="headerlink" href="#developer-s-guide-1-tools" title="Permalink to this headline"></a></h1>
+<p>This guide is here for those who would like to upgrade/extend PAM’s software (as opposed to use it in their own code).</p>
+<p>For updating the code, the colcon workspace installation is required, as described <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/pam/docs/pam_documentation/doc/A1_overview_and_installation.html#via-colcon-workspace">here</a>.</p>
+<p>The workflow is based on these tools: github, treep, ament, colcon, pybind11 and gtest.</p>
+<section id="github">
+<h2>Github<a class="headerlink" href="#github" title="Permalink to this headline"></a></h2>
+<p>The source repositories are hosted in the “Intelligent Soft Robots” <a class="reference external" href="https://github.com/intelligent-soft-robots">domain</a> of github.
+As treep (see below) uses ssh, you need to register your ssh key to github (see <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">here</a>)</p>
+</section>
+<section id="treep">
+<h2>Treep<a class="headerlink" href="#treep" title="Permalink to this headline"></a></h2>
+<p>To get the software compiled and running, several git repositories must be cloned.
+As it would be annoying to clone them one by one, we use the project manager <a class="reference external" href="https://pypi.org/project/treep/">treep</a>, which allows to clone several repositories at once.</p>
+<section id="installation">
+<h3>installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install treep
+</pre></div>
+</div>
+</section>
+<section id="configuration-repository">
+<h3>configuration repository<a class="headerlink" href="#configuration-repository" title="Permalink to this headline"></a></h3>
+<p>treep needs a configuration folder. We use <a class="reference external" href="https://github.com/intelligent-soft-robots/treep_isr.git">treep_isr</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir Software <span class="c1"># or another folder name</span>
+<span class="nb">cd</span> Software
+git clone https://github.com/intelligent-soft-robots/treep_isr.git
+</pre></div>
+</div>
+<p>In the folder treep_isr, you will find the file <em>repositories.yaml</em> which provides repositories names, url and default branch (see also configuration.yaml). Once treep_isr has been cloned, you may see for example the list of repositories:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep <span class="c1"># treep without argument prints some help</span>
+treep --repos
+</pre></div>
+</div>
+<p>Projects (i.e. repositories grouped together) are described in <em>projects.yaml</em>.
+To see the list of projects:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --projects
+</pre></div>
+</div>
+<p>To see information about a specific projects:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --project PAM_MUJOCO
+</pre></div>
+</div>
+</section>
+<section id="cloning">
+<h3>cloning<a class="headerlink" href="#cloning" title="Permalink to this headline"></a></h3>
+<p>You can use treep to clone a project (i.e. cloning all the repositories of the project):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --clone PAM_MUJOCO
+</pre></div>
+</div>
+</section>
+<section id="status">
+<h3>status<a class="headerlink" href="#status" title="Permalink to this headline"></a></h3>
+<p>The status argument is very useful to see the (git) status of each cloned repos (i.e. if they are behind origin, beyond origin, have modified files, etc)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --status
+</pre></div>
+</div>
+</section>
+<section id="pull">
+<h3>pull<a class="headerlink" href="#pull" title="Permalink to this headline"></a></h3>
+<p>You can use treep to update all the repositories</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --pull
+</pre></div>
+</div>
+</section>
+<section id="calling-from-anywhere">
+<h3>calling from anywhere<a class="headerlink" href="#calling-from-anywhere" title="Permalink to this headline"></a></h3>
+<p>Note that you do not need to be in the Software folder to call treep, you may call treep for any of its subfolder, e.g.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace/src/pam_interface
+treep --status <span class="c1"># still provides the status of all repositories.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ament-packages">
+<h2>Ament packages<a class="headerlink" href="#ament-packages" title="Permalink to this headline"></a></h2>
+<p>(Almost) all repositories contain the code for an ament package. An ament package is a “extended” CMake package, i.e. ament provides some cmake functionalities meant to make developers life easier. The documentation can be found <a class="reference external" href="https://docs.ros.org/en/foxy/Guides/Ament-CMake-Documentation.html">here</a>.</p>
+<p>An ament package contains typically:</p>
+<ul class="simple">
+<li><p>C++ code, in the include/package_name and the source folders</p></li>
+<li><p>python wrappers over this C++ code in the srcpy folder</p></li>
+<li><p>native python code in the python folder</p></li>
+<li><p>unit tests in the tests folder</p></li>
+<li><p>configuration files</p></li>
+<li><p>a demos folder, containing source code providing example of usage of the code provided by the package</p></li>
+<li><p>a package.xml file listing dependencies</p></li>
+<li><p>a CMakeLists.txt file containing the CMake commands required for compilation.</p></li>
+</ul>
+<p>The <a class="reference external" href="https://github.com/intelligent-soft-robots/context">context</a> and <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_interface">pam_interface</a> repositories provide examples of a packages containing most of the above.</p>
+</section>
+<section id="colcon">
+<h2>Colcon<a class="headerlink" href="#colcon" title="Permalink to this headline"></a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
+<p>After cloning a workspace using treep, the workspace/src folder contains a collection of ament packages.
+Colcon is the tool used for compiling all these packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace
+colcon build <span class="c1"># will attempt to compile the whole workspace</span>
+</pre></div>
+</div>
+<p>If the compilation succeed, the workspace folder will contain the “install” folder which contains the binaries and python packages that result from the compilation.</p>
+<p>To be able to “use” the code (i.e. adding executables to path, adding the python package to the python path, adding the libraries to the ld path …), one must “source” the file Software/workspace/install/setup.bash:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace/install
+<span class="nb">source</span> setup.bash
+</pre></div>
+</div>
+<p>This operation must be done in all new terminal. It is therefore recommanded to add to the ~/.bashrc file (which is sourced everytime a new terminal is opened):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;- sourcing workspace&quot;</span>
+<span class="nb">source</span> /path/to/Software/workspace/install/setup.bash
+</pre></div>
+</div>
+</section>
+<section id="compiling-only-one-package">
+<h3>Compiling only one package<a class="headerlink" href="#compiling-only-one-package" title="Permalink to this headline"></a></h3>
+<p>To compile only one specific package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace
+colcon list <span class="c1"># list all packages in the workspace</span>
+colcon build --packages-up-to packagename
+</pre></div>
+</div>
+<p>This will compile only the selected package and its required dependencies.</p>
+</section>
+</section>
+<section id="pybind11">
+<h2>Pybind11<a class="headerlink" href="#pybind11" title="Permalink to this headline"></a></h2>
+<p>Most of the code is in C++, but made available as python package.</p>
+<p>We use <a class="reference external" href="https://pybind11.readthedocs.io/en/master/?badge=master">pybind11</a> for creating wrappers over c++ code.</p>
+<p>By convention, the c++ binding code should be in the srcpy folder of the package, and in the file wrappers.cpp.</p>
+<p>As you can see in this <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/srcpy/wrappers.cpp">example</a>, creating binders for c++ classes can be trivial.</p>
+<p>For example, this wrapper code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>   <span class="n">pybind11</span><span class="o">::</span><span class="n">class_</span><span class="o">&lt;</span><span class="n">Ball</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s">&quot;Ball&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="n">pybind11</span><span class="o">::</span><span class="n">init</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span>
+        <span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;update&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">update</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;get&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">get</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>binds this c++ class <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/include/context/ball.hpp">ball</a>.</p>
+<p>The following calls has to be added in the CMakeLists.txt file:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">pybind11_add_module</span><span class="p">(</span><span class="s">context_py</span> <span class="s">srcpy/wrappers.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">context_py</span> <span class="s">PRIVATE</span> <span class="s">context</span> <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">context_py</span> <span class="s">PROPERTIES</span>
+  <span class="s">LIBRARY_OUTPUT_DIRECTORY</span> <span class="o">${</span><span class="nv">CATKIN_DEVEL_PREFIX</span><span class="o">}</span><span class="s">/</span><span class="o">${</span><span class="nv">CATKIN_GLOBAL_PYTHON_DESTINATION</span><span class="o">}</span>
+  <span class="s">OUTPUT_NAME</span> <span class="s">context</span><span class="p">)</span>
+<span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span> <span class="s">context_py</span> <span class="s">DESTINATION</span> <span class="o">${</span><span class="nv">CATKIN_GLOBAL_PYTHON_DESTINATION</span><span class="o">}</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(replace “context” by the name of the catkin package).</p>
+<p>Note that in the <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/srcpy/wrappers.cpp#L12">wrappers.cpp</a> file, the package name must also be used as first argument:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">PYBIND11_MODULE</span><span class="p">(</span><span class="s">context,</span> <span class="s">m</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above results in the creation of the python package “context”, which can be used after compilation and sourcing of the workspace, simply in a terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
+</pre></div>
+</div>
+<p>then:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">context</span>
+</pre></div>
+</div>
+</section>
+<section id="unit-tests">
+<h2>Unit-tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline"></a></h2>
+<p>We use google tests for unit tests. See the <a class="reference external" href="https://github.com/intelligent-soft-robots/context/tree/master/tests">tests folder</a> of the context package for a simple example to follow.</p>
+<p>To run all the unit tests included in the package, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace
+colcon <span class="nb">test</span> --event-handlers console_direct+
+</pre></div>
+</div>
+<p>To run the unit test of a selected package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon <span class="nb">test</span> --packages-select package_name --event-handlers console_direct+	
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C4_mirroring.html" class="btn btn-neutral float-left" title="More info: mirroring real robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="E2_guidelines.html" class="btn btn-neutral float-right" title="Developer’s guide 2: guidelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

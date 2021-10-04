@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial 6: bursting mode &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="More info: Mujoco handle and contacts" href="C1_handle.html" />
+    <link rel="prev" title="Tutorial 5: saving data to files" href="B6_tutorial5.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 6: bursting mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bursting-on-real-robot">Bursting on real robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#master-frequency">Master frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bursting-with-table-ball-etc">Bursting with table, ball, etc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorial 6: bursting mode</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/B7_tutorial6.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-6-bursting-mode">
+<h1>Tutorial 6: bursting mode<a class="headerlink" href="#tutorial-6-bursting-mode" title="Permalink to this headline"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p>In the previous tutorial, we started the robot backend via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_mujoco
+</pre></div>
+</div>
+<p>This triggers the simulation of a pam robot with control running at a predefined frequency. This can be seen via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_console
+</pre></div>
+</div>
+<p>It is possible to start the robot back using the “bursting mode” via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_mujoco --bursting_mode
+<span class="c1"># or alternatively:</span>
+<span class="c1"># o80_mujoco</span>
+<span class="c1"># and using the dialog to turn on the bursting mode</span>
+</pre></div>
+</div>
+<p>(note: It may be that a window appears, but the robot can not be seen and a message “Simulate is not responding” is shown. This is ok for now)</p>
+<p>If after starting the backend using the starting mode you start the console:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_console
+</pre></div>
+</div>
+<p>you may see that a very low frequency is shown, and the iteration number does not increase.</p>
+<p>This is because in bursting mode, the robot control iterates only when being asked to do so by a frontend.</p>
+<p>For example, in a python terminal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">o80</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+
+<span class="c1"># creating a frontend</span>
+<span class="n">segment_id</span> <span class="o">=</span> <span class="s2">&quot;o80_pam_robot&quot;</span>
+<span class="n">frontend</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">FrontEnd</span><span class="p">(</span><span class="n">segment_id</span><span class="p">)</span>
+
+<span class="c1"># adding a command:</span>
+<span class="c1"># setting all pressures to 12000                                                                                                                  </span>
+<span class="n">start_iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="mi">12000</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="mi">12000</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">start_iteration</span><span class="o">+</span><span class="mi">1000</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">OVERWRITE</span><span class="p">)</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+
+<span class="c1"># requesting the backend to execute 1000 iterations</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">burst</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When running the code, it may be seen that the iteration numbers increases to 1000, and then stop increasing again. This is because the frontend requested the backend to execute 1000 iterations only (burst function).</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h2>
+<p>Here is a full running example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">o80</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+
+
+<span class="c1"># default id when starting pam_robot executable                                                                                             </span>
+<span class="n">segment_id</span> <span class="o">=</span> <span class="s2">&quot;o80_pam_robot&quot;</span>
+<span class="n">frontend</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">FrontEnd</span><span class="p">(</span><span class="n">segment_id</span><span class="p">)</span>
+
+
+<span class="c1"># starting at low pressure                                                                                                                  </span>
+<span class="n">start_iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="mi">12000</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="mi">12000</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">start_iteration</span><span class="o">+</span><span class="mi">1000</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">OVERWRITE</span><span class="p">)</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">burst</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+
+
+<span class="n">start_iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+<span class="n">low_pressure</span> <span class="o">=</span> <span class="mi">12000</span>
+<span class="n">high_pressure</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">nb_iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># requesting to go to high, low and again high pressures                                                                                    </span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">high_pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">high_pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">start_iteration</span><span class="o">+</span><span class="n">nb_iterations</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">OVERWRITE</span><span class="p">)</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">low_pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">low_pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">start_iteration</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">nb_iterations</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">high_pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">high_pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">start_iteration</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">nb_iterations</span><span class="p">),</span>
+                     <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">frontend</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+
+
+<span class="c1"># playing the sequence by &quot;jumps&quot; of 2000 iterations                                                                                        </span>
+<span class="n">total_to_play</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">nb_iterations</span>
+<span class="n">total_played</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">jump</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="k">while</span> <span class="n">total_played</span><span class="o">&lt;</span><span class="n">total_to_play</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Jump ...&quot;</span><span class="p">)</span>
+    <span class="n">frontend</span><span class="o">.</span><span class="n">burst</span><span class="p">(</span><span class="n">jump</span><span class="p">)</span>
+    <span class="n">total_played</span><span class="o">+=</span><span class="n">jump</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;...wait&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="bursting-on-real-robot">
+<h2>Bursting on real robot<a class="headerlink" href="#bursting-on-real-robot" title="Permalink to this headline"></a></h2>
+<p>When the mujoco simulated robot is started in bursting mode, the whole simulation is stopped when the backend waits for bursting signals from the frontend (i.e. the mujoco’s virtual time also stops).</p>
+<p>But the real robot can also be started in bursting mode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">o80_real</span> <span class="o">--</span><span class="n">bursting_mode</span>
+</pre></div>
+</div>
+<p>In this case, while the lower level pressure controllers keep running at high frequency, the higher level control will iterate only upon burst signals. In other hand, the values of the desired pressure will be updated only upon reception of burst signals, but the efforts of the lower level control to have the values of the real pressures of the muscles converged toward the desired pressure will not stop.</p>
+</section>
+<section id="master-frequency">
+<h2>Master frequency<a class="headerlink" href="#master-frequency" title="Permalink to this headline"></a></h2>
+<p>We saw in a previous tutorial (tutorial 3) that when the bursting mode is <em>not</em> used, it is possible to have the frontend frequency matching the backend frequency, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># backend NOT running in bursting mode</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+   <span class="n">target_iteration</span> <span class="o">+=</span> <span class="mi">1</span>
+   <span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                        <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">target_iteration</span><span class="p">),</span>
+                        <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+   <span class="n">frontend</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+   <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">target_iteration</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The loop above should run at the frequency of the backend.</p>
+<p>On the other hand, the bursting mode can be used to have the backend running at a frequency set by the backend.
+For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># backend running in bursting mode</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+   <span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">([</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,[</span><span class="n">pressure</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                        <span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+   <span class="n">frontend</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+   <span class="n">frontend</span><span class="o">.</span><span class="n">burst</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>the above will have the backend running at the frequency set by this while loop.</p>
+</section>
+<section id="bursting-with-table-ball-etc">
+<h2>Bursting with table, ball, etc<a class="headerlink" href="#bursting-with-table-ball-etc" title="Permalink to this headline"></a></h2>
+<p>Tutorial showed how to add table, balls, goals and hit points to the mujoco model, and how these items could be controlled via o80 frontends.</p>
+<p>The code below shows how to start mujoco with items in bursting mode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="n">Edit</span> <span class="n">Options</span> <span class="n">Buffers</span> <span class="n">Tools</span> <span class="n">Python</span> <span class="n">Help</span>                                                                                                                                                                                                                                               
+<span class="kn">import</span> <span class="nn">pam_mujoco</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;pam_tutorial_6&quot;</span>
+<span class="n">mujoco_id</span> <span class="o">=</span> <span class="s2">&quot;tutorial_6_mujoco_id&quot;</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">muscles</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">ball</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">]</span>
+<span class="n">robot</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;robot&quot;</span><span class="p">]</span>
+
+<span class="n">mconfig</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoConfig</span><span class="p">()</span>
+<span class="n">mconfig</span><span class="o">.</span><span class="n">graphics</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">mconfig</span><span class="o">.</span><span class="n">realtime</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">init_mujoco</span><span class="p">(</span><span class="n">mconfig</span><span class="p">)</span>
+
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_ball_control</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span><span class="n">ball</span><span class="p">)</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_joint_control</span><span class="p">(</span><span class="s2">&quot;robot&quot;</span><span class="p">,</span><span class="n">robot</span><span class="p">)</span>
+
+<span class="c1"># setting bursting mode !                                                                                                                                                                                                                                                                 </span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_bursting</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">,</span><span class="s2">&quot;robot&quot;</span><span class="p">)</span>
+
+<span class="n">model_path</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">get_model_path</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">pam_mujoco</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">,</span><span class="n">model_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This code is similar to the one shown in tutorial 4, except that a “burster” was added to the robot.</p>
+<p>Consequently, the “burst” method of the robot frontend can be called to have the mujoco simulation iterating, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="n">Edit</span> <span class="n">Options</span> <span class="n">Buffers</span> <span class="n">Tools</span> <span class="n">Python</span> <span class="n">Help</span>                                                                                                                                                                                                                                               
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">o80</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+<span class="kn">import</span> <span class="nn">pam_mujoco</span>
+<span class="kn">import</span> <span class="nn">context</span>
+
+<span class="n">ball</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">BallFrontEnd</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">)</span>
+<span class="n">robot</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">JointFrontEnd</span><span class="p">(</span><span class="s2">&quot;robot&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># target position of ball                                                                                                                                                                                                                                                                 </span>
+<span class="n">position1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">position2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># target position of robot                                                                                                                                                                                                                                                                </span>
+<span class="n">joints</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span>
+          <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="n">joint_velocities</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">nb_iterations</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="n">current_iteration</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
+<span class="n">iteration</span> <span class="o">=</span> <span class="n">o80</span><span class="o">.</span><span class="n">Iteration</span><span class="p">(</span><span class="n">current_iteration</span><span class="o">+</span><span class="n">nb_iterations</span><span class="p">)</span>
+
+<span class="n">ball</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">position1</span><span class="p">,</span><span class="n">velocity</span><span class="p">,</span><span class="n">iteration</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">joints</span><span class="p">,</span><span class="n">joint_velocities</span><span class="p">,</span><span class="n">iteration</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">QUEUE</span><span class="p">)</span>
+
+<span class="n">ball</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
+
+<span class="n">per_step</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">nb_steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nb_iterations</span><span class="o">/</span><span class="n">per_step</span><span class="p">)</span>
+
+<span class="c1"># between &quot;bursts&quot;, the simulation pause</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_steps</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;step !&quot;</span><span class="p">)</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">burst</span><span class="p">(</span><span class="n">per_step</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="B6_tutorial5.html" class="btn btn-neutral float-left" title="Tutorial 5: saving data to files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C1_handle.html" class="btn btn-neutral float-right" title="More info: Mujoco handle and contacts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

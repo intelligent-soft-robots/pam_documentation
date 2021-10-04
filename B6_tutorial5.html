@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial 5: saving data to files &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial 6: bursting mode" href="B7_tutorial6.html" />
+    <link rel="prev" title="Tutorial 4: join control, table, balls, etc" href="B5_tutorial4.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 5: saving data to files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dumping-data">Dumping data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#via-executable">Via executable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#via-python-api">Via Python API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-the-data">Reading the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Via executable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Via Python API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorial 5: saving data to files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/B6_tutorial5.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-5-saving-data-to-files">
+<h1>Tutorial 5: saving data to files<a class="headerlink" href="#tutorial-5-saving-data-to-files" title="Permalink to this headline"></a></h1>
+<p>Once a robot backend is started, for example by calling in a terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_mujoco
+</pre></div>
+</div>
+<p>it starts dumping at each iteration instances of Observation. Observation is a class encapsulating information about the robot, such as:</p>
+<ul class="simple">
+<li><p>current pressure for each muscle</p></li>
+<li><p>desired pressure for each muscle</p></li>
+<li><p>current backend iteration</p></li>
+<li><p>current backend frequency</p></li>
+<li><p>time stamp of the Observation</p></li>
+<li><p>position of each joint (in radian)</p></li>
+<li><p>velocity of each joint (in radian per seconds)</p></li>
+</ul>
+<section id="dumping-data">
+<h2>Dumping data<a class="headerlink" href="#dumping-data" title="Permalink to this headline"></a></h2>
+<p>It is possible to dump the Observation instances continuously generated by the backend into files for later analysis, either by starting an executable or via the python API.</p>
+<section id="via-executable">
+<h3>Via executable<a class="headerlink" href="#via-executable" title="Permalink to this headline"></a></h3>
+<p>Start in a terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_logger
+</pre></div>
+</div>
+<p>A dialog will allow you to configure the logger. Type ‘h’ for more information. Note that the proposed file path does not correspond to an existing file, so using it will not result into deleting an existing file.</p>
+<p>The process will start dumping observations in the selected file, until ctrl+c is pressed (or the duration is passed, if you configured the logger this way).</p>
+</section>
+<section id="via-python-api">
+<h3>Via Python API<a class="headerlink" href="#via-python-api" title="Permalink to this headline"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+
+<span class="n">segment_id</span> <span class="o">=</span> <span class="s2">&quot;o80_pam_robot&quot;</span> <span class="c1"># should correspond to the segment_id of the backend robot</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/mysave&quot;</span> <span class="c1"># warning: will be overwritten if it already exists</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># frequency at which new observations will be dumped </span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="n">segment_id</span><span class="p">,</span><span class="n">file_path</span><span class="p">,</span><span class="n">frequency</span><span class="o">=</span><span class="n">frequency</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="c1"># spawn a process which starts dumping observations into the file</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span> <span class="c1"># stops the process</span>
+</pre></div>
+</div>
+<p>alternatively, a context manager can be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">saving data for 5 seconds ...&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="s2">&quot;o80_pam_robot&quot;</span><span class="p">,</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">time_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">time_start</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;... done&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The file manager proposes path to files in which the data can be saved:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fm</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">FileManager</span><span class="p">()</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">data will be saved in {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">saving data for 5 seconds ...&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="s2">&quot;o80_pam_robot&quot;</span><span class="p">,</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">time_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">time_start</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;... done&quot;</span><span class="p">)</span>
+
+<span class="c1"># latest will be the same as path</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;data was saved in: {}&quot;</span><span class="p">,</span><span class="n">fm</span><span class="o">.</span><span class="n">latest</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>warning</strong> : the file manager returns path that are in the tmp folder, so the files will be deleted automatically by the OS at some point. Be careful to backup the important files</p>
+</section>
+</section>
+<section id="reading-the-data">
+<h2>Reading the data<a class="headerlink" href="#reading-the-data" title="Permalink to this headline"></a></h2>
+<section id="id1">
+<h3>Via executable<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<p>This executable will provide some basic info about a data file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_log_file_stats
+</pre></div>
+</div>
+<p>The dialog will allow you to select the file path. Note that if the data was collected via the executable o80_logger, the last dumped file is proposed as default file path.</p>
+</section>
+<section id="id2">
+<h3>Via Python API<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">o80_pam</span>
+
+<span class="k">for</span> <span class="n">observation</span> <span class="ow">in</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;/path/to/my/file&quot;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">observation</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="B5_tutorial4.html" class="btn btn-neutral float-left" title="Tutorial 4: join control, table, balls, etc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="B7_tutorial6.html" class="btn btn-neutral float-right" title="Tutorial 6: bursting mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

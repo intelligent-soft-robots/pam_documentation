@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer’s guide 2: guidelines &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer’s guide 3: packages overview" href="E3_packages_overview.html" />
+    <link rel="prev" title="Developer’s guide 1: tools" href="E1_tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer’s guide 2: guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#working-on-a-git-branch">Working on a git branch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-update">code update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unit-tests">unit-tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demos">demos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-and-guidelines">formatting and guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation">installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#merging-to-master-branch">Merging to master branch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Developer’s guide 2: guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/E2_guidelines.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-2-guidelines">
+<h1>Developer’s guide 2: guidelines<a class="headerlink" href="#developer-s-guide-2-guidelines" title="Permalink to this headline"></a></h1>
+<p>This section describes the rules to follow to get new code integrated in any of the repository.</p>
+<section id="working-on-a-git-branch">
+<h2>Working on a git branch<a class="headerlink" href="#working-on-a-git-branch" title="Permalink to this headline"></a></h2>
+<p>Before starting to work on a repository, create a branch: your_name/what_you_will_work_on.</p>
+<p>For example: vberenz/adding_eigen_support</p>
+<p>Work on this branch and push as many commits as you wish.</p>
+</section>
+<section id="code-update">
+<h2>code update<a class="headerlink" href="#code-update" title="Permalink to this headline"></a></h2>
+<p>When you update code, you must consider:</p>
+<section id="unit-tests">
+<h3>unit-tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline"></a></h3>
+<p>Update existing unit tests or create new onces. Here are <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/tests/unit_tests.cpp">examples</a> of unit tests.</p>
+</section>
+<section id="demos">
+<h3>demos<a class="headerlink" href="#demos" title="Permalink to this headline"></a></h3>
+<p>A demo is an executable that provides a usage example of the code. Demos should be a simple as short as possible. Demos are very useful for users to understand rapidly how the code work.</p>
+<p>Typically, demos are hosted in packages (as for example <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_mujoco/tree/master/demos">here</a>).
+When a demo requires code from various repositories, they can be hosted in a dedicated repository, as for example <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_demos">pam_demos</a>.</p>
+</section>
+<section id="documentation">
+<h3>documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h3>
+<p>Documentation is written directly in the code, see for example this C++ <a class="reference external" href="https://github.com/intelligent-soft-robots/o80/blob/master/include/o80/back_end.hpp">file</a>.  Our code base currently does not have enough documentation, please help us doing better.</p>
+</section>
+<section id="formatting-and-guidelines">
+<h3>formatting and guidelines<a class="headerlink" href="#formatting-and-guidelines" title="Permalink to this headline"></a></h3>
+<p>You must these <a class="reference external" href="https://machines-in-motion.github.io/code_documentation/ci_example_cpp/docs/doxygen/html/coding_guidelines_1.html">guidelines</a>.
+For formatting c++ code, use the executable mpi_cpp_format (which should already be in your path if you followed the installation instruction):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace/src/package
+mpi_cpp_format .
+</pre></div>
+</div>
+<p>For python code formatting, use python black:</p>
+<section id="installation">
+<h4>installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install black
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h4>usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>black /path/to/folder
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="merging-to-master-branch">
+<h2>Merging to master branch<a class="headerlink" href="#merging-to-master-branch" title="Permalink to this headline"></a></h2>
+<p>Once the code on the branch you are working on is ready (i.e. clean, tested, documented, formatted and with demos), you request for it to be merged with the master branch:</p>
+<ul class="simple">
+<li><p>visit the repository on github</p></li>
+<li><p>click on the link “Pull requests”</p></li>
+<li><p>create a new pull request, asign yourself and select reviewers using the web interface</p></li>
+<li><p>select an appropriate label.</p></li>
+</ul>
+<p>It is good manner to squash all the commits of the branch before a code review (see below), as this makes the work of the reviewer easier. See for example these <a class="reference external" href="http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html">instructions</a>.</p>
+<p>In the pull request text:</p>
+<ul class="simple">
+<li><p>describe what functionality you added or updated, and why</p></li>
+<li><p>describe how you know the code you wrote works (e.g. running unit tests and/or demos)</p></li>
+<li><p>confirm you followed the guidelines and used the formatting tools</p></li>
+</ul>
+<p>Note that yourself will certainly also be requested to perform review. If so:</p>
+<ul class="simple">
+<li><p>check the guidelines have been followed</p></li>
+<li><p>check demos have been provided</p></li>
+<li><p>check the code is modular and properly commented</p></li>
+<li><p>check unit tests exist</p></li>
+<li><p>avoid requested micro optimization of the code, and request non consequentials modification of the code</p></li>
+<li><p>avoid requesting the development of new features (e.g. “this is useful, but you can also add …”), as one could argue you could also add these extra features yourself.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="E1_tools.html" class="btn btn-neutral float-left" title="Developer’s guide 1: tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="E3_packages_overview.html" class="btn btn-neutral float-right" title="Developer’s guide 3: packages overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
