@@ -1,1 +1,0 @@
-Empirical Inference, Max Planck Institute for Intelligent Systems
