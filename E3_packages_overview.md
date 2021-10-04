@@ -5,7 +5,7 @@ The software for the control of the PAM robot (real or mujoco simulated) is spli
 These packages are hosted either at the [github "Intelligent Soft Robots" organization](https://github.com/intelligent-soft-robots)
 or at the [github "Machines in Motion Laboratory" organization](https://github.com/machines-in-motion).
 
-If you installed the software via treep/colcon or via the source tar ball (as described [here](A0_overview_and_installation.html)), these package are also present on your machine.
+If you installed the software via treep/colcon or via the source tar ball (as described [here](A1_overview_and_installation)), these package are also present on your machine.
 
 Here a graph providing the dependencies between all the packages.
 

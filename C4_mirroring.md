@@ -9,7 +9,7 @@ o80_real
 
 The ```o80_real``` executable requests you to enter a segment_id (```real_robot``` as default). Take note of it.
 
-Alternatively, you may also start a mujoco simulated robot that uses pressure control, see for example the [three first tutorials](B1_tutorial0.html). In the terminal, take not of the frontend related to the robot control, e.g. ```robot``` in this output:
+Alternatively, you may also start a mujoco simulated robot that uses pressure control, see for example the [three first tutorials](B1_tutorial0). In the terminal, take not of the frontend related to the robot control, e.g. ```robot``` in this output:
 
 ```bash
 adding controller:

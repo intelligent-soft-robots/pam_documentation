@@ -7,7 +7,7 @@ This page is a good read for anybody who would like to have a better understandi
 
 For Mujoco to work,  model xml file that describes the robot and environment is needed.
 Possibly, this xml file can be created "by hand".
-In the case of pam_mujoco, things are a bit more involved because the API let the user customize the environment, e.g. add more balls, add a target, add muscles, etc. (see [handle](C1_handle.html)). For achieving this, the xml file is created "on the fly" by python in order to match the user configuration. The code for doing this is here:
+In the case of pam_mujoco, things are a bit more involved because the API let the user customize the environment, e.g. add more balls, add a target, add muscles, etc. (see [handle](C1_handle)). For achieving this, the xml file is created "on the fly" by python in order to match the user configuration. The code for doing this is here:
 
 - https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/python/pam_mujoco/models.py
 
