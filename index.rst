@@ -1,6 +1,9 @@
 PAM Documentation
 =================
 
+.. image:: images/2PAMcompressed.jpg
+   :alt: PAM Robot
+
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
