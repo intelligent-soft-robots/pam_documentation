@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More info: visual ball tracking &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>More info: visual ball tracking</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C5_visual_ball_tracking.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="more-info-visual-ball-tracking">
+<h1>More info: visual ball tracking<a class="headerlink" href="#more-info-visual-ball-tracking" title="Permalink to this headline"></a></h1>
+<p>| page useful only  to the users in the Max Planck Institute for Intelligent Systems having access to the robot lab | — |</p>
+<section id="users">
+<h2>Users<a class="headerlink" href="#users" title="Permalink to this headline"></a></h2>
+<section id="what-it-is">
+<h3>What it is<a class="headerlink" href="#what-it-is" title="Permalink to this headline"></a></h3>
+<p>The robot lab is equiped with four rgb cameras, which can be used to track the (3d) position of a table tennis ball.
+The software used for this is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam">tennicam</a> which has been developped internally by Sebastian Gomez-Gonzalez.</p>
+<p>The desktop “rodau” is installed with the software, and the cameras are plugged to it, ready to be used.</p>
+</section>
+<section id="how-to">
+<h3>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Login to rodau using the ball_tracking user. The password is written on the desktop.</p></li>
+<li><p>Open a terminal</p></li>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">tennicam_start</span></code>. Two terminals should open. If they do not show any error message, the tracking is active.</p></li>
+</ul>
+</section>
+<section id="how-to-fix">
+<h3>How to fix<a class="headerlink" href="#how-to-fix" title="Permalink to this headline"></a></h3>
+<p>If you experience any issue, you can try to run in a terminal:</p>
+<ul class="simple">
+<li><p>tennicam_list_cameras : check if the drivers detect the four cameras</p></li>
+<li><p>tennicam_ping_cameras: check if the desktop can ping the four camers</p></li>
+<li><p>tennicam_capture_indep: check if the desktop can use the drivers to capture pictures from the cameras</p></li>
+<li><p>tennicam_capture: check if the desktop can use the drivers of the cameras to capture synchronized pictures</p></li>
+</ul>
+</section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>In case the installation on rodau has been compromized, and you need to reinstall.</p>
+<section id="basics-requirements">
+<h3>Basics requirements<a class="headerlink" href="#basics-requirements" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Ubuntu 20.04</p></li>
+<li><p>you must be part of the Intelligent Soft Robots github domain</p></li>
+<li><p>your ssh key must be set on github</p></li>
+</ul>
+</section>
+<section id="requirement-cuda-10-0">
+<h3>Requirement: Cuda 10.0<a class="headerlink" href="#requirement-cuda-10-0" title="Permalink to this headline"></a></h3>
+<p>If you are at MPI-IS, add to /etc/bash.bashrc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo &quot;- setup CUDA 10.0 to /is/software/nvidia/cuda-10.0/lib64&quot;
+export LD_LIBRARY_PATH=/is/software/nvidia/cuda-10.0/lib64
+export PATH=$PATH:/is/software/nvidia/cuda-10.0/bin
+export CUDA_HOME=/is/software/nvidia/cuda-10.0
+</pre></div>
+</div>
+<p>Then open a new terminal or source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bash</span><span class="o">.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Alternatively, to install Cuda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">cuda</span><span class="o">-</span><span class="n">libraries</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">1</span> <span class="n">cuda</span><span class="o">-</span><span class="n">misc</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">1</span> <span class="n">cuda</span><span class="o">-</span><span class="n">minimal</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="clone-the-treep-project">
+<h3>Clone the treep project<a class="headerlink" href="#clone-the-treep-project" title="Permalink to this headline"></a></h3>
+<p>Install tree:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">treep</span>
+</pre></div>
+</div>
+<p>and clone the treep configuration:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir ~/Tennicam <span class="c1"># or any other directory of your choice</span>
+<span class="nb">cd</span> ~/Tennicam
+git clone git@github.com:intelligent-soft-robots/treep_isr.git
+treep --clone BALL_TRACKING
+</pre></div>
+</div>
+</section>
+<section id="install-additional-dependencies">
+<h3>Install additional dependencies<a class="headerlink" href="#install-additional-dependencies" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Tennicam/workspace/src/tennicam/
+sudo ./install_dependencies
+</pre></div>
+</div>
+<p>As, among other things, this compiles open-cv, this runs for a while</p>
+</section>
+<section id="compile">
+<h3>Compile<a class="headerlink" href="#compile" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Tennicam/workspace
+colcon build
+</pre></div>
+</div>
+</section>
+<section id="source-the-workspace">
+<h3>Source the workspace<a class="headerlink" href="#source-the-workspace" title="Permalink to this headline"></a></h3>
+<p>Add to ~/.bashrc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;-sourcing tennicam&quot;</span>
+<span class="n">source</span> <span class="o">~/</span><span class="n">Tennicam</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+</pre></div>
+</div>
+<p>and start a new terminal</p>
+</section>
+<section id="global-installation-of-configuration-files">
+<h3>Global installation of configuration files<a class="headerlink" href="#global-installation-of-configuration-files" title="Permalink to this headline"></a></h3>
+<p>Tennicam requires some configuration file. To install them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">Tennicam</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">tennicam</span><span class="o">/</span><span class="n">extras</span>
+<span class="n">sudo</span> <span class="o">./</span><span class="n">install_config</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
