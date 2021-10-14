@@ -57,11 +57,17 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">More info: visual ball tracking</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#users">Users</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#what-it-is">What it is</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to">How-to</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-fix">How to fix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to">How-to</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-start-the-server">How to start the server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-fix-the-server">How to fix the server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-start-the-client">How to start the client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-display-the-tracked-ball-in-mujoco">How to display the tracked ball in mujoco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-fix-the-transform-of-the-ball">How to fix the transform of the ball</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-the-server">Installation of the server</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#basics-requirements">Basics requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#requirement-cuda-10-0">Requirement: Cuda 10.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clone-the-treep-project">Clone the treep project</a></li>
@@ -112,19 +118,24 @@
 <section id="what-it-is">
 <h3>What it is<a class="headerlink" href="#what-it-is" title="Permalink to this headline"></a></h3>
 <p>The robot lab is equiped with four rgb cameras, which can be used to track the (3d) position of a table tennis ball.
-The software used for this is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam">tennicam</a> which has been developped internally by Sebastian Gomez-Gonzalez.</p>
-<p>The desktop “rodau” is installed with the software, and the cameras are plugged to it, ready to be used.</p>
+For the server, the software used for this is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam">tennicam</a> which has been developped internally by Sebastian Gomez-Gonzalez.
+The desktop “rodau” is installed with the server software, and the cameras are plugged to it, ready to be used.
+For the client, the software used is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam_client">tennicam_client</a>,
+which implements an <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html">o80</a> standalone. The client is install along the pam software, as described <a class="reference external" href="https://intelligent-soft-robots.github.io/pam_documentation/A1_overview_and_installation.html">here</a>.</p>
 </section>
 <section id="how-to">
 <h3>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h3>
+<section id="how-to-start-the-server">
+<h4>How to start the server<a class="headerlink" href="#how-to-start-the-server" title="Permalink to this headline"></a></h4>
 <ul class="simple">
+<li><p>Turn on the “bright” light above the table tennis.</p></li>
 <li><p>Login to rodau using the ball_tracking user. The password is written on the desktop.</p></li>
-<li><p>Open a terminal</p></li>
+<li><p>Open a terminal.</p></li>
 <li><p>Call <code class="docutils literal notranslate"><span class="pre">tennicam_start</span></code>. Two terminals should open. If they do not show any error message, the tracking is active.</p></li>
 </ul>
 </section>
-<section id="how-to-fix">
-<h3>How to fix<a class="headerlink" href="#how-to-fix" title="Permalink to this headline"></a></h3>
+<section id="how-to-fix-the-server">
+<h4>How to fix the server<a class="headerlink" href="#how-to-fix-the-server" title="Permalink to this headline"></a></h4>
 <p>If you experience any issue, you can try to run in a terminal:</p>
 <ul class="simple">
 <li><p>tennicam_list_cameras : check if the drivers detect the four cameras</p></li>
@@ -133,9 +144,85 @@ The software used for this is <a class="reference external" href="https://github
 <li><p>tennicam_capture: check if the desktop can use the drivers of the cameras to capture synchronized pictures</p></li>
 </ul>
 </section>
+<section id="how-to-start-the-client">
+<h4>How to start the client<a class="headerlink" href="#how-to-start-the-client" title="Permalink to this headline"></a></h4>
+<p>In a first terminal (you may use the default parameters):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client
+</pre></div>
+</div>
+<p>Optionally, if you want to see a log of the the ball position as received from the server,
+in another terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tennicam_client_print</span>
+</pre></div>
+</div>
+<p>In your python code, you may then use an <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html">o80</a> frontend
+to access ball informations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tennicam_client</span>
+
+<span class="n">TENNICAM_CLIENT_DEFAULT_SEGMENT_ID</span> <span class="o">=</span> <span class="s2">&quot;tennicam_client&quot;</span>
+
+<span class="n">frontend</span> <span class="o">=</span> <span class="n">tennicam_client</span><span class="o">.</span><span class="n">FrontEnd</span><span class="p">(</span><span class="n">TENNICAM_CLIENT_DEFAULT_SEGMENT_ID</span><span class="p">)</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">iteration</span><span class="p">)</span>
+<span class="n">ball</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ball</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="c1"># other useful methods:</span>
+<span class="c1"># position = obs.get_position()</span>
+<span class="c1"># velocity = obs.get_velocity()</span>
+<span class="c1"># iteration = obs.get_iteration()</span>
+<span class="c1"># time_stamp = obs.get_time_stamp()</span>
+<span class="c1"># ball_id = obs.get_ball_id()</span>
+
+</pre></div>
+</div>
+<p>For an example, see the source code of <code class="docutils literal notranslate"><span class="pre">tennicam_client_print</span></code> <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print">here</a>.</p>
 </section>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<section id="how-to-display-the-tracked-ball-in-mujoco">
+<h4>How to display the tracked ball in mujoco<a class="headerlink" href="#how-to-display-the-tracked-ball-in-mujoco" title="Permalink to this headline"></a></h4>
+<p>In a terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco tennicam_client_display
+<span class="c1"># or: pam_mujoco_no_xterms tennicam_client_display</span>
+</pre></div>
+</div>
+<p>and in another terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tennicam_mujoco_display</span>
+</pre></div>
+</div>
+<p>A mujoco simulation will start, displaying the ball.
+To stop the mujoco simulation, type in any terminal <code class="docutils literal notranslate"><span class="pre">pam_mujoco_stop</span> <span class="pre">tennicam_client_display</span></code>.</p>
+</section>
+<section id="how-to-fix-the-transform-of-the-ball">
+<h4>How to fix the transform of the ball<a class="headerlink" href="#how-to-fix-the-transform-of-the-ball" title="Permalink to this headline"></a></h4>
+<p>The ball is detected in a given frame, and then its position goes through a transformation (translation and rotation).
+The transformation applied is specified in the configuration file <code class="docutils literal notranslate"><span class="pre">/opt/mpi-is/tennicam_client/config/config.toml</span></code>
+which has, for example, the content:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span>[transform]
+translation = [0.5,0.5,0]
+rotation = [0.2,0,0]
+[server]
+hostname = &quot;rodau&quot;
+port = 7660
+</pre></div>
+</div>
+<p>To update the parameters of the transform:</p>
+<ul class="simple">
+<li><p>when you start <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code>, use the dialog to set <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>.
+Note that this slow down the client, so set <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> only when tuning the transform.</p></li>
+<li><p>start <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code> as descrived above.</p></li>
+<li><p>in yet another terminal, run:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client_transform_update
+</pre></div>
+</div>
+<p>which will start a dialog allow you to tune transform. The updated transform is applied to the active client, so
+may see the result in the mujoco simulation poped up by <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code>.</p>
+<p>The dialog allows you to save the transform in the configuration file (i.e. to overwrite <code class="docutils literal notranslate"><span class="pre">/opt/mpi-is/tennicam_client/config/config.toml</span></code>).
+This ensure the next time <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> is started (without <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code>), the desired transform is applied.</p>
+</section>
+</section>
+</section>
+<section id="installation-of-the-server">
+<h2>Installation of the server<a class="headerlink" href="#installation-of-the-server" title="Permalink to this headline"></a></h2>
 <p>In case the installation on rodau has been compromized, and you need to reinstall.</p>
 <section id="basics-requirements">
 <h3>Basics requirements<a class="headerlink" href="#basics-requirements" title="Permalink to this headline"></a></h3>
