@@ -8,18 +8,21 @@
 ### What it is
 
 The robot lab is equiped with four rgb cameras, which can be used to track the (3d) position of a table tennis ball.
-The software used for this is [tennicam](https://github.com/intelligent-soft-robots/tennicam) which has been developped internally by Sebastian Gomez-Gonzalez.
-
-The desktop "rodau" is installed with the software, and the cameras are plugged to it, ready to be used.
+For the server, the software used for this is [tennicam](https://github.com/intelligent-soft-robots/tennicam) which has been developped internally by Sebastian Gomez-Gonzalez.
+The desktop "rodau" is installed with the server software, and the cameras are plugged to it, ready to be used.
+For the client, the software used is [tennicam_client](https://github.com/intelligent-soft-robots/tennicam_client),
+which implements an [o80](http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html) standalone. The client is install along the pam software, as described [here](https://intelligent-soft-robots.github.io/pam_documentation/A1_overview_and_installation.html). 
 
 ### How-to
 
+#### How to start the server
+
+- Turn on the "bright" light above the table tennis. 
 - Login to rodau using the ball_tracking user. The password is written on the desktop.
-- Open a terminal
+- Open a terminal.
 - Call ```tennicam_start```. Two terminals should open. If they do not show any error message, the tracking is active.
 
-
-### How to fix
+#### How to fix the server
 
 If you experience any issue, you can try to run in a terminal:
 
@@ -28,7 +31,99 @@ If you experience any issue, you can try to run in a terminal:
 - tennicam_capture_indep: check if the desktop can use the drivers to capture pictures from the cameras
 - tennicam_capture: check if the desktop can use the drivers of the cameras to capture synchronized pictures
 
-## Installation
+#### How to start the client
+
+In a first terminal (you may use the default parameters):
+
+```bash
+tennicam_client
+```
+
+Optionally, if you want to see a log of the the ball position as received from the server,
+in another terminal:
+
+```
+tennicam_client_print
+```
+
+In your python code, you may then use an [o80](http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html) frontend
+to access ball informations.
+
+```python
+import tennicam_client
+
+TENNICAM_CLIENT_DEFAULT_SEGMENT_ID = "tennicam_client"
+
+frontend = tennicam_client.FrontEnd(TENNICAM_CLIENT_DEFAULT_SEGMENT_ID)
+obs = frontend.read(iteration)
+ball = obs.get()
+print(ball.to_string())
+
+# other useful methods:
+# position = obs.get_position()
+# velocity = obs.get_velocity()
+# iteration = obs.get_iteration()
+# time_stamp = obs.get_time_stamp()
+# ball_id = obs.get_ball_id()
+
+```
+
+For an example, see the source code of ```tennicam_client_print``` [here](https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print).
+
+
+#### How to display the tracked ball in mujoco
+
+In a terminal:
+
+```bash
+pam_mujoco tennicam_client_display
+# or: pam_mujoco_no_xterms tennicam_client_display
+```
+
+and in another terminal:
+
+```
+tennicam_mujoco_display
+```
+
+A mujoco simulation will start, displaying the ball.
+To stop the mujoco simulation, type in any terminal ```pam_mujoco_stop tennicam_client_display```.
+
+#### How to fix the transform of the ball
+
+The ball is detected in a given frame, and then its position goes through a transformation (translation and rotation).
+The transformation applied is specified in the configuration file ```/opt/mpi-is/tennicam_client/config/config.toml```
+which has, for example, the content:
+
+```toml
+[transform]
+translation = [0.5,0.5,0]
+rotation = [0.2,0,0]
+[server]
+hostname = "rodau"
+port = 7660
+```
+
+To update the parameters of the transform:
+
+- when you start ```tennicam_client```, use the dialog to set ```active_transform``` to ```True```.
+Note that this slow down the client, so set ```active_transform``` to ```True``` only when tuning the transform.
+
+- start ```tennicam_client_display``` as descrived above.
+
+- in yet another terminal, run:
+
+```bash
+tennicam_client_transform_update
+```
+
+which will start a dialog allow you to tune transform. The updated transform is applied to the active client, so
+may see the result in the mujoco simulation poped up by ```tennicam_client_display```.
+
+The dialog allows you to save the transform in the configuration file (i.e. to overwrite ```/opt/mpi-is/tennicam_client/config/config.toml```).
+This ensure the next time ```tennicam_client``` is started (without ```active_transform``` set to ```True```), the desired transform is applied. 
+
+## Installation of the server
 
 In case the installation on rodau has been compromized, and you need to reinstall.
 
