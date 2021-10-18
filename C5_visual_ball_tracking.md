@@ -33,6 +33,7 @@ If you experience any issue, you can try to run in a terminal:
 
 #### How to start the client
 
+The client can be started on any Ubuntu desktop installed with the pam software.
 In a first terminal (you may use the default parameters):
 
 ```bash
@@ -83,7 +84,7 @@ pam_mujoco tennicam_client_display
 and in another terminal:
 
 ```
-tennicam_mujoco_display
+tennicam_client_display
 ```
 
 A mujoco simulation will start, displaying the ball.
