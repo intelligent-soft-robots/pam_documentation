@@ -221,13 +221,14 @@ Press the emergency button.</p>
 </ul>
 <p>Starting steps:</p>
 <ol class="simple">
-<li><p>“Push” with your finger the encoder of the 4th (i.e. last before the racket) joint. Sometimes connection with the encoder gets lost, resulting in a constant angle value being returned for this joint.</p></li>
 <li><p>Start electronic box (switch power outlet on)</p></li>
-<li><p>Start server (pam_interface or o80_real)</p></li>
-<li><p>Turn on pressure on valve (vertical)</p></li>
-<li><p>Release emergency button: pressures should reach their minimum values as set in the used json configuration file</p></li>
-<li><p>Observe robot. A short motion (i.e. half a second) should be observed. If the robot keeps moving, press emergency button</p></li>
+<li><p>Start o80_real and o80_console. o80_console should show * as angle values, as the reference for the encoder should not have been found yet.</p></li>
+<li><p>Move the robot joints manually until an angle value is shown for all degree of freedome, except the last one.</p></li>
+<li><p>Align manually the last degree of freedom</p></li>
+<li><p>Stop the electronic box, and then restart it</p></li>
+<li><p>Start o80_real</p></li>
 </ol>
+<p>(the 4th degree of freedome has some encoder issue, which explains this convulated starting process).</p>
 <p>Stopping steps:</p>
 <ol class="simple">
 <li><p>Stop server (software has pressure decrease on exit)</p></li>
