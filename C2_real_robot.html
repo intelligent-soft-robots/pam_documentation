@@ -222,11 +222,13 @@ Press the emergency button.</p>
 <p>Starting steps:</p>
 <ol class="simple">
 <li><p>Start electronic box (switch power outlet on)</p></li>
-<li><p>Start o80_real and o80_console. o80_console should show * as angle values, as the reference for the encoder should not have been found yet.</p></li>
+<li><p>Start o80_real and o80_console. o80_console should show * as angle values, as the reference for the encoder should not have been found yet. If o80_console shows angles, restart the desktop.</p></li>
 <li><p>Move the robot joints manually until an angle value is shown for all degree of freedome, except the last one.</p></li>
 <li><p>Align manually the last degree of freedom</p></li>
 <li><p>Stop the electronic box, and then restart it</p></li>
 <li><p>Start o80_real</p></li>
+<li><p>Release the pressure via the valve (put in a “vertical” stance)</p></li>
+<li><p>Release the emergency button</p></li>
 </ol>
 <p>(the 4th degree of freedome has some encoder issue, which explains this convulated starting process).</p>
 <p>Stopping steps:</p>
