@@ -63,6 +63,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#how-to-start-the-client">How to start the client</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#how-to-display-the-tracked-ball-in-mujoco">How to display the tracked ball in mujoco</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#how-to-fix-the-transform-of-the-ball">How to fix the transform of the ball</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-log-ball-information">How to log ball information</a></li>
 </ul>
 </li>
 </ul>
@@ -219,6 +220,33 @@ Note that this slow down the client, so set <code class="docutils literal notran
 may see the result in the mujoco simulation poped up by <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code>.</p>
 <p>The dialog allows you to save the transform in the configuration file (i.e. to overwrite <code class="docutils literal notranslate"><span class="pre">/opt/mpi-is/tennicam_client/config/config.toml</span></code>).
 This ensure the next time <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> is started (without <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code>), the desired transform is applied.</p>
+</section>
+<section id="how-to-log-ball-information">
+<h4>How to log ball information<a class="headerlink" href="#how-to-log-ball-information" title="Permalink to this headline"></a></h4>
+<p>After starting <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code>, start in another terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client_logger
+</pre></div>
+</div>
+<p>The dialog will propose to you to save data in an not-already-existing file.
+The dump of the data in the file starts as soon as the logger start.
+ctrl+c to stop the logging.</p>
+<p>Once ball information has been dumped into a file, it is possible to replay the recorded ball behavior into a mujoco simulation.</p>
+<p>In a first terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco tennicam_client_replay
+</pre></div>
+</div>
+<p>In another terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client_replay
+</pre></div>
+</div>
+<p>A dialog will allow you to enter the path to the file to replay.</p>
+<p>To parse a dumped file, you may use the parser:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tennicam_client</span>
+<span class="k">for</span> <span class="n">ball_info</span> <span class="ow">in</span> <span class="n">tennicam_client</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">):</span>
+    <span class="n">ball_id</span><span class="p">,</span><span class="n">time_stamp</span><span class="p">,</span><span class="n">position</span><span class="p">,</span><span class="n">velocity</span> <span class="o">=</span> <span class="n">ball_info</span> 
+</pre></div>
+</div>
+<p>See the source code of <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_replay.py">tennicam_client_replay</a> for an example.</p>
 </section>
 </section>
 </section>
