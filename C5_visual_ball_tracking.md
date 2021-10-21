@@ -124,6 +124,44 @@ may see the result in the mujoco simulation poped up by ```tennicam_client_displ
 The dialog allows you to save the transform in the configuration file (i.e. to overwrite ```/opt/mpi-is/tennicam_client/config/config.toml```).
 This ensure the next time ```tennicam_client``` is started (without ```active_transform``` set to ```True```), the desired transform is applied. 
 
+#### How to log ball information
+
+After starting ```tennicam_client```, start in another terminal:
+
+```bash
+tennicam_client_logger
+```
+The dialog will propose to you to save data in an not-already-existing file. 
+The dump of the data in the file starts as soon as the logger start.
+ctrl+c to stop the logging.
+
+Once ball information has been dumped into a file, it is possible to replay the recorded ball behavior into a mujoco simulation.
+
+In a first terminal:
+
+```bash
+pam_mujoco tennicam_client_replay
+```
+
+In another terminal:
+
+```bash
+tennicam_client_replay
+```
+
+A dialog will allow you to enter the path to the file to replay.
+
+To parse a dumped file, you may use the parser:
+
+```python
+import tennicam_client
+for ball_info in tennicam_client.parse(path_to_file):
+    ball_id,time_stamp,position,velocity = ball_info 
+```
+
+See the source code of [tennicam_client_replay](https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_replay.py) for an example.
+
+
 ## Installation of the server
 
 In case the installation on rodau has been compromized, and you need to reinstall.
