@@ -94,6 +94,9 @@ sudo ldconfig
 
 Copy your mujoco key (mjkey.txt) in /opt/mujoco.
 
+
+(install_via_colcon)=
+
 ### Via colcon workspace
 
 This is the recommanded way for developpers of the PAM software (as opposed to the users of it).
