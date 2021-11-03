@@ -149,7 +149,7 @@ pam_check 0
 
 ## Method 2: O80 PAM
 
-o80_real is a wrappers over [pam_interface](https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html) providing [o80](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html) functionalities.
+o80_real is a wrappers over [pam_interface](https://github.com/intelligent-soft-robots/pam_interface) providing {doc}`o80 <o80:index>` functionalities.
 
 This documentation assumes you are familiar with both *pam_interface* and *o80*.
 
@@ -169,7 +169,7 @@ To start a server over a dummy robot (no real physics, no graphics, just for deb
 o80_dummy
 ```
 
-To start a server over the real robot (on cent-os control desktop, **assuming you follow the procedure provided in the pam_interface [documentation](https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html)**)
+To start a server over the real robot (on cent-os control desktop, **assuming you follow the procedure provided in the [pam_interface](https://github.com/intelligent-soft-robots/pam_interface) documentation**)
 
 ```bash
 o80_real 
