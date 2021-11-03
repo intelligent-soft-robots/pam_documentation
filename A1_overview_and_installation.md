@@ -31,7 +31,7 @@ The command above spawns a "backend" process which connects to the robot. This p
 
 User may then use a python (or a c++) API for interacting with the shared memory, i.e. reading the state of the robot (written by the backend) or writing commands to it (which will then be read by the backend and applied to the robot).
 
-There are quite a few types of commands that can be written in the shared memory. The system is based on o80, and it is advised to read o80's [documentation](http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html) before going further.
+There are quite a few types of commands that can be written in the shared memory. The system is based on o80, and it is advised to read o80's {doc}`documentation <o80:index>` before going further.
 
 ## Software installation 
 
