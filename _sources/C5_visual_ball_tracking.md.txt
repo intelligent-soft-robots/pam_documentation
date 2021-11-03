@@ -11,7 +11,7 @@ The robot lab is equiped with four rgb cameras, which can be used to track the (
 For the server, the software used for this is [tennicam](https://github.com/intelligent-soft-robots/tennicam) which has been developped internally by Sebastian Gomez-Gonzalez.
 The desktop "rodau" is installed with the server software, and the cameras are plugged to it, ready to be used.
 For the client, the software used is [tennicam_client](https://github.com/intelligent-soft-robots/tennicam_client),
-which implements an [o80](http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html) standalone. The client is install along the pam software, as described [here](https://intelligent-soft-robots.github.io/pam_documentation/A1_overview_and_installation.html). 
+which implements an {doc}`o80 <o80:index>` standalone. The client is install along the pam software, as described [here](A1_overview_and_installation). 
 
 ### How-to
 
@@ -47,7 +47,7 @@ in another terminal:
 tennicam_client_print
 ```
 
-In your python code, you may then use an [o80](http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html) frontend
+In your python code, you may then use an {doc}`o80 <o80:index>` frontend
 to access ball informations.
 
 ```python

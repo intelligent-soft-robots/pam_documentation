@@ -92,18 +92,15 @@
 These packages are hosted either at the <a class="reference external" href="https://github.com/intelligent-soft-robots">github “Intelligent Soft Robots” organization</a>
 or at the <a class="reference external" href="https://github.com/machines-in-motion">github “Machines in Motion Laboratory” organization</a>.</p>
 <p>If you installed the software via treep/colcon or via the source tar ball (as described <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">here</span></a>), these package are also present on your machine.</p>
-<p>Here a graph providing the dependencies between all the packages.</p>
-<p><img alt="graph dependencies" src="https://intelligent-soft-robots.github.io/images/dependencies_graph.png" /></p>
 <p>Overview of all packages (bottom to top) :</p>
-<ul class="simple">
+<ul>
 <li><p><a class="reference external" href="https://github.com/machines-in-motion/shared_memory">shared memory</a>: package for (realtime) <strong>interprocess sharing of data</strong> via a shared memory.</p></li>
 <li><p><a class="reference external" href="https://github.com/machines-in-motion/real_time_tools">realtime tools</a> : <strong>realtime utilities</strong>, e.g. spawning of realtime threads.</p></li>
 <li><p><a class="reference external" href="https://github.com/machines-in-motion/time_series">time series</a> : data structure built over the shared memory package: <strong>shared circular buffer</strong> enhanced with synchronization tools (e.g. condition variables triggered when a new item is append to the buffer).</p></li>
 <li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/synchronizer">synchronizer</a>: tool for <strong>synchronizing processes</strong>, with interoperability between c++ and python. E.g. a python process may be used to set the frequency of a c++ process.</p></li>
-<li><p><a class="reference external" href="https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html">o80</a>: <strong>wrapper over time series and synchronizer</strong>. The time series API is enriched with methods for <strong>managing queues of commands</strong> via python.</p></li>
-<li><p><a class="reference external" href="https://intelligent-soft-robots.github.io/code_documentation/o80_example/docs/html/index.html">o80_example</a> : canonical example / tutorial of o80</p></li>
-<li><p><a class="reference external" href="https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html">pam_interface</a>: <strong>low level code / drivers for connecting to the PAM robot</strong>. See the <a class="reference external" href="https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html">documentation</a> of this package to see basic usage of this robot. This packages also contains the code for starting a <strong>dummy pam robot</strong> (i.e. a robot with the same API as the real robot, for debugging purposes).</p></li>
-</ul>
+<li><p><a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html" title="(in o80)"><span class="xref std std-doc">o80</span></a>: <strong>wrapper over time series and synchronizer</strong>. The time series API is enriched with methods for <strong>managing queues of commands</strong> via python.</p></li>
+<li><p><a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80_example/index.html" title="(in o80_example)"><span class="xref std std-doc">o80_example</span></a>: canonical example / tutorial of o80</p></li>
+<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/pam_interface">pam_interface</a>: <strong>low level code / drivers for connecting to the PAM robot</strong>. This packages also contains the code for starting a <strong>dummy pam robot</strong> (i.e. a robot with the same API as the real robot, for debugging purposes).</p>
 <p>This package is host of the executables:</p>
 <ul class="simple">
 <li><p>pam_server (python) : starts a server process for control of either the real or a dummy robot</p></li>
@@ -112,8 +109,9 @@ or at the <a class="reference external" href="https://github.com/machines-in-mot
 <p>It is also the host of this configuration file (installed in /opt/mpi-is):</p>
 <ul class="simple">
 <li><p>pam.json : for setting the minimum and maximum pressures to apply to the robot, as well as setting the server frequency</p></li>
-<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/o80_pam">o80_pam</a>: <strong>o80 API for control over the PAM robot</strong>. While pam_server only allows for direct commands, o80_pam allows for sending queues of commands to the robot.</p></li>
 </ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/o80_pam">o80_pam</a>: <strong>o80 API for control over the PAM robot</strong>. While pam_server only allows for direct commands, o80_pam allows for sending queues of commands to the robot.</p>
 <p>It also comes with the following python modules:</p>
 <ul class="simple">
 <li><p>o80_pressures : the class <strong>o80Pressures</strong> is a convenience class to send pressures commands to the robot (and reading state of the robot) via o80</p></li>
@@ -129,19 +127,19 @@ or at the <a class="reference external" href="https://github.com/machines-in-mot
 <li><p>o80_console: terminal <strong>dynamic display of the state of the robot</strong></p></li>
 <li><p>o80_check: Commands are sent to each robot dof, one at a time. Useful to check if the robot has issues</p></li>
 <li><p>o80_swing_demo : python demo of code sending commands to a robot. Has the robot performing swing motions</p></li>
+</ul>
+</li>
 <li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/pam_models">pam_models</a>: <strong>artificial muscle models in c++</strong> (currently only the hill model). Included configuration files (installed in /opt/mpi-is):</p>
-<ul>
+<ul class="simple">
 <li><p>hill.json : all parameters of the model</p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/context">context</a>: packages meant to host utility code useful to create environments. Currently, host the code for managing <strong>pre-recorded (table tennis) ball trajectories</strong> (in python, see ball_trajectories.py). The pre-recorded trajectories are installed in /opt/mpi-is/context</p></li>
 <li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/pam_mujoco">pam_mujoco</a> : code for managing <strong>simulated PAM robot(s) in the context of table tennis</strong>. This package hosts the code for <strong>generating mujoco models of robots, table and balls</strong>, and starting a corresponding <strong>mujoco simulations</strong>. All items (robot, ball, etc) may be controlled via an <strong>o80 python API</strong>.
 The python packages hosts:</p>
-<ul>
+<ul class="simple">
 <li><p>models.py : the generate_model function allows to create customized mujoco model</p></li>
 <li><p>mujoco_handle.py : source code for the pam_mujoco handles</p></li>
-</ul>
-</li>
 </ul>
 <p>This package also hosts the executables:</p>
 <ul class="simple">
@@ -150,6 +148,8 @@ The python packages hosts:</p>
 <li><p>pam_mujoco_stop : killing an instance of pam_mujoco</p></li>
 <li><p>pam_mujoco_stop_all : killing all instances of pam_mujoco</p></li>
 <li><p>pam_mujoco_visualization: visualization of pam_mujoco (useful if the latest has not been started with graphics)</p></li>
+</ul>
+</li>
 <li><p><a class="reference external" href="https://github.com/intelligent-soft-robots/pam_documentation">pam_documentation</a>: host of the documentation you are currently reading.</p></li>
 </ul>
 </section>

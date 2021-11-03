@@ -2,7 +2,7 @@
 
 This guide is here for those who would like to upgrade/extend PAM's software (as opposed to use it in their own code).
 
-For updating the code, the colcon workspace installation is required, as described [here](http://people.tuebingen.mpg.de/mpi-is-software/pam/docs/pam_documentation/doc/A1_overview_and_installation.html#via-colcon-workspace).
+For updating the code, the colcon workspace installation is required, as described {ref}`here <install_via_colcon>`.
 
 The workflow is based on these tools: github, treep, ament, colcon, pybind11 and gtest.
 
