@@ -7,10 +7,6 @@ or at the [github "Machines in Motion Laboratory" organization](https://github.c
 
 If you installed the software via treep/colcon or via the source tar ball (as described [here](A1_overview_and_installation)), these package are also present on your machine.
 
-Here a graph providing the dependencies between all the packages.
-
-![graph dependencies](https://intelligent-soft-robots.github.io/images/dependencies_graph.png)
-
 Overview of all packages (bottom to top) :
 
 - [shared memory](https://github.com/machines-in-motion/shared_memory): package for (realtime) **interprocess sharing of data** via a shared memory.
