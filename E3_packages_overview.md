@@ -21,11 +21,11 @@ Overview of all packages (bottom to top) :
 
 - [synchronizer](https://github.com/intelligent-soft-robots/synchronizer): tool for **synchronizing processes**, with interoperability between c++ and python. E.g. a python process may be used to set the frequency of a c++ process.
 
-- [o80](https://intelligent-soft-robots.github.io/code_documentation/o80/docs/html/index.html): **wrapper over time series and synchronizer**. The time series API is enriched with methods for **managing queues of commands** via python.
+- {doc}`o80 <o80:index>`: **wrapper over time series and synchronizer**. The time series API is enriched with methods for **managing queues of commands** via python.
 
-- [o80_example](https://intelligent-soft-robots.github.io/code_documentation/o80_example/docs/html/index.html) : canonical example / tutorial of o80
+- {doc}`o80_example <o80_example:index>`: canonical example / tutorial of o80
 
-- [pam_interface](https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html): **low level code / drivers for connecting to the PAM robot**. See the [documentation](https://intelligent-soft-robots.github.io/code_documentation/pam_interface/docs/html/index.html) of this package to see basic usage of this robot. This packages also contains the code for starting a **dummy pam robot** (i.e. a robot with the same API as the real robot, for debugging purposes). 
+- [pam_interface](https://github.com/intelligent-soft-robots/pam_interface): **low level code / drivers for connecting to the PAM robot**. This packages also contains the code for starting a **dummy pam robot** (i.e. a robot with the same API as the real robot, for debugging purposes).
 
 This package is host of the executables:
 

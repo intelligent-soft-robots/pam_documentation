@@ -183,4 +183,10 @@ texinfo_documents = [
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {"https://docs.python.org/": None}
+intersphinx_mapping = {
+    "o80": ("http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/", None),
+    "o80_example": (
+        "http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80_example",
+        None,
+    ),
+}
