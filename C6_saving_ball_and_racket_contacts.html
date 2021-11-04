@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial 0: How to run tutorial demos &mdash; PAM Documentation 1.0.0 documentation</title>
+  <title>More info: saving ball trajectories &mdash; PAM Documentation 1.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tutorial 1: Commands" href="B2_tutorial1.html" />
-    <link rel="prev" title="Overview and software installation" href="A1_overview_and_installation.html" /> 
+    <link rel="next" title="Developer’s guide 1: tools" href="E1_tools.html" />
+    <link rel="prev" title="More info: visual ball tracking" href="C5_visual_ball_tracking.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +43,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
@@ -55,7 +55,15 @@
 <li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: visual ball tracking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C6_saving_ball_and_racket_contacts.html">More info: saving ball trajectories</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More info: saving ball trajectories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">How to</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#log-files">Log files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replay">Replay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-files-in-python">Parsing files in python</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
@@ -77,9 +85,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorial 0: How to run tutorial demos</li>
+      <li>More info: saving ball trajectories</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/B1_tutorial0.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/C6_saving_ball_and_racket_contacts.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -87,47 +95,63 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-0-how-to-run-tutorial-demos">
-<h1>Tutorial 0: How to run tutorial demos<a class="headerlink" href="#tutorial-0-how-to-run-tutorial-demos" title="Permalink to this headline"></a></h1>
-<p>Code for demos and tutorials can be found in the pam_demos <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_demos">repository</a>.</p>
-<p>The typical process to run a demo or a tutorial is:</p>
-<p>In a terminal, start pam_mujoco, with the correct mujoco_id:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco mujoco_id
+  <section class="tex2jax_ignore mathjax_ignore" id="more-info-saving-ball-trajectories">
+<h1>More info: saving ball trajectories<a class="headerlink" href="#more-info-saving-ball-trajectories" title="Permalink to this headline"></a></h1>
+<p>It is possible to save in files both the position and orientation as observed
+by <a class="reference internal" href="C5_visual_ball_tracking.html"><span class="doc std std-doc">tennicam_client</span></a> and the state of the real robot
+as observed by <a class="reference internal" href="C2_real_robot.html"><span class="doc std std-doc">o80_real</span></a>. These files can be then replayed in a pam_mujoco
+simulation. This simulation will replay both the ball as observed (red ball) and as subject to
+our <a class="reference internal" href="B5_tutorial4.html"><span class="doc std std-doc">custom contact model</span></a> (green ball). This is useful to assess the quality of the contact model.</p>
+<section id="how-to">
+<h2>How to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h2>
+<section id="log-files">
+<h3>Log files<a class="headerlink" href="#log-files" title="Permalink to this headline"></a></h3>
+<p>Starting:</p>
+<ul class="simple">
+<li><p>tennicam and tennicam_client must be <a class="reference internal" href="C5_visual_ball_tracking.html"><span class="doc std std-doc">running</span></a></p></li>
+<li><p>o80_real must be <a class="reference internal" href="C2_real_robot.html"><span class="doc std std-doc">running</span></a></p></li>
+</ul>
+<p>To start logging, in a terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">o80_robot_ball_logger</span>
 </pre></div>
 </div>
-<p>The “mujoco_id” to use depends on the demo, and is indicated in the source file of the demo, or in the readme. For example, for tutorial 1:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco tutorials_1_to_3
+<p>The dialog will propose to save the data into file that does not exist already.</p>
+</section>
+<section id="replay">
+<h3>Replay<a class="headerlink" href="#replay" title="Permalink to this headline"></a></h3>
+<p>In a first terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pam_mujoco</span> <span class="n">robot_ball_replay</span>
 </pre></div>
 </div>
-<p>This will spawn a xterminal. Alternatively, you may start:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco_no_xterms tutorials_1_to_3
+<p>and in a second terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">o80_robot_ball_replay</span>
 </pre></div>
 </div>
-<p>which will start the simulation in the background of the current terminal.</p>
-<p>You may then run the demo, for example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ./tutorial_1.py
-<span class="c1"># python should be of version 3.x</span>
+</section>
+<section id="parsing-files-in-python">
+<h3>Parsing files in python<a class="headerlink" href="#parsing-files-in-python" title="Permalink to this headline"></a></h3>
+<p>The package o80_pam provides a parser for the saved files:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/path/to/the/file&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">o80_pam</span><span class="o">.</span><span class="n">robot_ball_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">filepath</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Note that you may run the demo several times without the need to restart pam_mujoco.</p>
-<p>The mujoco simulation can be stopped.</p>
-<p>If you started with a x-terminal, you may simply close the terminal. Alternatively, you may call:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco_stop tutorials_1_to_3
+<p>each line in data is of format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="p">(</span><span class="n">ball_id</span><span class="p">,</span><span class="n">ball_time_stamp</span><span class="p">,</span><span class="n">ball_position</span><span class="p">,</span><span class="n">ball_velocity</span><span class="p">),</span>
+  <span class="p">(</span><span class="n">robot_time_stamp</span><span class="p">,</span><span class="n">robot_positions</span><span class="p">,</span><span class="n">robot_velocities</span><span class="p">)</span> <span class="p">)</span> 
 </pre></div>
 </div>
-<p>or:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco_stop_all
-<span class="c1"># will stop all running pam_mujoco</span>
-</pre></div>
-</div>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="A1_overview_and_installation.html" class="btn btn-neutral float-left" title="Overview and software installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="B2_tutorial1.html" class="btn btn-neutral float-right" title="Tutorial 1: Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="C5_visual_ball_tracking.html" class="btn btn-neutral float-left" title="More info: visual ball tracking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="E1_tools.html" class="btn btn-neutral float-right" title="Developer’s guide 1: tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

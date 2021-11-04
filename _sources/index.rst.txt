@@ -21,6 +21,7 @@ PAM Documentation
    C3_executables
    C4_mirroring
    C5_visual_ball_tracking
+   C6_saving_ball_and_racket_contacts
    E1_tools
    E2_guidelines
    E3_packages_overview
