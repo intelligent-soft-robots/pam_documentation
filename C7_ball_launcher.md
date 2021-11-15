@@ -80,5 +80,7 @@ In a folder ```/home/pi/Workspaces/ball_launcher/workspace/src``` (git) clone:
 - https://github.com/intelligent-soft-robots/ball_launcher_beepy.git
 - git@github.com:machines-in-motion/mpi_cmake_modules.git
 
+Then call ```colcon build``` from the folder ```/home/pi/Workspaces/ball_launcher/workspace```.
+
 Copy paste the content of this [file](https://github.com/intelligent-soft-robots/ball_launcher_beepy/blob/master/misc/server_message.bash) at the end of the file ```/home/pi/.bashrc```.
 
