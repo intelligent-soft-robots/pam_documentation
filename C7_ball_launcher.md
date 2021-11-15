@@ -28,7 +28,7 @@ Take note of the IP address.
 In a terminal:
 
 ```
-launching a ball from terminal
+launch_ball
 ``` 
 
 This will start a dialog, which one completed will have a ball launched.
