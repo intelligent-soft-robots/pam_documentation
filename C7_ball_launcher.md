@@ -17,7 +17,7 @@ to ssh to me: user pi, password: ---
 
 - sourcing colcon workspace
 - killing already running server
-- starting the ball launcher server on IP 10.42.31.174 and PORT 5555
+- starting the ball launcher server on IP 10.42.--.-- and PORT 5555
 sleep() takes 1 positional argument but 2 were given
 ```
 
