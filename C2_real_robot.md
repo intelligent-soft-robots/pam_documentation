@@ -1,8 +1,8 @@
 # More info: Using the real robot
 
-## method 1: PAM Interface
+## Method 1: PAM interface
 
-pam_interface provides a python interface to the Pneumatic Artificial Muscle (PAM) (pam) developed at the Intelligent Soft Robots Laboratory (Empirical Inference Department, Max Planck Institute for Intelligent Systems).
+pam_interface provides a Python interface to the Pneumatic Artificial Muscle (PAM) developed at the Intelligent Soft Robots Laboratory (Empirical Inference Department, Max Planck Institute for Intelligent Systems).
 
 ![PAM_ROBOT](https://ei.is.tuebingen.mpg.de/uploads/publication/image/18667/2PAMcompressed.jpg)
 
@@ -26,7 +26,7 @@ The angular position of the joint is provided relative to the posture of the joi
 
 ### Installation
 
-#### On ubuntu
+#### On Ubuntu
 
 pam_interface follows the [general guidelines of IRS](https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki), and is provided by the treep project PAM.
 
@@ -39,9 +39,9 @@ You may therefore simply use treep to clone PAM, and compile as usual.
 
 ### Usage
 
-#### starting the server
+#### Starting the server
 
-After compilation and sourcing of the workspace, the pam_server is available, and can be started:
+After compilation and sourcing of the workspace, the pam_server is available and can be started:
 
 ```bash
 pam_server
@@ -58,14 +58,14 @@ The above obviously assumes you are working from the robot control workstation.
 See somewhere below for the instructions on how to start the robot (beyond the server)
 
 
-#### printed data
+#### Printed data
 
-Once the server started, it will print in the terminal, for each of the 4 dofs:
+Once the server started, it will print in the terminal for each of the 4 DOFs:
 
 - the value of the encoder (if the reference has not been found), the angular position of the joint otherwise (in degree)
 - the value of the observed and desired pressure for the agonist and antagonist muscles.
 
-#### sending desired pressures and reading sensors
+#### Sending desired pressures and reading sensors
 
 In another terminal, you may start a script using the following API:
 
@@ -82,7 +82,9 @@ pam_interface.write_command(segment_id,agos,antagos)
 robot_state = pam_interface.read_robot_state(segment_id)
 ```
 
-**warning**: "write_command" does not proceed any security check. If you send desired pressures that are very different to the current desired pressures, violent motions are likely to occur.
+```{danger}
+"write_command" does not proceed any security check. If you send desired pressures that are very different to the current desired pressures, violent motions are likely to occur.
+```
 
 robot_state is an instance of [RobotState](https://github.com/intelligent-soft-robots/pam_interface/blob/master/include/pam_interface/state/robot.hpp).
 
@@ -90,29 +92,33 @@ See its documentation [here](to do: point to the right url)
 
 ### Starting the real robot
 
-Parts :
+#### Parts
 
 - the "electronic box", which is turned on via the power outlet
 - the pressure valve (against the wall). Horizontal means closed
 - the emergency stop button, which blocks the pressure
 - the control software server (pam_interface or o80_real)
 
-Warning :
+```{warning}
+What is to be avoided is to have the pressure applied to the robot when the electronic box is off or the electronic box is on but the FPGA has not been initialized (the FPGA is initialized by the control software server). 
 
-What is to be avoided is to have the pressure applied to the robot when the electronic box is off, or the electronic box is on but the fpga has not been initialized (the fpga is initialized by the control software server). The electronic box and the server ensure that the pressure applied to the robot is limited. If the robot is exposed to the pressure while the electronic box is off or the fpga has not been initialized, the maximal pressure will be applied to it and damage may occur.
--> applying the pressure is always the last thing to do <-
+The electronic box and the server ensure that the pressure applied to the robot is limited. If the robot is exposed to the pressure, while the electronic box is off or the FPGA has not been initialized, the maximal pressure will be applied to it and damage may occur.
 
-What to do when in doubt :
+**Applying the pressure is always the last thing to do**
+```
+```{important}
+**What to do when in doubt:**
 Press the emergency button.
+```
 
-Starting state:
+#### Starting state
 
 - power outlet off
 - emergency button pressed
 - pressure valve closed (horizontal)
 - 4th degree of freedom of the robot "aligned" (silver paint marking aligned with zero)
 
-Starting steps:
+#### Starting steps
 
  1. Start electronic box (switch power outlet on)
  2. Start o80_real and o80_console. o80_console should show * as angle values, as the reference for the encoder should not have been found yet. If o80_console shows angles, restart the desktop.
@@ -125,7 +131,7 @@ Starting steps:
 
 (the 4th degree of freedome has some encoder issue, which explains this convulated starting process).
 
-Stopping steps:
+#### Stopping steps
 
 1. Stop server (software has pressure decrease on exit)
 2. Press emergency button
@@ -155,7 +161,7 @@ This documentation assumes you are familiar with both *pam_interface* and *o80*.
 
 ### Installation
 
-Follow the [general guidelines](https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki), using either the treep project "PAM" or the treep project "PAM_MUJOCO" (if you'd like to use o80_real over a PAM robot simulated by Mujoco).
+Follow the [general guidelines](https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki), using either the treep project "PAM" or the treep project "PAM_MUJOCO" (if you'd like to use o80_real over a PAM robot simulated by MuJoCo).
 
 If using mujoco, you also need to copy a mujoco licence key (mjkey.txt) in the folder /opt/mujoco/ (create the folder is necessary).
 
@@ -177,7 +183,7 @@ o80_real
 
 #### Checking all is working
 
-Once the o80 server started, you may check all is working fine by running in another terminal :
+Once the o80 server started, you may check all is working fine by running in another terminal:
 
 ```bash
 o80_check
@@ -193,7 +199,7 @@ o80_swing_demo
 
 #### Python user code
 
-See [tutorials 1 to 3](B2_tutorial1) for examples of a pressure controlled robot.
+See [Tutorials 1 to 3](B2_tutorial1) for examples of a pressure controlled robot.
 The difference with the tutorials, which show interfacing with a mujoco simulated robot, is that no handle is required to access the frontend. Instead, the frontend can be accessed directly:
 
 ```python

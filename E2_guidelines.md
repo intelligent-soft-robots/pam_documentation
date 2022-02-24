@@ -32,7 +32,7 @@ When a demo requires code from various repositories, they can be hosted in a ded
 
 ### Documentation
 
-#### Code Documentation
+#### Code documentation
 
 All code shall be documented in-source.  This means that every function, class,
 struct, global variable, etc., needs to have a docstring/comment containing some
@@ -55,13 +55,13 @@ See [this file](https://github.com/intelligent-soft-robots/o80/blob/master/inclu
 for an example in C++.  Our code base currently does not have enough
 documentation, please help us doing better!
 
-#### Package Documentation
+#### Package documentation
 
 More general documentation of a package (e.g. describing how to run the software
 on the robot) can be written in separate reStructuredText-files that are stored
 in a folder `doc/` inside the package.
 
-#### Build the Documentation
+#### Build the documentation
 
 If you are using CMake, the package may include the `mpi_cmake_modules` package
 and in the CMakeLists.txt file call the `add_documentation()` macro.  The
@@ -73,7 +73,7 @@ Once built, the documentation can then be found in
 `build/package_name/share/docs/sphinx/html`.
 
 
-### Code Style Guide
+### Code style guide
 
 #### Formatting
 
@@ -98,7 +98,7 @@ installed via `pip install black`):
 black path/to/file_or_folder
 ```
 
-#### Naming Conventions
+#### Naming conventions
 
 Give as descriptive a name as possible, within reason. Do not worry about saving
 horizontal space as it is far more important to make your code immediately
@@ -121,7 +121,7 @@ Formatting of names should be as follows:
     g_, i.e. `g_variable_name`.
 
 
-##### Add Units to Variable Names
+##### Add units to variable names
 
 Variables that hold values of a specific unit should have that unit appended to
 the name.  For example if a variable holds the velocity of a motor in *krpm* it
@@ -132,7 +132,7 @@ should be called `velocity_krpm` instead of just `velocity`. Some more examples:
 - `acceleration_mps2` (m/s^2)
 
 
-#### Python-Specific Guidelines
+#### Python specific guidelines
 
 - Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/).
   - Exception: For the line length we use Black's default of 88 characters.  If
@@ -151,9 +151,9 @@ should be called `velocity_krpm` instead of just `velocity`. Some more examples:
       ignore=E203,W503
 
 
-#### C++-Specific Guidelines
+#### C++ specific guidelines
 
-##### Folder Structure and File Naming
+##### Folder tructure and file naming
 
 General folder structure of a package with C++ code:
 
@@ -210,7 +210,7 @@ void foobar(Foo foo);  // results in copy of `foo`. Only do this if there is a
                        // specific need for it.
 ```
 
-##### pragma once vs Include Guards
+##### pragma once vs include guards
 
 Prefer `#pragma once` over include guards.  `#pragma once` is not part of the
 official standard but is widely supported by compilers and much easier to

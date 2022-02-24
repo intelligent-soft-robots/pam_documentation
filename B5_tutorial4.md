@@ -1,12 +1,12 @@
-# Tutorial 4: join control, table, balls, etc
+# Tutorial 4: Joint control, table, balls, etc.
 
 ## Tutorial's demo
 
-This demo is started similarly to tutorials 1 to 3, with the exception that pam_mujoco should
+This demo is started similarly to the Tutorials 1 to 3, with the exception that pam_mujoco should
 be start with mujoco_id *tutorial_4*
 
 ```bash
-pan_mujoco tutorial_4
+pam_mujoco tutorial_4
 ```
 
 then
@@ -15,9 +15,9 @@ then
 python ./tutorial_4.py
 ```
 
-## Handle and mujoco xml files
+## Handle and MuJoCo XML files
 
-The source code of tutorial 4 starts with the mujoco simulation configuration:
+The source code of Tutorial 4 starts with the MuJoCo simulation configuration:
 
 ```python
 robot = pam_mujoco.MujocoRobot("robot",
@@ -51,13 +51,9 @@ Once the (waiting) instance of *pam_mujoco* reads (from the shared memory) this 
 /tmp/tutorial_4/tutorial_4.xml
 ```
 
-The handle requests the configuration file to describe an environment with 1 robot, 2 balls, a hit point and to display a table, and indeed this is what pam_mujoco spawns.
+The handle requests the configuration file to describe an environment with 1 robot, 2 balls, a hit point and to display a table and indeed this is what pam_mujoco spawns.
 
-On top of this, the handle requests the robot to be joint controlled, and the balls and hit point to be also be controlled.
-
-
-
-
+On top of this, the handle requests the robot to be joint controlled as well as the balls and the hit point to be also be controlled.
 
 ### Model factory
 
@@ -76,7 +72,7 @@ items = pam_mujoco.model_factory(model_name, # arbitrary string
                                  muscles=True)
 ```
 
-Call to model_factory results in the generation of an Mujoco xml model file. The absolute path to this file is accessible:
+Call to model_factory results in the generation of an MuJoCo-XML-model-file. The absolute path to this file is accessible:
 
 ```python
 path = items["path"]
@@ -123,7 +119,7 @@ pam_mujoco.request_stop(mujoco_id)
 
 ### Interacting with a ball
 
-The script above started a simulation containing 3 simulated balls. These balls are subject to the (simulated) gravity, and will just fall forever. Not very exciting.
+The script above started a simulation containing 3 simulated balls. These balls are subject to the (simulated) gravity and will just fall forever. Not very exciting.
 
 o80 can be used to interact the simulated balls, e.g. forcing the position/velocity of the balls and/or getting information about the balls.
 
@@ -156,7 +152,7 @@ pam_mujoco.add_o80_ball_control("ball0",balls[0])
 pam_mujoco.execute(mujoco_id,items["path"])
 ```
 
-The method "add_o80_for_ball" reads "add an o80 backend to the Mujoco simulation". Consequently, the ball is no longer subject to gravity but gets fully controlled based on user commands: one interact with the first ball via o80 frontend instantiated in another script (or another process in the same script):
+The method "add_o80_for_ball" reads "add an o80 backend to the MuJoCo simulation". Consequently, the ball is no longer subject to gravity but gets fully controlled based on user commands: one interact with the first ball via o80 frontend instantiated in another script (or another process in the same script):
 
 ```python
 import pam_mujoco
@@ -190,7 +186,7 @@ pam_mujoco.add_o80_ball_control("ball0",
 
 This ball may enter in contact with the table and/or the racket of the robot(s). It is possible to retrieve related information.
 
-First, in the same way that a o80 backend was added to the mujoco simulation via the method "add_o80_ball_control", contact controllers have to be added to the mujoco simulation:
+First, in the same way that a o80 backend was added to the MuJoCo simulation via the method "add_o80_ball_control". Contact controllers have to be added to the MuJoCo simulation:
 
 ```python
 ball = items["ball"][0]
@@ -210,7 +206,7 @@ import pam_mujoco
 # note the contact id is the same as above
 contact = pam_mujoco.get_contact("contact_table_ball") 
 ```
-contact is the instance of a class providing the public attributes:
+"contact" is the instance of a class providing the public attributes:
 
 ```python
 # True if a contact ever occurred
@@ -233,7 +229,7 @@ pam_mujoco.reset_contact("contact_table_ball")
 
 ### Playing a recorded ball trajectory
 
-We recorded trajectories of real ball being launched and bouncing on a table tennis table. A python API allows to query these trajectories.
+We recorded trajectories of real ball being launched and bouncing on a table tennis table. A Python-API allows to query these trajectories.
 For example:
 
 ```python
@@ -286,11 +282,11 @@ frontend_ball.pulse()
 ```
 
 
-### Hybrid: controlling a ball until contact
+### Hybrid: Controlling a ball until contact
 
-It is possible to use an o80 frontend to control a ball, but letting Mujoco's physic engine taking over once a contact occured.
+It is possible to use an o80 frontend to control a ball, but letting MuJoCo's physic engine taking over once a contact occured.
 
-Above, the function "add_o80_ball_control" was introduced. It was used to set an o80 backend for ball control in the mujoco simulation.
+Above, the function "add_o80_ball_control" was introduced. It was used to set an o80 backend for ball control in the MuJoCo simulation.
 
 An alternative method is: "add_o80_ball_control_until_contact".
 
@@ -310,9 +306,9 @@ Once the contact is reset:
 pam_mujoco.reset_contact("table")
 ```
 
-## Goal, HitPoint
+## Goal, hit point
 
-Goal and HitPoint are visual markers. They can also be added to the mujoco's model, for example:
+Goal and HitPoint are visual markers. They can also be added to the MuJoCo's model, for example:
 
 ```python
 items = pam_mujoco.model_factory(model_name,
@@ -345,7 +341,7 @@ goal.pulse()
  
 ## Joint Control
 
-Mujoco simulated pam robot can be joint controlled (i.e. setting for each degree of freedom a desired joint angle and a desired angular velocity). 
+MuJoCo simulated PAM-robot can be joint controlled (i.e. setting for each degree of freedom a desired joint angle and a desired angular velocity). 
 
 For this, it is required to add a joint controller, for example:
 

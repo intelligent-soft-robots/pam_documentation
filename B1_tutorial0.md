@@ -4,13 +4,19 @@ Code for demos and tutorials can be found in the pam_demos [repository](https://
 
 The typical process to run a demo or a tutorial is:
 
-In a terminal, start pam_mujoco, with the correct mujoco_id:
+1. Open the terminal (of your choice)
+2. Use the ```pam_mujoco```-command with the corresponding "mujoco_id"
+3. Run a Python-script with the desired (control) commands.
+
+## Starting a demonstration or tutorial
+
+First, a MuJoCo handle (in the following indicated by the mujoco_id) has to be specified. For each tutorial a tutorial-specific mujoco_id has been prepared and can be found in the corresponding Python-script. 
 
 ```bash
 pam_mujoco mujoco_id
 ```
 
-The "mujoco_id" to use depends on the demo, and is indicated in the source file of the demo, or in the readme. For example, for tutorial 1:
+For example, for Tutorial 1:
 
 ```bash
 pam_mujoco tutorials_1_to_3
@@ -31,11 +37,9 @@ python ./tutorial_1.py
 # python should be of version 3.x
 ```
 
-Note that you may run the demo several times without the need to restart pam_mujoco.
+## Stopping a demonstration or tutorial
 
-The mujoco simulation can be stopped.
-
-If you started with a x-terminal, you may simply close the terminal. Alternatively, you may call:
+The MuJoCo simulation can be stopped. For stopping the simulation, you may simple close the terminal from which you started the xterminal-application. Alternatively, you may call:
 
 ```bash
 pam_mujoco_stop tutorials_1_to_3
@@ -48,6 +52,10 @@ pam_mujoco_stop_all
 # will stop all running pam_mujoco
 ```
 
+## Further remarks
+
+* Note that you may run the demo several times without the need to restart pam_mujoco.
+* The "mujoco_id" depends on the demo and is indicated in the source file of the demo or in the README-file. Further information regarding the mujoco_id can be found here: [MuJoCo handles and contacts](C1_handle).
 
 
 

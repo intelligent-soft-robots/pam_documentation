@@ -1,8 +1,8 @@
-# More info: ball launcher
+# More info: Ball launcher
 
 The robot laboratory has a ball launcher that can be activated programmatically.
 
-## How to
+## How-to
 
 ### Start the ball launcher
 
@@ -68,7 +68,7 @@ All arguments are floats between 0 and 1 (except of ip which is string and port 
 
 ## Installation of the server
 
-On the raspberry pi of the ball launcher, install:
+On the Raspberry Pi of the ball launcher, install:
 
 - pip3 install: pyparsing==2.0.2, colcon-common-extensions, empy, catkin-pkg, sphinx, breathe, xinabox-OC05, xinabox-OC03
 - apt: protobuf-compiler, libprotobuf-dev, libzmq3-dev

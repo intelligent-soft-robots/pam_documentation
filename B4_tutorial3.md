@@ -1,14 +1,14 @@
-# Tutorial 3: iteration commands
+# Tutorial 3: Iteration commands
 
 ## Introduction
 
-In tutorial 1, we covered duration, speed and direct commands. This tutorial introduce the iteration command.
+In [Tutorial 1](B2_tutorial1), we covered duration, speed and direct commands. This tutorial introduce the iteration command.
 
 "Iteration" refers to the backend, i.e. the control iteration of the robot. At each control iteration, the backend reads the commands queue, compute the desired pressure to apply to the robot, applies it to the robot, read the current state of the robot from sensors and write a corresponding Observation in the shared memory.
 
-Iteration commands allows to specify using a python frontend the value of the desired pressure for upcoming iteration numbers.
+Iteration commands allows to specify using a Python frontend the value of the desired pressure for upcoming iteration numbers.
 
-Tutorial 3 is started similarly to tutorials 1 and 2.
+Tutorial 3 is started similarly to Tutorials 1 and 2.
 
 ## Getting the current iteration number
 
@@ -18,9 +18,9 @@ frontend = handle.frontends["robot"]
 iteration = frontend.latest().get_iteration()
 ```
 
-## waiting for an iteration
+## Waiting for an iteration
 
-In tutorial 2, the *read* method of the frontend was used to access from the shared memory an observation corresponding to a past iteration.
+In [Tutorial 2](B3_tutorial2), the *read* method of the frontend was used to access from the shared memory an observation corresponding to a past iteration.
 The same method can be used to wait for an upcoming iteration:
 
 ```python
@@ -31,7 +31,7 @@ observation = frontend.read(future_iteration)
 reached_iteration = observation.get_iteration() # will be equal to future_iteration
 ```
 
-## example
+### Example
 
 ```python
 frontend = o80_pam.FrontEnd("o80_pam_robot")
@@ -75,7 +75,7 @@ print("reached iteration: {}".format(observation.get_iteration()))
 
 In this example, the desired pressure values that should be applied at exact backend iteration numbers are specified from the frontend.
 
-## synchronizing the frontend and the backend
+## Synchronizing the frontend and the backend
 
 This example of usage is a bit evolved:
 
@@ -102,21 +102,21 @@ time_end = time.time()
 print("frequency: {} Hz".format(500.0/(time_end-time_start)))
 ```
  
-During the time the backend applies a command, the frontend computes the control value that should be applied at the next frontend control loop. This has the frontend running at a frequency enforced by the backend. This is important because the frontend is not realtime safe (because python is not realtime), while the backend may be.
+During the time the backend applies a command, the frontend computes the control value that should be applied at the next frontend control loop. This has the frontend running at a frequency enforced by the backend. This is important because the frontend is not real-time safe (because python is not realtime), while the backend may be.
 
 
-## relative iteration
+## Relative iteration
 
 So far, all iteration number were *absolute*, i.e. iteration numbers as counted since the start of the backend.
 
 It is possible to use relative iteration number, i.e. the iteration number as counted from a later time.
 
-The o80 class Iteration takes two extra boolean arguments:
+The o80-class Iteration takes two extra boolean arguments:
 
 - relative: if True (False is the default), it corresponds to a relative iteration number
 - reset: if True (False is the default), a command using this instance of Iteration reset the iteration counter.
 
-Example:
+### Example:
 
 ```python
 # this corresponds to 1000 iterations counting                                                                                                                                                                                                                                            
