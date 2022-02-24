@@ -1,18 +1,18 @@
-# Tutorial 2: reading robot data
+# Tutorial 2: Reading robot data
 
 ## Reading robot data
 
-Tutorial 2 is started similarly to tutorial 1.
+Tutorial 2 is started similarly to [Tutorial 1](B2_tutorial1).
 
-While in tutorial 1 the frontend was used to send command to the pressure controlled robot,
-in tutorial 2 the frontend is used to read the robot data.
+While in Tutorial 1 the frontend was used to send command to the pressure controlled robot,
+in Tutorial 2 the frontend is used to read the robot data.
 
 ```python
 handle = get_handle()
 frontend = handle.frontends["robot"]
 observation = frontend.latest()
 ```
-observation is an instance of Observation. It contains has the following method:
+"observation" is an instance of the Observation-class. It contains has the following method:
 
 ```python
 # at each backend iteration (i.e. control iteration of o80_mujoco), an observation is generated.                  

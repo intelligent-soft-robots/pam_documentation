@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>More info: visual ball tracking &mdash; PAM Documentation 1.0.0 documentation</title>
+  <title>More info: Visual ball tracking &mdash; PAM Documentation 1.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="More info: saving ball trajectories" href="C6_saving_ball_and_racket_contacts.html" />
-    <link rel="prev" title="More info: mirroring real robot" href="C4_mirroring.html" /> 
+    <link rel="next" title="More info: Saving ball trajectories" href="C6_saving_ball_and_racket_contacts.html" />
+    <link rel="prev" title="More info: Mirroring real robot" href="C4_mirroring.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,25 +45,25 @@
 <li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: Reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: Iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: Joint control, table, balls, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: Saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: Bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: MuJoCo handles and contacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">More info: visual ball tracking</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#users">Users</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#what-it-is">What it is</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: Mirroring real robot</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More info: Visual ball tracking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#operators">Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-to">How-to</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-start-the-server">How to start the server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-fix-the-server">How to fix the server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-start-the-client">How to start the client</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-display-the-tracked-ball-in-mujoco">How to display the tracked ball in mujoco</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-fix-the-transform-of-the-ball">How to fix the transform of the ball</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-log-ball-information">How to log ball information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-start-the-server">How to start the server?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-fix-the-server">How to fix the server?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-start-the-client">How to start the client?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-display-the-tracked-ball-in-mujoco">How to display the tracked ball in MuJoCo?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-fix-the-transform-of-the-ball">How to fix the transform of the ball?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-log-ball-information">How to log ball information?</a></li>
 </ul>
 </li>
 </ul>
@@ -80,13 +80,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="C6_saving_ball_and_racket_contacts.html">More info: saving ball trajectories</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: ball launcher</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C6_saving_ball_and_racket_contacts.html">More info: Saving ball trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: updating the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: Advanced overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: Updating the documentation</a></li>
 </ul>
 
         </div>
@@ -103,7 +103,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: visual ball tracking</li>
+      <li>More info: Visual ball tracking</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C5_visual_ball_tracking.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,13 +114,16 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="more-info-visual-ball-tracking">
-<h1>More info: visual ball tracking<a class="headerlink" href="#more-info-visual-ball-tracking" title="Permalink to this headline"></a></h1>
-<p>| page useful only  to the users in the Max Planck Institute for Intelligent Systems having access to the robot lab | — |</p>
-<section id="users">
-<h2>Users<a class="headerlink" href="#users" title="Permalink to this headline"></a></h2>
-<section id="what-it-is">
-<h3>What it is<a class="headerlink" href="#what-it-is" title="Permalink to this headline"></a></h3>
-<p>The robot lab is equiped with four rgb cameras, which can be used to track the (3d) position of a table tennis ball.
+<h1>More info: Visual ball tracking<a class="headerlink" href="#more-info-visual-ball-tracking" title="Permalink to this headline"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Page is only useful to persons having access to the robot lab in the Max Planck Institute for Intelligent Systems</p>
+</div>
+<section id="operators">
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline"></a></h2>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h3>
+<p>The robot lab is equiped with four RGB cameras, which can be used to track the (3D) position of a table tennis ball.
 For the server, the software used for this is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam">tennicam</a> which has been developped internally by Sebastian Gomez-Gonzalez.
 The desktop “rodau” is installed with the server software, and the cameras are plugged to it, ready to be used.
 For the client, the software used is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam_client">tennicam_client</a>,
@@ -129,7 +132,7 @@ which implements an <a class="reference external" href="http://people.tuebingen.
 <section id="how-to">
 <h3>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h3>
 <section id="how-to-start-the-server">
-<h4>How to start the server<a class="headerlink" href="#how-to-start-the-server" title="Permalink to this headline"></a></h4>
+<h4>How to start the server?<a class="headerlink" href="#how-to-start-the-server" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>Turn on the “bright” light above the table tennis.</p></li>
 <li><p>Login to rodau using the ball_tracking user. The password is written on the desktop.</p></li>
@@ -138,7 +141,7 @@ which implements an <a class="reference external" href="http://people.tuebingen.
 </ul>
 </section>
 <section id="how-to-fix-the-server">
-<h4>How to fix the server<a class="headerlink" href="#how-to-fix-the-server" title="Permalink to this headline"></a></h4>
+<h4>How to fix the server?<a class="headerlink" href="#how-to-fix-the-server" title="Permalink to this headline"></a></h4>
 <p>If you experience any issue, you can try to run in a terminal:</p>
 <ul class="simple">
 <li><p>tennicam_list_cameras : check if the drivers detect the four cameras</p></li>
@@ -148,7 +151,7 @@ which implements an <a class="reference external" href="http://people.tuebingen.
 </ul>
 </section>
 <section id="how-to-start-the-client">
-<h4>How to start the client<a class="headerlink" href="#how-to-start-the-client" title="Permalink to this headline"></a></h4>
+<h4>How to start the client?<a class="headerlink" href="#how-to-start-the-client" title="Permalink to this headline"></a></h4>
 <p>The client can be started on any Ubuntu desktop installed with the pam software.
 In a first terminal (you may use the default parameters):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client
@@ -182,7 +185,7 @@ to access ball informations.</p>
 <p>For an example, see the source code of <code class="docutils literal notranslate"><span class="pre">tennicam_client_print</span></code> <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print">here</a>.</p>
 </section>
 <section id="how-to-display-the-tracked-ball-in-mujoco">
-<h4>How to display the tracked ball in mujoco<a class="headerlink" href="#how-to-display-the-tracked-ball-in-mujoco" title="Permalink to this headline"></a></h4>
+<h4>How to display the tracked ball in MuJoCo?<a class="headerlink" href="#how-to-display-the-tracked-ball-in-mujoco" title="Permalink to this headline"></a></h4>
 <p>In a terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco tennicam_client_display
 <span class="c1"># or: pam_mujoco_no_xterms tennicam_client_display</span>
@@ -192,11 +195,11 @@ to access ball informations.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tennicam_client_display</span>
 </pre></div>
 </div>
-<p>A mujoco simulation will start, displaying the ball.
+<p>A MuJoCo simulation will start, displaying the ball.
 To stop the mujoco simulation, type in any terminal <code class="docutils literal notranslate"><span class="pre">pam_mujoco_stop</span> <span class="pre">tennicam_client_display</span></code>.</p>
 </section>
 <section id="how-to-fix-the-transform-of-the-ball">
-<h4>How to fix the transform of the ball<a class="headerlink" href="#how-to-fix-the-transform-of-the-ball" title="Permalink to this headline"></a></h4>
+<h4>How to fix the transform of the ball?<a class="headerlink" href="#how-to-fix-the-transform-of-the-ball" title="Permalink to this headline"></a></h4>
 <p>The ball is detected in a given frame, and then its position goes through a transformation (translation and rotation).
 The transformation applied is specified in the configuration file <code class="docutils literal notranslate"><span class="pre">/opt/mpi-is/tennicam_client/config/config.toml</span></code>
 which has, for example, the content:</p>
@@ -224,7 +227,7 @@ may see the result in the mujoco simulation poped up by <code class="docutils li
 This ensure the next time <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> is started (without <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code>), the desired transform is applied.</p>
 </section>
 <section id="how-to-log-ball-information">
-<h4>How to log ball information<a class="headerlink" href="#how-to-log-ball-information" title="Permalink to this headline"></a></h4>
+<h4>How to log ball information?<a class="headerlink" href="#how-to-log-ball-information" title="Permalink to this headline"></a></h4>
 <p>After starting <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code>, start in another terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client_logger
 </pre></div>
@@ -334,8 +337,8 @@ colcon build
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="C4_mirroring.html" class="btn btn-neutral float-left" title="More info: mirroring real robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="C6_saving_ball_and_racket_contacts.html" class="btn btn-neutral float-right" title="More info: saving ball trajectories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="C4_mirroring.html" class="btn btn-neutral float-left" title="More info: Mirroring real robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C6_saving_ball_and_racket_contacts.html" class="btn btn-neutral float-right" title="More info: Saving ball trajectories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

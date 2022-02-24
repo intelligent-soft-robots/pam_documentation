@@ -1,7 +1,7 @@
-# More info: mirroring real robot
+# More info: Mirroring real robot
 
 
-To get a mujoco simulated to mirror the real robot, first, start the real robot:
+To get a MuJoCo simulation to mirror the real robot, first, start the real robot:
 
 ```bash
 o80_real

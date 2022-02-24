@@ -1,4 +1,4 @@
-# More info: list of executables
+# More info: List of executables
 
 Once the [installation](A1_overview_and_installation) procedure completed, various executables are installed.
 
@@ -70,7 +70,7 @@ You may note that the process ids of the spawned processes are printed in the ma
 
 ## pam_mujoco_no_xterms
 
-Similar to *pam_mujoco* (right above) with the difference that the mujoco simulation are not hosted by new terminals, but in the background of the current terminal.
+Similar to *pam_mujoco* (right above) with the difference that the MuJoCo simulation are not hosted by new terminals, but in the background of the current terminal.
 
 ## pam_mujoco_visualization
 

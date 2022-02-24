@@ -1,28 +1,28 @@
-# Developer's guide 1: tools
+# Developer's guide 1: Tools
 
 This guide is here for those who would like to upgrade/extend PAM's software (as opposed to use it in their own code).
 
 For updating the code, the colcon workspace installation is required, as described {ref}`here <install_via_colcon>`.
 
-The workflow is based on these tools: github, treep, ament, colcon, pybind11 and gtest.
+The workflow is based on these tools: GitHub, treep, ament, colcon, pybind11 and gtest.
 
-## Github
+## GitHub
 
 The source repositories are hosted in the "Intelligent Soft Robots" [domain](https://github.com/intelligent-soft-robots) of github.
-As treep (see below) uses ssh, you need to register your ssh key to github (see [here](https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account))
+As treep (see below) uses SSH, you need to register your SSH key to GitHub (see [here](https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account))
 
 ## Treep
 
-To get the software compiled and running, several git repositories must be cloned.
+To get the software compiled and running, several Git repositories must be cloned.
 As it would be annoying to clone them one by one, we use the project manager [treep](https://pypi.org/project/treep/), which allows to clone several repositories at once.
 
-### installation
+### Installation
 
 ```bash
 pip install treep
 ```
 
-### configuration repository
+### Configuration repository
 
 treep needs a configuration folder. We use [treep_isr](https://github.com/intelligent-soft-robots/treep_isr.git):
 
@@ -32,7 +32,7 @@ cd Software
 git clone https://github.com/intelligent-soft-robots/treep_isr.git
 ```
 
-In the folder treep_isr, you will find the file *repositories.yaml* which provides repositories names, url and default branch (see also configuration.yaml). Once treep_isr has been cloned, you may see for example the list of repositories:
+In the folder treep_isr, you will find the file *repositories.yaml* which provides repositories names, URL and default branch (see also configuration.yaml). Once treep_isr has been cloned, you may see for example the list of repositories:
 
 ```bash
 treep # treep without argument prints some help
@@ -52,7 +52,7 @@ To see information about a specific projects:
 treep --project PAM_MUJOCO
 ```
 
-### cloning
+### Cloning
 
 You can use treep to clone a project (i.e. cloning all the repositories of the project):
 
@@ -60,15 +60,15 @@ You can use treep to clone a project (i.e. cloning all the repositories of the p
 treep --clone PAM_MUJOCO
 ```
 
-### status
+### Status
 
-The status argument is very useful to see the (git) status of each cloned repos (i.e. if they are behind origin, beyond origin, have modified files, etc)
+The status argument is very useful to see the (git) status of each cloned repos (i.e. if they are behind origin, beyond origin, have modified files, etc.)
 
 ```bash
 treep --status
 ```
 
-### pull 
+### Pull 
 
 You can use treep to update all the repositories
 
@@ -77,7 +77,7 @@ treep --pull
 ```
 
 
-### calling from anywhere
+### Calling from anywhere
 
 Note that you do not need to be in the Software folder to call treep, you may call treep for any of its subfolder, e.g.
 
@@ -94,19 +94,19 @@ An ament package contains typically:
 
 - C++ code, in the include/package_name and the source folders
 
-- python wrappers over this C++ code in the srcpy folder
+- Python wrappers over this C++ code in the srcpy folder
 
-- native python code in the python folder
+- Native python code in the python folder
 
-- unit tests in the tests folder
+- Unit tests in the tests folder
 
-- configuration files
+- Configuration files
 
-- a demos folder, containing source code providing example of usage of the code provided by the package
+- A demos folder containing source code providing example of usage of the code provided by the package
 
-- a package.xml file listing dependencies
+- A package.xml file listing dependencies
 
-- a CMakeLists.txt file containing the CMake commands required for compilation.
+- A CMakeLists.txt file containing the CMake commands required for compilation.
 
 The [context](https://github.com/intelligent-soft-robots/context) and [pam_interface](https://github.com/intelligent-soft-robots/pam_interface) repositories provide examples of a packages containing most of the above.
 
@@ -153,13 +153,13 @@ This will compile only the selected package and its required dependencies.
 
 ## Pybind11
 
-Most of the code is in C++, but made available as python package.
+Most of the code is in C++, but made available as Python package.
 
-We use [pybind11](https://pybind11.readthedocs.io/en/master/?badge=master) for creating wrappers over c++ code.
+We use [pybind11](https://pybind11.readthedocs.io/en/master/?badge=master) for creating wrappers over C++ code.
 
-By convention, the c++ binding code should be in the srcpy folder of the package, and in the file wrappers.cpp.
+By convention, the C++ binding code should be in the srcpy folder of the package, and in the file wrappers.cpp.
 
-As you can see in this [example](https://github.com/intelligent-soft-robots/context/blob/master/srcpy/wrappers.cpp), creating binders for c++ classes can be trivial.
+As you can see in this [example](https://github.com/intelligent-soft-robots/context/blob/master/srcpy/wrappers.cpp), creating binders for C++ classes can be trivial.
 
 For example, this wrapper code:
 
@@ -192,7 +192,7 @@ Note that in the [wrappers.cpp](https://github.com/intelligent-soft-robots/conte
 PYBIND11_MODULE(context, m)
 ```
 
-The above results in the creation of the python package "context", which can be used after compilation and sourcing of the workspace, simply in a terminal:
+The above results in the creation of the Python package "context", which can be used after compilation and sourcing of the workspace, simply in a terminal:
 
 ```bash
 python
@@ -204,7 +204,7 @@ then:
 import context
 ```
 
-## Unit-tests
+## Unit tests
 
 We use google tests for unit tests. See the [tests folder](https://github.com/intelligent-soft-robots/context/tree/master/tests) of the context package for a simple example to follow.
 

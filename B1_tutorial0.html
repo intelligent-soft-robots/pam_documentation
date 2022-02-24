@@ -43,25 +43,30 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 0: How to run tutorial demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#starting-a-demonstration-or-tutorial">Starting a demonstration or tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stopping-a-demonstration-or-tutorial">Stopping a demonstration or tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#further-remarks">Further remarks</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: reading robot data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: iteration commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: join control, table, balls, etc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: saving data to files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: bursting mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: Mujoco handle and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: Reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: Iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: Joint control, table, balls, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: Saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: Bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: MuJoCo handles and contacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: list of executables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: mirroring real robot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: visual ball tracking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C6_saving_ball_and_racket_contacts.html">More info: saving ball trajectories</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: ball launcher</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: Mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: Visual ball tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C6_saving_ball_and_racket_contacts.html">More info: Saving ball trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: packages overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: advanced overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: updating the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: Advanced overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: Updating the documentation</a></li>
 </ul>
 
         </div>
@@ -92,11 +97,18 @@
 <h1>Tutorial 0: How to run tutorial demos<a class="headerlink" href="#tutorial-0-how-to-run-tutorial-demos" title="Permalink to this headline"></a></h1>
 <p>Code for demos and tutorials can be found in the pam_demos <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_demos">repository</a>.</p>
 <p>The typical process to run a demo or a tutorial is:</p>
-<p>In a terminal, start pam_mujoco, with the correct mujoco_id:</p>
+<ol class="simple">
+<li><p>Open the terminal (of your choice)</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">pam_mujoco</span></code>-command with the corresponding “mujoco_id”</p></li>
+<li><p>Run a Python-script with the desired (control) commands.</p></li>
+</ol>
+<section id="starting-a-demonstration-or-tutorial">
+<h2>Starting a demonstration or tutorial<a class="headerlink" href="#starting-a-demonstration-or-tutorial" title="Permalink to this headline"></a></h2>
+<p>First, a MuJoCo handle (in the following indicated by the mujoco_id) has to be specified. For each tutorial a tutorial-specific mujoco_id has been prepared and can be found in the corresponding Python-script.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco mujoco_id
 </pre></div>
 </div>
-<p>The “mujoco_id” to use depends on the demo, and is indicated in the source file of the demo, or in the readme. For example, for tutorial 1:</p>
+<p>For example, for Tutorial 1:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco tutorials_1_to_3
 </pre></div>
 </div>
@@ -110,9 +122,10 @@
 <span class="c1"># python should be of version 3.x</span>
 </pre></div>
 </div>
-<p>Note that you may run the demo several times without the need to restart pam_mujoco.</p>
-<p>The mujoco simulation can be stopped.</p>
-<p>If you started with a x-terminal, you may simply close the terminal. Alternatively, you may call:</p>
+</section>
+<section id="stopping-a-demonstration-or-tutorial">
+<h2>Stopping a demonstration or tutorial<a class="headerlink" href="#stopping-a-demonstration-or-tutorial" title="Permalink to this headline"></a></h2>
+<p>The MuJoCo simulation can be stopped. For stopping the simulation, you may simple close the terminal from which you started the xterminal-application. Alternatively, you may call:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco_stop tutorials_1_to_3
 </pre></div>
 </div>
@@ -121,6 +134,14 @@
 <span class="c1"># will stop all running pam_mujoco</span>
 </pre></div>
 </div>
+</section>
+<section id="further-remarks">
+<h2>Further remarks<a class="headerlink" href="#further-remarks" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Note that you may run the demo several times without the need to restart pam_mujoco.</p></li>
+<li><p>The “mujoco_id” depends on the demo and is indicated in the source file of the demo or in the README-file. Further information regarding the mujoco_id can be found here: <a class="reference internal" href="C1_handle.html"><span class="doc std std-doc">MuJoCo handles and contacts</span></a>.</p></li>
+</ul>
+</section>
 </section>
 
 

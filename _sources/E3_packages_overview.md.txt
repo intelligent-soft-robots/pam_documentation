@@ -1,4 +1,4 @@
-# Developer's guide 3: packages overview
+# Developer's guide 3: Packages overview
 
 
 The software for the control of the PAM robot (real or mujoco simulated) is splitted over several packages.
