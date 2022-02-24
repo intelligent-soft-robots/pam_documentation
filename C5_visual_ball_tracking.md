@@ -1,13 +1,14 @@
-# More info: visual ball tracking
+# More info: Visual ball tracking
 
-| page useful only  to the users in the Max Planck Institute for Intelligent Systems having access to the robot lab | --- |
+```{note}
+Page is only useful to persons having access to the robot lab in the Max Planck Institute for Intelligent Systems
+```
 
+## Operators
 
-## Users
+### Description
 
-### What it is
-
-The robot lab is equiped with four rgb cameras, which can be used to track the (3d) position of a table tennis ball.
+The robot lab is equiped with four RGB cameras, which can be used to track the (3D) position of a table tennis ball.
 For the server, the software used for this is [tennicam](https://github.com/intelligent-soft-robots/tennicam) which has been developped internally by Sebastian Gomez-Gonzalez.
 The desktop "rodau" is installed with the server software, and the cameras are plugged to it, ready to be used.
 For the client, the software used is [tennicam_client](https://github.com/intelligent-soft-robots/tennicam_client),
@@ -15,14 +16,14 @@ which implements an {doc}`o80 <o80:index>` standalone. The client is install alo
 
 ### How-to
 
-#### How to start the server
+#### How to start the server?
 
 - Turn on the "bright" light above the table tennis. 
 - Login to rodau using the ball_tracking user. The password is written on the desktop.
 - Open a terminal.
 - Call ```tennicam_start```. Two terminals should open. If they do not show any error message, the tracking is active.
 
-#### How to fix the server
+#### How to fix the server?
 
 If you experience any issue, you can try to run in a terminal:
 
@@ -31,7 +32,7 @@ If you experience any issue, you can try to run in a terminal:
 - tennicam_capture_indep: check if the desktop can use the drivers to capture pictures from the cameras
 - tennicam_capture: check if the desktop can use the drivers of the cameras to capture synchronized pictures
 
-#### How to start the client
+#### How to start the client?
 
 The client can be started on any Ubuntu desktop installed with the pam software.
 In a first terminal (you may use the default parameters):
@@ -72,7 +73,7 @@ print(ball.to_string())
 For an example, see the source code of ```tennicam_client_print``` [here](https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print).
 
 
-#### How to display the tracked ball in mujoco
+#### How to display the tracked ball in MuJoCo?
 
 In a terminal:
 
@@ -87,10 +88,10 @@ and in another terminal:
 tennicam_client_display
 ```
 
-A mujoco simulation will start, displaying the ball.
+A MuJoCo simulation will start, displaying the ball.
 To stop the mujoco simulation, type in any terminal ```pam_mujoco_stop tennicam_client_display```.
 
-#### How to fix the transform of the ball
+#### How to fix the transform of the ball?
 
 The ball is detected in a given frame, and then its position goes through a transformation (translation and rotation).
 The transformation applied is specified in the configuration file ```/opt/mpi-is/tennicam_client/config/config.toml```
@@ -124,7 +125,7 @@ may see the result in the mujoco simulation poped up by ```tennicam_client_displ
 The dialog allows you to save the transform in the configuration file (i.e. to overwrite ```/opt/mpi-is/tennicam_client/config/config.toml```).
 This ensure the next time ```tennicam_client``` is started (without ```active_transform``` set to ```True```), the desired transform is applied. 
 
-#### How to log ball information
+#### How to log ball information?
 
 After starting ```tennicam_client```, start in another terminal:
 

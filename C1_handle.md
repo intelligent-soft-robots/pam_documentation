@@ -1,4 +1,4 @@
-# More info: Mujoco handle and contacts
+# More info: MuJoCo handles and contacts
 
 
 In the tutorials, handles are used to configure the mujoco simulation spawed by *pam_mujoco*. The handles are also used to interface with the simulated robots, balls and other items.

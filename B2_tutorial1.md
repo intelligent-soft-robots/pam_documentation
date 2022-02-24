@@ -1,6 +1,6 @@
 # Tutorial 1: Commands
 
-## Starting a Mujoco simulated robot
+## Starting a MuJoCo simulated robot
 
 In a terminal, call:
 ```bash
@@ -20,7 +20,7 @@ You may now run tutorial_1.py
 python3 ./tutorial_1.py
 ```
 
-Here some comments regarding the source code similar of the one of tutorial 1.
+Here some comments regarding the source code similar of the one of Tutorial 1.
 
 ```python
 
@@ -130,7 +130,7 @@ the code above has the robot starting to go toward the pressures 12000, but afte
 
 ## add_command overloads
 
-### controlling only selected muscle(s)
+### Controlling only selected muscle(s)
 
 All the commands applied so far targeted all muscles. It is possible to request the change of the pressure of only one muscle:
 
@@ -148,7 +148,7 @@ frontend.pulse()
 ```
 Note that the command above will have the muscles 0 and 1 changing pressure at the same time. Because these two commands target 2 different muscles, the second command does not overwrite the first one.
 
-### controlling a degree of freedom
+### Controlling a degree of freedom
 
 ```python
 dof=0
@@ -158,7 +158,7 @@ frontend.pulse()
 The command above will have the pressures of the agonist and antagonist muscles of the degree of freedom indexed 0 reach the values 20000 and 15000 (respectively) in 3 seconds. 
 
 
-### controlling all muscles
+### Controlling all muscles
 
 ```python
 agonists = [15000,16000,17000,18000]
@@ -168,7 +168,7 @@ frontend.pulse()
 ```
 This command will target all muscles, for example the target pressure values for the first degree of freedom will be (15000,18000).
 
-### speed commands
+### Speed commands
 
 All the commands so far have been *duration* command, i.e. the request to interpolate between the current desired pressure value to a target desired pressure value over a given duration. It is possible to also create speed command, i.e. requesting the desired pressures to achieve a target value at a certain velocity (in terms of unit of pressure per unit of time).
 
@@ -184,7 +184,7 @@ frontend.add_command(3,15000,o80.Speed.per_second(400),o80.Mode.OVERWRITE)
 frontend.add_command(4,20000,o80.Speed.per_second(300),o80.Mode.OVERWRITE)
 frontend.pulse()
 ```
-### direct commands
+### Direct commands
 
 It is possible to create commands that do not specify any duration or speed. Direct commands request the desired pressure to reach the target pressure as fast as possible. For example:
 
@@ -241,7 +241,7 @@ The code above requested to create an handle to the *pam_mujoco* process running
 "tutorials_1_3", and configuring it:
 
 - to run a pressure controlled robot with segment_id "robot"
-- to show mujoco graphics
+- to show MuJoCo graphics
 - to run realtime (and not accelerated_time)
 
 During the handle creation, the corresponding configuration is written in the shared memory, and

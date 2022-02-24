@@ -1,4 +1,4 @@
-# More info: saving ball trajectories
+# More info: Saving ball trajectories
 
 It is possible to save in files both the position and orientation as observed 
 by [tennicam_client](C5_visual_ball_tracking) and the state of the real robot
@@ -6,7 +6,7 @@ as observed by [o80_real](C2_real_robot). These files can be then replayed in a 
 simulation. This simulation will replay both the ball as observed (red ball) and as subject to 
 our [custom contact model](B5_tutorial4) (green ball). This is useful to assess the quality of the contact model.
 
-## How to
+## How-to
 
 ### Log files
 
@@ -37,7 +37,7 @@ and in a second terminal:
 o80_robot_ball_replay
 ```
 
-### Parsing files in python
+### Parsing files in Python
 
 The package o80_pam provides a parser for the saved files:
 

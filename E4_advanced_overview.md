@@ -1,9 +1,9 @@
-# Developer's guide 4: advanced overview
+# Developer's guide 4: Advanced overview
 
 This page is a good read for anybody who would like to have a better understanding on how the software works "under the hood".
 
 
-## mujoco model xml file
+## MuJoCo model XML file
 
 For Mujoco to work,  model xml file that describes the robot and environment is needed.
 Possibly, this xml file can be created "by hand".
@@ -17,7 +17,7 @@ https://github.com/intelligent-soft-robots/pam_demos/blob/main/tutorial_4_backen
 
 which will generate one in a folder of /tmp/
 
-## mujoco controller
+## MuJoCo controller
 
 A controller is a piece of software that is called at each iteration of mujoco, and can modify mujoco's global variables.
 Mujoco has a global variable "mjcb_control" which is a pointer to a controller function. The user can set this pointer to the function of its choice, and this function will be called at each iteration.
@@ -110,8 +110,8 @@ the xml file is generated and the controllers are added.
 
 ## C++ and Python
 
-In the above, some code is in c++, so other code is in python.
-It works because python encapsulate the c++ code, here:
+In the above, some code is in C++, so other code is in Python.
+It works because Python encapsulate the C++ code, here:
 
 - https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/srcpy/wrappers.cpp
 

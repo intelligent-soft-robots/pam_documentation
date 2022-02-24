@@ -1,4 +1,4 @@
-# Tutorial 6: bursting mode
+# Tutorial 6: Bursting mode
 
 ## Introduction
 
@@ -33,7 +33,7 @@ you may see that a very low frequency is shown, and the iteration number does no
 
 This is because in bursting mode, the robot control iterates only when being asked to do so by a frontend.
 
-For example, in a python terminal:
+For example, in a Python terminal:
 
 ```python
 import o80
