@@ -19,7 +19,7 @@ After review and once the branch is merged into th main branch, the online docum
 ## Documentation of all packages
 
 The software comprises several packages.
-These are the packages that are downloaded via treep when installing the software from source and using colcon as described [here](A1_overview_and_installation#via-colcon-workspace).
+These are the packages that are downloaded via treep when installing the software from source and using colcon as described [here](A1_overview_and_installation).
 Some of these package have documentation, which can be built locally
 
 ### How to build
@@ -48,6 +48,9 @@ the ```CMakeLists.txt``` file of the package:
 ```cmake
 add_documentation()
 ```
+
+The command add_documentation is provided by the package mpi_cmake_modules, which is part of the colcon workspace
+as downloaded by treep (see this [page](A1_overview_and_installation))
 
 
 
