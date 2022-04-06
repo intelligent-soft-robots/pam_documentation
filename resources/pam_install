@@ -46,7 +46,6 @@ mkdir -p ${tmp_dir} && cd ${tmp_dir}
 
 # cloning the treep configuration
 git clone https://github.com/intelligent-soft-robots/treep_isr.git
-cd treep_isr && git checkout vberenz/pam_install && cd ..
 
 # cloning the project
 treep --clone-https PAM_MUJOCO
