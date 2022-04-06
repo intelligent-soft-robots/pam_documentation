@@ -45,72 +45,30 @@ Installing the software will results in:
 
 The executables will be used to start the backend connecting to the robot, while the Python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).
 
-Note that you need a valid [MuJoCo key](https://www.roboti.us/license.html) to use the MuJoCo simulated robot.  
-
-### Procedure
-
-> 1. Download binaries or source files from MPI-IS server
-> 2. Extract files and subsequently run scripts as explained in the following for installing the necessary dependencies
-> 3. Download and move MuJoCo key to specified location
-> 4. (Optional:) Setup colcon workspace
-> 5. (Optional:) Setup SSH authentification for GitHub
-> 6. Clone project repository from GitHub
-> 7. Compile project with ```colcon```
-> 8. Source terminal with given setup script
-> 9. Run test import commands in terminal
-
 ### From tar archives
 
-The below will:
+To compile from source and install for your user, execute this [file](http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pam_install):
 
-- install the [MuJoCo physics engine](https://mujoco.org/) in /usr/local/
+```
+wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pam_install
+chmod +x ./pam_install
+./pam_install
+```
+
+This will:
+
+- install some aptitude dependencies (you may be prompted to enter a sudo password)
+
+- install some pip3 dependencies for the *currently active python3*. You are encouraged to use a virtual environment.
+
+- install the [MuJoCo physics engine](https://mujoco.org/) in ~/.mpi-is/mujoco
+
+- install configuration files in ~/.mpi-is/pam
+
+- install compiled libraries and executables in ~/.mpi-is/pam/install
  
-- create configuration files in /opt/mpi-is
+- add lines in the ~/.bashrc files to update the $PATH and $LD_LIBRARY_PATH to include ~/.mpi-is/pam/install
  
-- install C++ libraries and Python packages
-
-#### Binaries
-
-PAM software's binaries are available only for ubuntu18.04/python3.6 and ubuntu20.04/python3.8.
-
-To install, first select a version by visiting : [http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/](http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/) or [http://people.tuebingen.mpg.de/mpi-is-software/pam/older/](http://people.tuebingen.mpg.de/mpi-is-software/pam/older/). Then, for example (update with your selected version):
-
-```bash
-wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_ubuntu20.04_py3.8_1.0.tar.gz
-tar -zxvf ./pam_ubuntu20.04_py3.8_1.<your-version-number>.tar.gz
-sudo ./apt-dependencies
-sudo ./pip3-dependencies
-sudo ./create_config_dirs
-sudo ./install_mujoco
-./configure
-sudo make install # note: 'make install' is directly called, no previous call to 'make'
-sudo ldconfig
-```
-
-#### Sources
-
-```bash
-wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_source.tar.gz
-tar -zxvf ./pam_source.tar.gz
-sudo ./apt-dependencies
-sudo ./pip3-dependencies
-sudo ./create_config_dirs
-sudo ./install_mujoco
-./configure
-make
-sudo make install
-sudo ldconfig
-```
-
-#### MuJoCo key
-
-Copy your MuJoCo key (mjkey.txt) in /opt/mujoco.
-
-```bash
-sudo cp ~/Downloads/mjkey.txt /opt/mujoco   #you may downloaded your key-file in another location
-```
-
-
 (install_via_colcon)=
 
 ### Via colcon workspace
@@ -145,13 +103,11 @@ in a terminal:
 ```bash
 mkdir /tmp/pam && cd /tmp/pam
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/apt-dependencies
-wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/create_config_dirs
-wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/install_mujoco
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pip3-dependencies
+chmod +X ./apt-dependencies
+chmod +X ./pip3-dependencies
 sudo ./apt-dependencies
-sudo ./create_config_dirs
-sudo ./install_mujoco
-sudo ./pip3-dependencies
+./pip3-dependencies
 ```
 
 #### Cloning the repositories
@@ -175,8 +131,8 @@ treep --clone PAM_MUJOCO
 ```bash
 cd /path/to/Software
 cd workspace
-colcon build --cmake-args ' -DCMAKE_BUILD_TYPE=Release ' # you may need to call this command as root
-```
+colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DPYBIND11_TEST=OFF --no-warn-unused-cli
+
 
 This will result in a "install" folder containing the compiled binaries
 
