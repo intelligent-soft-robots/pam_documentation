@@ -15,6 +15,8 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -45,13 +47,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview and software installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#software-installation">Software installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#procedure">Procedure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#from-tar-archives">From tar archives</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#binaries">Binaries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sources">Sources</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mujoco-key">MuJoCo key</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-installation-script">Using the installation script</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#via-colcon-workspace">Via colcon workspace</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#adding-your-ssh-key-to-github">Adding your SSH key to github</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dependencies-and-configuration-folder">Dependencies and configuration folder</a></li>
@@ -59,7 +55,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#compilation">Compilation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#activating-the-workspace">Activating the workspace</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checking-things-are-ok">Checking things are ok</a></li>
 </ul>
 </li>
@@ -143,69 +138,23 @@
 <li><p>useful for advanced users: some C++ libraries installed</p></li>
 </ul>
 <p>The executables will be used to start the backend connecting to the robot, while the Python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).</p>
-<p>Note that you need a valid <a class="reference external" href="https://www.roboti.us/license.html">MuJoCo key</a> to use the MuJoCo simulated robot.</p>
-<section id="procedure">
-<h3>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline"></a></h3>
-<blockquote>
-<div><ol class="simple">
-<li><p>Download binaries or source files from MPI-IS server</p></li>
-<li><p>Extract files and subsequently run scripts as explained in the following for installing the necessary dependencies</p></li>
-<li><p>Download and move MuJoCo key to specified location</p></li>
-<li><p>(Optional:) Setup colcon workspace</p></li>
-<li><p>(Optional:) Setup SSH authentification for GitHub</p></li>
-<li><p>Clone project repository from GitHub</p></li>
-<li><p>Compile project with <code class="docutils literal notranslate"><span class="pre">colcon</span></code></p></li>
-<li><p>Source terminal with given setup script</p></li>
-<li><p>Run test import commands in terminal</p></li>
-</ol>
-</div></blockquote>
-</section>
-<section id="from-tar-archives">
-<h3>From tar archives<a class="headerlink" href="#from-tar-archives" title="Permalink to this headline"></a></h3>
-<p>The below will:</p>
+<section id="using-the-installation-script">
+<h3>Using the installation script<a class="headerlink" href="#using-the-installation-script" title="Permalink to this headline"></a></h3>
+<p>To compile from source and install for your user, execute this <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pam_install">file</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">people</span><span class="o">.</span><span class="n">tuebingen</span><span class="o">.</span><span class="n">mpg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">mpi</span><span class="o">-</span><span class="ow">is</span><span class="o">-</span><span class="n">software</span><span class="o">/</span><span class="n">pam</span><span class="o">/</span><span class="n">resources</span><span class="o">/</span><span class="n">pam_install</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">./</span><span class="n">pam_install</span>
+<span class="o">./</span><span class="n">pam_install</span>
+</pre></div>
+</div>
+<p>This will:</p>
 <ul class="simple">
-<li><p>install the <a class="reference external" href="https://mujoco.org/">MuJoCo physics engine</a> in /usr/local/</p></li>
-<li><p>create configuration files in /opt/mpi-is</p></li>
-<li><p>install C++ libraries and Python packages</p></li>
+<li><p>install some aptitude dependencies (you may be prompted to enter a sudo password)</p></li>
+<li><p>install some pip3 dependencies for the <em>currently active python3</em>. You are encouraged to use a virtual environment.</p></li>
+<li><p>install the <a class="reference external" href="https://mujoco.org/">MuJoCo physics engine</a> in ~/.mpi-is/mujoco</p></li>
+<li><p>install configuration files in ~/.mpi-is/pam</p></li>
+<li><p>install compiled libraries and executables in ~/.mpi-is/pam/install</p></li>
+<li><p>add lines in the ~/.bashrc files to update the <span class="math notranslate nohighlight">\(PATH and \)</span>LD_LIBRARY_PATH to include ~/.mpi-is/pam/install</p></li>
 </ul>
-<section id="binaries">
-<h4>Binaries<a class="headerlink" href="#binaries" title="Permalink to this headline"></a></h4>
-<p>PAM software’s binaries are available only for ubuntu18.04/python3.6 and ubuntu20.04/python3.8.</p>
-<p>To install, first select a version by visiting : <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/">http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/</a> or <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/pam/older/">http://people.tuebingen.mpg.de/mpi-is-software/pam/older/</a>. Then, for example (update with your selected version):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_ubuntu20.04_py3.8_1.0.tar.gz
-tar -zxvf ./pam_ubuntu20.04_py3.8_1.&lt;your-version-number&gt;.tar.gz
-sudo ./apt-dependencies
-sudo ./pip3-dependencies
-sudo ./create_config_dirs
-sudo ./install_mujoco
-./configure
-sudo make install <span class="c1"># note: &#39;make install&#39; is directly called, no previous call to &#39;make&#39;</span>
-sudo ldconfig
-</pre></div>
-</div>
-</section>
-<section id="sources">
-<h4>Sources<a class="headerlink" href="#sources" title="Permalink to this headline"></a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://people.tuebingen.mpg.de/mpi-is-software/pam/latest/pam_source.tar.gz
-tar -zxvf ./pam_source.tar.gz
-sudo ./apt-dependencies
-sudo ./pip3-dependencies
-sudo ./create_config_dirs
-sudo ./install_mujoco
-./configure
-make
-sudo make install
-sudo ldconfig
-</pre></div>
-</div>
-</section>
-<section id="mujoco-key">
-<h4>MuJoCo key<a class="headerlink" href="#mujoco-key" title="Permalink to this headline"></a></h4>
-<p>Copy your MuJoCo key (mjkey.txt) in /opt/mujoco.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo cp ~/Downloads/mjkey.txt /opt/mujoco   <span class="c1">#you may downloaded your key-file in another location</span>
-</pre></div>
-</div>
-</section>
 </section>
 <section id="via-colcon-workspace">
 <span id="install-via-colcon"></span><h3>Via colcon workspace<a class="headerlink" href="#via-colcon-workspace" title="Permalink to this headline"></a></h3>
@@ -233,13 +182,11 @@ ssh-add ~/.ssh/id_rsa
 <p>in a terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /tmp/pam <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /tmp/pam
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/apt-dependencies
-wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/create_config_dirs
-wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/install_mujoco
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pip3-dependencies
+chmod +X ./apt-dependencies
+chmod +X ./pip3-dependencies
 sudo ./apt-dependencies
-sudo ./create_config_dirs
-sudo ./install_mujoco
-sudo ./pip3-dependencies
+./pip3-dependencies
 </pre></div>
 </div>
 </section>
@@ -260,22 +207,24 @@ git clone git@github.com:intelligent-soft-robots/treep_isr.git
 <h4>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline"></a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/Software
 <span class="nb">cd</span> workspace
-colcon build --cmake-args <span class="s1">&#39; -DCMAKE_BUILD_TYPE=Release &#39;</span> <span class="c1"># you may need to call this command as root</span>
-</pre></div>
-</div>
-<p>This will result in a “install” folder containing the compiled binaries</p>
-</section>
-</section>
-<section id="activating-the-workspace">
-<h3>Activating the workspace<a class="headerlink" href="#activating-the-workspace" title="Permalink to this headline"></a></h3>
-<p>In each new terminal, the workspace needs to be sourced:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /path/to/Software/install/setup.bash
+colcon build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DPYBIND11_TEST<span class="o">=</span>OFF --no-warn-unused-cli
+
+
+This will result in a <span class="s2">&quot;install&quot;</span> folder containing the compiled binaries
+
+<span class="c1">### Activating the workspace</span>
+
+In each new terminal, the workspace needs to be sourced:
+
+<span class="sb">```</span>bash
+<span class="nb">source</span> /path/to/Software/install/setup.bash
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Possibly, you may want to add the line above to the ~/.bashrc file (so that each new terminal source the workspace automatically).</p>
 </div>
+</section>
 </section>
 <section id="checking-things-are-ok">
 <h3>Checking things are ok<a class="headerlink" href="#checking-things-are-ok" title="Permalink to this headline"></a></h3>
