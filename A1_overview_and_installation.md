@@ -45,7 +45,7 @@ Installing the software will results in:
 
 The executables will be used to start the backend connecting to the robot, while the Python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).
 
-### From tar archives
+### Using the installation script
 
 To compile from source and install for your user, execute this [file](http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pam_install):
 
