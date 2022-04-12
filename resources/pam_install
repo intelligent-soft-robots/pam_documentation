@@ -1,0 +1,98 @@
+#!/bin/bash
+
+apt_packages="git python3-pip cmake libcereal-dev libboost-all-dev libgtest-dev libeigen3-dev \
+libedit-dev libncurses5-dev freeglut3-dev libxmu-dev libarmadillo-dev \
+liblapack-dev libblas-dev doxygen libxcb-xinerama0 libxrandr2 libxcursor1 \
+libxinerama1 libzmq3-dev libzmqpp-dev protobuf-compiler libprotobuf-dev \
+xterm libglfw3-dev libglew-dev"
+
+pip3_packages="colcon-common-extensions treep fyplot \
+ pyside2 empy catkin-pkg sphinx \
+breathe matplotlib h5py nptyping nose"
+
+rnum=$(( $RANDOM % 10000 ))
+tmp_dir="/tmp/pam_install_${rnum}"
+
+
+# trying to install the apt packages dependencies
+# without sudo
+apt install -y ${apt_packages} 2> /dev/null
+
+# if did not work out, trying with sudo
+success=$?
+if [ ! "${success}" -eq "0" ]; then
+    sudo apt install -y ${apt_packages}
+    success=$?
+    if [ ! "${success}" -eq "0" ]; then
+	>&2 echo "failed to install apt dependencies with exit code ${success}"
+	exit $success
+    fi
+fi
+
+
+# trying to install pip3 dependencies
+pip3 install ${pip3_packages}
+
+# if did not work out, exit. Global install not
+# supported
+success=$?
+if [ ! "${success}" -eq "0" ]; then
+    >&2 echo "failed to install pip3 dependencies with exit code ${success}. It is adviced to use a virtual environment."
+    exit $success
+fi
+
+# going to installation folder
+mkdir -p ${tmp_dir} && cd ${tmp_dir}
+
+# cloning the treep configuration
+git clone https://github.com/intelligent-soft-robots/treep_isr.git
+
+# cloning the project
+treep --clone-https PAM_MUJOCO
+
+# compiling && installing
+colcon build --merge-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DPAM_INSTALL=ON -DBUILD_TESTING=OFF -DPYBIND11_TEST=OFF --no-warn-unused-cli
+
+
+# If not there are not already present, add commands
+# to update the $PATH and $LD_LIBRARY_PATH
+# environment variables to ~/.bashrc
+# (to append ~/.mpi-is/pam/install/bin and
+# ~/.mpi-is/pam/install/lib)
+
+bashrc=${HOME}/.bashrc
+prefix_dir=${HOME}/.mpi-is/pam
+install_dir=${prefix_dir}/install
+lib_dir=${install_dir}/lib
+bin_dir=${install_dir}/bin
+
+mkdir -p ${install_dir}
+mkdir -p ${lib_dir}
+mkdir -p ${bin_dir}
+
+update_ld_path="LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:${lib_dir}"
+update_bin_path="PATH=\$PATH:${bin_dir}"
+
+if ! grep "${update_ld_path}" ${bashrc}
+then
+    echo "${update_ld_path}" >> ${bashrc}
+fi
+
+if ! grep "${update_bin_path}" ${bashrc}
+then
+    echo "${update_bin_path}" >> ${bashrc}
+fi
+
+
+# done
+
+echo ""
+echo "#######################################"
+echo "# installation of pam mujoco complete #"
+echo "#######################################"
+echo ""
+echo "- File installed in ${prefix_dir}"
+echo "- ${bashrc} file has been set to update $PATH and $LD_LIBRARY_PATH"
+echo "- You may need to logout and login again before things work"
+echo "- Documentation: https://intelligent-soft-robots.github.io/pam_documentation/"
+echo ""
