@@ -132,6 +132,7 @@ treep --clone PAM_MUJOCO
 cd /path/to/Software
 cd workspace
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DPYBIND11_TEST=OFF --no-warn-unused-cli
+```
 
 
 This will result in a "install" folder containing the compiled binaries
