@@ -55,6 +55,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#compilation">Compilation</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#activating-the-workspace">Activating the workspace</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checking-things-are-ok">Checking things are ok</a></li>
 </ul>
 </li>
@@ -208,23 +209,21 @@ git clone git@github.com:intelligent-soft-robots/treep_isr.git
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/Software
 <span class="nb">cd</span> workspace
 colcon build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DPYBIND11_TEST<span class="o">=</span>OFF --no-warn-unused-cli
-
-
-This will result in a <span class="s2">&quot;install&quot;</span> folder containing the compiled binaries
-
-<span class="c1">### Activating the workspace</span>
-
-In each new terminal, the workspace needs to be sourced:
-
-<span class="sb">```</span>bash
-<span class="nb">source</span> /path/to/Software/install/setup.bash
+</pre></div>
+</div>
+<p>This will result in a “install” folder containing the compiled binaries</p>
+</section>
+</section>
+<section id="activating-the-workspace">
+<h3>Activating the workspace<a class="headerlink" href="#activating-the-workspace" title="Permalink to this headline"></a></h3>
+<p>In each new terminal, the workspace needs to be sourced:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /path/to/Software/install/setup.bash
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Possibly, you may want to add the line above to the ~/.bashrc file (so that each new terminal source the workspace automatically).</p>
 </div>
-</section>
 </section>
 <section id="checking-things-are-ok">
 <h3>Checking things are ok<a class="headerlink" href="#checking-things-are-ok" title="Permalink to this headline"></a></h3>
