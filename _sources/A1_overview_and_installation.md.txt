@@ -104,8 +104,8 @@ in a terminal:
 mkdir /tmp/pam && cd /tmp/pam
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/apt-dependencies
 wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pip3-dependencies
-chmod +X ./apt-dependencies
-chmod +X ./pip3-dependencies
+chmod +x ./apt-dependencies
+chmod +x ./pip3-dependencies
 sudo ./apt-dependencies
 ./pip3-dependencies
 ```
