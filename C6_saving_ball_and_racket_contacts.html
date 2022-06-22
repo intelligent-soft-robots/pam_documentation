@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -65,6 +66,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
@@ -97,16 +99,16 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="more-info-saving-ball-trajectories">
-<h1>More info: Saving ball trajectories<a class="headerlink" href="#more-info-saving-ball-trajectories" title="Permalink to this headline"></a></h1>
+<h1>More info: Saving ball trajectories<a class="headerlink" href="#more-info-saving-ball-trajectories" title="Permalink to this heading"></a></h1>
 <p>It is possible to save in files both the position and orientation as observed
 by <a class="reference internal" href="C5_visual_ball_tracking.html"><span class="doc std std-doc">tennicam_client</span></a> and the state of the real robot
 as observed by <a class="reference internal" href="C2_real_robot.html"><span class="doc std std-doc">o80_real</span></a>. These files can be then replayed in a pam_mujoco
 simulation. This simulation will replay both the ball as observed (red ball) and as subject to
 our <a class="reference internal" href="B5_tutorial4.html"><span class="doc std std-doc">custom contact model</span></a> (green ball). This is useful to assess the quality of the contact model.</p>
 <section id="how-to">
-<h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h2>
+<h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this heading"></a></h2>
 <section id="log-files">
-<h3>Log files<a class="headerlink" href="#log-files" title="Permalink to this headline"></a></h3>
+<h3>Log files<a class="headerlink" href="#log-files" title="Permalink to this heading"></a></h3>
 <p>Starting:</p>
 <ul class="simple">
 <li><p>tennicam and tennicam_client must be <a class="reference internal" href="C5_visual_ball_tracking.html"><span class="doc std std-doc">running</span></a></p></li>
@@ -119,7 +121,7 @@ our <a class="reference internal" href="B5_tutorial4.html"><span class="doc std 
 <p>The dialog will propose to save the data into file that does not exist already.</p>
 </section>
 <section id="replay">
-<h3>Replay<a class="headerlink" href="#replay" title="Permalink to this headline"></a></h3>
+<h3>Replay<a class="headerlink" href="#replay" title="Permalink to this heading"></a></h3>
 <p>In a first terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pam_mujoco</span> <span class="n">robot_ball_replay</span>
 </pre></div>
@@ -130,7 +132,7 @@ our <a class="reference internal" href="B5_tutorial4.html"><span class="doc std 
 </div>
 </section>
 <section id="parsing-files-in-python">
-<h3>Parsing files in Python<a class="headerlink" href="#parsing-files-in-python" title="Permalink to this headline"></a></h3>
+<h3>Parsing files in Python<a class="headerlink" href="#parsing-files-in-python" title="Permalink to this heading"></a></h3>
 <p>The package o80_pam provides a parser for the saved files:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">o80_pam</span>

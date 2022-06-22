@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -73,6 +74,7 @@
 <li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: Visual ball tracking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C6_saving_ball_and_racket_contacts.html">More info: Saving ball trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
@@ -105,9 +107,9 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-4-joint-control-table-balls-etc">
-<h1>Tutorial 4: Joint control, table, balls, etc.<a class="headerlink" href="#tutorial-4-joint-control-table-balls-etc" title="Permalink to this headline"></a></h1>
+<h1>Tutorial 4: Joint control, table, balls, etc.<a class="headerlink" href="#tutorial-4-joint-control-table-balls-etc" title="Permalink to this heading"></a></h1>
 <section id="tutorial-s-demo">
-<h2>Tutorial’s demo<a class="headerlink" href="#tutorial-s-demo" title="Permalink to this headline"></a></h2>
+<h2>Tutorial’s demo<a class="headerlink" href="#tutorial-s-demo" title="Permalink to this heading"></a></h2>
 <p>This demo is started similarly to the Tutorials 1 to 3, with the exception that pam_mujoco should
 be start with mujoco_id <em>tutorial_4</em></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco tutorial_4
@@ -119,7 +121,7 @@ be start with mujoco_id <em>tutorial_4</em></p>
 </div>
 </section>
 <section id="handle-and-mujoco-xml-files">
-<h2>Handle and MuJoCo XML files<a class="headerlink" href="#handle-and-mujoco-xml-files" title="Permalink to this headline"></a></h2>
+<h2>Handle and MuJoCo XML files<a class="headerlink" href="#handle-and-mujoco-xml-files" title="Permalink to this heading"></a></h2>
 <p>The source code of Tutorial 4 starts with the MuJoCo simulation configuration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">robot</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoRobot</span><span class="p">(</span><span class="s2">&quot;robot&quot;</span><span class="p">,</span>
                                <span class="n">control</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoRobot</span><span class="o">.</span><span class="n">JOINT_CONTROL</span><span class="p">)</span>
@@ -152,7 +154,7 @@ be start with mujoco_id <em>tutorial_4</em></p>
 <p>The handle requests the configuration file to describe an environment with 1 robot, 2 balls, a hit point and to display a table and indeed this is what pam_mujoco spawns.</p>
 <p>On top of this, the handle requests the robot to be joint controlled as well as the balls and the hit point to be also be controlled.</p>
 <section id="model-factory">
-<h3>Model factory<a class="headerlink" href="#model-factory" title="Permalink to this headline"></a></h3>
+<h3>Model factory<a class="headerlink" href="#model-factory" title="Permalink to this heading"></a></h3>
 <p>The API of model factory is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pam_mujoco</span>
 <span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="c1"># arbitrary string</span>
@@ -205,9 +207,9 @@ be start with mujoco_id <em>tutorial_4</em></p>
 </section>
 </section>
 <section id="interacting-with-objects">
-<h2>Interacting with objects<a class="headerlink" href="#interacting-with-objects" title="Permalink to this headline"></a></h2>
+<h2>Interacting with objects<a class="headerlink" href="#interacting-with-objects" title="Permalink to this heading"></a></h2>
 <section id="interacting-with-a-ball">
-<h3>Interacting with a ball<a class="headerlink" href="#interacting-with-a-ball" title="Permalink to this headline"></a></h3>
+<h3>Interacting with a ball<a class="headerlink" href="#interacting-with-a-ball" title="Permalink to this heading"></a></h3>
 <p>The script above started a simulation containing 3 simulated balls. These balls are subject to the (simulated) gravity and will just fall forever. Not very exciting.</p>
 <p>o80 can be used to interact the simulated balls, e.g. forcing the position/velocity of the balls and/or getting information about the balls.</p>
 <p>To request the addition of a corresponding o80 backend to the simulation process, the script has to be updated:</p>
@@ -258,7 +260,7 @@ be start with mujoco_id <em>tutorial_4</em></p>
 <p>Something similar can be done for the other balls, or the goal (replace “Ball” with “Goal”, e.g. add_o80_for_goal).</p>
 </section>
 <section id="detecting-contact">
-<h3>Detecting contact<a class="headerlink" href="#detecting-contact" title="Permalink to this headline"></a></h3>
+<h3>Detecting contact<a class="headerlink" href="#detecting-contact" title="Permalink to this heading"></a></h3>
 <p>As presented above, this allows control of a simulated ball:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_ball_control</span><span class="p">(</span><span class="s2">&quot;ball0&quot;</span><span class="p">,</span>
                                 <span class="n">balls</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -302,7 +304,7 @@ be start with mujoco_id <em>tutorial_4</em></p>
 </div>
 </section>
 <section id="playing-a-recorded-ball-trajectory">
-<h3>Playing a recorded ball trajectory<a class="headerlink" href="#playing-a-recorded-ball-trajectory" title="Permalink to this headline"></a></h3>
+<h3>Playing a recorded ball trajectory<a class="headerlink" href="#playing-a-recorded-ball-trajectory" title="Permalink to this heading"></a></h3>
 <p>We recorded trajectories of real ball being launched and bouncing on a table tennis table. A Python-API allows to query these trajectories.
 For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">context</span>
@@ -345,7 +347,7 @@ For example:</p>
 </div>
 </section>
 <section id="hybrid-controlling-a-ball-until-contact">
-<h3>Hybrid: Controlling a ball until contact<a class="headerlink" href="#hybrid-controlling-a-ball-until-contact" title="Permalink to this headline"></a></h3>
+<h3>Hybrid: Controlling a ball until contact<a class="headerlink" href="#hybrid-controlling-a-ball-until-contact" title="Permalink to this heading"></a></h3>
 <p>It is possible to use an o80 frontend to control a ball, but letting MuJoCo’s physic engine taking over once a contact occured.</p>
 <p>Above, the function “add_o80_ball_control” was introduced. It was used to set an o80 backend for ball control in the MuJoCo simulation.</p>
 <p>An alternative method is: “add_o80_ball_control_until_contact”.</p>
@@ -364,7 +366,7 @@ For example:</p>
 </section>
 </section>
 <section id="goal-hit-point">
-<h2>Goal, hit point<a class="headerlink" href="#goal-hit-point" title="Permalink to this headline"></a></h2>
+<h2>Goal, hit point<a class="headerlink" href="#goal-hit-point" title="Permalink to this heading"></a></h2>
 <p>Goal and HitPoint are visual markers. They can also be added to the MuJoCo’s model, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
                                  <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
@@ -394,7 +396,7 @@ For example:</p>
 </div>
 </section>
 <section id="joint-control">
-<h2>Joint Control<a class="headerlink" href="#joint-control" title="Permalink to this headline"></a></h2>
+<h2>Joint Control<a class="headerlink" href="#joint-control" title="Permalink to this heading"></a></h2>
 <p>MuJoCo simulated PAM-robot can be joint controlled (i.e. setting for each degree of freedom a desired joint angle and a desired angular velocity).</p>
 <p>For this, it is required to add a joint controller, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
