@@ -86,7 +86,7 @@ Linux severus 5.4.0-113-lowlatency #127-Ubuntu SMP PREEMPT Wed May 18 15:12:18 U
 ```
 
 *note:* the command 'uname -a' is used during compilation of the software to check wether or not the kernel has low latency.
-If this command does not outnput something containing 'lowlatency', the software will not make use of the low latency.
+If this command does not output something containing 'lowlatency', the software will not make use of the low latency.
 
 ### Further setup
 
