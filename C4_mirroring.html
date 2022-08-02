@@ -56,7 +56,6 @@
 <li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">More info: Mirroring real robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: Visual ball tracking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C6_saving_ball_and_racket_contacts.html">More info: Saving ball trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
@@ -93,13 +92,14 @@
   <section class="tex2jax_ignore mathjax_ignore" id="more-info-mirroring-real-robot">
 <h1>More info: Mirroring real robot<a class="headerlink" href="#more-info-mirroring-real-robot" title="Permalink to this heading"></a></h1>
 <p>To get a MuJoCo simulation to mirror the real robot, first, start the real robot:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_real
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_pamy2
+<span class="c1"># or o80_pamy1</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">o80_real</span></code> executable requests you to enter a segment_id (<code class="docutils literal notranslate"><span class="pre">real_robot</span></code> as default). Take note of it.</p>
-<p>Alternatively, you may also start a mujoco simulated robot that uses pressure control, see for example the <a class="reference internal" href="B1_tutorial0.html"><span class="doc std std-doc">three first tutorials</span></a>. In the terminal, take not of the frontend related to the robot control, e.g. <code class="docutils literal notranslate"><span class="pre">robot</span></code> in this output:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">o80_pamy1</span></code> or <code class="docutils literal notranslate"><span class="pre">o80_pamy2</span></code> executables request you to enter a segment_id (<code class="docutils literal notranslate"><span class="pre">real_robot</span></code> as default). Take note of it.</p>
+<p>Alternatively, you may also start a mujoco simulated robot that uses pressure control, see for example the <a class="reference internal" href="B1_tutorial0.html"><span class="doc std std-doc">three first tutorials</span></a>. In the terminal, take note of the frontend related to the robot control, e.g. <code class="docutils literal notranslate"><span class="pre">my_robot</span></code> in this output:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>adding controller:
-	robot: pressure control, segment_id: robot, configurations:
+	robot: pressure control, segment_id: my_robot, configurations:
 		controller: /opt/mpi-is/pam_interface/pam.json
 		agnonist muscles: /opt/mpi-is/pam_models//hill.json
 		antagonist muscles: /opt/mpi-is/pam_models//hill.json
@@ -113,7 +113,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pam_mirroring_real_robot</span>
 </pre></div>
 </div>
-<p>Use the value <code class="docutils literal notranslate"><span class="pre">mirroring</span></code> for <code class="docutils literal notranslate"><span class="pre">mujoco_id_mirroring</span></code>, and the segment_id you took note of for <code class="docutils literal notranslate"><span class="pre">segment_id_real_robot</span></code>.</p>
+<p>In the dialog, use the value <code class="docutils literal notranslate"><span class="pre">mirroring</span></code> for <code class="docutils literal notranslate"><span class="pre">mujoco_id_mirroring</span></code>, and the segment_id you took note of for <code class="docutils literal notranslate"><span class="pre">segment_id_real_robot</span></code>.</p>
 </section>
 
 
