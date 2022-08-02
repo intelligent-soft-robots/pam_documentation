@@ -22,6 +22,7 @@ PAM Documentation
    C4_mirroring
    C5_visual_ball_tracking
    C7_ball_launcher
+   C8_low_latency
    E1_tools
    E2_guidelines
    E3_packages_overview
