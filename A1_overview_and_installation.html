@@ -16,8 +16,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -48,7 +46,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview and software installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#software-installation">Software installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-installation-script">Using the installation script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-installation-script">Using the installation script</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#steps">Steps</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#via-colcon-workspace">Via colcon workspace</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#adding-your-ssh-key-to-github">Adding your SSH key to github</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dependencies-and-configuration-folder">Dependencies and configuration folder</a></li>
@@ -142,24 +144,26 @@
 <p>The executables will be used to start the backend connecting to the robot, while the Python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).</p>
 <section id="using-the-installation-script">
 <h3>Using the installation script<a class="headerlink" href="#using-the-installation-script" title="Permalink to this heading"></a></h3>
-<p>To compile from source and install for your user, execute this <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pam_install">file</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">people</span><span class="o">.</span><span class="n">tuebingen</span><span class="o">.</span><span class="n">mpg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">mpi</span><span class="o">-</span><span class="ow">is</span><span class="o">-</span><span class="n">software</span><span class="o">/</span><span class="n">pam</span><span class="o">/</span><span class="n">resources</span><span class="o">/</span><span class="n">pam_install</span>
-<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">./</span><span class="n">pam_install</span>
-<span class="o">./</span><span class="n">pam_install</span>
-</pre></div>
-</div>
-<p>This will:</p>
+<section id="requirements">
+<h4>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p>install some aptitude dependencies (you may be prompted to enter a sudo password)</p></li>
-<li><p>install some pip3 dependencies for the <em>currently active python3</em>. You are encouraged to use a virtual environment.</p></li>
-<li><p>install the <a class="reference external" href="https://mujoco.org/">MuJoCo physics engine</a> in ~/.mpi-is/mujoco</p></li>
-<li><p>install configuration files in ~/.mpi-is/pam</p></li>
-<li><p>install compiled libraries and executables in ~/.mpi-is/pam/install</p></li>
-<li><p>add lines in the ~/.bashrc files to update the <span class="math notranslate nohighlight">\(PATH and \)</span>LD_LIBRARY_PATH to include ~/.mpi-is/pam/install</p></li>
+<li><p>recommanded: activate a dedicated python virtual environment</p></li>
+<li><p>install the development package of the python version you use, e.g. <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3.9-dev</span></code></p></li>
+<li><p>upgrade pip to latest version: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pip</span></code></p></li>
 </ul>
 </section>
+<section id="steps">
+<h4>Steps<a class="headerlink" href="#steps" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>clone https://github.com/intelligent-soft-robots/hysr</p></li>
+<li><p>pip install (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">hysr</span> <span class="pre">&amp;&amp;</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code>)</p></li>
+<li><p>run in a terminal <code class="docutils literal notranslate"><span class="pre">hysr_pam_install</span></code>. This will prompt you for your (sudo) password. Sudo rights are required by the script because it installs some dependencies using apt.</p></li>
+<li><p>open a new terminal. Running for example <code class="docutils literal notranslate"><span class="pre">o80_dummy</span></code> should work. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pam_mujoco</span></code> in python code should also work.</p></li>
+</ul>
+</section>
+</section>
 <section id="via-colcon-workspace">
-<span id="install-via-colcon"></span><h3>Via colcon workspace<a class="headerlink" href="#via-colcon-workspace" title="Permalink to this heading"></a></h3>
+<h3>Via colcon workspace<a class="headerlink" href="#via-colcon-workspace" title="Permalink to this heading"></a></h3>
 <p>This is the recommended way for developers of the PAM software (as opposed to the users of it).</p>
 <p><a class="reference external" href="https://colcon.readthedocs.io/en/released/">Colcon</a> is the built system of <a class="reference external" href="https://docs.ros.org/en/foxy/index.html">ROS2</a>.
 The instructions below will result in the setup of a colcon workspace. Possibly, if you would like to use o80 in a ROS2 project, you may copy the cloned packages to an existing workspace.</p>
