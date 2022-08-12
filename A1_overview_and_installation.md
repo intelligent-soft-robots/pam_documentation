@@ -47,29 +47,18 @@ The executables will be used to start the backend connecting to the robot, while
 
 ### Using the installation script
 
-To compile from source and install for your user, execute this [file](http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pam_install):
+#### Requirements
 
-```
-wget http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/pam_install
-chmod +x ./pam_install
-./pam_install
-```
+- recommanded: activate a dedicated python virtual environment
+- install the development package of the python version you use, e.g. ```sudo apt install python3.9-dev```
+- upgrade pip to latest version: ```pip install --upgrade pip```
 
-This will:
+#### Steps
 
-- install some aptitude dependencies (you may be prompted to enter a sudo password)
-
-- install some pip3 dependencies for the *currently active python3*. You are encouraged to use a virtual environment.
-
-- install the [MuJoCo physics engine](https://mujoco.org/) in ~/.mpi-is/mujoco
-
-- install configuration files in ~/.mpi-is/pam
-
-- install compiled libraries and executables in ~/.mpi-is/pam/install
- 
-- add lines in the ~/.bashrc files to update the $PATH and $LD_LIBRARY_PATH to include ~/.mpi-is/pam/install
- 
-(install_via_colcon)=
+- clone https://github.com/intelligent-soft-robots/hysr
+- pip install (```cd hysr && pip install .```)
+- run in a terminal ```hysr_pam_install```. This will prompt you for your (sudo) password. Sudo rights are required by the script because it installs some dependencies using apt.
+- open a new terminal. Running for example ```o80_dummy``` should work. ```import pam_mujoco``` in python code should also work.
 
 ### Via colcon workspace
 
