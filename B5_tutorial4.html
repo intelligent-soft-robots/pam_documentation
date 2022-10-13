@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -133,10 +134,10 @@ be start with mujoco_id <em>tutorial_4</em></p>
                               <span class="n">contact_type</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">ContactTypes</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
 <span class="n">hit_point</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="s2">&quot;hit_point&quot;</span><span class="p">,</span>
                                   <span class="n">control</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="o">.</span><span class="n">CONSTANT_CONTROL</span><span class="p">)</span>
-<span class="n">graphics</span><span class="o">=</span><span class="bp">True</span>
-<span class="n">accelerated_time</span><span class="o">=</span><span class="bp">False</span>
+<span class="n">graphics</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">accelerated_time</span><span class="o">=</span><span class="kc">False</span>
 <span class="n">handle</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoHandle</span><span class="p">(</span><span class="s2">&quot;tutorial_4&quot;</span><span class="p">,</span>
-                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                  <span class="n">robot1</span><span class="o">=</span><span class="n">robot</span><span class="p">,</span>
                                  <span class="n">balls</span><span class="o">=</span><span class="p">(</span><span class="n">ball1</span><span class="p">,</span><span class="n">ball2</span><span class="p">),</span>
                                  <span class="n">hit_points</span><span class="o">=</span><span class="p">(</span><span class="n">hit_point</span><span class="p">,),</span>
@@ -158,13 +159,13 @@ be start with mujoco_id <em>tutorial_4</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pam_mujoco</span>
 <span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="c1"># arbitrary string</span>
                                  <span class="n">time_step</span> <span class="o">=</span> <span class="mf">0.002</span><span class="p">,</span>
-                                 <span class="n">table</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                                 <span class="n">robot1</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">robot1_position</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.44</span><span class="p">],</span>
-                                 <span class="n">robot2</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">robot2_position</span><span class="o">=</span><span class="p">[</span><span class="mf">1.6</span><span class="p">,</span><span class="mf">3.4</span><span class="p">,</span><span class="o">-</span><span class="mf">0.44</span><span class="p">],</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">robot1_position</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.44</span><span class="p">],</span>
+                                 <span class="n">robot2</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">robot2_position</span><span class="o">=</span><span class="p">[</span><span class="mf">1.6</span><span class="p">,</span><span class="mf">3.4</span><span class="p">,</span><span class="o">-</span><span class="mf">0.44</span><span class="p">],</span>
                                  <span class="n">robot2_orientation</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
-                                 <span class="n">goal</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">hit_point</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                                 <span class="n">ball_colors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                                 <span class="n">muscles</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                 <span class="n">goal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">hit_point</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                 <span class="n">ball_colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">muscles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Call to model_factory results in the generation of an MuJoCo-XML-model-file. The absolute path to this file is accessible:</p>
@@ -182,14 +183,14 @@ be start with mujoco_id <em>tutorial_4</em></p>
 <span class="c1"># corresponding to a table, 3 balls, 2 robots</span>
 <span class="c1"># and a goal (a goal is a simple visual marker)</span>
 <span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
-                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                                 <span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">robot2</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                 <span class="n">goal</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">robot2</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">goal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># some config for mujoco</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoConfig</span><span class="p">()</span>
-<span class="n">config</span><span class="o">.</span><span class="n">graphics</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># set to False if you do not need graphics</span>
-<span class="n">config</span><span class="o">.</span><span class="n">realtime</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># set to False if you prefer accelerated time</span>
+<span class="n">config</span><span class="o">.</span><span class="n">graphics</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># set to False if you do not need graphics</span>
+<span class="n">config</span><span class="o">.</span><span class="n">realtime</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># set to False if you prefer accelerated time</span>
 
 <span class="c1"># starting the mujoco simulation</span>
 <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">init_mujoco</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
@@ -215,16 +216,16 @@ be start with mujoco_id <em>tutorial_4</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="c1"># the mujoco xml model generated including 3 balls</span>
 <span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
-                                <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                                <span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">robot2</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                <span class="n">goal</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                <span class="n">table</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">nb_balls</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                <span class="n">robot1</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">robot2</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">goal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># getting informations about the 3 generated balls</span>
 <span class="n">balls</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;ball&quot;</span><span class="p">]</span>
 
 <span class="n">config</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoConfig</span><span class="p">()</span>
-<span class="n">config</span><span class="o">.</span><span class="n">graphics</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">config</span><span class="o">.</span><span class="n">realtime</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">config</span><span class="o">.</span><span class="n">graphics</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">config</span><span class="o">.</span><span class="n">realtime</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">init_mujoco</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
@@ -368,11 +369,11 @@ For example:</p>
 <h2>Goal, hit point<a class="headerlink" href="#goal-hit-point" title="Permalink to this heading"></a></h2>
 <p>Goal and HitPoint are visual markers. They can also be added to the MuJoCo’s model, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
-                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                  <span class="n">nb_balls</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                                 <span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                 <span class="n">goal</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                 <span class="n">hit_point</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">goal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">hit_point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">goal</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;goal&quot;</span><span class="p">]</span>
 <span class="n">hit_point</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;hit_point&quot;</span><span class="p">]</span>
 
@@ -399,11 +400,11 @@ For example:</p>
 <p>MuJoCo simulated PAM-robot can be joint controlled (i.e. setting for each degree of freedom a desired joint angle and a desired angular velocity).</p>
 <p>For this, it is required to add a joint controller, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">model_factory</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
-                                 <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">table</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                  <span class="n">nb_balls</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                                 <span class="n">robot1</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                 <span class="n">goal</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                 <span class="n">hit_point</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                 <span class="n">robot1</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">goal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">hit_point</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                  <span class="n">ball_colors</span><span class="o">=</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
 <span class="n">robot</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">&quot;robot&quot;</span><span class="p">]</span>
 <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">add_o80_joint_control</span><span class="p">(</span><span class="s2">&quot;robot&quot;</span><span class="p">,</span><span class="n">robot</span><span class="p">)</span>

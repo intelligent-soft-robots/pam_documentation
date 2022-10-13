@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -238,25 +239,25 @@ colcon build --packages-up-to packagename
 <p>By convention, the C++ binding code should be in the srcpy folder of the package, and in the file wrappers.cpp.</p>
 <p>As you can see in this <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/srcpy/wrappers.cpp">example</a>, creating binders for C++ classes can be trivial.</p>
 <p>For example, this wrapper code:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>   <span class="n">pybind11</span><span class="o">::</span><span class="n">class_</span><span class="o">&lt;</span><span class="n">Ball</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s">&quot;Ball&quot;</span><span class="p">)</span>
-        <span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="n">pybind11</span><span class="o">::</span><span class="n">init</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span>
-        <span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;update&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">update</span><span class="p">)</span>
-        <span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;get&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">get</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="n">pybind11</span><span class="o">::</span><span class="n">class_</span><span class="o">&lt;</span><span class="n">Ball</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ball&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="n">pybind11</span><span class="o">::</span><span class="n">init</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;update&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">update</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;get&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">get</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>binds this c++ class <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/include/context/ball.hpp">ball</a>.</p>
 <p>The following calls has to be added in the CMakeLists.txt file:</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">pybind11_add_module</span><span class="p">(</span><span class="s">context_py</span> <span class="s">srcpy/wrappers.cpp</span><span class="p">)</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">context_py</span> <span class="s">PRIVATE</span> <span class="s">context</span> <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
-<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">context_py</span> <span class="s">PROPERTIES</span>
-  <span class="s">LIBRARY_OUTPUT_DIRECTORY</span> <span class="o">${</span><span class="nv">CATKIN_DEVEL_PREFIX</span><span class="o">}</span><span class="s">/</span><span class="o">${</span><span class="nv">CATKIN_GLOBAL_PYTHON_DESTINATION</span><span class="o">}</span>
-  <span class="s">OUTPUT_NAME</span> <span class="s">context</span><span class="p">)</span>
-<span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span> <span class="s">context_py</span> <span class="s">DESTINATION</span> <span class="o">${</span><span class="nv">CATKIN_GLOBAL_PYTHON_DESTINATION</span><span class="o">}</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">pybind11_add_module</span><span class="p">(</span><span class="s">context_py</span><span class="w"> </span><span class="s">srcpy/wrappers.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">context_py</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">context</span><span class="w"> </span><span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">set_target_properties</span><span class="p">(</span><span class="s">context_py</span><span class="w"> </span><span class="s">PROPERTIES</span>
+<span class="w">  </span><span class="s">LIBRARY_OUTPUT_DIRECTORY</span><span class="w"> </span><span class="o">${</span><span class="nv">CATKIN_DEVEL_PREFIX</span><span class="o">}</span><span class="s">/</span><span class="o">${</span><span class="nv">CATKIN_GLOBAL_PYTHON_DESTINATION</span><span class="o">}</span>
+<span class="w">  </span><span class="s">OUTPUT_NAME</span><span class="w"> </span><span class="s">context</span><span class="p">)</span>
+<span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span><span class="w"> </span><span class="s">context_py</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="o">${</span><span class="nv">CATKIN_GLOBAL_PYTHON_DESTINATION</span><span class="o">}</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(replace “context” by the name of the catkin package).</p>
 <p>Note that in the <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/srcpy/wrappers.cpp#L12">wrappers.cpp</a> file, the package name must also be used as first argument:</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">PYBIND11_MODULE</span><span class="p">(</span><span class="s">context,</span> <span class="s">m</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">PYBIND11_MODULE</span><span class="p">(</span><span class="s">context,</span><span class="w"> </span><span class="s">m</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The above results in the creation of the Python package “context”, which can be used after compilation and sourcing of the workspace, simply in a terminal:</p>

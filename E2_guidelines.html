@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -307,14 +308,14 @@ a CMake <strong>install rule</strong> that makes them executable upon installati
 but they highly reduce the risk of introducing bugs if the block is extended in
 the future.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// good:</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">foo</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">foo</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="c1">// bad:</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-    <span class="n">foo</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">foo</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -322,9 +323,9 @@ the future.</p>
 <h5>Pass objects by const reference<a class="headerlink" href="#pass-objects-by-const-reference" title="Permalink to this heading"></a></h5>
 <p>In general, non-primitive data types should be passed to functions by const
 reference to avoid unnecessary copies.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">foobar</span><span class="p">(</span><span class="k">const</span> <span class="n">Foo</span> <span class="o">&amp;</span><span class="n">foo</span><span class="p">);</span>  <span class="c1">// good</span>
-<span class="kt">void</span> <span class="nf">foobar</span><span class="p">(</span><span class="n">Foo</span> <span class="n">foo</span><span class="p">);</span>  <span class="c1">// results in copy of `foo`. Only do this if there is a</span>
-                       <span class="c1">// specific need for it.</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">foobar</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">);</span><span class="w">  </span><span class="c1">// good</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">foobar</span><span class="p">(</span><span class="n">Foo</span><span class="w"> </span><span class="n">foo</span><span class="p">);</span><span class="w">  </span><span class="c1">// results in copy of `foo`. Only do this if there is a</span>
+<span class="w">                       </span><span class="c1">// specific need for it.</span>
 </pre></div>
 </div>
 </section>

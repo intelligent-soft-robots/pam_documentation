@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -162,9 +163,9 @@ process to configure it.</p>
 
 
 <span class="c1"># sending both commands to the robot, and waiting for their completions.</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sending commands to shared memory and waiting for completion ...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sending commands to shared memory and waiting for completion ...&quot;</span><span class="p">)</span>
 <span class="n">frontend</span><span class="o">.</span><span class="n">pulse_and_wait</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;... completed !&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;... completed !&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In the program above, the method “pulse_and_wait” returns once both commands have been executed by the robot.</p>
@@ -310,8 +311,8 @@ process to configure it.</p>
     <span class="n">control</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoRobot</span><span class="o">.</span><span class="n">PRESSURE_CONTROL</span>
     <span class="n">robot</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoRobot</span><span class="p">(</span><span class="n">robot_segment_id</span><span class="p">,</span>
                                    <span class="n">control</span><span class="o">=</span><span class="n">control</span><span class="p">)</span>
-    <span class="n">graphics</span><span class="o">=</span><span class="bp">True</span>
-    <span class="n">accelerated_time</span><span class="o">=</span><span class="bp">False</span>
+    <span class="n">graphics</span><span class="o">=</span><span class="kc">True</span>
+    <span class="n">accelerated_time</span><span class="o">=</span><span class="kc">False</span>
     <span class="n">handle</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoHandle</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">,</span>
                                      <span class="n">robot1</span><span class="o">=</span><span class="n">robot</span><span class="p">,</span>
                                      <span class="n">graphics</span><span class="o">=</span><span class="n">graphics</span><span class="p">,</span>

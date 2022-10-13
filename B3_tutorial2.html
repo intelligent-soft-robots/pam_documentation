@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -107,37 +108,37 @@ in Tutorial 2 the frontend is used to read the robot data.</p>
 <p>“observation” is an instance of the Observation-class. It contains has the following method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># at each backend iteration (i.e. control iteration of o80_mujoco), an observation is generated.                  </span>
 <span class="c1"># this gives the backend iteration number at which this observation was generated.                                                        </span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;iteration&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iteration&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">())</span>
 
 <span class="c1"># the time stamp at which the observation was generated.                                                                                    </span>
 <span class="c1"># it is an integer representing time in nano seconds                                                                                        </span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span>
 
 <span class="c1"># the pressure of the muscles as measured by sensors                                                                                        </span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;observed pressures&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_observed_pressures</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;observed pressures&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_observed_pressures</span><span class="p">())</span>
 
 <span class="c1"># the pressure of the muscles as the commands requested them to be.                                                                         </span>
 <span class="c1"># Difference with observed pressures comes from either imprecision                                                                          </span>
 <span class="c1"># and/or time for the system to reach the commanded pressures                                                                               </span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;desired pressures&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_desired_pressures</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;desired pressures&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_desired_pressures</span><span class="p">())</span>
 
 <span class="c1"># as measured by the encoders, in radian                                                                                                    </span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;positions&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_positions</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;positions&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_positions</span><span class="p">())</span>
 
 <span class="c1"># finite difference applied on positions, in radian per seconds                                                                             </span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;velocities&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_velocities</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;velocities&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_velocities</span><span class="p">())</span>
 
 <span class="c1"># these methods are available only for simulated robots:</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;cartesian position of the racket&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_cartesian_position</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cartesian position of the racket&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_cartesian_position</span><span class="p">())</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;orientation of the racket&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_cartesian_orientation</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;orientation of the racket&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_cartesian_orientation</span><span class="p">())</span>
 
 <span class="c1"># on the real robot, encoders do not read a proper value until                                                                              </span>
 <span class="c1"># the joint moved through a certain reference position. If ref_found                                                                        </span>
 <span class="c1"># is False for a given join, it means the join did not yet go through this                                                                  </span>
 <span class="c1"># position, and the values of positions and velocities (as above) are meaningless                                                           </span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;references found&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_references_found</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;references found&quot;</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_references_found</span><span class="p">())</span>
 
 <span class="c1"># the measured frequency of the backend at the time the observation was created.                                                            </span>
 <span class="n">frequency</span> <span class="o">=</span> <span class="n">observation</span><span class="o">.</span><span class="n">get_frequency</span><span class="p">()</span>
@@ -146,7 +147,7 @@ in Tutorial 2 the frontend is used to read the robot data.</p>
 <p>You may get a history of observations:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">observations</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">get_latest_observations</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">observation</span> <span class="ow">in</span> <span class="n">observations</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">observation</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">observation</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Only a certain number of iteration are kept in memory:</p>
@@ -156,14 +157,14 @@ in Tutorial 2 the frontend is used to read the robot data.</p>
 <span class="c1"># is increased.                                                                                                                             </span>
 <span class="c1"># note the reading and deserializing of so many observations from the shared memory takes some time                                         </span>
 <span class="n">observations</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">get_latest_observations</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;number of observations read: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">observations</span><span class="p">)))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;spanning a duration of: {} seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span><span class="o">-</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number of observations read: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">observations</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;spanning a duration of: </span><span class="si">{}</span><span class="s2"> seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span><span class="o">-</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>It is possible to request the observation corresponding to a specific backend iteration.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">latest_iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
 <span class="n">observation</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">latest_iteration</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;requested observation of iteration {}, received observation of iteration {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latest_iteration</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;requested observation of iteration </span><span class="si">{}</span><span class="s2">, received observation of iteration </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latest_iteration</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="n">observation</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
 </pre></div>
 </div>
 <p>You can also make sure you read all observations generated during a time window:</p>
@@ -174,10 +175,10 @@ in Tutorial 2 the frontend is used to read the robot data.</p>
 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="c1"># getting all new observations generated since                                                                                              </span>
 <span class="n">observations</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">get_observations_since</span><span class="p">(</span><span class="n">tagged_iteration</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;tagged iteration: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tagged_iteration</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;recovered observations from {} to {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">(),</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tagged iteration: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tagged_iteration</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;recovered observations from </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">(),</span>
                                                     <span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;spanning a duration of: {} seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span><span class="o">-</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;spanning a duration of: </span><span class="si">{}</span><span class="s2"> seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span><span class="o">-</span><span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">())</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>You may also force your python code to run at the frequency of the backend by waiting for new observations:</p>
@@ -192,7 +193,7 @@ in Tutorial 2 the frontend is used to read the robot data.</p>
 <span class="c1"># checking the frequency                                                                                                                    </span>
 <span class="n">duration</span> <span class="o">=</span> <span class="n">observations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span> <span class="o">-</span> <span class="n">observations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span>
 <span class="n">frequency</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">observations</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">duration</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">)</span> <span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;collected {} observations at a frequency of {} hz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">observations</span><span class="p">),</span><span class="n">frequency</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;collected </span><span class="si">{}</span><span class="s2"> observations at a frequency of </span><span class="si">{}</span><span class="s2"> hz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">observations</span><span class="p">),</span><span class="n">frequency</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>The <em>pulse</em> and <em>pulse_and_wait</em> presented previously and used then for sending commands, also return instances of Observation:</p>
@@ -215,7 +216,7 @@ in Tutorial 2 the frontend is used to read the robot data.</p>
 <span class="n">observation2</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">pulse_and_wait</span><span class="p">()</span>
 <span class="n">duration</span> <span class="o">=</span> <span class="n">observation2</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span><span class="o">-</span><span class="n">observation1</span><span class="o">.</span><span class="n">get_time_stamp</span><span class="p">()</span>
 <span class="n">duration</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span><span class="o">*</span><span class="mf">1e-9</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;the command took around {} seconds to complete&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">duration</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the command took around </span><span class="si">{}</span><span class="s2"> seconds to complete&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">duration</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
