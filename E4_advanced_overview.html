@@ -14,9 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -103,10 +101,10 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-4-advanced-overview">
-<h1>Developer’s guide 4: Advanced overview<a class="headerlink" href="#developer-s-guide-4-advanced-overview" title="Permalink to this heading"></a></h1>
+<h1>Developer’s guide 4: Advanced overview<a class="headerlink" href="#developer-s-guide-4-advanced-overview" title="Permalink to this headline"></a></h1>
 <p>This page is a good read for anybody who would like to have a better understanding on how the software works “under the hood”.</p>
 <section id="mujoco-model-xml-file">
-<h2>MuJoCo model XML file<a class="headerlink" href="#mujoco-model-xml-file" title="Permalink to this heading"></a></h2>
+<h2>MuJoCo model XML file<a class="headerlink" href="#mujoco-model-xml-file" title="Permalink to this headline"></a></h2>
 <p>For Mujoco to work,  model xml file that describes the robot and environment is needed.
 Possibly, this xml file can be created “by hand”.
 In the case of pam_mujoco, things are a bit more involved because the API let the user customize the environment, e.g. add more balls, add a target, add muscles, etc. (see <a class="reference internal" href="C1_handle.html"><span class="doc std std-doc">handle</span></a>). For achieving this, the xml file is created “on the fly” by python in order to match the user configuration. The code for doing this is here:</p>
@@ -118,7 +116,7 @@ In the case of pam_mujoco, things are a bit more involved because the API let th
 <p>which will generate one in a folder of /tmp/</p>
 </section>
 <section id="mujoco-controller">
-<h2>MuJoCo controller<a class="headerlink" href="#mujoco-controller" title="Permalink to this heading"></a></h2>
+<h2>MuJoCo controller<a class="headerlink" href="#mujoco-controller" title="Permalink to this headline"></a></h2>
 <p>A controller is a piece of software that is called at each iteration of mujoco, and can modify mujoco’s global variables.
 Mujoco has a global variable “mjcb_control” which is a pointer to a controller function. The user can set this pointer to the function of its choice, and this function will be called at each iteration.
 The signature of the function must be :</p>
@@ -145,14 +143,14 @@ The user can add controllers by calling the functions here (functions add_xxx):<
 </ul>
 <p>The controllers for the robots are :</p>
 <section id="mirrorrobot-poor-naming-it-just-means-position-and-velocity-control-of-the-robot">
-<h3>MirrorRobot (poor naming, it just means “position and velocity control of the robot”)<a class="headerlink" href="#mirrorrobot-poor-naming-it-just-means-position-and-velocity-control-of-the-robot" title="Permalink to this heading"></a></h3>
+<h3>MirrorRobot (poor naming, it just means “position and velocity control of the robot”)<a class="headerlink" href="#mirrorrobot-poor-naming-it-just-means-position-and-velocity-control-of-the-robot" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/include/pam_mujoco/mirror_robot.hpp</p></li>
 <li><p>https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/include/pam_mujoco/mirror_robot.hxx</p></li>
 </ul>
 </section>
 <section id="pressurecontroller">
-<h3>PressureController<a class="headerlink" href="#pressurecontroller" title="Permalink to this heading"></a></h3>
+<h3>PressureController<a class="headerlink" href="#pressurecontroller" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/include/pam_mujoco/pressure_controller.hpp</p></li>
 <li><p>https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/include/pam_mujoco/pressure_controller.hxx</p></li>
@@ -160,7 +158,7 @@ The user can add controllers by calling the functions here (functions add_xxx):<
 </section>
 </section>
 <section id="relation-between-the-model-xml-file-and-the-controllers">
-<h2>Relation between the model xml file and the controllers<a class="headerlink" href="#relation-between-the-model-xml-file-and-the-controllers" title="Permalink to this heading"></a></h2>
+<h2>Relation between the model xml file and the controllers<a class="headerlink" href="#relation-between-the-model-xml-file-and-the-controllers" title="Permalink to this headline"></a></h2>
 <p>To “items” in the xml files correspond indexes in the mjModel* that is passed to the controller function.
 Let’s take MirrorRobot as example.
 This controller takes in its constructor a string “robot_joint_base”:</p>
@@ -178,7 +176,7 @@ We use mujoco functions to get corresponding indexes:</p>
 </ul>
 </section>
 <section id="relation-between-o80-and-controllers">
-<h2>Relation between o80 and controllers<a class="headerlink" href="#relation-between-o80-and-controllers" title="Permalink to this heading"></a></h2>
+<h2>Relation between o80 and controllers<a class="headerlink" href="#relation-between-o80-and-controllers" title="Permalink to this headline"></a></h2>
 <p>The above explains how we can overwrite mujoco values with values of our choice. Here we will see how we get the values “of our choice”.
 MirrorRobot encapsulates an instance of o80 backend:</p>
 <ul class="simple">
@@ -199,7 +197,7 @@ MirrorRobot encapsulates an instance of o80 backend:</p>
 </ul>
 </section>
 <section id="putting-things-together">
-<h2>Putting things together<a class="headerlink" href="#putting-things-together" title="Permalink to this heading"></a></h2>
+<h2>Putting things together<a class="headerlink" href="#putting-things-together" title="Permalink to this headline"></a></h2>
 <p>Hopefully the above will clarify what happens in this file:</p>
 <ul class="simple">
 <li><p>https://github.com/intelligent-soft-robots/pam_demos/blob/main/tutorials/tutorial_4.py</p></li>
@@ -211,7 +209,7 @@ MirrorRobot encapsulates an instance of o80 backend:</p>
 <p>the xml file is generated and the controllers are added.</p>
 </section>
 <section id="c-and-python">
-<h2>C++ and Python<a class="headerlink" href="#c-and-python" title="Permalink to this heading"></a></h2>
+<h2>C++ and Python<a class="headerlink" href="#c-and-python" title="Permalink to this headline"></a></h2>
 <p>In the above, some code is in C++, so other code is in Python.
 It works because Python encapsulate the C++ code, here:</p>
 <ul class="simple">

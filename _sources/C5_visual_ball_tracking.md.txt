@@ -21,16 +21,16 @@ which implements an {doc}`o80 <o80:index>` standalone. The client is install alo
 - Turn on the "bright" light above the table tennis. 
 - Login to rodau using the ball_tracking user. The password is written on the desktop.
 - Open a terminal.
-- Call ```tennicam_start```. Two terminals should open. If they do not show any error message, the tracking is active.
+- Call `tennicam_start`. Two terminals should open. If they do not show any error message, the tracking is active.
 
 #### How to fix the server?
 
 If you experience any issue, you can try to run in a terminal:
 
-- tennicam_list_cameras : check if the drivers detect the four cameras
-- tennicam_ping_cameras: check if the desktop can ping the four camers
-- tennicam_capture_indep: check if the desktop can use the drivers to capture pictures from the cameras
-- tennicam_capture: check if the desktop can use the drivers of the cameras to capture synchronized pictures
+- `tennicam_list_cameras`: check if the drivers detect the four cameras
+- `tennicam_ping_cameras`: check if the desktop can ping the four camers
+- `tennicam_capture_indep`: check if the desktop can use the drivers to capture pictures from the cameras
+- `tennicam_capture`: check if the desktop can use the drivers of the cameras to capture synchronized pictures
 
 #### How to start the client?
 
@@ -41,7 +41,7 @@ In a first terminal (you may use the default parameters):
 tennicam_client
 ```
 
-Optionally, if you want to see a log of the the ball position as received from the server,
+Optionally, if you want to see a log of the ball position as received from the server,
 in another terminal:
 
 ```
@@ -70,7 +70,7 @@ print(ball.to_string())
 
 ```
 
-For an example, see the source code of ```tennicam_client_print``` [here](https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print).
+For an example, see the source code of `tennicam_client_print` [here](https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print).
 
 
 #### How to display the tracked ball in MuJoCo?
@@ -89,18 +89,21 @@ tennicam_client_display
 ```
 
 A MuJoCo simulation will start, displaying the ball.
-To stop the mujoco simulation, type in any terminal ```pam_mujoco_stop tennicam_client_display```.
+To stop the mujoco simulation, type in any terminal `pam_mujoco_stop tennicam_client_display`.
 
 #### How to fix the transform of the ball?
 
 The ball is detected in a given frame, and then its position goes through a transformation (translation and rotation).
-The transformation applied is specified in the configuration file ```/opt/mpi-is/tennicam_client/config/config.toml```
+The transformation applied is specified in the configuration file
+`~/.mpi-is/pam/tennicam_client/config.toml` (or
+`/opt/mpi-is/pam/tennicam_client/config.toml`)
 which has, for example, the content:
 
 ```toml
 [transform]
-translation = [0.5,0.5,0]
-rotation = [0.2,0,0]
+translation = [0.5, 0.5, 0]
+# rotation is given as extrinsic xyz-Euler angles in radian
+rotation = [0.2, 0, 0]
 [server]
 hostname = "rodau"
 port = 7660
@@ -108,10 +111,10 @@ port = 7660
 
 To update the parameters of the transform:
 
-- when you start ```tennicam_client```, use the dialog to set ```active_transform``` to ```True```.
-Note that this slow down the client, so set ```active_transform``` to ```True``` only when tuning the transform.
+- when you start `tennicam_client`, use the dialog to set `active_transform` to `True`.
+Note that this slow down the client, so set `active_transform` to `True` only when tuning the transform.
 
-- start ```tennicam_client_display``` as descrived above.
+- start `tennicam_client_display` as descrived above.
 
 - in yet another terminal, run:
 
@@ -120,14 +123,14 @@ tennicam_client_transform_update
 ```
 
 which will start a dialog allow you to tune transform. The updated transform is applied to the active client, so
-may see the result in the mujoco simulation poped up by ```tennicam_client_display```.
+may see the result in the mujoco simulation poped up by `tennicam_client_display`.
 
-The dialog allows you to save the transform in the configuration file (i.e. to overwrite ```/opt/mpi-is/tennicam_client/config/config.toml```).
-This ensure the next time ```tennicam_client``` is started (without ```active_transform``` set to ```True```), the desired transform is applied. 
+The dialog allows you to save the transform in the configuration file (i.e. to overwrite the `config.toml`).
+This ensure the next time `tennicam_client` is started (without `active_transform` set to `True`), the desired transform is applied. 
 
 #### How to log ball information?
 
-After starting ```tennicam_client```, start in another terminal:
+After starting `tennicam_client`, start in another terminal:
 
 ```bash
 tennicam_client_logger

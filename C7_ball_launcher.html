@@ -14,9 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -100,12 +98,12 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="more-info-ball-launcher">
-<h1>More info: Ball launcher<a class="headerlink" href="#more-info-ball-launcher" title="Permalink to this heading"></a></h1>
+<h1>More info: Ball launcher<a class="headerlink" href="#more-info-ball-launcher" title="Permalink to this headline"></a></h1>
 <p>The robot laboratory has a ball launcher that can be activated programmatically.</p>
 <section id="how-to">
-<h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this heading"></a></h2>
+<h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h2>
 <section id="start-the-ball-launcher">
-<h3>Start the ball launcher<a class="headerlink" href="#start-the-ball-launcher" title="Permalink to this heading"></a></h3>
+<h3>Start the ball launcher<a class="headerlink" href="#start-the-ball-launcher" title="Permalink to this headline"></a></h3>
 <p>The ball launcher is connected to a multiple socker power supply. Turn it on. The raspberry pi attached to the launcher should start and display something like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-----------------------------------</span>
 <span class="o">|</span> <span class="n">Welcome</span> <span class="n">to</span> <span class="n">ball</span> <span class="n">launcher</span> <span class="n">beepy</span>  <span class="o">|</span>
@@ -122,7 +120,7 @@
 <p>Take note of the IP address.</p>
 </section>
 <section id="launch-a-ball-from-terminal">
-<h3>Launch a ball (from terminal)<a class="headerlink" href="#launch-a-ball-from-terminal" title="Permalink to this heading"></a></h3>
+<h3>Launch a ball (from terminal)<a class="headerlink" href="#launch-a-ball-from-terminal" title="Permalink to this headline"></a></h3>
 <p>In a terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">launch_ball</span>
 </pre></div>
@@ -130,7 +128,7 @@
 <p>This will start a dialog, which one completed will have a ball launched.</p>
 </section>
 <section id="launch-a-ball-from-python-script">
-<h3>Launch a ball (from python script)<a class="headerlink" href="#launch-a-ball-from-python-script" title="Permalink to this heading"></a></h3>
+<h3>Launch a ball (from python script)<a class="headerlink" href="#launch-a-ball-from-python-script" title="Permalink to this headline"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ball_launcher_beepy</span> <span class="kn">import</span> <span class="n">BallLauncher</span>
 
     <span class="k">with</span> <span class="n">BallLauncher</span><span class="p">(</span>
@@ -163,7 +161,7 @@
 </section>
 </section>
 <section id="installation-of-the-server">
-<h2>Installation of the server<a class="headerlink" href="#installation-of-the-server" title="Permalink to this heading"></a></h2>
+<h2>Installation of the server<a class="headerlink" href="#installation-of-the-server" title="Permalink to this headline"></a></h2>
 <p>On the Raspberry Pi of the ball launcher, install:</p>
 <ul class="simple">
 <li><p>pip3 install: pyparsing==2.0.2, colcon-common-extensions, empy, catkin-pkg, sphinx, breathe, xinabox-OC05, xinabox-OC03</p></li>

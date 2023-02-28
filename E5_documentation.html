@@ -14,9 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -98,9 +96,9 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-updating-the-documentation">
-<h1>Developer’s guide: Updating the documentation<a class="headerlink" href="#developer-s-guide-updating-the-documentation" title="Permalink to this heading"></a></h1>
+<h1>Developer’s guide: Updating the documentation<a class="headerlink" href="#developer-s-guide-updating-the-documentation" title="Permalink to this headline"></a></h1>
 <section id="this-documentation">
-<h2>This documentation<a class="headerlink" href="#this-documentation" title="Permalink to this heading"></a></h2>
+<h2>This documentation<a class="headerlink" href="#this-documentation" title="Permalink to this headline"></a></h2>
 <p>This documentation is hosted by the git repository: <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_documentation">https://github.com/intelligent-soft-robots/pam_documentation</a>.
 Everybody is welcome to update/extend it.</p>
 <p>For doing so:</p>
@@ -115,16 +113,16 @@ Everybody is welcome to update/extend it.</p>
 <p>After review and once the branch is merged into th main branch, the online documentation will be automatically updated.</p>
 </section>
 <section id="documentation-of-all-packages">
-<h2>Documentation of all packages<a class="headerlink" href="#documentation-of-all-packages" title="Permalink to this heading"></a></h2>
+<h2>Documentation of all packages<a class="headerlink" href="#documentation-of-all-packages" title="Permalink to this headline"></a></h2>
 <p>The software comprises several packages.
 These are the packages that are downloaded via treep when installing the software from source and using colcon as described <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">here</span></a>.
 Some of these package have documentation, which can be built locally</p>
 <section id="how-to-build">
-<h3>How to build<a class="headerlink" href="#how-to-build" title="Permalink to this heading"></a></h3>
+<h3>How to build<a class="headerlink" href="#how-to-build" title="Permalink to this headline"></a></h3>
 <p>Using colcon:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/Software
-<span class="nb">cd</span> workspace
-colcon build --cmake-args <span class="s1">&#39; -DCMAKE_BUILD_TYPE=Release &#39;</span> -DGENERATE_DOCUMENTATION<span class="o">=</span>ON
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Software
+<span class="nb">cd</span><span class="w"> </span>workspace
+colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DCMAKE_BUILD_TYPE=Release &#39;</span><span class="w"> </span>-DGENERATE_DOCUMENTATION<span class="o">=</span>ON
 </pre></div>
 </div>
 <p>For this to work, you may need to pip install some packages: m2r, mistune (version 0.8.4), recommonmark, sphinx, sphinxcontrib-moderncmakedomain, breath.</p>
@@ -134,7 +132,7 @@ colcon build --cmake-args <span class="s1">&#39; -DCMAKE_BUILD_TYPE=Release &#39
 </div>
 </section>
 <section id="how-to-have-the-documentation-building-for-a-package">
-<h3>How to have the documentation building for a package<a class="headerlink" href="#how-to-have-the-documentation-building-for-a-package" title="Permalink to this heading"></a></h3>
+<h3>How to have the documentation building for a package<a class="headerlink" href="#how-to-have-the-documentation-building-for-a-package" title="Permalink to this headline"></a></h3>
 <p>To have the documentation built for a package using the method above, this command has to be added to
 the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file of the package:</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">add_documentation</span><span class="p">()</span>

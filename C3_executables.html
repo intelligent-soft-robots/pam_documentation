@@ -14,9 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -112,55 +110,55 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="more-info-list-of-executables">
-<h1>More info: List of executables<a class="headerlink" href="#more-info-list-of-executables" title="Permalink to this heading"></a></h1>
+<h1>More info: List of executables<a class="headerlink" href="#more-info-list-of-executables" title="Permalink to this headline"></a></h1>
 <p>Once the <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">installation</span></a> procedure completed, various executables are installed.</p>
 <section id="dialog">
-<h2>Dialog<a class="headerlink" href="#dialog" title="Permalink to this heading"></a></h2>
+<h2>Dialog<a class="headerlink" href="#dialog" title="Permalink to this headline"></a></h2>
 <p>Some executables trigger a dialog.
 For example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@machine:~$ o80_dummy 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@machine:~$<span class="w"> </span>o80_dummy<span class="w"> </span>
 
 
-	<span class="m">0</span> <span class="p">|</span> bursting_mode:	False
-	<span class="m">1</span> <span class="p">|</span> frequency:	<span class="m">500</span>
-	<span class="m">2</span> <span class="p">|</span> nb_dofs:	<span class="m">4</span>
-	<span class="m">3</span> <span class="p">|</span> pam_config_file:	/opt/mpi-is/pam_interface/pam.json
-	<span class="m">4</span> <span class="p">|</span> segment_id:	o80_pam_robot
+<span class="w">	</span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bursting_mode:<span class="w">	</span>False
+<span class="w">	</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>frequency:<span class="w">	</span><span class="m">500</span>
+<span class="w">	</span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>nb_dofs:<span class="w">	</span><span class="m">4</span>
+<span class="w">	</span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>pam_config_file:<span class="w">	</span>/opt/mpi-is/pam_interface/pam.json
+<span class="w">	</span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>segment_id:<span class="w">	</span>o80_pam_robot
 
 
-		use these values ? <span class="o">[</span><span class="s1">&#39;y&#39;</span>, index to change, <span class="s1">&#39;h&#39;</span> <span class="k">for</span> help<span class="o">]</span>:
+<span class="w">		</span>use<span class="w"> </span>these<span class="w"> </span>values<span class="w"> </span>?<span class="w"> </span><span class="o">[</span><span class="s1">&#39;y&#39;</span>,<span class="w"> </span>index<span class="w"> </span>to<span class="w"> </span>change,<span class="w"> </span><span class="s1">&#39;h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help<span class="o">]</span>:
 </pre></div>
 </div>
 <p>You may use the dialog to either accept the default configuration values, or to change them.</p>
 <p>Note that alternatively, you may skip the dialog by configuring “manually” any of the configuration value, e.g.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_dummy -frequency <span class="m">100</span> -pam_config_file /my/config/file.json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_dummy<span class="w"> </span>-frequency<span class="w"> </span><span class="m">100</span><span class="w"> </span>-pam_config_file<span class="w"> </span>/my/config/file.json
 </pre></div>
 </div>
 <p>The above will start directly o80_dummy using the specified values (and the default values for the non specified arguments).</p>
 </section>
 <section id="o80-dummy">
-<h2>o80_dummy<a class="headerlink" href="#o80-dummy" title="Permalink to this heading"></a></h2>
+<h2>o80_dummy<a class="headerlink" href="#o80-dummy" title="Permalink to this headline"></a></h2>
 <p>Starts a o80 backend connected to a “dummy” pressure controlled pam robot. No graphics, no realistic physics (at all). Used for debug and testing. See <a class="reference internal" href="B2_tutorial1.html"><span class="doc std std-doc">tutorials 1 to 3</span></a> for control.</p>
 </section>
 <section id="o80-real">
-<h2>o80_real<a class="headerlink" href="#o80-real" title="Permalink to this heading"></a></h2>
+<h2>o80_real<a class="headerlink" href="#o80-real" title="Permalink to this headline"></a></h2>
 <p>Starts a o80 backend connected to a pressure controlled real robot (on robot computer only).
 See also <a class="reference internal" href="B2_tutorial1.html"><span class="doc std std-doc">tutorials 1 to 3</span></a> for control examples.</p>
 </section>
 <section id="pam-mujoco">
-<h2>pam_mujoco<a class="headerlink" href="#pam-mujoco" title="Permalink to this heading"></a></h2>
+<h2>pam_mujoco<a class="headerlink" href="#pam-mujoco" title="Permalink to this headline"></a></h2>
 <p>Spawn a new terminal that host a mujoco simulation with (pressure controlled or joint controlled) robot(s), ball(s), goal(s), etc.
 See <a class="reference internal" href="B5_tutorial4.html"><span class="doc std std-doc">tutorial 4</span></a> for control example via a <a class="reference internal" href="C1_handle.html"><span class="doc std std-doc">handle</span></a>.
 Note that mujoco_id used as argument to <em>pam_mujoco</em> must match the mujoco_id passed as argument to the <a class="reference internal" href="C1_handle.html"><span class="doc std std-doc">handle</span></a>.</p>
 <p>For example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco my_id
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco<span class="w"> </span>my_id
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">handle</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoHandle</span><span class="p">(</span><span class="s2">&quot;my_id&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>It is possible to call <em>pam_mujoco</em> with several mujoco_ids:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco my_id1 my_id2 my_id3
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco<span class="w"> </span>my_id1<span class="w"> </span>my_id2<span class="w"> </span>my_id3
 </pre></div>
 </div>
 <p>in which case several (here 3) terminals will be spawned.</p>
@@ -168,64 +166,64 @@ Note that mujoco_id used as argument to <em>pam_mujoco</em> must match the mujoc
 <p>You may note that the process ids of the spawned processes are printed in the main terminal (in case you need to kill them for any reason).</p>
 </section>
 <section id="pam-mujoco-no-xterms">
-<h2>pam_mujoco_no_xterms<a class="headerlink" href="#pam-mujoco-no-xterms" title="Permalink to this heading"></a></h2>
+<h2>pam_mujoco_no_xterms<a class="headerlink" href="#pam-mujoco-no-xterms" title="Permalink to this headline"></a></h2>
 <p>Similar to <em>pam_mujoco</em> (right above) with the difference that the MuJoCo simulation are not hosted by new terminals, but in the background of the current terminal.</p>
 </section>
 <section id="pam-mujoco-visualization">
-<h2>pam_mujoco_visualization<a class="headerlink" href="#pam-mujoco-visualization" title="Permalink to this heading"></a></h2>
+<h2>pam_mujoco_visualization<a class="headerlink" href="#pam-mujoco-visualization" title="Permalink to this headline"></a></h2>
 <p>pam_mujoco_visualization takes 2 arguments:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco_visualization mujoco_id_from mujoco_id_to
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco_visualization<span class="w"> </span>mujoco_id_from<span class="w"> </span>mujoco_id_to
 </pre></div>
 </div>
 <p>It is expected that pam_mujoco_visualization is called <em>after</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco mujoco_id_from
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco<span class="w"> </span>mujoco_id_from
 </pre></div>
 </div>
 <p>pam_mujoco will spawn a terminal hosting a pam_mujoco instance that will “mirror” the pam_mujoco instance running on mujoco_id “mujoco_id_from”. Possibly useful if the pam_mujoco instance “mujoco_id_from” has been started without graphics, or has been started in burst mode (see <a class="reference internal" href="B7_tutorial6.html"><span class="doc std std-doc">tutorial 6</span></a>).</p>
 </section>
 <section id="pam-mujoco-stop">
-<h2>pam_mujoco_stop<a class="headerlink" href="#pam-mujoco-stop" title="Permalink to this heading"></a></h2>
+<h2>pam_mujoco_stop<a class="headerlink" href="#pam-mujoco-stop" title="Permalink to this headline"></a></h2>
 <p>It takes a mujoco_id as argument, and kills the corresponding pam_mujoco instance (if any)</p>
 </section>
 <section id="pam-mujoco-stop-all">
-<h2>pam_mujoco_stop_all<a class="headerlink" href="#pam-mujoco-stop-all" title="Permalink to this heading"></a></h2>
+<h2>pam_mujoco_stop_all<a class="headerlink" href="#pam-mujoco-stop-all" title="Permalink to this headline"></a></h2>
 <p>Kills all running instances of pam_mujoco</p>
 </section>
 <section id="o80-plotting">
-<h2>o80_plotting<a class="headerlink" href="#o80-plotting" title="Permalink to this heading"></a></h2>
+<h2>o80_plotting<a class="headerlink" href="#o80-plotting" title="Permalink to this headline"></a></h2>
 <p>Starts a live plot of a pressure controlled robot. It shows the measured pressures, the desired pressure and the frequency of backend.
 Works for pressure controlled robots started with o80_dummy, o80_real or pam_mujoco.</p>
 </section>
 <section id="o80-console">
-<h2>o80_console<a class="headerlink" href="#o80-console" title="Permalink to this heading"></a></h2>
+<h2>o80_console<a class="headerlink" href="#o80-console" title="Permalink to this headline"></a></h2>
 <p>Starts to live print information about a pressure robot in the console. Indicate the current pressures, the desired pressures and joint angles. Works for pressure controlled robots started with o80_dummy, o80_real or pam_mujoco.</p>
 <p><em>Known bug</em> : will crash if the terminal is not broad enough.</p>
 </section>
 <section id="o80-introspection">
-<h2>o80_introspection<a class="headerlink" href="#o80-introspection" title="Permalink to this heading"></a></h2>
+<h2>o80_introspection<a class="headerlink" href="#o80-introspection" title="Permalink to this headline"></a></h2>
 <p>Debug tool for o80. It will display live the status of all command exchange between the frontend and the backend of a o80 system running on the provided segment_id.</p>
 </section>
 <section id="o80-logger">
-<h2>o80_logger<a class="headerlink" href="#o80-logger" title="Permalink to this heading"></a></h2>
+<h2>o80_logger<a class="headerlink" href="#o80-logger" title="Permalink to this headline"></a></h2>
 <p>Starts a process that will collect data regarding a pressure controlled robot. See <a class="reference internal" href="B6_tutorial5.html"><span class="doc std std-doc">tutorial 5</span></a></p>
 </section>
 <section id="pam-server">
-<h2>pam_server<a class="headerlink" href="#pam-server" title="Permalink to this heading"></a></h2>
+<h2>pam_server<a class="headerlink" href="#pam-server" title="Permalink to this headline"></a></h2>
 <p>pam_server is a low level interface to either a dummy or the real pam robot. See <a class="reference internal" href="C2_real_robot.html"><span class="doc std std-doc">here</span></a> for more information.</p>
 </section>
 <section id="pam-check">
-<h2>pam_check<a class="headerlink" href="#pam-check" title="Permalink to this heading"></a></h2>
+<h2>pam_check<a class="headerlink" href="#pam-check" title="Permalink to this headline"></a></h2>
 <p>Started after pam_server, will increase then decrease the pressure of each muscles. See <a class="reference internal" href="C2_real_robot.html"><span class="doc std std-doc">here</span></a> for more information.</p>
 </section>
 <section id="o80-check">
-<h2>o80_check<a class="headerlink" href="#o80-check" title="Permalink to this heading"></a></h2>
+<h2>o80_check<a class="headerlink" href="#o80-check" title="Permalink to this headline"></a></h2>
 <p>Similar to pam_check, but to be started after o80_real, o80_dummy or pam_mujoco (if simulating a pressure controlled robot)</p>
 </section>
 <section id="o80-swing-demo">
-<h2>o80_swing_demo<a class="headerlink" href="#o80-swing-demo" title="Permalink to this heading"></a></h2>
+<h2>o80_swing_demo<a class="headerlink" href="#o80-swing-demo" title="Permalink to this headline"></a></h2>
 <p>Has a pressure robot executing a series of swing motions, to be started after o80_real, o80_dummy or pam_mujoco (if simulating a pressure controlled robot)</p>
 <section id="pam-mirroring-real-robot">
-<h3>pam_mirroring_real_robot<a class="headerlink" href="#pam-mirroring-real-robot" title="Permalink to this heading"></a></h3>
+<h3>pam_mirroring_real_robot<a class="headerlink" href="#pam-mirroring-real-robot" title="Permalink to this headline"></a></h3>
 <p>see this <a class="reference internal" href="C4_mirroring.html"><span class="doc std std-doc">page</span></a>.</p>
 </section>
 </section>

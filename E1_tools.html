@@ -14,9 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -111,80 +109,80 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-1-tools">
-<h1>Developer’s guide 1: Tools<a class="headerlink" href="#developer-s-guide-1-tools" title="Permalink to this heading"></a></h1>
+<h1>Developer’s guide 1: Tools<a class="headerlink" href="#developer-s-guide-1-tools" title="Permalink to this headline"></a></h1>
 <p>This guide is here for those who would like to upgrade/extend PAM’s software (as opposed to use it in their own code).</p>
 <p>For updating the code, the colcon workspace installation is required, as described <span class="xref std std-ref">here</span>.</p>
 <p>The workflow is based on these tools: GitHub, treep, ament, colcon, pybind11 and gtest.</p>
 <section id="github">
-<h2>GitHub<a class="headerlink" href="#github" title="Permalink to this heading"></a></h2>
+<h2>GitHub<a class="headerlink" href="#github" title="Permalink to this headline"></a></h2>
 <p>The source repositories are hosted in the “Intelligent Soft Robots” <a class="reference external" href="https://github.com/intelligent-soft-robots">domain</a> of github.
 As treep (see below) uses SSH, you need to register your SSH key to GitHub (see <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">here</a>)</p>
 </section>
 <section id="treep">
-<h2>Treep<a class="headerlink" href="#treep" title="Permalink to this heading"></a></h2>
+<h2>Treep<a class="headerlink" href="#treep" title="Permalink to this headline"></a></h2>
 <p>To get the software compiled and running, several Git repositories must be cloned.
 As it would be annoying to clone them one by one, we use the project manager <a class="reference external" href="https://pypi.org/project/treep/">treep</a>, which allows to clone several repositories at once.</p>
 <section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install treep
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>treep
 </pre></div>
 </div>
 </section>
 <section id="configuration-repository">
-<h3>Configuration repository<a class="headerlink" href="#configuration-repository" title="Permalink to this heading"></a></h3>
+<h3>Configuration repository<a class="headerlink" href="#configuration-repository" title="Permalink to this headline"></a></h3>
 <p>treep needs a configuration folder. We use <a class="reference external" href="https://github.com/intelligent-soft-robots/treep_isr.git">treep_isr</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir Software <span class="c1"># or another folder name</span>
-<span class="nb">cd</span> Software
-git clone https://github.com/intelligent-soft-robots/treep_isr.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>Software<span class="w"> </span><span class="c1"># or another folder name</span>
+<span class="nb">cd</span><span class="w"> </span>Software
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/intelligent-soft-robots/treep_isr.git
 </pre></div>
 </div>
 <p>In the folder treep_isr, you will find the file <em>repositories.yaml</em> which provides repositories names, URL and default branch (see also configuration.yaml). Once treep_isr has been cloned, you may see for example the list of repositories:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep <span class="c1"># treep without argument prints some help</span>
-treep --repos
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span><span class="c1"># treep without argument prints some help</span>
+treep<span class="w"> </span>--repos
 </pre></div>
 </div>
 <p>Projects (i.e. repositories grouped together) are described in <em>projects.yaml</em>.
 To see the list of projects:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --projects
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span>--projects
 </pre></div>
 </div>
 <p>To see information about a specific projects:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --project PAM_MUJOCO
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span>--project<span class="w"> </span>PAM_MUJOCO
 </pre></div>
 </div>
 </section>
 <section id="cloning">
-<h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this heading"></a></h3>
+<h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline"></a></h3>
 <p>You can use treep to clone a project (i.e. cloning all the repositories of the project):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --clone PAM_MUJOCO
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span>--clone<span class="w"> </span>PAM_MUJOCO
 </pre></div>
 </div>
 </section>
 <section id="status">
-<h3>Status<a class="headerlink" href="#status" title="Permalink to this heading"></a></h3>
+<h3>Status<a class="headerlink" href="#status" title="Permalink to this headline"></a></h3>
 <p>The status argument is very useful to see the (git) status of each cloned repos (i.e. if they are behind origin, beyond origin, have modified files, etc.)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --status
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span>--status
 </pre></div>
 </div>
 </section>
 <section id="pull">
-<h3>Pull<a class="headerlink" href="#pull" title="Permalink to this heading"></a></h3>
+<h3>Pull<a class="headerlink" href="#pull" title="Permalink to this headline"></a></h3>
 <p>You can use treep to update all the repositories</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep --pull
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span>--pull
 </pre></div>
 </div>
 </section>
 <section id="calling-from-anywhere">
-<h3>Calling from anywhere<a class="headerlink" href="#calling-from-anywhere" title="Permalink to this heading"></a></h3>
+<h3>Calling from anywhere<a class="headerlink" href="#calling-from-anywhere" title="Permalink to this headline"></a></h3>
 <p>Note that you do not need to be in the Software folder to call treep, you may call treep for any of its subfolder, e.g.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace/src/pam_interface
-treep --status <span class="c1"># still provides the status of all repositories.</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace/src/pam_interface
+treep<span class="w"> </span>--status<span class="w"> </span><span class="c1"># still provides the status of all repositories.</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="ament-packages">
-<h2>Ament packages<a class="headerlink" href="#ament-packages" title="Permalink to this heading"></a></h2>
+<h2>Ament packages<a class="headerlink" href="#ament-packages" title="Permalink to this headline"></a></h2>
 <p>(Almost) all repositories contain the code for an ament package. An ament package is a “extended” CMake package, i.e. ament provides some cmake functionalities meant to make developers life easier. The documentation can be found <a class="reference external" href="https://docs.ros.org/en/foxy/Guides/Ament-CMake-Documentation.html">here</a>.</p>
 <p>An ament package contains typically:</p>
 <ul class="simple">
@@ -200,49 +198,49 @@ treep --status <span class="c1"># still provides the status of all repositories.
 <p>The <a class="reference external" href="https://github.com/intelligent-soft-robots/context">context</a> and <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_interface">pam_interface</a> repositories provide examples of a packages containing most of the above.</p>
 </section>
 <section id="colcon">
-<h2>Colcon<a class="headerlink" href="#colcon" title="Permalink to this heading"></a></h2>
+<h2>Colcon<a class="headerlink" href="#colcon" title="Permalink to this headline"></a></h2>
 <section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
 <p>After cloning a workspace using treep, the workspace/src folder contains a collection of ament packages.
 Colcon is the tool used for compiling all these packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace
-colcon build <span class="c1"># will attempt to compile the whole workspace</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace
+colcon<span class="w"> </span>build<span class="w"> </span><span class="c1"># will attempt to compile the whole workspace</span>
 </pre></div>
 </div>
 <p>If the compilation succeed, the workspace folder will contain the “install” folder which contains the binaries and python packages that result from the compilation.</p>
 <p>To be able to “use” the code (i.e. adding executables to path, adding the python package to the python path, adding the libraries to the ld path …), one must “source” the file Software/workspace/install/setup.bash:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace/install
-<span class="nb">source</span> setup.bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace/install
+<span class="nb">source</span><span class="w"> </span>setup.bash
 </pre></div>
 </div>
 <p>This operation must be done in all new terminal. It is therefore recommanded to add to the ~/.bashrc file (which is sourced everytime a new terminal is opened):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;- sourcing workspace&quot;</span>
-<span class="nb">source</span> /path/to/Software/workspace/install/setup.bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;- sourcing workspace&quot;</span>
+<span class="nb">source</span><span class="w"> </span>/path/to/Software/workspace/install/setup.bash
 </pre></div>
 </div>
 </section>
 <section id="compiling-only-one-package">
-<h3>Compiling only one package<a class="headerlink" href="#compiling-only-one-package" title="Permalink to this heading"></a></h3>
+<h3>Compiling only one package<a class="headerlink" href="#compiling-only-one-package" title="Permalink to this headline"></a></h3>
 <p>To compile only one specific package:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace
-colcon list <span class="c1"># list all packages in the workspace</span>
-colcon build --packages-up-to packagename
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace
+colcon<span class="w"> </span>list<span class="w"> </span><span class="c1"># list all packages in the workspace</span>
+colcon<span class="w"> </span>build<span class="w"> </span>--packages-up-to<span class="w"> </span>packagename
 </pre></div>
 </div>
 <p>This will compile only the selected package and its required dependencies.</p>
 </section>
 </section>
 <section id="pybind11">
-<h2>Pybind11<a class="headerlink" href="#pybind11" title="Permalink to this heading"></a></h2>
+<h2>Pybind11<a class="headerlink" href="#pybind11" title="Permalink to this headline"></a></h2>
 <p>Most of the code is in C++, but made available as Python package.</p>
 <p>We use <a class="reference external" href="https://pybind11.readthedocs.io/en/master/?badge=master">pybind11</a> for creating wrappers over C++ code.</p>
 <p>By convention, the C++ binding code should be in the srcpy folder of the package, and in the file wrappers.cpp.</p>
 <p>As you can see in this <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/srcpy/wrappers.cpp">example</a>, creating binders for C++ classes can be trivial.</p>
 <p>For example, this wrapper code:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="n">pybind11</span><span class="o">::</span><span class="n">class_</span><span class="o">&lt;</span><span class="n">Ball</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ball&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="n">pybind11</span><span class="o">::</span><span class="n">init</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;update&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">update</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;get&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">get</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="n">pybind11</span><span class="o">::</span><span class="n">class_</span><span class="o">&lt;</span><span class="n">Ball</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ball&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="n">pybind11</span><span class="o">::</span><span class="n">init</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;update&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">update</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;get&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Ball</span><span class="o">::</span><span class="n">get</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>binds this c++ class <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/include/context/ball.hpp">ball</a>.</p>
@@ -270,15 +268,15 @@ colcon build --packages-up-to packagename
 </div>
 </section>
 <section id="unit-tests">
-<h2>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this heading"></a></h2>
+<h2>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline"></a></h2>
 <p>We use google tests for unit tests. See the <a class="reference external" href="https://github.com/intelligent-soft-robots/context/tree/master/tests">tests folder</a> of the context package for a simple example to follow.</p>
 <p>To run all the unit tests included in the package, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> Software/workspace
-colcon <span class="nb">test</span> --event-handlers console_direct+
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace
+colcon<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--event-handlers<span class="w"> </span>console_direct+
 </pre></div>
 </div>
 <p>To run the unit test of a selected package:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon <span class="nb">test</span> --packages-select package_name --event-handlers console_direct+	
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--packages-select<span class="w"> </span>package_name<span class="w"> </span>--event-handlers<span class="w"> </span>console_direct+<span class="w">	</span>
 </pre></div>
 </div>
 </section>

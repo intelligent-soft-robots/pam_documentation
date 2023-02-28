@@ -14,9 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -91,7 +89,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="more-info-mirroring-real-robot">
-<h1>More info: Mirroring real robot<a class="headerlink" href="#more-info-mirroring-real-robot" title="Permalink to this heading"></a></h1>
+<h1>More info: Mirroring real robot<a class="headerlink" href="#more-info-mirroring-real-robot" title="Permalink to this headline"></a></h1>
 <p>To get a MuJoCo simulation to mirror the real robot, first, start the real robot:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_pamy2
 <span class="c1"># or o80_pamy1</span>
@@ -99,15 +97,15 @@
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">o80_pamy1</span></code> or <code class="docutils literal notranslate"><span class="pre">o80_pamy2</span></code> executables request you to enter a segment_id (<code class="docutils literal notranslate"><span class="pre">real_robot</span></code> as default). Take note of it.</p>
 <p>Alternatively, you may also start a mujoco simulated robot that uses pressure control, see for example the <a class="reference internal" href="B1_tutorial0.html"><span class="doc std std-doc">three first tutorials</span></a>. In the terminal, take note of the frontend related to the robot control, e.g. <code class="docutils literal notranslate"><span class="pre">my_robot</span></code> in this output:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>adding controller:
-	robot: pressure control, segment_id: my_robot, configurations:
-		controller: /opt/mpi-is/pam_interface/pam.json
-		agnonist muscles: /opt/mpi-is/pam_models//hill.json
-		antagonist muscles: /opt/mpi-is/pam_models//hill.json
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>adding<span class="w"> </span>controller:
+<span class="w">	</span>robot:<span class="w"> </span>pressure<span class="w"> </span>control,<span class="w"> </span>segment_id:<span class="w"> </span>my_robot,<span class="w"> </span>configurations:
+<span class="w">		</span>controller:<span class="w"> </span>/opt/mpi-is/pam_interface/pam.json
+<span class="w">		</span>agnonist<span class="w"> </span>muscles:<span class="w"> </span>/opt/mpi-is/pam_models//hill.json
+<span class="w">		</span>antagonist<span class="w"> </span>muscles:<span class="w"> </span>/opt/mpi-is/pam_models//hill.json
 </pre></div>
 </div>
 <p>Then, start an instance of pam_mujoco with mujoco_id “mirroring”:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco mirroring
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco<span class="w"> </span>mirroring
 </pre></div>
 </div>
 <p>Finally, start:</p>
