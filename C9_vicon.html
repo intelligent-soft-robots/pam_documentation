@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More info: Vicon &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="More info: Compute Transformation from Tennicam to World Frame" href="C9.1_tennicam_vicon_transform.html" />
+    <link rel="prev" title="More info: Low latency kernel" href="C8_low_latency.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: Reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: Iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: Joint control, table, balls, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: Saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: Bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: MuJoCo handles and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: Mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: Visual ball tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More info: Vicon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-lab-s-world-frame">The Lab’s World Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-start-the-vicon-system">How to Start the Vicon System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-access-vicon-data">How to Access Vicon Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#print-data">Print Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#record-data">Record Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#o80">o80</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-objects-for-o80">Configure Objects for o80</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="C9.1_tennicam_vicon_transform.html">More info: Compute Transformation from Tennicam to World Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: Advanced overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: Updating the documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>More info: Vicon</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C9_vicon.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="more-info-vicon">
+<h1>More info: Vicon<a class="headerlink" href="#more-info-vicon" title="Permalink to this headline"></a></h1>
+<img alt="Photo of the table tennis lab with Vicon cameras mounted at the ceiling" src="_images/vicon_cameras.jpg" />
+<p>The robot lab is equipped with a Vicon system for tracking positions of the
+robot, table and other things like the ball launcher.</p>
+<section id="the-lab-s-world-frame">
+<span id="lab-world-frame"></span><h2>The Lab’s World Frame<a class="headerlink" href="#the-lab-s-world-frame" title="Permalink to this headline"></a></h2>
+<p>Our goal is to have a fixed “world frame” in the lab.  Poses of all objects
+(robot, table, balls, …) should be given relative to this world frame in all
+our applications.
+<strong>As origin of this world frame the “ping” Vicon marker is used.</strong></p>
+<p>When using the interface of <code class="docutils literal notranslate"><span class="pre">pam_vicon_o80</span></code>, poses of all Vicon objects are
+already transformed to this world frame. This means that the actual origin used
+by Vicon Tracker, as defined during calibration, does not really matter.  Only
+for visualisation in Vicon Tracker itself, it is useful to have it aligned with
+the floor.</p>
+<p>For other tracking systems a transformation from their internal reference frame
+to the world frame needs to be determined.  To do this for tennicam, see
+<a class="reference internal" href="C9.1_tennicam_vicon_transform.html"><span class="doc">More info: Compute Transformation from Tennicam to World Frame</span></a>.</p>
+</section>
+<section id="how-to-start-the-vicon-system">
+<span id="start-vicon"></span><h2>How to Start the Vicon System<a class="headerlink" href="#how-to-start-the-vicon-system" title="Permalink to this headline"></a></h2>
+<p>The cameras are connected to and powered through a network switch which sits on
+a desk in the lab.</p>
+<img alt="Photo of the switch and its power button." src="_images/vicon_switch.jpg" />
+<p>To start the cameras, power on the switch by pressing the big button labelled
+with “Vicon”.</p>
+<p>Further, start the PC labelled with “Vicon”, that is connected to the switch.
+On the PC run the “Vicon Tracker” software (there should be a shortcut on the
+desktop).</p>
+<p>In the Vicon Tracker software, you see a list of cameras with their status.
+When you switch the view to “3D PERSPECTIVE”, you can see a visualisation of the
+scene with the cameras and the detected markers/objects.</p>
+<img alt="Screenshot of Vicon Tracker software visualising cameras and objects." src="_images/screenshot_vicon_tracker_scene.jpg" />
+<p>Vicon Tracker needs to be running in order to use the system.  It serves as a
+server application to which our software connects to get the object poses.</p>
+<p>Further you can configure cameras and objects as well as re-calibrate the system
+through this software.  See the documentation from Vicon for more information on
+this.</p>
+</section>
+<section id="how-to-access-vicon-data">
+<h2>How to Access Vicon Data<a class="headerlink" href="#how-to-access-vicon-data" title="Permalink to this headline"></a></h2>
+<p>When the Vicon System is running (see above), there are a few basic tools in the
+<code class="docutils literal notranslate"><span class="pre">vicon_transformer</span></code> package to access the data.</p>
+<section id="print-data">
+<h3>Print Data<a class="headerlink" href="#print-data" title="Permalink to this headline"></a></h3>
+<p>To simply print the current data, use the <code class="docutils literal notranslate"><span class="pre">vicon_print_data</span></code> command.
+As host name, pass the IP of the Vicon PC (see label on the PC).</p>
+<p>This will show poses of the subjects relative to Vicons internal origin (i.e.
+not transformed to the lab’s world frame!</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Usage: vicon_print_data &lt;vicon-host-name-or-file&gt; [options]
+
+Allowed options:
+  -h [ --help ]                 Show help message.
+  --vicon-host-name-or-file arg Host name (or IP) of the Vicon PC or the path
+                                to a recorded file.
+  --subjects arg                Only receive data for the listed subjects.
+  --lightweight                 Enable lightweight frames (needs less bandwidth
+                                at the cost of lower precision).
+  -n [ --num ] arg              Only print the specified number of frames.
+  --json                        Produce JSON-formatted output.
+</pre></div>
+</div>
+</section>
+<section id="record-data">
+<h3>Record Data<a class="headerlink" href="#record-data" title="Permalink to this headline"></a></h3>
+<p>You can record data from the running system and save it to a file using the
+<code class="docutils literal notranslate"><span class="pre">vicon_record</span></code> command.  Files recorded like this can then be passed to other
+applications instead of a host name to play back the recorded data.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Usage:  vicon_record &lt;vicon-host-name&gt; &lt;output-file&gt; [options]
+
+Allowed options:
+  -h [ --help ]         Show help message.
+  --vicon-host-name arg Host name (or IP) of the Vicon PC.
+  --output-file arg     Path/name of the file to which the recorded data is
+                        written.
+  -d [ --duration ] arg How long to record (in seconds).  Default: 60 s)
+</pre></div>
+</div>
+</section>
+</section>
+<section id="o80">
+<h2>o80<a class="headerlink" href="#o80" title="Permalink to this headline"></a></h2>
+<p>Run <code class="docutils literal notranslate"><span class="pre">vicon_o80_standalone</span></code> to start the o80 back end:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vicon_o80_standalone</span> <span class="o">&lt;</span><span class="n">host</span> <span class="ow">or</span> <span class="n">file</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Available options:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: vicon_o80_standalone [-h] [--segment-id SEGMENT_ID] [--frequency FREQUENCY] [--burst] [--lightweight] [--subjects SUBJECT [SUBJECT ...]] host_or_file
+
+Run o80 Standalone instance for Vicon data. This serves as backend to which a FrontEnd instance can connect by using the same segment ID.
+
+positional arguments:
+  host_or_file          Hostname of Vicon server or path to recorded file.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --segment-id SEGMENT_ID, -s SEGMENT_ID
+                        Shared memory segment ID. Default: &#39;vicon&#39;
+  --frequency FREQUENCY, -f FREQUENCY
+                        Frequency.
+  --burst               Run in bursting mode. --frequency is ignored in this case.
+  --lightweight         Enable &#39;lightweight mode&#39; of Vicon. Saves bandwidth by reducing precision of subject poses.
+  --subjects SUBJECT [SUBJECT ...]
+                        Filter for listed subjects. Other subjects are still included in the frame data but without actual data (saves bandwidth).
+</pre></div>
+</div>
+<p>For a simple example script that uses a corresponding front end see
+<a class="reference external" href="https://intelligent-soft-robots.github.io/vicon_transformer/doc/example_o80_client.html#example-o80-client" title="(in vicon_transformer v0.9.0)"><span>Example: Access Vicon Data Through o80</span></a>.</p>
+<p>Note that there are no commands that can be send to the Vicon system and
+likewise the o80 “state” is empty.  Instead, all information is provided through
+the “extended state”.</p>
+<section id="configure-objects-for-o80">
+<h3>Configure Objects for o80<a class="headerlink" href="#configure-objects-for-o80" title="Permalink to this headline"></a></h3>
+<p>The shared memory used by o80 requires fixed-size data structures.  Therefore,
+the number of objects as well as their names and order need to be defined at
+compile time.  For instructions on how to do this, see
+<a class="reference external" href="https://intelligent-soft-robots.github.io/vicon_transformer/doc/configure_o80_driver_subjects.html#configure-subjects-o80" title="(in vicon_transformer v0.9.0)"><span>Configure Subjects for o80 Driver</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C8_low_latency.html" class="btn btn-neutral float-left" title="More info: Low latency kernel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C9.1_tennicam_vicon_transform.html" class="btn btn-neutral float-right" title="More info: Compute Transformation from Tennicam to World Frame" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

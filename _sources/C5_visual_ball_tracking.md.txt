@@ -16,6 +16,8 @@ which implements an {doc}`o80 <o80:index>` standalone. The client is install alo
 
 ### How-to
 
+(start_tennicam)=
+
 #### How to start the server?
 
 - Turn on the "bright" light above the table tennis. 
@@ -90,6 +92,9 @@ tennicam_client_display
 
 A MuJoCo simulation will start, displaying the ball.
 To stop the mujoco simulation, type in any terminal `pam_mujoco_stop tennicam_client_display`.
+
+
+(tennicam_client_config_transform)=
 
 #### How to fix the transform of the ball?
 

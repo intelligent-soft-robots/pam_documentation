@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More info: Compute Transformation from Tennicam to World Frame &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer’s guide 1: Tools" href="E1_tools.html" />
+    <link rel="prev" title="More info: Vicon" href="C9_vicon.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: Reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: Iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: Joint control, table, balls, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: Saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: Bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: MuJoCo handles and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: Mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: Visual ball tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9_vicon.html">More info: Vicon</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More info: Compute Transformation from Tennicam to World Frame</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#record-synchronised-trajectory">Record Synchronised Trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-transformation">Compute Transformation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: Advanced overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: Updating the documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>More info: Compute Transformation from Tennicam to World Frame</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C9.1_tennicam_vicon_transform.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="more-info-compute-transformation-from-tennicam-to-world-frame">
+<h1>More info: Compute Transformation from Tennicam to World Frame<a class="headerlink" href="#more-info-compute-transformation-from-tennicam-to-world-frame" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="C5_visual_ball_tracking.html"><span class="doc">tennicam ball tracking</span></a> is done by a
+separate camera system and thus it’s reference frame does not naturally coincide
+with the <a class="reference internal" href="C9_vicon.html#lab-world-frame"><span class="std std-ref">world frame defined by Vicon</span></a>.  Therefore, a
+transformation from tennicam’s reference frame to the world frame needs to be
+determined.</p>
+<p>This is done a two-step process:</p>
+<ol class="arabic simple">
+<li><p>Record a synchronised trajectory with tennicam and Vicon.</p></li>
+<li><p>Compute the transformation from the trajectories.</p></li>
+</ol>
+<section id="record-synchronised-trajectory">
+<h2>Record Synchronised Trajectory<a class="headerlink" href="#record-synchronised-trajectory" title="Permalink to this headline"></a></h2>
+<p>To record a synchronised trajectory, use the LED stick for the Vicon system with
+a ball attached to the tip.  The centre of the ball should coincide with the
+origin of the LED stick Vicon marker (at the tip of the stick):</p>
+<img alt="Photo of the &quot;Vicon LED stick&quot; with an orange ball mounted on the tip." src="_images/vicon_tennicam_stick.jpg" />
+<p>The idea is that both ball tracking and Vicon will report the same physical
+position, each in their respective reference frame.  When moving around and
+recording positions, we get a synchronised trajectory from both systems from
+which we can then compute the transformation between the two systems.
+Since Vicon poses are already provided in the lab’s world frame, this implicitly
+gives us the transformation from tennicam to world.</p>
+<p>To record, perform the following steps:</p>
+<ol class="arabic">
+<li><p>Start start both Vicon (see <a class="reference internal" href="C9_vicon.html#start-vicon"><span class="std std-ref">How to Start the Vicon System</span></a>) and the ball tracking
+(see <a class="reference internal" href="C5_visual_ball_tracking.html#start-tennicam"><span class="std std-ref">How to start the server?</span></a>).</p></li>
+<li><p>Configure tennicam_client to <em>not</em> apply a transformation on the ball
+positions by setting both translation and rotation to zero in
+<code class="docutils literal notranslate"><span class="pre">~/.mpi-is/pam/tennicam_client/config.toml</span></code>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[transform]</span>
+<span class="n">translation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This is important as otherwise a wrong transformation will be computed in the
+end.</p>
+</li>
+<li><p>Run the following commands in separate terminals.  They start o80 back ends
+that connected to the respective systems (see the label on the Vicon PC for its IP):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tennicam_client</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vicon_o80_standalone</span> <span class="o">&lt;</span><span class="n">vicon</span><span class="o">-</span><span class="n">ip</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Start the script to record the data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">record_tennicam_vicon_trajectory</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now <em>slowly</em> move the LED stick with the attached ball through the scene to
+get position measurements from different parts of the robot area. In case one
+of the systems does not detect the position (e.g. because of occlusion) a
+warning will be printed in the terminal.  This is not a problem, though, you
+can simply continue by moving to an area that is observed by both camera
+systems.</p></li>
+<li><p>When finished, you can stop recording by pressing Ctrl+C.  The recorded
+points will be saved to the specified file (<code class="docutils literal notranslate"><span class="pre">trajectory.json</span></code>).  This file
+can be used to compute the transformation in the next step.</p></li>
+</ol>
+</section>
+<section id="compute-transformation">
+<h2>Compute Transformation<a class="headerlink" href="#compute-transformation" title="Permalink to this headline"></a></h2>
+<p>To compute the transformation from tennicam’s reference frame to Vicon’s
+reference frame (which coincides with the world frame), simply run the following
+command on the file recorded in the previous step:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compute_tennicam_to_vicon_transform</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>It will print the resulting transformation in a format that can directly be
+copy-pasted into the config file of tennicam_client (see
+<a class="reference internal" href="C5_visual_ball_tracking.html#tennicam-client-config-transform"><span class="std std-ref">How to fix the transform of the ball?</span></a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2023</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">24</span> <span class="mi">16</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mf">46.155</span><span class="p">]</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span> <span class="p">[</span><span class="n">info</span><span class="p">]</span> <span class="n">Loaded</span> <span class="n">trajectory</span> <span class="k">with</span> <span class="mi">52</span> <span class="n">steps</span><span class="o">.</span>
+<span class="p">[</span><span class="mi">2023</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">24</span> <span class="mi">16</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mf">46.155</span><span class="p">]</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span> <span class="p">[</span><span class="n">info</span><span class="p">]</span> <span class="n">Mean</span> <span class="n">error</span><span class="p">:</span> <span class="mf">0.01898844376609573</span>
+
+<span class="p">[</span><span class="n">transform</span><span class="p">]</span>
+<span class="n">translation</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.385887</span><span class="p">,</span> <span class="mf">0.185144</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.425765</span><span class="p">]</span>
+<span class="c1"># extrinsic xyz Euler angles</span>
+<span class="n">rotation</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.00499201</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0156143</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0121934</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If you restart <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> with the updated configuration, it should now
+report ball positions with respect to the lab’s world frame.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">compute_tennicam_to_vicon_transform</span></code> also shows the mean
+error of the computed transformation.  If you get a large value here, this
+might indicate that there is a problem with the recorded trajectory.  In this
+case restart the procedure with recording a new trajectory.</p>
+<p>To give some orientation: The expected error of tennicam is around 1-3 cm so
+a transformation error within that order of magnitude is okay.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C9_vicon.html" class="btn btn-neutral float-left" title="More info: Vicon" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="E1_tools.html" class="btn btn-neutral float-right" title="Developer’s guide 1: Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

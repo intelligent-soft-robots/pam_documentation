@@ -82,6 +82,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9_vicon.html">More info: Vicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9.1_tennicam_vicon_transform.html">More info: Compute Transformation from Tennicam to World Frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
@@ -99,7 +101,7 @@
       </nav>
 
       <div class="wy-nav-content">
-        <div class="rst-content">
+        <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
@@ -132,7 +134,7 @@ which implements an <a class="reference external" href="http://people.tuebingen.
 <section id="how-to">
 <h3>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h3>
 <section id="how-to-start-the-server">
-<h4>How to start the server?<a class="headerlink" href="#how-to-start-the-server" title="Permalink to this headline"></a></h4>
+<span id="start-tennicam"></span><h4>How to start the server?<a class="headerlink" href="#how-to-start-the-server" title="Permalink to this headline"></a></h4>
 <ul class="simple">
 <li><p>Turn on the “bright” light above the table tennis.</p></li>
 <li><p>Login to rodau using the ball_tracking user. The password is written on the desktop.</p></li>
@@ -199,7 +201,7 @@ to access ball informations.</p>
 To stop the mujoco simulation, type in any terminal <code class="docutils literal notranslate"><span class="pre">pam_mujoco_stop</span> <span class="pre">tennicam_client_display</span></code>.</p>
 </section>
 <section id="how-to-fix-the-transform-of-the-ball">
-<h4>How to fix the transform of the ball?<a class="headerlink" href="#how-to-fix-the-transform-of-the-ball" title="Permalink to this headline"></a></h4>
+<span id="tennicam-client-config-transform"></span><h4>How to fix the transform of the ball?<a class="headerlink" href="#how-to-fix-the-transform-of-the-ball" title="Permalink to this headline"></a></h4>
 <p>The ball is detected in a given frame, and then its position goes through a transformation (translation and rotation).
 The transformation applied is specified in the configuration file
 <code class="docutils literal notranslate"><span class="pre">~/.mpi-is/pam/tennicam_client/config.toml</span></code> (or
