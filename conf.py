@@ -191,9 +191,9 @@ intersphinx_mapping = {
         "http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80_example",
         None,
     ),
-    # TODO: change this once pam_vicon_o80 is moved to its own package
-    "pam_vicon_o80": (
+    "vicon_transformer": (
         "https://intelligent-soft-robots.github.io/vicon_transformer/",
         None,
     ),
+    "pam_vicon": ("https://intelligent-soft-robots.github.io/pam_vicon/", None),
 }
