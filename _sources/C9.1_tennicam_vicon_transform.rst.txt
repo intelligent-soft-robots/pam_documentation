@@ -120,7 +120,7 @@ report ball positions with respect to the lab's world frame.
    a transformation error within that order of magnitude is okay.
 
 
-Involved Packages
+Relevant Packages
 =================
 
 The applications used in these instructions are provided by the packages
