@@ -69,6 +69,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#configure-objects-for-o80">Configure Objects for o80</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#relevant-packages">Relevant Packages</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="C9.1_tennicam_vicon_transform.html">More info: Compute Transformation from Tennicam to World Frame</a></li>
@@ -114,7 +115,7 @@ robot, table and other things like the ball launcher.</p>
 (robot, table, balls, …) should be given relative to this world frame in all
 our applications.
 <strong>As origin of this world frame the “ping” Vicon marker is used.</strong></p>
-<p>When using the interface of <code class="docutils literal notranslate"><span class="pre">pam_vicon_o80</span></code>, poses of all Vicon objects are
+<p>When using the interface of <code class="docutils literal notranslate"><span class="pre">pam_vicon</span></code>, poses of all Vicon objects are
 already transformed to this world frame. This means that the actual origin used
 by Vicon Tracker, as defined during calibration, does not really matter.  Only
 for visualisation in Vicon Tracker itself, it is useful to have it aligned with
@@ -211,7 +212,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>For a simple example script that uses a corresponding front end see
-<a class="reference external" href="https://intelligent-soft-robots.github.io/vicon_transformer/doc/example_o80_client.html#example-o80-client" title="(in vicon_transformer v0.9.0)"><span>Example: Access Vicon Data Through o80</span></a>.</p>
+<a class="reference external" href="https://intelligent-soft-robots.github.io/pam_vicon/doc/example_o80_client.html#example-o80-client" title="(in pam_vicon v0.9.0)"><span>Example: Access Vicon Data Through o80</span></a>.</p>
 <p>Note that there are no commands that can be send to the Vicon system and
 likewise the o80 “state” is empty.  Instead, all information is provided through
 the “extended state”.</p>
@@ -220,8 +221,14 @@ the “extended state”.</p>
 <p>The shared memory used by o80 requires fixed-size data structures.  Therefore,
 the number of objects as well as their names and order need to be defined at
 compile time.  For instructions on how to do this, see
-<a class="reference external" href="https://intelligent-soft-robots.github.io/vicon_transformer/doc/configure_o80_driver_subjects.html#configure-subjects-o80" title="(in vicon_transformer v0.9.0)"><span>Configure Subjects for o80 Driver</span></a>.</p>
+<a class="reference external" href="https://intelligent-soft-robots.github.io/pam_vicon/doc/configure_o80_driver_subjects.html#configure-subjects-o80" title="(in pam_vicon v0.9.0)"><span>Configure Subjects for o80 Driver</span></a>.</p>
 </section>
+</section>
+<section id="relevant-packages">
+<h2>Relevant Packages<a class="headerlink" href="#relevant-packages" title="Permalink to this headline"></a></h2>
+<p>The Vicon-related software is implemented in the packages
+<a class="reference external" href="https://intelligent-soft-robots.github.io/vicon_transformer/index.html" title="(in vicon_transformer v0.9.0)"><span class="xref std std-doc">vicon_transformer</span></a> (everything that is generic)
+and <a class="reference external" href="https://intelligent-soft-robots.github.io/pam_vicon/index.html" title="(in pam_vicon v0.9.0)"><span class="xref std std-doc">pam_vicon</span></a> (everything specific to our setup).</p>
 </section>
 </section>
 

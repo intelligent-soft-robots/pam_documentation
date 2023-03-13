@@ -19,7 +19,7 @@ Our goal is to have a fixed "world frame" in the lab.  Poses of all objects
 our applications.
 **As origin of this world frame the "ping" Vicon marker is used.**
 
-When using the interface of ``pam_vicon_o80``, poses of all Vicon objects are
+When using the interface of ``pam_vicon``, poses of all Vicon objects are
 already transformed to this world frame. This means that the actual origin used
 by Vicon Tracker, as defined during calibration, does not really matter.  Only
 for visualisation in Vicon Tracker itself, it is useful to have it aligned with
@@ -148,7 +148,7 @@ Available options:
 
 
 For a simple example script that uses a corresponding front end see
-:ref:`pam_vicon_o80:example_o80_client`.
+:ref:`pam_vicon:example_o80_client`.
 
 Note that there are no commands that can be send to the Vicon system and
 likewise the o80 "state" is empty.  Instead, all information is provided through
@@ -161,4 +161,12 @@ Configure Objects for o80
 The shared memory used by o80 requires fixed-size data structures.  Therefore,
 the number of objects as well as their names and order need to be defined at
 compile time.  For instructions on how to do this, see
-:ref:`pam_vicon_o80:configure_subjects_o80`.
+:ref:`pam_vicon:configure_subjects_o80`.
+
+
+Relevant Packages
+=================
+
+The Vicon-related software is implemented in the packages
+:doc:`vicon_transformer <vicon_transformer:index>` (everything that is generic)
+and :doc:`pam_vicon <pam_vicon:index>` (everything specific to our setup).

@@ -61,6 +61,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">More info: Compute Transformation from Tennicam to World Frame</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#record-synchronised-trajectory">Record Synchronised Trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compute-transformation">Compute Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#involved-packages">Involved Packages</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
@@ -95,7 +96,7 @@
            <div itemprop="articleBody">
              
   <section id="more-info-compute-transformation-from-tennicam-to-world-frame">
-<h1>More info: Compute Transformation from Tennicam to World Frame<a class="headerlink" href="#more-info-compute-transformation-from-tennicam-to-world-frame" title="Permalink to this headline"></a></h1>
+<span id="tennicam-vicon-transform"></span><h1>More info: Compute Transformation from Tennicam to World Frame<a class="headerlink" href="#more-info-compute-transformation-from-tennicam-to-world-frame" title="Permalink to this headline"></a></h1>
 <p>The <a class="reference internal" href="C5_visual_ball_tracking.html"><span class="doc">tennicam ball tracking</span></a> is done by a
 separate camera system and thus it’s reference frame does not naturally coincide
 with the <a class="reference internal" href="C9_vicon.html#lab-world-frame"><span class="std std-ref">world frame defined by Vicon</span></a>.  Therefore, a
@@ -189,6 +190,11 @@ case restart the procedure with recording a new trajectory.</p>
 <p>To give some orientation: The expected error of tennicam is around 1-3 cm so
 a transformation error within that order of magnitude is okay.</p>
 </div>
+</section>
+<section id="involved-packages">
+<h2>Involved Packages<a class="headerlink" href="#involved-packages" title="Permalink to this headline"></a></h2>
+<p>The applications used in these instructions are provided by the packages
+<code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> (for the <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> exectuable) and <a class="reference external" href="https://intelligent-soft-robots.github.io/pam_vicon/index.html" title="(in pam_vicon v0.9.0)"><span class="xref std std-doc">pam_vicon</span></a> (for the rest).</p>
 </section>
 </section>
 
