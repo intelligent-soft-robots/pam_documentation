@@ -16,6 +16,7 @@ PAM Documentation
    B5_tutorial4
    B6_tutorial5
    B7_tutorial6
+   B8_tutorial7
    C1_handle
    C2_real_robot
    C3_executables
