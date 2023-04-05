@@ -99,3 +99,30 @@ import o80_pam
 for observation in o80_pam.read_file("/path/to/my/file"):
     print(observation)
 ```
+
+## Converting to Pandas dataframe files
+
+You can convert a log file to a pickled pandas dataframe:
+
+```python
+from pathlib import Path
+import o80_pam
+
+log_file = Path("/path/to/log/file")
+dataframe_file = Path("/path/to/new/file")
+
+# reading log_file and writing dataframe_file
+o80_pam.observation_convertors.convert_native_file_to_pandas(
+    log_file, dataframe_file
+)
+
+# reading dataframe_file to panda dataframe
+df = o80_pam.observation_convertors.read_pandas(dataframe_file)
+
+# you can also directly read a log file into a pandas dataframe
+df = o80_pam.observation_convertors.native_file_to_pandas(log_file)
+
+```
+
+More information on convertions between Pandas dataframe and instances of Observation
+can be found in [Tutorial 7](B8_tutorial7).

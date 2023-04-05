@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial 7: Converting observations to other formats &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="More info: MuJoCo handles and contacts" href="C1_handle.html" />
+    <link rel="prev" title="Tutorial 6: Bursting mode" href="B7_tutorial6.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: Reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: Iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: Joint control, table, balls, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: Saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: Bursting mode</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 7: Converting observations to other formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numpy">Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pandas">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-dictionaries">Python dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: MuJoCo handles and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: Mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: Visual ball tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9_vicon.html">More info: Vicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9.1_tennicam_vicon_transform.html">More info: Compute Transformation from Tennicam to World Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: Advanced overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: Updating the documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorial 7: Converting observations to other formats</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/B8_tutorial7.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-7-converting-observations-to-other-formats">
+<h1>Tutorial 7: Converting observations to other formats<a class="headerlink" href="#tutorial-7-converting-observations-to-other-formats" title="Permalink to this headline"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p>As shown in all previous tutorials, data is stored as instances of Observation.
+Manipulating instances of Observation requires the installation of the whole software, which may be sometimes inconvenient.
+Therefore, we provide functions for converting instances of Observation to <em>Numpy arrays</em>, <em>Pandas dataframes</em> and <em>dictionaries</em>.
+Also, list of instances of Observation can be saved as pickled Pandas dataframes into files.</p>
+</section>
+<section id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+<span class="kn">from</span> <span class="nn">o80_pam</span> <span class="kn">import</span> <span class="n">observation_convertors</span> <span class="k">as</span> <span class="n">conv</span>
+
+<span class="n">observation</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Observation</span><span class="p">()</span>
+
+<span class="c1"># Converting to numpy array</span>
+<span class="c1"># Order of values: </span>
+<span class="c1"># iteration, frequency, time stamp, positions (4d), velocities (4d),</span>
+<span class="c1"># desired pressures (8d), observed pressures (8d), references found (4d)</span>
+<span class="n">np_array</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">observation_to_numpy</span><span class="p">(</span><span class="n">observation</span><span class="p">)</span>
+
+<span class="c1"># Converting to native python dictionary</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">numpy_to_dict</span><span class="p">(</span><span class="n">np_array</span><span class="p">)</span>
+
+<span class="c1"># Converting back to an instance of Observation</span>
+<span class="n">observation</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">numpy_to_observation</span><span class="p">(</span><span class="n">np_array</span><span class="p">)</span>
+
+<span class="c1"># Converting several observations at once</span>
+<span class="n">obs1</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Observation</span><span class="p">()</span>
+<span class="n">obs2</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Observation</span><span class="p">()</span>
+<span class="c1"># np_ndarray: matrix, each row corresponding to an observation</span>
+<span class="c1"># columns: a list of string providing explicit names to the</span>
+           <span class="n">columns</span> <span class="n">of</span> <span class="n">np_ndarray</span>
+<span class="n">np_ndarray</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">observations_to_numpy</span><span class="p">((</span><span class="n">obs1</span><span class="p">,</span> <span class="n">obs2</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="pandas">
+<h2>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+<span class="kn">from</span> <span class="nn">o80_pam</span> <span class="kn">import</span> <span class="n">observation_convertors</span> <span class="k">as</span> <span class="n">conv</span>
+
+
+<span class="n">obs1</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Observation</span><span class="p">()</span>
+<span class="n">obs2</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Observation</span><span class="p">()</span>
+
+<span class="c1"># converting to pandas dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">observations_to_pandas</span><span class="p">((</span><span class="n">obs1</span><span class="p">,</span><span class="n">obs2</span><span class="p">))</span>
+
+<span class="c1"># saving the dataframe to a file</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/path/to/file&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> 
+
+<span class="c1"># saving the observations directly as dataframe</span>
+<span class="c1"># in a file</span>
+<span class="n">conv</span><span class="o">.</span><span class="n">pickle_observations</span><span class="p">((</span><span class="n">obs1</span><span class="p">,</span><span class="n">obs2</span><span class="p">),</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># reading the file (to pandas dataframe)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">read_pandas</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="python-dictionaries">
+<h2>Python dictionaries<a class="headerlink" href="#python-dictionaries" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">o80_pam</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">o80_pam</span> <span class="kn">import</span> <span class="n">observation_convertors</span> <span class="k">as</span> <span class="n">conv</span>
+
+<span class="n">obs</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">Observation</span><span class="p">()</span>
+
+<span class="c1"># convert to numpy</span>
+<span class="n">np_array</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">observation_to_numpy</span><span class="p">(</span><span class="n">observation</span><span class="p">)</span>
+
+<span class="c1"># convert to dict</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">numpy_to_dict</span><span class="p">(</span><span class="n">np_array</span><span class="p">)</span>
+
+<span class="c1"># convert back to observation</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">dict_to_observation</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="c1"># creating an instance of Observation</span>
+<span class="c1"># from a dict</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;iteration&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+  <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="s2">&quot;time_stamp&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+  <span class="s2">&quot;positions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span>
+  <span class="s2">&quot;velocities&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">],</span>
+  <span class="s2">&quot;desired_pressures&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">],</span>
+  <span class="s2">&quot;observed_pressures&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="o">-</span><span class="mi">21</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="o">-</span><span class="mi">31</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">],</span>
+  <span class="s2">&quot;references_found&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">dict_to_observation</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="B7_tutorial6.html" class="btn btn-neutral float-left" title="Tutorial 6: Bursting mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C1_handle.html" class="btn btn-neutral float-right" title="More info: MuJoCo handles and contacts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

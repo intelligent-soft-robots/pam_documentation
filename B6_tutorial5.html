@@ -59,9 +59,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2">Via Python API</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#converting-to-pandas-dataframe-files">Converting to Pandas dataframe files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: Bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B8_tutorial7.html">Tutorial 7: Converting observations to other formats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: MuJoCo handles and contacts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
@@ -196,6 +198,31 @@
 </pre></div>
 </div>
 </section>
+</section>
+<section id="converting-to-pandas-dataframe-files">
+<h2>Converting to Pandas dataframe files<a class="headerlink" href="#converting-to-pandas-dataframe-files" title="Permalink to this headline"></a></h2>
+<p>You can convert a log file to a pickled pandas dataframe:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">o80_pam</span>
+
+<span class="n">log_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/path/to/log/file&quot;</span><span class="p">)</span>
+<span class="n">dataframe_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/path/to/new/file&quot;</span><span class="p">)</span>
+
+<span class="c1"># reading log_file and writing dataframe_file</span>
+<span class="n">o80_pam</span><span class="o">.</span><span class="n">observation_convertors</span><span class="o">.</span><span class="n">convert_native_file_to_pandas</span><span class="p">(</span>
+    <span class="n">log_file</span><span class="p">,</span> <span class="n">dataframe_file</span>
+<span class="p">)</span>
+
+<span class="c1"># reading dataframe_file to panda dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">observation_convertors</span><span class="o">.</span><span class="n">read_pandas</span><span class="p">(</span><span class="n">dataframe_file</span><span class="p">)</span>
+
+<span class="c1"># you can also directly read a log file into a pandas dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">observation_convertors</span><span class="o">.</span><span class="n">native_file_to_pandas</span><span class="p">(</span><span class="n">log_file</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>More information on convertions between Pandas dataframe and instances of Observation
+can be found in <a class="reference internal" href="B8_tutorial7.html"><span class="doc std std-doc">Tutorial 7</span></a>.</p>
 </section>
 </section>
 
