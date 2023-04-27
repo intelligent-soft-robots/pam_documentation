@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datasets &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer’s guide 1: Tools" href="E1_tools.html" />
+    <link rel="prev" title="More info: Compute Transformation from Tennicam to World Frame" href="C9.1_tennicam_vicon_transform.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: Reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: Iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: Joint control, table, balls, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: Saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: Bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B8_tutorial7.html">Tutorial 7: Converting observations to other formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: MuJoCo handles and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: Mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: Visual ball tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9_vicon.html">More info: Vicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9.1_tennicam_vicon_transform.html">More info: Compute Transformation from Tennicam to World Frame</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#long-term-experiment">Long Term Experiment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#robot">Robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-read-the-data">How to read the data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pandas-dataframes">pandas dataframes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#robot-behavioral-segments">robot behavioral segments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: Advanced overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: Updating the documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Datasets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/D1_datasets.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="datasets">
+<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline"></a></h1>
+<section id="long-term-experiment">
+<h2>Long Term Experiment<a class="headerlink" href="#long-term-experiment" title="Permalink to this headline"></a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
+<p>This dataset offers a compilation of long-term dynamic motion data gathered over approximately 3.5 weeks from a newly designed 4-DoF tendon-driven robotic arm powered by pneumatic artificial muscles (PAMs).
+The data encompasses movements generated by random multisine signals of target pressures, as well as repeated fixed target pressure movements, facilitating the evaluation of system repeatability and performance.</p>
+</section>
+<section id="robot">
+<h3>Robot<a class="headerlink" href="#robot" title="Permalink to this headline"></a></h3>
+<p>The dataset was taken on Pamy2</p>
+</section>
+<section id="files">
+<h3>Files<a class="headerlink" href="#files" title="Permalink to this headline"></a></h3>
+<p>The files can be downloaded on <a class="reference external" href="https://edmond.mpdl.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.OMM0JP">Edmond</a>.
+There are 6 zip files. Each file contains several “df” files (around 40), each file containing a pandas dataframe.</p>
+</section>
+<section id="how-to-read-the-data">
+<h3>How to read the data<a class="headerlink" href="#how-to-read-the-data" title="Permalink to this headline"></a></h3>
+<section id="pandas-dataframes">
+<h4>pandas dataframes<a class="headerlink" href="#pandas-dataframes" title="Permalink to this headline"></a></h4>
+<p>Each dataframe can be read using pandas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s2">&quot;/path/to/file.df&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To each line of the dataframe correspond an observation of the state of the robot.
+Dataframe’s columns have explicit names.</p>
+</section>
+<section id="robot-behavioral-segments">
+<h4>robot behavioral segments<a class="headerlink" href="#robot-behavioral-segments" title="Permalink to this headline"></a></h4>
+<p>The movement of the robot is annotated. The behavioral segments are provided by intervals of iteration number (‘iteration’ is one of the
+dataframe column). The intervals are provided as attributes of the dataframe.</p>
+<p>There are 5 annotation categories:</p>
+<ul class="simple">
+<li><p>random movement: Open loop motion generated by a random multisine signals of target pressures with different frequencies.</p></li>
+<li><p>fixed movement fast: Open loop motion with a list of fixed target pressures, with 0.7 seconds time interval between two target pressures.</p></li>
+<li><p>fixed movement slow: Open loop motion with a list of fixed target pressures, with 2 seconds time interval between two target pressures.</p></li>
+<li><p>move to random pressure: Motion generate by applying a random target pressure.</p></li>
+<li><p>reset: Reset motion by moving to medium pressures, then to min pressures, and back to medium pressures again; the final position might be suitable for assessing the system’s repeatability.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># see the categories</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="c1"># getting the intervals corresponding to &quot;fixed movement fast&quot;</span>
+<span class="c1"># &#39;fast_intervals&#39; is a list of tuple (iteration start, iteration end)</span>
+<span class="n">fast_intervals</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;fixed_movement_fast&#39;</span><span class="p">]</span>
+
+<span class="c1"># getting the dataframe corresponding to the first</span>
+<span class="c1"># interval</span>
+<span class="n">iter_start</span><span class="p">,</span> <span class="n">iter_end</span> <span class="o">=</span> <span class="n">fast_intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dataframe_fixed_movement_fast</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;iteration&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">iter_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;iteration&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">iter_end</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C9.1_tennicam_vicon_transform.html" class="btn btn-neutral float-left" title="More info: Compute Transformation from Tennicam to World Frame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="E1_tools.html" class="btn btn-neutral float-right" title="Developer’s guide 1: Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
