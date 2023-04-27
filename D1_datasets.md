@@ -14,7 +14,7 @@ The dataset was taken on Pamy2
 ### Files
 
 The files can be downloaded on [Edmond](https://edmond.mpdl.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.OMM0JP).
-There are 6 zip files. Each files contains several "df" files (around 40), each file containning a pandas dataframe.
+There are 6 zip files. Each file contains several "df" files (around 40), each file containing a pandas dataframe.
 
 ### How to read the data
 
@@ -50,7 +50,7 @@ dataframe.attrs.keys()
 
 # getting the intervals corresponding to "fixed movement fast"
 # 'fast_intervals' is a list of tuple (iteration start, iteration end)
-fast_intervals = df.attrs['fixed_movement_fast']
+fast_intervals = dataframe.attrs['fixed_movement_fast']
 
 # getting the dataframe corresponding to the first
 # interval
