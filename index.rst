@@ -26,6 +26,7 @@ PAM Documentation
    C8_low_latency
    C9_vicon
    C9.1_tennicam_vicon_transform
+   D1_datasets
    E1_tools
    E2_guidelines
    E3_packages_overview
