@@ -31,8 +31,12 @@ If you experience any issue, you can try to run in a terminal:
 
 - `tennicam_list_cameras`: check if the drivers detect the four cameras
 - `tennicam_ping_cameras`: check if the desktop can ping the four camers
-- `tennicam_capture_indep`: check if the desktop can use the drivers to capture pictures from the cameras
-- `tennicam_capture`: check if the desktop can use the drivers of the cameras to capture synchronized pictures
+- `tennicam_capture_indep`*: check if the desktop can use the drivers to capture pictures from the cameras
+- `tennicam_capture`*: check if the desktop can use the drivers of the cameras to capture synchronized pictures
+
+\* The "capture" commands only work if the tennicam tracker server (started by
+  `tennicam_start`) is _not_ running.  If it is running, you need to stop it
+  first.
 
 #### How to start the client?
 
