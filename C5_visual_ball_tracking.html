@@ -150,9 +150,12 @@ which implements an <a class="reference external" href="http://people.tuebingen.
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tennicam_list_cameras</span></code>: check if the drivers detect the four cameras</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tennicam_ping_cameras</span></code>: check if the desktop can ping the four camers</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tennicam_capture_indep</span></code>: check if the desktop can use the drivers to capture pictures from the cameras</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tennicam_capture</span></code>: check if the desktop can use the drivers of the cameras to capture synchronized pictures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tennicam_capture_indep</span></code>*: check if the desktop can use the drivers to capture pictures from the cameras</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tennicam_capture</span></code>*: check if the desktop can use the drivers of the cameras to capture synchronized pictures</p></li>
 </ul>
+<p>* The “capture” commands only work if the tennicam tracker server (started by
+<code class="docutils literal notranslate"><span class="pre">tennicam_start</span></code>) is <em>not</em> running.  If it is running, you need to stop it
+first.</p>
 </section>
 <section id="how-to-start-the-client">
 <h4>How to start the client?<a class="headerlink" href="#how-to-start-the-client" title="Permalink to this headline"></a></h4>
