@@ -139,5 +139,5 @@ Relevant Packages
 =================
 
 The applications used in these instructions are provided by the packages
-``tennicam_client`` (for the ``tennicam_client`` exectuable) and :doc:`pam_vicon
+``tennicam_client`` (for the ``tennicam_client`` executable) and :doc:`pam_vicon
 <pam_vicon:index>` (for the rest).
