@@ -52,7 +52,8 @@ To record, perform the following steps:
    end.
 
 3. Run the following commands in separate terminals.  They start o80 back ends
-   that connected to the respective systems (see the label on the Vicon PC for its IP):
+   that connected to the respective systems (see the label on the Vicon PC for
+   its IP):
 
    ::
 
@@ -118,6 +119,20 @@ report ball positions with respect to the lab's world frame.
 
    To give some orientation: The expected error of tennicam is around 1-3 cm so
    a transformation error within that order of magnitude is okay.
+
+
+Verify Transformation
+=====================
+
+As a simple way to check if the resulting transformation makes sense, one can
+visualize the tracked ball together with table based on Vicon poses.
+This allows to qualitatively verify that the relative position of table/robot
+and ball make sense (e.g. by manually moving a ball along the edges of the
+table).
+
+This can be done by running ``tennicam_client_display`` (see
+:ref:`display_tennicam`) with the ``--vicon`` flag.  By this, the pose of the
+table in the visualization will be set based on data from the Vicon system.
 
 
 Relevant Packages

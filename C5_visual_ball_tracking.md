@@ -79,6 +79,8 @@ print(ball.to_string())
 For an example, see the source code of `tennicam_client_print` [here](https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print).
 
 
+(display_tennicam)=
+
 #### How to display the tracked ball in MuJoCo?
 
 In a terminal:
@@ -95,6 +97,14 @@ tennicam_client_display
 ```
 
 A MuJoCo simulation will start, displaying the ball.
+
+:::{admonition} Vicon
+To set table pose in the visualisation based on information provided by the
+Vicon system, run `tennicam_client_display` with the ``--vicon`` flag. Note that
+in this case ``vicon_o80_standalone`` needs to be run as well (see
+{ref}`vicon`).
+:::
+
 To stop the mujoco simulation, type in any terminal `pam_mujoco_stop tennicam_client_display`.
 
 
@@ -123,7 +133,7 @@ To update the parameters of the transform:
 - when you start `tennicam_client`, use the dialog to set `active_transform` to `True`.
 Note that this slow down the client, so set `active_transform` to `True` only when tuning the transform.
 
-- start `tennicam_client_display` as descrived above.
+- start `tennicam_client_display` as described above.
 
 - in yet another terminal, run:
 
