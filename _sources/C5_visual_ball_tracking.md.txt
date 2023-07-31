@@ -8,11 +8,11 @@ Page is only useful to persons having access to the robot lab in the Max Planck 
 
 ### Description
 
-The robot lab is equiped with four RGB cameras, which can be used to track the (3D) position of a table tennis ball.
-For the server, the software used for this is [tennicam](https://github.com/intelligent-soft-robots/tennicam) which has been developped internally by Sebastian Gomez-Gonzalez.
+The robot lab is equipped with four RGB cameras, which can be used to track the (3D) position of a table tennis ball.
+For the server, the software used for this is [tennicam](https://github.com/intelligent-soft-robots/tennicam) which has been developed internally by Sebastian Gomez-Gonzalez.
 The desktop "rodau" is installed with the server software, and the cameras are plugged to it, ready to be used.
 For the client, the software used is [tennicam_client](https://github.com/intelligent-soft-robots/tennicam_client),
-which implements an {doc}`o80 <o80:index>` standalone. The client is install along the pam software, as described [here](A1_overview_and_installation). 
+which implements an {doc}`o80 <o80:index>` standalone. The client is install along the PAM software, as described [here](A1_overview_and_installation). 
 
 ### How-to
 
@@ -30,7 +30,7 @@ which implements an {doc}`o80 <o80:index>` standalone. The client is install alo
 If you experience any issue, you can try to run in a terminal:
 
 - `tennicam_list_cameras`: check if the drivers detect the four cameras
-- `tennicam_ping_cameras`: check if the desktop can ping the four camers
+- `tennicam_ping_cameras`: check if the desktop can ping the four cameras
 - `tennicam_capture_indep`*: check if the desktop can use the drivers to capture pictures from the cameras
 - `tennicam_capture`*: check if the desktop can use the drivers of the cameras to capture synchronized pictures
 
@@ -40,7 +40,7 @@ If you experience any issue, you can try to run in a terminal:
 
 #### How to start the client?
 
-The client can be started on any Ubuntu desktop installed with the pam software.
+The client can be started on any Ubuntu desktop installed with the PAM software.
 In a first terminal (you may use the default parameters):
 
 ```bash
@@ -79,6 +79,8 @@ print(ball.to_string())
 For an example, see the source code of `tennicam_client_print` [here](https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print).
 
 
+(display_tennicam)=
+
 #### How to display the tracked ball in MuJoCo?
 
 In a terminal:
@@ -95,6 +97,14 @@ tennicam_client_display
 ```
 
 A MuJoCo simulation will start, displaying the ball.
+
+:::{admonition} Vicon
+To set table pose in the visualisation based on information provided by the
+Vicon system, run `tennicam_client_display` with the ``--vicon`` flag. Note that
+in this case ``vicon_o80_standalone`` needs to be run as well (see
+{ref}`vicon`).
+:::
+
 To stop the mujoco simulation, type in any terminal `pam_mujoco_stop tennicam_client_display`.
 
 
@@ -123,7 +133,7 @@ To update the parameters of the transform:
 - when you start `tennicam_client`, use the dialog to set `active_transform` to `True`.
 Note that this slow down the client, so set `active_transform` to `True` only when tuning the transform.
 
-- start `tennicam_client_display` as descrived above.
+- start `tennicam_client_display` as described above.
 
 - in yet another terminal, run:
 
@@ -132,7 +142,7 @@ tennicam_client_transform_update
 ```
 
 which will start a dialog allow you to tune transform. The updated transform is applied to the active client, so
-may see the result in the mujoco simulation poped up by `tennicam_client_display`.
+may see the result in the mujoco simulation popped up by `tennicam_client_display`.
 
 The dialog allows you to save the transform in the configuration file (i.e. to overwrite the `config.toml`).
 This ensure the next time `tennicam_client` is started (without `active_transform` set to `True`), the desired transform is applied. 
@@ -182,8 +192,8 @@ In case the installation on rodau has been compromized, and you need to reinstal
 ### Basics requirements
 
 - Ubuntu 20.04
-- you must be part of the Intelligent Soft Robots github domain
-- your ssh key must be set on github
+- you must be part of the Intelligent Soft Robots GitHub domain
+- your SSH key must be set on GitHub
 
 ### Requirement: Cuda 10.0
 
@@ -232,7 +242,7 @@ cd ~/Tennicam/workspace/src/tennicam/
 sudo ./install_dependencies
 ```
 
-As, among other things, this compiles open-cv, this runs for a while
+As, among other things, this compiles OpenCV, this runs for a while
 
 ### Compile
 

@@ -62,6 +62,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">More info: Compute Transformation from Tennicam to World Frame</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#record-synchronised-trajectory">Record Synchronised Trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compute-transformation">Compute Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verify-transformation">Verify Transformation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#relevant-packages">Relevant Packages</a></li>
 </ul>
 </li>
@@ -137,7 +138,8 @@ positions by setting both translation and rotation to zero in
 end.</p>
 </li>
 <li><p>Run the following commands in separate terminals.  They start o80 back ends
-that connected to the respective systems (see the label on the Vicon PC for its IP):</p>
+that connected to the respective systems (see the label on the Vicon PC for
+its IP):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tennicam_client</span>
 </pre></div>
 </div>
@@ -193,10 +195,21 @@ case restart the procedure with recording a new trajectory.</p>
 a transformation error within that order of magnitude is okay.</p>
 </div>
 </section>
+<section id="verify-transformation">
+<h2>Verify Transformation<a class="headerlink" href="#verify-transformation" title="Permalink to this headline"></a></h2>
+<p>As a simple way to check if the resulting transformation makes sense, one can
+visualize the tracked ball together with table based on Vicon poses.
+This allows to qualitatively verify that the relative position of table/robot
+and ball make sense (e.g. by manually moving a ball along the edges of the
+table).</p>
+<p>This can be done by running <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code> (see
+<a class="reference internal" href="C5_visual_ball_tracking.html#display-tennicam"><span class="std std-ref">How to display the tracked ball in MuJoCo?</span></a>) with the <code class="docutils literal notranslate"><span class="pre">--vicon</span></code> flag.  By this, the pose of the
+table in the visualization will be set based on data from the Vicon system.</p>
+</section>
 <section id="relevant-packages">
 <h2>Relevant Packages<a class="headerlink" href="#relevant-packages" title="Permalink to this headline"></a></h2>
 <p>The applications used in these instructions are provided by the packages
-<code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> (for the <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> exectuable) and <a class="reference external" href="https://intelligent-soft-robots.github.io/pam_vicon/index.html" title="(in pam_vicon v0.9.0)"><span class="xref std std-doc">pam_vicon</span></a> (for the rest).</p>
+<code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> (for the <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> executable) and <a class="reference external" href="https://intelligent-soft-robots.github.io/pam_vicon/index.html" title="(in pam_vicon v0.9.0)"><span class="xref std std-doc">pam_vicon</span></a> (for the rest).</p>
 </section>
 </section>
 

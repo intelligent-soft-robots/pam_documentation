@@ -127,11 +127,11 @@
 <h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline"></a></h2>
 <section id="description">
 <h3>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h3>
-<p>The robot lab is equiped with four RGB cameras, which can be used to track the (3D) position of a table tennis ball.
-For the server, the software used for this is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam">tennicam</a> which has been developped internally by Sebastian Gomez-Gonzalez.
+<p>The robot lab is equipped with four RGB cameras, which can be used to track the (3D) position of a table tennis ball.
+For the server, the software used for this is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam">tennicam</a> which has been developed internally by Sebastian Gomez-Gonzalez.
 The desktop “rodau” is installed with the server software, and the cameras are plugged to it, ready to be used.
 For the client, the software used is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam_client">tennicam_client</a>,
-which implements an <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html" title="(in o80 v1.0.0)"><span class="xref std std-doc">o80</span></a> standalone. The client is install along the pam software, as described <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">here</span></a>.</p>
+which implements an <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html" title="(in o80 v1.0.0)"><span class="xref std std-doc">o80</span></a> standalone. The client is install along the PAM software, as described <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">here</span></a>.</p>
 </section>
 <section id="how-to">
 <h3>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h3>
@@ -149,7 +149,7 @@ which implements an <a class="reference external" href="http://people.tuebingen.
 <p>If you experience any issue, you can try to run in a terminal:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tennicam_list_cameras</span></code>: check if the drivers detect the four cameras</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tennicam_ping_cameras</span></code>: check if the desktop can ping the four camers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tennicam_ping_cameras</span></code>: check if the desktop can ping the four cameras</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tennicam_capture_indep</span></code>*: check if the desktop can use the drivers to capture pictures from the cameras</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tennicam_capture</span></code>*: check if the desktop can use the drivers of the cameras to capture synchronized pictures</p></li>
 </ul>
@@ -159,7 +159,7 @@ first.</p>
 </section>
 <section id="how-to-start-the-client">
 <h4>How to start the client?<a class="headerlink" href="#how-to-start-the-client" title="Permalink to this headline"></a></h4>
-<p>The client can be started on any Ubuntu desktop installed with the pam software.
+<p>The client can be started on any Ubuntu desktop installed with the PAM software.
 In a first terminal (you may use the default parameters):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client
 </pre></div>
@@ -192,7 +192,7 @@ to access ball informations.</p>
 <p>For an example, see the source code of <code class="docutils literal notranslate"><span class="pre">tennicam_client_print</span></code> <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print">here</a>.</p>
 </section>
 <section id="how-to-display-the-tracked-ball-in-mujoco">
-<h4>How to display the tracked ball in MuJoCo?<a class="headerlink" href="#how-to-display-the-tracked-ball-in-mujoco" title="Permalink to this headline"></a></h4>
+<span id="display-tennicam"></span><h4>How to display the tracked ball in MuJoCo?<a class="headerlink" href="#how-to-display-the-tracked-ball-in-mujoco" title="Permalink to this headline"></a></h4>
 <p>In a terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco<span class="w"> </span>tennicam_client_display
 <span class="c1"># or: pam_mujoco_no_xterms tennicam_client_display</span>
@@ -202,8 +202,15 @@ to access ball informations.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tennicam_client_display</span>
 </pre></div>
 </div>
-<p>A MuJoCo simulation will start, displaying the ball.
-To stop the mujoco simulation, type in any terminal <code class="docutils literal notranslate"><span class="pre">pam_mujoco_stop</span> <span class="pre">tennicam_client_display</span></code>.</p>
+<p>A MuJoCo simulation will start, displaying the ball.</p>
+<div class="admonition-vicon admonition">
+<p class="admonition-title">Vicon</p>
+<p>To set table pose in the visualisation based on information provided by the
+Vicon system, run <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code> with the <code class="docutils literal notranslate"><span class="pre">--vicon</span></code> flag. Note that
+in this case <code class="docutils literal notranslate"><span class="pre">vicon_o80_standalone</span></code> needs to be run as well (see
+<a class="reference internal" href="C9_vicon.html#vicon"><span class="std std-ref">More info: Vicon</span></a>).</p>
+</div>
+<p>To stop the mujoco simulation, type in any terminal <code class="docutils literal notranslate"><span class="pre">pam_mujoco_stop</span> <span class="pre">tennicam_client_display</span></code>.</p>
 </section>
 <section id="how-to-fix-the-transform-of-the-ball">
 <span id="tennicam-client-config-transform"></span><h4>How to fix the transform of the ball?<a class="headerlink" href="#how-to-fix-the-transform-of-the-ball" title="Permalink to this headline"></a></h4>
@@ -225,14 +232,14 @@ which has, for example, the content:</p>
 <ul class="simple">
 <li><p>when you start <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code>, use the dialog to set <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>.
 Note that this slow down the client, so set <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> only when tuning the transform.</p></li>
-<li><p>start <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code> as descrived above.</p></li>
+<li><p>start <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code> as described above.</p></li>
 <li><p>in yet another terminal, run:</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client_transform_update
 </pre></div>
 </div>
 <p>which will start a dialog allow you to tune transform. The updated transform is applied to the active client, so
-may see the result in the mujoco simulation poped up by <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code>.</p>
+may see the result in the mujoco simulation popped up by <code class="docutils literal notranslate"><span class="pre">tennicam_client_display</span></code>.</p>
 <p>The dialog allows you to save the transform in the configuration file (i.e. to overwrite the <code class="docutils literal notranslate"><span class="pre">config.toml</span></code>).
 This ensure the next time <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> is started (without <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code>), the desired transform is applied.</p>
 </section>
@@ -272,8 +279,8 @@ ctrl+c to stop the logging.</p>
 <h3>Basics requirements<a class="headerlink" href="#basics-requirements" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Ubuntu 20.04</p></li>
-<li><p>you must be part of the Intelligent Soft Robots github domain</p></li>
-<li><p>your ssh key must be set on github</p></li>
+<li><p>you must be part of the Intelligent Soft Robots GitHub domain</p></li>
+<li><p>your SSH key must be set on GitHub</p></li>
 </ul>
 </section>
 <section id="requirement-cuda-10-0">
@@ -314,7 +321,7 @@ treep<span class="w"> </span>--clone<span class="w"> </span>BALL_TRACKING
 sudo<span class="w"> </span>./install_dependencies
 </pre></div>
 </div>
-<p>As, among other things, this compiles open-cv, this runs for a while</p>
+<p>As, among other things, this compiles OpenCV, this runs for a while</p>
 </section>
 <section id="compile">
 <h3>Compile<a class="headerlink" href="#compile" title="Permalink to this headline"></a></h3>
