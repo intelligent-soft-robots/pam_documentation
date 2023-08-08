@@ -11,6 +11,12 @@ More info: Vicon
 The robot lab is equipped with a Vicon system for tracking positions of the
 robot, table and other things like the ball launcher.
 
+.. note::
+
+   There are `presentation slides <_static/vicon_slides.html>`_ from a group
+   meeting giving an overview of the system.  For more detailed documentation
+   see below.
+
 .. _lab_world_frame:
 
 The Lab's World Frame
