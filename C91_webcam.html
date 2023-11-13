@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More info: Webcams &mdash; PAM Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Datasets" href="D1_datasets.html" />
+    <link rel="prev" title="More info: Compute Transformation from Tennicam to World Frame" href="C9.1_tennicam_vicon_transform.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PAM Documentation
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="A1_overview_and_installation.html">Overview and software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B1_tutorial0.html">Tutorial 0: How to run tutorial demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B2_tutorial1.html">Tutorial 1: Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B3_tutorial2.html">Tutorial 2: Reading robot data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B4_tutorial3.html">Tutorial 3: Iteration commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B5_tutorial4.html">Tutorial 4: Joint control, table, balls, etc.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B6_tutorial5.html">Tutorial 5: Saving data to files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B7_tutorial6.html">Tutorial 6: Bursting mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B8_tutorial7.html">Tutorial 7: Converting observations to other formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C1_handle.html">More info: MuJoCo handles and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2_real_robot.html">More info: Using the real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C3_executables.html">More info: List of executables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C4_mirroring.html">More info: Mirroring real robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C5_visual_ball_tracking.html">More info: Visual ball tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C7_ball_launcher.html">More info: Ball launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C8_low_latency.html">More info: Low latency kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9_vicon.html">More info: Vicon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C9.1_tennicam_vicon_transform.html">More info: Compute Transformation from Tennicam to World Frame</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More info: Webcams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">How-to</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-the-resolution">Changing the resolution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="D1_datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E1_tools.html">Developer’s guide 1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2_guidelines.html">Developer’s guide 2: Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E3_packages_overview.html">Developer’s guide 3: Packages overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E4_advanced_overview.html">Developer’s guide 4: Advanced overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E5_documentation.html">Developer’s guide: Updating the documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PAM Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>More info: Webcams</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C91_webcam.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="more-info-webcams">
+<h1>More info: Webcams<a class="headerlink" href="#more-info-webcams" title="Permalink to this headline"></a></h1>
+<p>The package o80_webcam offers o80 wrappers of usb cameras.</p>
+<section id="how-to">
+<h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h2>
+<p>Start the executable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># to see possible arguments</span>
+<span class="n">o80_webcams</span> <span class="o">-</span><span class="n">h</span>
+
+<span class="c1"># start standalone for all webcams</span>
+<span class="n">o80_webcams</span>
+
+<span class="c1"># same, but does not display the webcam images</span>
+<span class="n">o80_webcams</span> <span class="o">-</span><span class="n">no</span><span class="o">-</span><span class="n">display</span>
+
+<span class="c1"># starts standalone only for webcam 0 and 1</span>
+<span class="n">o80_webcams</span> <span class="mi">0</span> <span class="mi">1</span>
+
+<span class="c1"># start standalone for all webcams</span>
+<span class="c1"># and set the o80 frequency at 100Hz</span>
+<span class="c1"># (default is 50Hz)</span>
+<span class="c1"># note: this does not change the frame rate</span>
+<span class="c1">#       of the webcam itself !</span>
+<span class="n">o80_webcams</span> <span class="o">--</span><span class="n">frequency</span> <span class="mi">100</span>
+
+<span class="c1"># start standalone for all webcams,</span>
+<span class="c1"># and switch the displayed image every</span>
+<span class="c1"># 5 seconds (default is 4)</span>
+<span class="n">o80_webcams</span> <span class="o">--</span><span class="n">turnover</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>This will start o80 standalones for all connected usb webcams, and print in the terminal
+the related segment ids, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--<span class="w"> </span>started<span class="w"> </span>standalones<span class="w"> </span>with<span class="w"> </span>segment_ids<span class="w"> </span>--
+o80_webcam_0
+o80_webcam_1
+</pre></div>
+</div>
+<p>In another program, you may then access the webcam images, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">o80_webcam</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">frontend</span> <span class="o">=</span> <span class="n">o80_webcam</span><span class="o">.</span><span class="n">FrontEnd</span><span class="p">(</span><span class="s2">&quot;o80_webcam_0&quot;</span><span class="p">)</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+<span class="n">dimensions</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">get_dimensions</span><span class="p">()</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="changing-the-resolution">
+<h2>Changing the resolution<a class="headerlink" href="#changing-the-resolution" title="Permalink to this headline"></a></h2>
+<p>Currently, the resolution can only be determined at compile time.
+Edit the file <code class="docutils literal notranslate"><span class="pre">o80_webcam/include/o80_webcam/webcam.hpp</span></code>, update <code class="docutils literal notranslate"><span class="pre">O80_WEBCAM_WIDTH</span></code>
+and <code class="docutils literal notranslate"><span class="pre">O80_WEBCAM_HEIGHT</span></code>; and recompile.</p>
+<p>This assumes opencv will be able to set the configuration of the webcam accordingly. At runtime,
+this will be called under the hood:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// camera is an instance of cv::VideoCapture</span>
+<span class="n">camera</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">cv</span><span class="o">::</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span><span class="w"> </span><span class="n">O80_WEBCAM_WIDTH</span><span class="p">);</span>
+<span class="n">camera</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">cv</span><span class="o">::</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span><span class="w"> </span><span class="n">O80_WEBCAM_HEIGHT</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the requested resolution is not supported, this may fail and the program will crash at startup.</p>
+<p>Also, RGB images require a relatively large memory, and the program may fail at startup to create a shared memory segment of the required size. You may need to either lower the resolution, or reduce the size of the o80 shared memory history, i.e. edit the file <code class="docutils literal notranslate"><span class="pre">o80_webcam/include/o80_webcam/webcam.hpp</span></code> (change the value of <code class="docutils literal notranslate"><span class="pre">STANDALONE_QUEUE_SIZE</span></code>).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C9.1_tennicam_vicon_transform.html" class="btn btn-neutral float-left" title="More info: Compute Transformation from Tennicam to World Frame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="D1_datasets.html" class="btn btn-neutral float-right" title="Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Empirical Inference, Max Planck Institute for Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
