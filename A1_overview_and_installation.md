@@ -131,7 +131,7 @@ This will result in a "install" folder containing the compiled binaries
 In each new terminal, the workspace needs to be sourced:
 
 ```bash
-source /path/to/Software/install/setup.bash
+source /path/to/Software/workspace/install/setup.bash
 ```
 ```{note}
 Possibly, you may want to add the line above to the ~/.bashrc file (so that each new terminal source the workspace automatically).

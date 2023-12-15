@@ -37,7 +37,7 @@ For this to work, you may need to pip install some packages: m2r, mistune (versi
 Once compilation is successfully finished, html documentation can be found in paths:
 
 ```
-/path/to/software/install/<package name>/share/<package name>/docs/
+/path/to/Software/workspace/install/<package name>/share/<package name>/docs/
 ```
 
 ### How to have the documentation building for a package
