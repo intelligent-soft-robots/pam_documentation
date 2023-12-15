@@ -63,7 +63,7 @@ import tennicam_client
 TENNICAM_CLIENT_DEFAULT_SEGMENT_ID = "tennicam_client"
 
 frontend = tennicam_client.FrontEnd(TENNICAM_CLIENT_DEFAULT_SEGMENT_ID)
-obs = frontend.read(iteration)
+obs = frontend.latest()
 ball = obs.get()
 print(ball.to_string())
 
