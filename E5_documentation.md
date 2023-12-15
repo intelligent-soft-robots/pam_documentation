@@ -14,7 +14,7 @@ For doing so:
 5. Check the documentation looks nice locally: you can generate the html files with ```make html``` (see requirements.txt).
 6. Push to a branch and perform a pull request to the main branch.
 
-After review and once the branch is merged into th main branch, the online documentation will be automatically updated.
+After review and once the branch is merged into the main branch, the online documentation will be automatically updated.
 
 ## Documentation of all packages
 
