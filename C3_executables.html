@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More info: List of executables &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -104,8 +111,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: List of executables</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More info: List of executables</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C3_executables.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -115,11 +122,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="more-info-list-of-executables">
-<h1>More info: List of executables<a class="headerlink" href="#more-info-list-of-executables" title="Permalink to this headline"></a></h1>
+  <section id="more-info-list-of-executables">
+<h1>More info: List of executables<a class="headerlink" href="#more-info-list-of-executables" title="Link to this heading"></a></h1>
 <p>Once the <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">installation</span></a> procedure completed, various executables are installed.</p>
 <section id="dialog">
-<h2>Dialog<a class="headerlink" href="#dialog" title="Permalink to this headline"></a></h2>
+<h2>Dialog<a class="headerlink" href="#dialog" title="Link to this heading"></a></h2>
 <p>Some executables trigger a dialog.
 For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@machine:~$<span class="w"> </span>o80_dummy<span class="w"> </span>
@@ -143,16 +150,16 @@ For example:</p>
 <p>The above will start directly o80_dummy using the specified values (and the default values for the non specified arguments).</p>
 </section>
 <section id="o80-dummy">
-<h2>o80_dummy<a class="headerlink" href="#o80-dummy" title="Permalink to this headline"></a></h2>
+<h2>o80_dummy<a class="headerlink" href="#o80-dummy" title="Link to this heading"></a></h2>
 <p>Starts a o80 backend connected to a “dummy” pressure controlled pam robot. No graphics, no realistic physics (at all). Used for debug and testing. See <a class="reference internal" href="B2_tutorial1.html"><span class="doc std std-doc">tutorials 1 to 3</span></a> for control.</p>
 </section>
 <section id="o80-real">
-<h2>o80_real<a class="headerlink" href="#o80-real" title="Permalink to this headline"></a></h2>
+<h2>o80_real<a class="headerlink" href="#o80-real" title="Link to this heading"></a></h2>
 <p>Starts a o80 backend connected to a pressure controlled real robot (on robot computer only).
 See also <a class="reference internal" href="B2_tutorial1.html"><span class="doc std std-doc">tutorials 1 to 3</span></a> for control examples.</p>
 </section>
 <section id="pam-mujoco">
-<h2>pam_mujoco<a class="headerlink" href="#pam-mujoco" title="Permalink to this headline"></a></h2>
+<h2>pam_mujoco<a class="headerlink" href="#pam-mujoco" title="Link to this heading"></a></h2>
 <p>Spawn a new terminal that host a mujoco simulation with (pressure controlled or joint controlled) robot(s), ball(s), goal(s), etc.
 See <a class="reference internal" href="B5_tutorial4.html"><span class="doc std std-doc">tutorial 4</span></a> for control example via a <a class="reference internal" href="C1_handle.html"><span class="doc std std-doc">handle</span></a>.
 Note that mujoco_id used as argument to <em>pam_mujoco</em> must match the mujoco_id passed as argument to the <a class="reference internal" href="C1_handle.html"><span class="doc std std-doc">handle</span></a>.</p>
@@ -172,11 +179,11 @@ Note that mujoco_id used as argument to <em>pam_mujoco</em> must match the mujoc
 <p>You may note that the process ids of the spawned processes are printed in the main terminal (in case you need to kill them for any reason).</p>
 </section>
 <section id="pam-mujoco-no-xterms">
-<h2>pam_mujoco_no_xterms<a class="headerlink" href="#pam-mujoco-no-xterms" title="Permalink to this headline"></a></h2>
+<h2>pam_mujoco_no_xterms<a class="headerlink" href="#pam-mujoco-no-xterms" title="Link to this heading"></a></h2>
 <p>Similar to <em>pam_mujoco</em> (right above) with the difference that the MuJoCo simulation are not hosted by new terminals, but in the background of the current terminal.</p>
 </section>
 <section id="pam-mujoco-visualization">
-<h2>pam_mujoco_visualization<a class="headerlink" href="#pam-mujoco-visualization" title="Permalink to this headline"></a></h2>
+<h2>pam_mujoco_visualization<a class="headerlink" href="#pam-mujoco-visualization" title="Link to this heading"></a></h2>
 <p>pam_mujoco_visualization takes 2 arguments:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco_visualization<span class="w"> </span>mujoco_id_from<span class="w"> </span>mujoco_id_to
 </pre></div>
@@ -188,48 +195,48 @@ Note that mujoco_id used as argument to <em>pam_mujoco</em> must match the mujoc
 <p>pam_mujoco will spawn a terminal hosting a pam_mujoco instance that will “mirror” the pam_mujoco instance running on mujoco_id “mujoco_id_from”. Possibly useful if the pam_mujoco instance “mujoco_id_from” has been started without graphics, or has been started in burst mode (see <a class="reference internal" href="B7_tutorial6.html"><span class="doc std std-doc">tutorial 6</span></a>).</p>
 </section>
 <section id="pam-mujoco-stop">
-<h2>pam_mujoco_stop<a class="headerlink" href="#pam-mujoco-stop" title="Permalink to this headline"></a></h2>
+<h2>pam_mujoco_stop<a class="headerlink" href="#pam-mujoco-stop" title="Link to this heading"></a></h2>
 <p>It takes a mujoco_id as argument, and kills the corresponding pam_mujoco instance (if any)</p>
 </section>
 <section id="pam-mujoco-stop-all">
-<h2>pam_mujoco_stop_all<a class="headerlink" href="#pam-mujoco-stop-all" title="Permalink to this headline"></a></h2>
+<h2>pam_mujoco_stop_all<a class="headerlink" href="#pam-mujoco-stop-all" title="Link to this heading"></a></h2>
 <p>Kills all running instances of pam_mujoco</p>
 </section>
 <section id="o80-plotting">
-<h2>o80_plotting<a class="headerlink" href="#o80-plotting" title="Permalink to this headline"></a></h2>
+<h2>o80_plotting<a class="headerlink" href="#o80-plotting" title="Link to this heading"></a></h2>
 <p>Starts a live plot of a pressure controlled robot. It shows the measured pressures, the desired pressure and the frequency of backend.
 Works for pressure controlled robots started with o80_dummy, o80_real or pam_mujoco.</p>
 </section>
 <section id="o80-console">
-<h2>o80_console<a class="headerlink" href="#o80-console" title="Permalink to this headline"></a></h2>
+<h2>o80_console<a class="headerlink" href="#o80-console" title="Link to this heading"></a></h2>
 <p>Starts to live print information about a pressure robot in the console. Indicate the current pressures, the desired pressures and joint angles. Works for pressure controlled robots started with o80_dummy, o80_real or pam_mujoco.</p>
 <p><em>Known bug</em> : will crash if the terminal is not broad enough.</p>
 </section>
 <section id="o80-introspection">
-<h2>o80_introspection<a class="headerlink" href="#o80-introspection" title="Permalink to this headline"></a></h2>
+<h2>o80_introspection<a class="headerlink" href="#o80-introspection" title="Link to this heading"></a></h2>
 <p>Debug tool for o80. It will display live the status of all command exchange between the frontend and the backend of a o80 system running on the provided segment_id.</p>
 </section>
 <section id="o80-logger">
-<h2>o80_logger<a class="headerlink" href="#o80-logger" title="Permalink to this headline"></a></h2>
+<h2>o80_logger<a class="headerlink" href="#o80-logger" title="Link to this heading"></a></h2>
 <p>Starts a process that will collect data regarding a pressure controlled robot. See <a class="reference internal" href="B6_tutorial5.html"><span class="doc std std-doc">tutorial 5</span></a></p>
 </section>
 <section id="pam-server">
-<h2>pam_server<a class="headerlink" href="#pam-server" title="Permalink to this headline"></a></h2>
+<h2>pam_server<a class="headerlink" href="#pam-server" title="Link to this heading"></a></h2>
 <p>pam_server is a low level interface to either a dummy or the real pam robot. See <a class="reference internal" href="C2_real_robot.html"><span class="doc std std-doc">here</span></a> for more information.</p>
 </section>
 <section id="pam-check">
-<h2>pam_check<a class="headerlink" href="#pam-check" title="Permalink to this headline"></a></h2>
+<h2>pam_check<a class="headerlink" href="#pam-check" title="Link to this heading"></a></h2>
 <p>Started after pam_server, will increase then decrease the pressure of each muscles. See <a class="reference internal" href="C2_real_robot.html"><span class="doc std std-doc">here</span></a> for more information.</p>
 </section>
 <section id="o80-check">
-<h2>o80_check<a class="headerlink" href="#o80-check" title="Permalink to this headline"></a></h2>
+<h2>o80_check<a class="headerlink" href="#o80-check" title="Link to this heading"></a></h2>
 <p>Similar to pam_check, but to be started after o80_real, o80_dummy or pam_mujoco (if simulating a pressure controlled robot)</p>
 </section>
 <section id="o80-swing-demo">
-<h2>o80_swing_demo<a class="headerlink" href="#o80-swing-demo" title="Permalink to this headline"></a></h2>
+<h2>o80_swing_demo<a class="headerlink" href="#o80-swing-demo" title="Link to this heading"></a></h2>
 <p>Has a pressure robot executing a series of swing motions, to be started after o80_real, o80_dummy or pam_mujoco (if simulating a pressure controlled robot)</p>
 <section id="pam-mirroring-real-robot">
-<h3>pam_mirroring_real_robot<a class="headerlink" href="#pam-mirroring-real-robot" title="Permalink to this headline"></a></h3>
+<h3>pam_mirroring_real_robot<a class="headerlink" href="#pam-mirroring-real-robot" title="Link to this heading"></a></h3>
 <p>see this <a class="reference internal" href="C4_mirroring.html"><span class="doc std std-doc">page</span></a>.</p>
 </section>
 </section>

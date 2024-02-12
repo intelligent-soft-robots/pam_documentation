@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial 7: Converting observations to other formats &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -89,8 +96,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorial 7: Converting observations to other formats</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial 7: Converting observations to other formats</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/B8_tutorial7.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -100,17 +107,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-7-converting-observations-to-other-formats">
-<h1>Tutorial 7: Converting observations to other formats<a class="headerlink" href="#tutorial-7-converting-observations-to-other-formats" title="Permalink to this headline"></a></h1>
+  <section id="tutorial-7-converting-observations-to-other-formats">
+<h1>Tutorial 7: Converting observations to other formats<a class="headerlink" href="#tutorial-7-converting-observations-to-other-formats" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>As shown in all previous tutorials, data is stored as instances of Observation.
 Manipulating instances of Observation requires the installation of the whole software, which may be sometimes inconvenient.
 Therefore, we provide functions for converting instances of Observation to <em>Numpy arrays</em>, <em>Pandas dataframes</em> and <em>dictionaries</em>.
 Also, list of instances of Observation can be saved as pickled Pandas dataframes into files.</p>
 </section>
 <section id="numpy">
-<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline"></a></h2>
+<h2>Numpy<a class="headerlink" href="#numpy" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">o80_pam</span>
 <span class="kn">from</span> <span class="nn">o80_pam</span> <span class="kn">import</span> <span class="n">observation_convertors</span> <span class="k">as</span> <span class="n">conv</span>
@@ -140,7 +147,7 @@ Also, list of instances of Observation can be saved as pickled Pandas dataframes
 </div>
 </section>
 <section id="pandas">
-<h2>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline"></a></h2>
+<h2>Pandas<a class="headerlink" href="#pandas" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">o80_pam</span>
@@ -167,7 +174,7 @@ Also, list of instances of Observation can be saved as pickled Pandas dataframes
 </div>
 </section>
 <section id="python-dictionaries">
-<h2>Python dictionaries<a class="headerlink" href="#python-dictionaries" title="Permalink to this headline"></a></h2>
+<h2>Python dictionaries<a class="headerlink" href="#python-dictionaries" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">o80_pam</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">o80_pam</span> <span class="kn">import</span> <span class="n">observation_convertors</span> <span class="k">as</span> <span class="n">conv</span>

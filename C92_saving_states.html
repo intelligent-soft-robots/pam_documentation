@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More info: Saving states to file &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -88,8 +95,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: Saving states to file</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More info: Saving states to file</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C92_saving_states.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -99,10 +106,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="more-info-saving-states-to-file">
-<h1>More info: Saving states to file<a class="headerlink" href="#more-info-saving-states-to-file" title="Permalink to this headline"></a></h1>
+  <section id="more-info-saving-states-to-file">
+<h1>More info: Saving states to file<a class="headerlink" href="#more-info-saving-states-to-file" title="Link to this heading"></a></h1>
 <section id="how-to">
-<h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h2>
+<h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
 <p>When creating a mujoco handle, one can pass values to the arguments <code class="docutils literal notranslate"><span class="pre">save_data</span></code> and <code class="docutils literal notranslate"><span class="pre">save_folder</span></code>,
 for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -129,11 +136,11 @@ and the time of its creation.</p>
 <p>To see an example of the parsing for such a file, see <code class="docutils literal notranslate"><span class="pre">/pam_mujoco/bin/pam_mujoco_compare.py</span></code></p>
 </section>
 <section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline"></a></h2>
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h2>
 <p>If two robots are running, only the state of one will be saved in the file.</p>
 </section>
 <section id="under-the-hood">
-<h2>Under the hood<a class="headerlink" href="#under-the-hood" title="Permalink to this headline"></a></h2>
+<h2>Under the hood<a class="headerlink" href="#under-the-hood" title="Link to this heading"></a></h2>
 <p>Setting the <code class="docutils literal notranslate"><span class="pre">save_data</span></code> argument to True will result in an instance of <code class="docutils literal notranslate"><span class="pre">MujocoStatePrinterController</span></code> being added to pam_mujoco. At each mujoco iteration this controller reads the values of the current mujoco “mjModel” and write the corresponding values to the file. The time stamp correspond to the computer time stamp (not the mujoco simulation time stamp). See <code class="docutils literal notranslate"><span class="pre">/pam_mujoco/include/pam_mujoco/mujoco_state.hpp</span></code>.</p>
 </section>
 </section>

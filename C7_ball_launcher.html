@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More info: Ball launcher &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -92,8 +99,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: Ball launcher</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More info: Ball launcher</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C7_ball_launcher.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,13 +110,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="more-info-ball-launcher">
-<h1>More info: Ball launcher<a class="headerlink" href="#more-info-ball-launcher" title="Permalink to this headline"></a></h1>
+  <section id="more-info-ball-launcher">
+<h1>More info: Ball launcher<a class="headerlink" href="#more-info-ball-launcher" title="Link to this heading"></a></h1>
 <p>The robot laboratory has a ball launcher that can be activated programmatically.</p>
 <section id="how-to">
-<h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h2>
+<h2>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h2>
 <section id="start-the-ball-launcher">
-<h3>Start the ball launcher<a class="headerlink" href="#start-the-ball-launcher" title="Permalink to this headline"></a></h3>
+<h3>Start the ball launcher<a class="headerlink" href="#start-the-ball-launcher" title="Link to this heading"></a></h3>
 <p>The ball launcher is connected to a multiple socker power supply. Turn it on. The raspberry pi attached to the launcher should start and display something like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-----------------------------------</span>
 <span class="o">|</span> <span class="n">Welcome</span> <span class="n">to</span> <span class="n">ball</span> <span class="n">launcher</span> <span class="n">beepy</span>  <span class="o">|</span>
@@ -120,13 +127,12 @@
 <span class="o">-</span> <span class="n">sourcing</span> <span class="n">colcon</span> <span class="n">workspace</span>
 <span class="o">-</span> <span class="n">killing</span> <span class="n">already</span> <span class="n">running</span> <span class="n">server</span>
 <span class="o">-</span> <span class="n">starting</span> <span class="n">the</span> <span class="n">ball</span> <span class="n">launcher</span> <span class="n">server</span> <span class="n">on</span> <span class="n">IP</span> <span class="mf">10.42</span><span class="o">.--.--</span> <span class="ow">and</span> <span class="n">PORT</span> <span class="mi">5555</span>
-<span class="n">sleep</span><span class="p">()</span> <span class="n">takes</span> <span class="mi">1</span> <span class="n">positional</span> <span class="n">argument</span> <span class="n">but</span> <span class="mi">2</span> <span class="n">were</span> <span class="n">given</span>
 </pre></div>
 </div>
 <p>Take note of the IP address.</p>
 </section>
 <section id="launch-a-ball-from-terminal">
-<h3>Launch a ball (from terminal)<a class="headerlink" href="#launch-a-ball-from-terminal" title="Permalink to this headline"></a></h3>
+<h3>Launch a ball (from terminal)<a class="headerlink" href="#launch-a-ball-from-terminal" title="Link to this heading"></a></h3>
 <p>In a terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">launch_ball</span>
 </pre></div>
@@ -134,25 +140,24 @@
 <p>This will start a dialog, which one completed will have a ball launched.</p>
 </section>
 <section id="launch-a-ball-from-python-script">
-<h3>Launch a ball (from python script)<a class="headerlink" href="#launch-a-ball-from-python-script" title="Permalink to this headline"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ball_launcher_beepy</span> <span class="kn">import</span> <span class="n">BallLauncher</span>
+<h3>Launch a ball (from python script)<a class="headerlink" href="#launch-a-ball-from-python-script" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
-    <span class="k">with</span> <span class="n">BallLauncher</span><span class="p">(</span>
-        <span class="n">ip</span><span class="p">,</span>
-        <span class="n">port</span><span class="p">,</span>
-        <span class="n">phi</span><span class="p">,</span>
-        <span class="n">theta</span><span class="p">,</span>
-        <span class="n">top_left_motor</span><span class="p">,</span>
-        <span class="n">top_right_motor</span><span class="p">,</span>
-        <span class="n">bottom_motor</span><span class="p">,</span>
-    <span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-        <span class="n">client</span><span class="o">.</span><span class="n">launch_ball</span><span class="p">()</span>
-	<span class="c1"># note : the motors will keep spinning</span>
-	<span class="c1"># during these 5 seconds wait</span>
-	<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-        <span class="n">client</span><span class="o">.</span><span class="n">launch_ball</span><span class="p">()</span>
-<span class="c1"># the motors stop spinnning upon exit of the</span>
-<span class="c1"># context manager</span>
+<span class="kn">from</span> <span class="nn">ball_launcher_beepy</span> <span class="kn">import</span> <span class="n">BallLauncherClient</span>
+
+<span class="c1"># Enter the correct IP here</span>
+<span class="n">ip</span> <span class="o">=</span> <span class="s2">&quot;10.42.XX.XX&quot;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">5555</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">motor_top_left</span> <span class="o">=</span> <span class="n">motor_top_right</span> <span class="o">=</span> <span class="n">motor_bottom</span> <span class="o">=</span> <span class="mf">0.4</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">BallLauncherClient</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">motor_top_left</span><span class="p">,</span> <span class="n">motor_top_right</span><span class="p">,</span> <span class="n">motor_bottom</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">launch_ball</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>All arguments are floats between 0 and 1 (except of ip which is string and port which is an int)</p>
@@ -167,7 +172,7 @@
 </section>
 </section>
 <section id="installation-of-the-server">
-<h2>Installation of the server<a class="headerlink" href="#installation-of-the-server" title="Permalink to this headline"></a></h2>
+<h2>Installation of the server<a class="headerlink" href="#installation-of-the-server" title="Link to this heading"></a></h2>
 <p>On the Raspberry Pi of the ball launcher, install:</p>
 <ul class="simple">
 <li><p>pip3 install: pyparsing==2.0.2, colcon-common-extensions, empy, catkin-pkg, sphinx, breathe, xinabox-OC05, xinabox-OC03</p></li>

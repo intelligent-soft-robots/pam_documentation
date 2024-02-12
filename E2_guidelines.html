@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developer’s guide 2: Guidelines &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -114,8 +121,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Developer’s guide 2: Guidelines</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Developer’s guide 2: Guidelines</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/E2_guidelines.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -125,36 +132,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-2-guidelines">
-<h1>Developer’s guide 2: Guidelines<a class="headerlink" href="#developer-s-guide-2-guidelines" title="Permalink to this headline"></a></h1>
+  <section id="developer-s-guide-2-guidelines">
+<h1>Developer’s guide 2: Guidelines<a class="headerlink" href="#developer-s-guide-2-guidelines" title="Link to this heading"></a></h1>
 <blockquote>
 <div><p>Always code as if the guy who ends up maintaining your code will be a violent
 psychopath who knows where you live.  <em>— John Woods</em></p>
 </div></blockquote>
 <p>This section describes the rules to follow to get new code integrated in any of the repository.</p>
 <section id="working-on-a-git-branch">
-<h2>Working on a git branch<a class="headerlink" href="#working-on-a-git-branch" title="Permalink to this headline"></a></h2>
+<h2>Working on a git branch<a class="headerlink" href="#working-on-a-git-branch" title="Link to this heading"></a></h2>
 <p>Before starting to work on a repository, create a branch: <code class="docutils literal notranslate"><span class="pre">your_name/what_you_will_work_on</span></code>.</p>
 <p>For example: <code class="docutils literal notranslate"><span class="pre">vberenz/adding_eigen_support</span></code></p>
 <p>Work on this branch and push as many commits as you wish.</p>
 </section>
 <section id="code-update">
-<h2>Code Update<a class="headerlink" href="#code-update" title="Permalink to this headline"></a></h2>
+<h2>Code Update<a class="headerlink" href="#code-update" title="Link to this heading"></a></h2>
 <p>When you update code, you must consider:</p>
 <section id="unit-tests">
-<h3>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline"></a></h3>
+<h3>Unit Tests<a class="headerlink" href="#unit-tests" title="Link to this heading"></a></h3>
 <p>Update existing unit tests or create new ones. Here are <a class="reference external" href="https://github.com/intelligent-soft-robots/context/blob/master/tests/unit_tests.cpp">examples</a> of unit tests.</p>
 </section>
 <section id="demos">
-<h3>Demos<a class="headerlink" href="#demos" title="Permalink to this headline"></a></h3>
+<h3>Demos<a class="headerlink" href="#demos" title="Link to this heading"></a></h3>
 <p>A demo is an executable that provides a usage example of the code. Demos should be a simple as short as possible. Demos are very useful for users to understand rapidly how the code work.</p>
 <p>Typically, demos are hosted in packages (as for example <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_mujoco/tree/master/demos">here</a>).
 When a demo requires code from various repositories, they can be hosted in a dedicated repository, as for example <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_demos">pam_demos</a>.</p>
 </section>
 <section id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h3>
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h3>
 <section id="code-documentation">
-<h4>Code documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline"></a></h4>
+<h4>Code documentation<a class="headerlink" href="#code-documentation" title="Link to this heading"></a></h4>
 <p>All code shall be documented in-source.  This means that every function, class,
 struct, global variable, etc., needs to have a docstring/comment containing some
 documentation in:</p>
@@ -175,13 +182,13 @@ for an example in C++.  Our code base currently does not have enough
 documentation, please help us doing better!</p>
 </section>
 <section id="package-documentation">
-<h4>Package documentation<a class="headerlink" href="#package-documentation" title="Permalink to this headline"></a></h4>
+<h4>Package documentation<a class="headerlink" href="#package-documentation" title="Link to this heading"></a></h4>
 <p>More general documentation of a package (e.g. describing how to run the software
 on the robot) can be written in separate reStructuredText-files that are stored
 in a folder <code class="docutils literal notranslate"><span class="pre">doc/</span></code> inside the package.</p>
 </section>
 <section id="build-the-documentation">
-<h4>Build the documentation<a class="headerlink" href="#build-the-documentation" title="Permalink to this headline"></a></h4>
+<h4>Build the documentation<a class="headerlink" href="#build-the-documentation" title="Link to this heading"></a></h4>
 <p>If you are using CMake, the package may include the <code class="docutils literal notranslate"><span class="pre">mpi_cmake_modules</span></code> package
 and in the CMakeLists.txt file call the <code class="docutils literal notranslate"><span class="pre">add_documentation()</span></code> macro.  The
 documentation can then be build via</p>
@@ -193,9 +200,9 @@ documentation can then be build via</p>
 </section>
 </section>
 <section id="code-style-guide">
-<h3>Code style guide<a class="headerlink" href="#code-style-guide" title="Permalink to this headline"></a></h3>
+<h3>Code style guide<a class="headerlink" href="#code-style-guide" title="Link to this heading"></a></h3>
 <section id="formatting">
-<h4>Formatting<a class="headerlink" href="#formatting" title="Permalink to this headline"></a></h4>
+<h4>Formatting<a class="headerlink" href="#formatting" title="Link to this heading"></a></h4>
 <p>We are using auto-formatting tools to format our code.  So while writing your
 code, you don’t have to worry about things like indentation, spaces, brace
 positions, etc.  Simply run the corresponding tool (depending on the language)
@@ -213,7 +220,7 @@ installed via <code class="docutils literal notranslate"><span class="pre">pip</
 </div>
 </section>
 <section id="naming-conventions">
-<h4>Naming conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline"></a></h4>
+<h4>Naming conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h4>
 <p>Give as descriptive a name as possible, within reason. Do not worry about saving
 horizontal space as it is far more important to make your code immediately
 understandable by a new reader. Do not use abbreviations that are ambiguous or
@@ -237,7 +244,7 @@ abbreviation is probably OK if it’s listed in Wikipedia.</p>
 g_, i.e. <code class="docutils literal notranslate"><span class="pre">g_variable_name</span></code>.</p></li>
 </ul>
 <section id="add-units-to-variable-names">
-<h5>Add units to variable names<a class="headerlink" href="#add-units-to-variable-names" title="Permalink to this headline"></a></h5>
+<h5>Add units to variable names<a class="headerlink" href="#add-units-to-variable-names" title="Link to this heading"></a></h5>
 <p>Variables that hold values of a specific unit should have that unit appended to
 the name.  For example if a variable holds the velocity of a motor in <em>krpm</em> it
 should be called <code class="docutils literal notranslate"><span class="pre">velocity_krpm</span></code> instead of just <code class="docutils literal notranslate"><span class="pre">velocity</span></code>. Some more examples:</p>
@@ -249,7 +256,7 @@ should be called <code class="docutils literal notranslate"><span class="pre">ve
 </section>
 </section>
 <section id="python-specific-guidelines">
-<h4>Python specific guidelines<a class="headerlink" href="#python-specific-guidelines" title="Permalink to this headline"></a></h4>
+<h4>Python specific guidelines<a class="headerlink" href="#python-specific-guidelines" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Follow <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>.</p>
 <ul>
@@ -276,9 +283,9 @@ ignore=E203,W503
 </ul>
 </section>
 <section id="c-specific-guidelines">
-<h4>C++ specific guidelines<a class="headerlink" href="#c-specific-guidelines" title="Permalink to this headline"></a></h4>
+<h4>C++ specific guidelines<a class="headerlink" href="#c-specific-guidelines" title="Link to this heading"></a></h4>
 <section id="folder-tructure-and-file-naming">
-<h5>Folder tructure and file naming<a class="headerlink" href="#folder-tructure-and-file-naming" title="Permalink to this headline"></a></h5>
+<h5>Folder tructure and file naming<a class="headerlink" href="#folder-tructure-and-file-naming" title="Link to this heading"></a></h5>
 <p>General folder structure of a package with C++ code:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;package_name&gt;
 │
@@ -307,7 +314,7 @@ a CMake <strong>install rule</strong> that makes them executable upon installati
 </ul>
 </section>
 <section id="always-add-braces">
-<h5>Always add braces<a class="headerlink" href="#always-add-braces" title="Permalink to this headline"></a></h5>
+<h5>Always add braces<a class="headerlink" href="#always-add-braces" title="Link to this heading"></a></h5>
 <p><strong>Always</strong> add braces for single-line if/loop/etc.  They may seem unnecessary
 but they highly reduce the risk of introducing bugs if the block is extended in
 the future.</p>
@@ -324,7 +331,7 @@ the future.</p>
 </div>
 </section>
 <section id="pass-objects-by-const-reference">
-<h5>Pass objects by const reference<a class="headerlink" href="#pass-objects-by-const-reference" title="Permalink to this headline"></a></h5>
+<h5>Pass objects by const reference<a class="headerlink" href="#pass-objects-by-const-reference" title="Link to this heading"></a></h5>
 <p>In general, non-primitive data types should be passed to functions by const
 reference to avoid unnecessary copies.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">foobar</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">);</span><span class="w">  </span><span class="c1">// good</span>
@@ -334,7 +341,7 @@ reference to avoid unnecessary copies.</p>
 </div>
 </section>
 <section id="pragma-once-vs-include-guards">
-<h5>pragma once vs include guards<a class="headerlink" href="#pragma-once-vs-include-guards" title="Permalink to this headline"></a></h5>
+<h5>pragma once vs include guards<a class="headerlink" href="#pragma-once-vs-include-guards" title="Link to this heading"></a></h5>
 <p>Prefer <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">once</span></code> over include guards.  <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">once</span></code> is not part of the
 official standard but is widely supported by compilers and much easier to
 maintain.</p>
@@ -347,7 +354,7 @@ as prefix or suffix because this is reserved for the compiler pre-proccesor
 variables.</p>
 </section>
 <section id="keep-scopes-small">
-<h5>Keep scopes small<a class="headerlink" href="#keep-scopes-small" title="Permalink to this headline"></a></h5>
+<h5>Keep scopes small<a class="headerlink" href="#keep-scopes-small" title="Link to this heading"></a></h5>
 <p>Avoid adding anything to the global namespace if possible. This means</p>
 <ul class="simple">
 <li><p>Use a namespace when defining extern symbols.</p></li>
@@ -358,7 +365,7 @@ only used inside one loop, define it inside this loop (however, do not consider
 this to be a very strict rule, deviate from it where it seems reasonable).</p>
 </section>
 <section id="use-types-with-explicit-sizes">
-<h5>Use types with explicit sizes<a class="headerlink" href="#use-types-with-explicit-sizes" title="Permalink to this headline"></a></h5>
+<h5>Use types with explicit sizes<a class="headerlink" href="#use-types-with-explicit-sizes" title="Link to this heading"></a></h5>
 <p>The header <em>stdint</em> defines primitive types with explicit sizes:
 <em>int32_t</em>, <em>uint32_t</em>, <em>int16_t</em>, …
 They should be preferred over the build-in types int, unsigned, short, …
@@ -371,11 +378,11 @@ To use them add the following include:</p>
 </section>
 </section>
 <section id="merging-to-master-main-branch">
-<h2>Merging to master/main branch<a class="headerlink" href="#merging-to-master-main-branch" title="Permalink to this headline"></a></h2>
+<h2>Merging to master/main branch<a class="headerlink" href="#merging-to-master-main-branch" title="Link to this heading"></a></h2>
 <p>Once the code on the branch you are working on is ready, you request for it to
 be merged with the master branch.</p>
 <section id="before-opening-a-pull-request">
-<h3>Before opening a pull request<a class="headerlink" href="#before-opening-a-pull-request" title="Permalink to this headline"></a></h3>
+<h3>Before opening a pull request<a class="headerlink" href="#before-opening-a-pull-request" title="Link to this heading"></a></h3>
 <p>Before you create a pull request (or at least before you assign reviewers):</p>
 <ul class="simple">
 <li><p>Rebase your branch on the latest master/main to make sure there have been no
@@ -389,7 +396,7 @@ change.  Unit tests are great for this!</p></li>
 </ul>
 </section>
 <section id="creating-a-pull-request">
-<h3>Creating a pull request<a class="headerlink" href="#creating-a-pull-request" title="Permalink to this headline"></a></h3>
+<h3>Creating a pull request<a class="headerlink" href="#creating-a-pull-request" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Visit the repository on GitHub,</p></li>
 <li><p>click on the link “Pull requests”,</p></li>
@@ -406,7 +413,7 @@ interface,</p></li>
 </ul>
 </section>
 <section id="during-the-review">
-<h3>During the review<a class="headerlink" href="#during-the-review" title="Permalink to this headline"></a></h3>
+<h3>During the review<a class="headerlink" href="#during-the-review" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>The reviewers will take a look at your changes and may have some comments
 asking for clarifications or requesting changes.  Address all their comments.</p></li>
@@ -420,7 +427,7 @@ what changes you made since their last review.</p></li>
 </ul>
 </section>
 <section id="merging-a-pull-request">
-<h3>Merging a pull request<a class="headerlink" href="#merging-a-pull-request" title="Permalink to this headline"></a></h3>
+<h3>Merging a pull request<a class="headerlink" href="#merging-a-pull-request" title="Link to this heading"></a></h3>
 <p>Once all reviewers have approved, you can merge the pull request via the web
 interface.</p>
 <p>Before merging, you may clean up the git history (e.g. squash commits).</p>
@@ -429,7 +436,7 @@ the branch</strong> after it was merged as this will likely cause a lot of chaos
 confusion later on.</p>
 </section>
 <section id="some-general-rules-for-pull-requests">
-<h3>Some general rules for pull requests:<a class="headerlink" href="#some-general-rules-for-pull-requests" title="Permalink to this headline"></a></h3>
+<h3>Some general rules for pull requests:<a class="headerlink" href="#some-general-rules-for-pull-requests" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>To make life easier for the reviewers and to get your changes merged faster
 (thus reducing the risk of merge conflicts), try to keep merge requests rather
@@ -441,7 +448,7 @@ this makes review of the functional changes very difficult.</p></li>
 </ul>
 </section>
 <section id="on-which-packages-is-code-review-required">
-<h3>On which packages is code review required?<a class="headerlink" href="#on-which-packages-is-code-review-required" title="Permalink to this headline"></a></h3>
+<h3>On which packages is code review required?<a class="headerlink" href="#on-which-packages-is-code-review-required" title="Link to this heading"></a></h3>
 <p>Changes on core packages (e.g. <code class="docutils literal notranslate"><span class="pre">shared_memory</span></code>, <code class="docutils literal notranslate"><span class="pre">o80</span></code>, …) must be reviewed by
 at least one maintainer before they are merged.</p>
 <p>On project-specific repositories on which no one else depends, reviews are still
@@ -451,7 +458,7 @@ before it is executed on a real robot.</p>
 </section>
 </section>
 <section id="being-a-reviewer">
-<h2>Being a Reviewer<a class="headerlink" href="#being-a-reviewer" title="Permalink to this headline"></a></h2>
+<h2>Being a Reviewer<a class="headerlink" href="#being-a-reviewer" title="Link to this heading"></a></h2>
 <p>Note that yourself will certainly also be requested to perform review. If so:</p>
 <ul class="simple">
 <li><p><strong>Try to provide reviews in a timely manner</strong>. The contributor may be blocked in

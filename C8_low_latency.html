@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More info: Low latency kernel &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -94,8 +101,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: Low latency kernel</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More info: Low latency kernel</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C8_low_latency.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,11 +112,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="more-info-low-latency-kernel">
-<h1>More info: Low latency kernel<a class="headerlink" href="#more-info-low-latency-kernel" title="Permalink to this headline"></a></h1>
+  <section id="more-info-low-latency-kernel">
+<h1>More info: Low latency kernel<a class="headerlink" href="#more-info-low-latency-kernel" title="Link to this heading"></a></h1>
 <p>On the desktop used to control the real robot, it is adviced (but not mandatory) to use a low latency kernel.</p>
 <section id="how-to-evaluate-the-latency-of-the-kernel">
-<h2>How to evaluate the latency of the kernel<a class="headerlink" href="#how-to-evaluate-the-latency-of-the-kernel" title="Permalink to this headline"></a></h2>
+<h2>How to evaluate the latency of the kernel<a class="headerlink" href="#how-to-evaluate-the-latency-of-the-kernel" title="Link to this heading"></a></h2>
 <p>Clone pam_demos:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">intelligent</span><span class="o">-</span><span class="n">soft</span><span class="o">-</span><span class="n">robots</span><span class="o">/</span><span class="n">pam_demos</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -142,16 +149,16 @@ is running. Here an example of results obtained using a regular kernel
 (simply call <code class="docutils literal notranslate"><span class="pre">o80_plotting</span></code> in a terminal).</p>
 </section>
 <section id="how-to-install-the-low-latency-kernel">
-<h2>How to install the low latency kernel<a class="headerlink" href="#how-to-install-the-low-latency-kernel" title="Permalink to this headline"></a></h2>
+<h2>How to install the low latency kernel<a class="headerlink" href="#how-to-install-the-low-latency-kernel" title="Link to this heading"></a></h2>
 <section id="install-the-kernel">
-<h3>install the kernel<a class="headerlink" href="#install-the-kernel" title="Permalink to this headline"></a></h3>
+<h3>install the kernel<a class="headerlink" href="#install-the-kernel" title="Link to this heading"></a></h3>
 <p>In a terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">linux</span><span class="o">-</span><span class="n">lowlatency</span>
 </pre></div>
 </div>
 </section>
 <section id="update-grub">
-<h3>update grub<a class="headerlink" href="#update-grub" title="Permalink to this headline"></a></h3>
+<h3>update grub<a class="headerlink" href="#update-grub" title="Link to this heading"></a></h3>
 <p>Install grub-customizer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">grub</span><span class="o">-</span><span class="n">customizer</span>
 </pre></div>
@@ -162,7 +169,7 @@ to start it).</p>
 <p>Then reboot.</p>
 </section>
 <section id="make-sure-the-low-latency-kernel-is-used">
-<h3>Make sure the low latency kernel is used:<a class="headerlink" href="#make-sure-the-low-latency-kernel-is-used" title="Permalink to this headline"></a></h3>
+<h3>Make sure the low latency kernel is used:<a class="headerlink" href="#make-sure-the-low-latency-kernel-is-used" title="Link to this heading"></a></h3>
 <p>In a terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uname</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
@@ -176,7 +183,7 @@ Here an output example:</p>
 If this command does not output something containing ‘lowlatency’, the software will not make use of the low latency.</p>
 </section>
 <section id="further-setup">
-<h3>Further setup<a class="headerlink" href="#further-setup" title="Permalink to this headline"></a></h3>
+<h3>Further setup<a class="headerlink" href="#further-setup" title="Link to this heading"></a></h3>
 <p>Create a group called “realtime”:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">groupadd</span> <span class="n">realtime</span>
 </pre></div>
@@ -200,7 +207,7 @@ If this command does not output something containing ‘lowlatency’, the softw
 </section>
 </section>
 <section id="reinstalling-pam-software">
-<h2>Reinstalling pam software<a class="headerlink" href="#reinstalling-pam-software" title="Permalink to this headline"></a></h2>
+<h2>Reinstalling pam software<a class="headerlink" href="#reinstalling-pam-software" title="Link to this heading"></a></h2>
 <p>After setting up the low latency kernel, the software must be recompiled. It is advised to recompile it from scratch.</p>
 <p>To double check the software has been compiled using low latency capabilities, in a terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">o80_dummy</span>

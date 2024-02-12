@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Overview and software installation &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -103,8 +110,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Overview and software installation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview and software installation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/A1_overview_and_installation.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,10 +121,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="overview-and-software-installation">
-<h1>Overview and software installation<a class="headerlink" href="#overview-and-software-installation" title="Permalink to this headline"></a></h1>
+  <section id="overview-and-software-installation">
+<h1>Overview and software installation<a class="headerlink" href="#overview-and-software-installation" title="Link to this heading"></a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p><img alt="pam robot" src="https://ei.is.tuebingen.mpg.de/uploads/publication/image/18667/2PAMcompressed.jpg" /></p>
 <p>PAM robot (Pneumatic Artificial Muscle robot) is a four degrees of freedom robot. Most of the days, we have it learning how to play tennis table. But it could be used for other purposes, e.g. exploring the control of artificial muscles.</p>
 <p>It is controlled via the value of pressures of its 8 artificial muscles. Each joint is connected to 2 artificial muscles, called agonist and antagonist. If the pressure of the agonist is higher than the pressure of the antagonist (i.e. the agonist is more contracted than the antagonist), the joint moves left. A control command consists of setting the pressure(s) of one (or more) muscle(s).</p>
@@ -139,7 +146,7 @@
 <p>There are quite a few types of commands that can be written in the shared memory. The system is based on o80, and it is advised to read o80’s <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html" title="(in o80 v1.0.0)"><span class="xref std std-doc">documentation</span></a> before going further.</p>
 </section>
 <section id="software-installation">
-<h2>Software installation<a class="headerlink" href="#software-installation" title="Permalink to this headline"></a></h2>
+<h2>Software installation<a class="headerlink" href="#software-installation" title="Link to this heading"></a></h2>
 <p>Installing the software will results in:</p>
 <ul class="simple">
 <li><p>having some executables installed on your system (e.g. ‘o80_pam’ or ‘pam_mujoco’ already mentioned above)</p></li>
@@ -148,9 +155,9 @@
 </ul>
 <p>The executables will be used to start the backend connecting to the robot, while the Python packages can be used for developers to create control scripts that send commands to the backend (via the shared memory) and/or read states of the robot (also via the shared memory).</p>
 <section id="using-the-installation-script">
-<h3>Using the installation script<a class="headerlink" href="#using-the-installation-script" title="Permalink to this headline"></a></h3>
+<h3>Using the installation script<a class="headerlink" href="#using-the-installation-script" title="Link to this heading"></a></h3>
 <section id="requirements">
-<h4>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h4>
+<h4>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>recommanded: activate a dedicated python virtual environment</p></li>
 <li><p>install the development package of the python version you use, e.g. <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3.9-dev</span></code></p></li>
@@ -158,7 +165,7 @@
 </ul>
 </section>
 <section id="steps">
-<h4>Steps<a class="headerlink" href="#steps" title="Permalink to this headline"></a></h4>
+<h4>Steps<a class="headerlink" href="#steps" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>clone https://github.com/intelligent-soft-robots/hysr</p></li>
 <li><p>pip install (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">hysr</span> <span class="pre">&amp;&amp;</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code>)</p></li>
@@ -168,12 +175,12 @@
 </section>
 </section>
 <section id="via-colcon-workspace">
-<h3>Via colcon workspace<a class="headerlink" href="#via-colcon-workspace" title="Permalink to this headline"></a></h3>
+<h3>Via colcon workspace<a class="headerlink" href="#via-colcon-workspace" title="Link to this heading"></a></h3>
 <p>This is the recommended way for developers of the PAM software (as opposed to the users of it).</p>
 <p><a class="reference external" href="https://colcon.readthedocs.io/en/released/">Colcon</a> is the built system of <a class="reference external" href="https://docs.ros.org/en/foxy/index.html">ROS2</a>.
 The instructions below will result in the setup of a colcon workspace. Possibly, if you would like to use o80 in a ROS2 project, you may copy the cloned packages to an existing workspace.</p>
 <section id="adding-your-ssh-key-to-github">
-<h4>Adding your SSH key to github<a class="headerlink" href="#adding-your-ssh-key-to-github" title="Permalink to this headline"></a></h4>
+<h4>Adding your SSH key to github<a class="headerlink" href="#adding-your-ssh-key-to-github" title="Link to this heading"></a></h4>
 <p>See: <a class="reference external" href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">github documentation</a>.</p>
 <p>All the following instructions assume your SSH key has been activated, i.e.:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace id_rsa by your key file name</span>
@@ -189,7 +196,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 </div>
 </section>
 <section id="dependencies-and-configuration-folder">
-<h4>Dependencies and configuration folder<a class="headerlink" href="#dependencies-and-configuration-folder" title="Permalink to this headline"></a></h4>
+<h4>Dependencies and configuration folder<a class="headerlink" href="#dependencies-and-configuration-folder" title="Link to this heading"></a></h4>
 <p>in a terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>/tmp/pam<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/tmp/pam
 wget<span class="w"> </span>http://people.tuebingen.mpg.de/mpi-is-software/pam/resources/apt-dependencies
@@ -202,7 +209,7 @@ sudo<span class="w"> </span>./apt-dependencies
 </div>
 </section>
 <section id="cloning-the-repositories">
-<h4>Cloning the repositories<a class="headerlink" href="#cloning-the-repositories" title="Permalink to this headline"></a></h4>
+<h4>Cloning the repositories<a class="headerlink" href="#cloning-the-repositories" title="Link to this heading"></a></h4>
 <p>Creating a folder and cloning the treep configuration:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>Software<span class="w"> </span><span class="c1"># you may use another folder name</span>
 <span class="nb">cd</span><span class="w"> </span>Software
@@ -215,7 +222,7 @@ git<span class="w"> </span>clone<span class="w"> </span>git@github.com:intellige
 </div>
 </section>
 <section id="compilation">
-<h4>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline"></a></h4>
+<h4>Compilation<a class="headerlink" href="#compilation" title="Link to this heading"></a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Software
 <span class="nb">cd</span><span class="w"> </span>workspace
 colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>-DPYBIND11_TEST<span class="o">=</span>OFF<span class="w"> </span>--no-warn-unused-cli
@@ -225,9 +232,9 @@ colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span cla
 </section>
 </section>
 <section id="activating-the-workspace">
-<h3>Activating the workspace<a class="headerlink" href="#activating-the-workspace" title="Permalink to this headline"></a></h3>
+<h3>Activating the workspace<a class="headerlink" href="#activating-the-workspace" title="Link to this heading"></a></h3>
 <p>In each new terminal, the workspace needs to be sourced:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/path/to/Software/install/setup.bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/path/to/Software/workspace/install/setup.bash
 </pre></div>
 </div>
 <div class="admonition note">
@@ -236,7 +243,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span cla
 </div>
 </section>
 <section id="checking-things-are-ok">
-<h3>Checking things are ok<a class="headerlink" href="#checking-things-are-ok" title="Permalink to this headline"></a></h3>
+<h3>Checking things are ok<a class="headerlink" href="#checking-things-are-ok" title="Link to this heading"></a></h3>
 <p>In a python3 terminal:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">o80</span>
 <span class="kn">import</span> <span class="nn">o80_pam</span>

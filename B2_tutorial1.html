@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial 1: Commands &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -97,8 +104,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorial 1: Commands</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial 1: Commands</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/B2_tutorial1.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -108,10 +115,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-1-commands">
-<h1>Tutorial 1: Commands<a class="headerlink" href="#tutorial-1-commands" title="Permalink to this headline"></a></h1>
+  <section id="tutorial-1-commands">
+<h1>Tutorial 1: Commands<a class="headerlink" href="#tutorial-1-commands" title="Link to this heading"></a></h1>
 <section id="starting-a-mujoco-simulated-robot">
-<h2>Starting a MuJoCo simulated robot<a class="headerlink" href="#starting-a-mujoco-simulated-robot" title="Permalink to this headline"></a></h2>
+<h2>Starting a MuJoCo simulated robot<a class="headerlink" href="#starting-a-mujoco-simulated-robot" title="Link to this heading"></a></h2>
 <p>In a terminal, call:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco<span class="w"> </span>tutorials_1_to_3
 </pre></div>
@@ -121,7 +128,7 @@
 process to configure it.</p>
 </section>
 <section id="introduction-to-commands">
-<h2>Introduction to commands<a class="headerlink" href="#introduction-to-commands" title="Permalink to this headline"></a></h2>
+<h2>Introduction to commands<a class="headerlink" href="#introduction-to-commands" title="Link to this heading"></a></h2>
 <p>You may now run tutorial_1.py</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>./tutorial_1.py
 </pre></div>
@@ -224,9 +231,9 @@ process to configure it.</p>
 <p>the code above has the robot starting to go toward the pressures 12000, but after 5 seconds this is interrupted (<em>o80.Mode.OVERWRITE</em> used) and the pressures brutally (in 1 second) go to 0.</p>
 </section>
 <section id="add-command-overloads">
-<h2>add_command overloads<a class="headerlink" href="#add-command-overloads" title="Permalink to this headline"></a></h2>
+<h2>add_command overloads<a class="headerlink" href="#add-command-overloads" title="Link to this heading"></a></h2>
 <section id="controlling-only-selected-muscle-s">
-<h3>Controlling only selected muscle(s)<a class="headerlink" href="#controlling-only-selected-muscle-s" title="Permalink to this headline"></a></h3>
+<h3>Controlling only selected muscle(s)<a class="headerlink" href="#controlling-only-selected-muscle-s" title="Link to this heading"></a></h3>
 <p>All the commands applied so far targeted all muscles. It is possible to request the change of the pressure of only one muscle:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">muscle</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">muscle</span><span class="p">,</span><span class="mi">12000</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Duration_us</span><span class="o">.</span><span class="n">seconds</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">OVERWRITE</span><span class="p">)</span>
@@ -242,7 +249,7 @@ process to configure it.</p>
 <p>Note that the command above will have the muscles 0 and 1 changing pressure at the same time. Because these two commands target 2 different muscles, the second command does not overwrite the first one.</p>
 </section>
 <section id="controlling-a-degree-of-freedom">
-<h3>Controlling a degree of freedom<a class="headerlink" href="#controlling-a-degree-of-freedom" title="Permalink to this headline"></a></h3>
+<h3>Controlling a degree of freedom<a class="headerlink" href="#controlling-a-degree-of-freedom" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dof</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">dof</span><span class="p">,</span><span class="mi">20000</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Duration_us</span><span class="o">.</span><span class="n">seconds</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">OVERWRITE</span><span class="p">)</span>
 <span class="n">frontend</span><span class="o">.</span><span class="n">pulse</span><span class="p">()</span>
@@ -251,7 +258,7 @@ process to configure it.</p>
 <p>The command above will have the pressures of the agonist and antagonist muscles of the degree of freedom indexed 0 reach the values 20000 and 15000 (respectively) in 3 seconds.</p>
 </section>
 <section id="controlling-all-muscles">
-<h3>Controlling all muscles<a class="headerlink" href="#controlling-all-muscles" title="Permalink to this headline"></a></h3>
+<h3>Controlling all muscles<a class="headerlink" href="#controlling-all-muscles" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">agonists</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15000</span><span class="p">,</span><span class="mi">16000</span><span class="p">,</span><span class="mi">17000</span><span class="p">,</span><span class="mi">18000</span><span class="p">]</span>
 <span class="n">antagonists</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18000</span><span class="p">,</span><span class="mi">17000</span><span class="p">,</span><span class="mi">16000</span><span class="p">,</span><span class="mi">15000</span><span class="p">]</span>
 <span class="n">frontend</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">agonists</span><span class="p">,</span><span class="n">antagonists</span><span class="p">,</span><span class="n">o80</span><span class="o">.</span><span class="n">Duration_us</span><span class="o">.</span><span class="n">seconds</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">o80</span><span class="o">.</span><span class="n">Mode</span><span class="o">.</span><span class="n">OVERWRITE</span><span class="p">)</span>
@@ -261,7 +268,7 @@ process to configure it.</p>
 <p>This command will target all muscles, for example the target pressure values for the first degree of freedom will be (15000,18000).</p>
 </section>
 <section id="speed-commands">
-<h3>Speed commands<a class="headerlink" href="#speed-commands" title="Permalink to this headline"></a></h3>
+<h3>Speed commands<a class="headerlink" href="#speed-commands" title="Link to this heading"></a></h3>
 <p>All the commands so far have been <em>duration</em> command, i.e. the request to interpolate between the current desired pressure value to a target desired pressure value over a given duration. It is possible to also create speed command, i.e. requesting the desired pressures to achieve a target value at a certain velocity (in terms of unit of pressure per unit of time).</p>
 <p>Here are examples of speed commands:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">agonists</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15000</span><span class="p">,</span><span class="mi">16000</span><span class="p">,</span><span class="mi">17000</span><span class="p">,</span><span class="mi">18000</span><span class="p">]</span>
@@ -276,7 +283,7 @@ process to configure it.</p>
 </div>
 </section>
 <section id="direct-commands">
-<h3>Direct commands<a class="headerlink" href="#direct-commands" title="Permalink to this headline"></a></h3>
+<h3>Direct commands<a class="headerlink" href="#direct-commands" title="Link to this heading"></a></h3>
 <p>It is possible to create commands that do not specify any duration or speed. Direct commands request the desired pressure to reach the target pressure as fast as possible. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a sinusoid trajectory</span>
 <span class="n">pressure</span> <span class="o">=</span> <span class="mi">15000</span>                                                                                                                                                                                            
@@ -298,12 +305,12 @@ process to configure it.</p>
 <p>Similarly to duration and speed commands, direct commands may use o80.Mode.QUEUE or o80.Mode.OVERWRITE, and refers to specific muscles, degrees of freedom or full set of pressures</p>
 </section>
 <section id="iteration-command">
-<h3>Iteration command<a class="headerlink" href="#iteration-command" title="Permalink to this headline"></a></h3>
+<h3>Iteration command<a class="headerlink" href="#iteration-command" title="Link to this heading"></a></h3>
 <p>Iteration command are an advanced type of command covered later in this tutorial.</p>
 </section>
 </section>
 <section id="introduction-to-handles">
-<h2>Introduction to handles<a class="headerlink" href="#introduction-to-handles" title="Permalink to this headline"></a></h2>
+<h2>Introduction to handles<a class="headerlink" href="#introduction-to-handles" title="Link to this heading"></a></h2>
 <p>The tutorial above started with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">handle</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">()</span>
 </pre></div>

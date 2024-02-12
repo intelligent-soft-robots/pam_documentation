@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More info: Using the real robot &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -119,8 +126,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: Using the real robot</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More info: Using the real robot</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C2_real_robot.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -130,14 +137,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="more-info-using-the-real-robot">
-<h1>More info: Using the real robot<a class="headerlink" href="#more-info-using-the-real-robot" title="Permalink to this headline"></a></h1>
+  <section id="more-info-using-the-real-robot">
+<h1>More info: Using the real robot<a class="headerlink" href="#more-info-using-the-real-robot" title="Link to this heading"></a></h1>
 <section id="method-1-pam-interface">
-<h2>Method 1: PAM interface<a class="headerlink" href="#method-1-pam-interface" title="Permalink to this headline"></a></h2>
+<h2>Method 1: PAM interface<a class="headerlink" href="#method-1-pam-interface" title="Link to this heading"></a></h2>
 <p>pam_interface provides a Python interface to the Pneumatic Artificial Muscle (PAM) developed at the Intelligent Soft Robots Laboratory (Empirical Inference Department, Max Planck Institute for Intelligent Systems).</p>
 <p><img alt="PAM_ROBOT" src="https://ei.is.tuebingen.mpg.de/uploads/publication/image/18667/2PAMcompressed.jpg" /></p>
 <section id="robot-overview">
-<h3>Robot overview<a class="headerlink" href="#robot-overview" title="Permalink to this headline"></a></h3>
+<h3>Robot overview<a class="headerlink" href="#robot-overview" title="Link to this heading"></a></h3>
 <p>PAM is a robotic arm with 4 rotating joints. Each joint is controlled via 2 artificial muscles (agonist and antagonist muscle). Motion of the joint is obtained by tuning the pressure applied to these two muscles (i.e. applying contractions to the muscles). The robot is connected to a pressure source.</p>
 <p>The control PC of PAM includes an FPGA which connects to the electronic box which will control the valves setting the pressures. The control PC runs CentOS 7, which is one of the OS supported by the FPGA driver.</p>
 <p>The pam_interface provides a python API for:</p>
@@ -156,22 +163,22 @@
 <p>The angular position of the joint is provided relative to the posture of the joint when the FPGA was started. This may not be very useful. The sensors of the robot will provide the absolute position of the joint once the joint crossed a “reference” middle position. If the “reference found” is true, then the joint crossed at some point this middle position and the angular position is absolute. If not, it is relative.</p>
 </section>
 <section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
 <section id="on-ubuntu">
-<h4>On Ubuntu<a class="headerlink" href="#on-ubuntu" title="Permalink to this headline"></a></h4>
+<h4>On Ubuntu<a class="headerlink" href="#on-ubuntu" title="Link to this heading"></a></h4>
 <p>pam_interface follows the <a class="reference external" href="https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki">general guidelines of IRS</a>, and is provided by the treep project PAM.</p>
 <p>Ubuntu is not supported by the FPGA controlling the robot. Installing pam_interface allows only to run the pam server over a dummy virtual robot (see below), useful only for debug.</p>
 </section>
 <section id="on-the-control-desktop">
-<h4>On the control desktop<a class="headerlink" href="#on-the-control-desktop" title="Permalink to this headline"></a></h4>
+<h4>On the control desktop<a class="headerlink" href="#on-the-control-desktop" title="Link to this heading"></a></h4>
 <p>The control desktop runs CentOS and should have all the required dependencies already installed.
 You may therefore simply use treep to clone PAM, and compile as usual.</p>
 </section>
 </section>
 <section id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h3>
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
 <section id="starting-the-server">
-<h4>Starting the server<a class="headerlink" href="#starting-the-server" title="Permalink to this headline"></a></h4>
+<h4>Starting the server<a class="headerlink" href="#starting-the-server" title="Link to this heading"></a></h4>
 <p>After compilation and sourcing of the workspace, the pam_server is available and can be started:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_server
 </pre></div>
@@ -185,7 +192,7 @@ To start a server over the real robot:</p>
 See somewhere below for the instructions on how to start the robot (beyond the server)</p>
 </section>
 <section id="printed-data">
-<h4>Printed data<a class="headerlink" href="#printed-data" title="Permalink to this headline"></a></h4>
+<h4>Printed data<a class="headerlink" href="#printed-data" title="Link to this heading"></a></h4>
 <p>Once the server started, it will print in the terminal for each of the 4 DOFs:</p>
 <ul class="simple">
 <li><p>the value of the encoder (if the reference has not been found), the angular position of the joint otherwise (in degree)</p></li>
@@ -193,7 +200,7 @@ See somewhere below for the instructions on how to start the robot (beyond the s
 </ul>
 </section>
 <section id="sending-desired-pressures-and-reading-sensors">
-<h4>Sending desired pressures and reading sensors<a class="headerlink" href="#sending-desired-pressures-and-reading-sensors" title="Permalink to this headline"></a></h4>
+<h4>Sending desired pressures and reading sensors<a class="headerlink" href="#sending-desired-pressures-and-reading-sensors" title="Link to this heading"></a></h4>
 <p>In another terminal, you may start a script using the following API:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">segment_id</span> <span class="o">=</span> <span class="s2">&quot;pam_robot&quot;</span>
 
@@ -216,9 +223,9 @@ See somewhere below for the instructions on how to start the robot (beyond the s
 </section>
 </section>
 <section id="starting-the-real-robot">
-<h3>Starting the real robot<a class="headerlink" href="#starting-the-real-robot" title="Permalink to this headline"></a></h3>
+<h3>Starting the real robot<a class="headerlink" href="#starting-the-real-robot" title="Link to this heading"></a></h3>
 <section id="parts">
-<h4>Parts<a class="headerlink" href="#parts" title="Permalink to this headline"></a></h4>
+<h4>Parts<a class="headerlink" href="#parts" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>the “electronic box”, which is turned on via the power outlet</p></li>
 <li><p>the pressure valve (against the wall). Horizontal means closed</p></li>
@@ -238,7 +245,7 @@ Press the emergency button.</p>
 </div>
 </section>
 <section id="starting-state">
-<h4>Starting state<a class="headerlink" href="#starting-state" title="Permalink to this headline"></a></h4>
+<h4>Starting state<a class="headerlink" href="#starting-state" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>power outlet off</p></li>
 <li><p>emergency button pressed</p></li>
@@ -247,8 +254,8 @@ Press the emergency button.</p>
 </ul>
 </section>
 <section id="starting-steps">
-<h4>Starting steps<a class="headerlink" href="#starting-steps" title="Permalink to this headline"></a></h4>
-<ol class="simple">
+<h4>Starting steps<a class="headerlink" href="#starting-steps" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
 <li><p>Start electronic box (switch power outlet on)</p></li>
 <li><p>Start o80_real and o80_console. o80_console should show * as angle values, as the reference for the encoder should not have been found yet. If o80_console shows angles, restart the desktop.</p></li>
 <li><p>Move the robot joints manually until an angle value is shown for all degree of freedome, except the last one.</p></li>
@@ -261,8 +268,8 @@ Press the emergency button.</p>
 <p>(the 4th degree of freedome has some encoder issue, which explains this convulated starting process).</p>
 </section>
 <section id="stopping-steps">
-<h4>Stopping steps<a class="headerlink" href="#stopping-steps" title="Permalink to this headline"></a></h4>
-<ol class="simple">
+<h4>Stopping steps<a class="headerlink" href="#stopping-steps" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
 <li><p>Stop server (software has pressure decrease on exit)</p></li>
 <li><p>Press emergency button</p></li>
 <li><p>Close pressure supply valve</p></li>
@@ -271,7 +278,7 @@ Press the emergency button.</p>
 </section>
 </section>
 <section id="checking-the-robot">
-<h3>Checking the robot<a class="headerlink" href="#checking-the-robot" title="Permalink to this headline"></a></h3>
+<h3>Checking the robot<a class="headerlink" href="#checking-the-robot" title="Link to this heading"></a></h3>
 <p>The executable <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_interface/blob/master/bin/pam_check">pam_check</a> can be run once the server started and the pressure applied to the robot. It will apply pressure to each muscle one by one and generating plots of the observed/desired pressure.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_check
 </pre></div>
@@ -284,18 +291,18 @@ pam_check<span class="w"> </span><span class="m">0</span><span class="w"> </span
 </section>
 </section>
 <section id="method-2-o80-pam">
-<h2>Method 2: O80 PAM<a class="headerlink" href="#method-2-o80-pam" title="Permalink to this headline"></a></h2>
+<h2>Method 2: O80 PAM<a class="headerlink" href="#method-2-o80-pam" title="Link to this heading"></a></h2>
 <p>o80_real is a wrappers over <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_interface">pam_interface</a> providing <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html" title="(in o80 v1.0.0)"><span class="xref std std-doc">o80</span></a> functionalities.</p>
 <p>This documentation assumes you are familiar with both <em>pam_interface</em> and <em>o80</em>.</p>
 <section id="id1">
-<h3>Installation<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<h3>Installation<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>Follow the <a class="reference external" href="https://github.com/intelligent-soft-robots/intelligent-soft-robots.github.io/wiki">general guidelines</a>, using either the treep project “PAM” or the treep project “PAM_MUJOCO” (if you’d like to use o80_real over a PAM robot simulated by MuJoCo).</p>
 <p>If using mujoco, you also need to copy a mujoco licence key (mjkey.txt) in the folder /opt/mujoco/ (create the folder is necessary).</p>
 </section>
 <section id="id2">
-<h3>Usage<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<h3>Usage<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <section id="starting-a-o80-server">
-<h4>Starting a o80 server<a class="headerlink" href="#starting-a-o80-server" title="Permalink to this headline"></a></h4>
+<h4>Starting a o80 server<a class="headerlink" href="#starting-a-o80-server" title="Link to this heading"></a></h4>
 <p>To start a server over a dummy robot (no real physics, no graphics, just for debugging purposes):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_dummy
 </pre></div>
@@ -306,7 +313,7 @@ pam_check<span class="w"> </span><span class="m">0</span><span class="w"> </span
 </div>
 </section>
 <section id="checking-all-is-working">
-<h4>Checking all is working<a class="headerlink" href="#checking-all-is-working" title="Permalink to this headline"></a></h4>
+<h4>Checking all is working<a class="headerlink" href="#checking-all-is-working" title="Link to this heading"></a></h4>
 <p>Once the o80 server started, you may check all is working fine by running in another terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_check
 </pre></div>
@@ -314,13 +321,13 @@ pam_check<span class="w"> </span><span class="m">0</span><span class="w"> </span
 <p>This executable will changes the pressure on each muscle one by one.</p>
 </section>
 <section id="performing-a-series-of-swing-motion">
-<h4>Performing a series of swing motion<a class="headerlink" href="#performing-a-series-of-swing-motion" title="Permalink to this headline"></a></h4>
+<h4>Performing a series of swing motion<a class="headerlink" href="#performing-a-series-of-swing-motion" title="Link to this heading"></a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_swing_demo
 </pre></div>
 </div>
 </section>
 <section id="python-user-code">
-<h4>Python user code<a class="headerlink" href="#python-user-code" title="Permalink to this headline"></a></h4>
+<h4>Python user code<a class="headerlink" href="#python-user-code" title="Link to this heading"></a></h4>
 <p>See <a class="reference internal" href="B2_tutorial1.html"><span class="doc std std-doc">Tutorials 1 to 3</span></a> for examples of a pressure controlled robot.
 The difference with the tutorials, which show interfacing with a mujoco simulated robot, is that no handle is required to access the frontend. Instead, the frontend can be accessed directly:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">o80_pam</span>

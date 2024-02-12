@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developer’s guide: Updating the documentation &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -26,14 +29,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -90,8 +97,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Developer’s guide: Updating the documentation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Developer’s guide: Updating the documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/E5_documentation.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,14 +108,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-updating-the-documentation">
-<h1>Developer’s guide: Updating the documentation<a class="headerlink" href="#developer-s-guide-updating-the-documentation" title="Permalink to this headline"></a></h1>
+  <section id="developer-s-guide-updating-the-documentation">
+<h1>Developer’s guide: Updating the documentation<a class="headerlink" href="#developer-s-guide-updating-the-documentation" title="Link to this heading"></a></h1>
 <section id="this-documentation">
-<h2>This documentation<a class="headerlink" href="#this-documentation" title="Permalink to this headline"></a></h2>
+<h2>This documentation<a class="headerlink" href="#this-documentation" title="Link to this heading"></a></h2>
 <p>This documentation is hosted by the git repository: <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_documentation">https://github.com/intelligent-soft-robots/pam_documentation</a>.
 Everybody is welcome to update/extend it.</p>
 <p>For doing so:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Clone the documentation <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_documentation">repository</a></p></li>
 <li><p>Update the documentation</p></li>
 <li><p>If you add a new file: list it in the file index.rst (at the right place, are files are in order)</p></li>
@@ -116,15 +123,15 @@ Everybody is welcome to update/extend it.</p>
 <li><p>Check the documentation looks nice locally: you can generate the html files with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> (see requirements.txt).</p></li>
 <li><p>Push to a branch and perform a pull request to the main branch.</p></li>
 </ol>
-<p>After review and once the branch is merged into th main branch, the online documentation will be automatically updated.</p>
+<p>After review and once the branch is merged into the main branch, the online documentation will be automatically updated.</p>
 </section>
 <section id="documentation-of-all-packages">
-<h2>Documentation of all packages<a class="headerlink" href="#documentation-of-all-packages" title="Permalink to this headline"></a></h2>
+<h2>Documentation of all packages<a class="headerlink" href="#documentation-of-all-packages" title="Link to this heading"></a></h2>
 <p>The software comprises several packages.
 These are the packages that are downloaded via treep when installing the software from source and using colcon as described <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">here</span></a>.
 Some of these package have documentation, which can be built locally</p>
 <section id="how-to-build">
-<h3>How to build<a class="headerlink" href="#how-to-build" title="Permalink to this headline"></a></h3>
+<h3>How to build<a class="headerlink" href="#how-to-build" title="Link to this heading"></a></h3>
 <p>Using colcon:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Software
 <span class="nb">cd</span><span class="w"> </span>workspace
@@ -133,12 +140,12 @@ colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span cla
 </div>
 <p>For this to work, you may need to pip install some packages: m2r, mistune (version 0.8.4), recommonmark, sphinx, sphinxcontrib-moderncmakedomain, breath.</p>
 <p>Once compilation is successfully finished, html documentation can be found in paths:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">install</span><span class="o">/&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;/</span><span class="n">share</span><span class="o">/&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;/</span><span class="n">docs</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">Software</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">install</span><span class="o">/&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;/</span><span class="n">share</span><span class="o">/&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;/</span><span class="n">docs</span><span class="o">/</span>
 </pre></div>
 </div>
 </section>
 <section id="how-to-have-the-documentation-building-for-a-package">
-<h3>How to have the documentation building for a package<a class="headerlink" href="#how-to-have-the-documentation-building-for-a-package" title="Permalink to this headline"></a></h3>
+<h3>How to have the documentation building for a package<a class="headerlink" href="#how-to-have-the-documentation-building-for-a-package" title="Link to this heading"></a></h3>
 <p>To have the documentation built for a package using the method above, this command has to be added to
 the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file of the package:</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">add_documentation</span><span class="p">()</span>

@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developer’s guide 1: Tools &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -103,8 +110,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Developer’s guide 1: Tools</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Developer’s guide 1: Tools</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/E1_tools.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,28 +121,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="developer-s-guide-1-tools">
-<h1>Developer’s guide 1: Tools<a class="headerlink" href="#developer-s-guide-1-tools" title="Permalink to this headline"></a></h1>
+  <section id="developer-s-guide-1-tools">
+<h1>Developer’s guide 1: Tools<a class="headerlink" href="#developer-s-guide-1-tools" title="Link to this heading"></a></h1>
 <p>This guide is here for those who would like to upgrade/extend PAM’s software (as opposed to use it in their own code).</p>
 <p>For updating the code, the colcon workspace installation is required, as described <span class="xref std std-ref">here</span>.</p>
 <p>The workflow is based on these tools: GitHub, treep, ament, colcon, pybind11 and gtest.</p>
 <section id="github">
-<h2>GitHub<a class="headerlink" href="#github" title="Permalink to this headline"></a></h2>
+<h2>GitHub<a class="headerlink" href="#github" title="Link to this heading"></a></h2>
 <p>The source repositories are hosted in the “Intelligent Soft Robots” <a class="reference external" href="https://github.com/intelligent-soft-robots">domain</a> of github.
 As treep (see below) uses SSH, you need to register your SSH key to GitHub (see <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">here</a>)</p>
 </section>
 <section id="treep">
-<h2>Treep<a class="headerlink" href="#treep" title="Permalink to this headline"></a></h2>
+<h2>Treep<a class="headerlink" href="#treep" title="Link to this heading"></a></h2>
 <p>To get the software compiled and running, several Git repositories must be cloned.
 As it would be annoying to clone them one by one, we use the project manager <a class="reference external" href="https://pypi.org/project/treep/">treep</a>, which allows to clone several repositories at once.</p>
 <section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>treep
 </pre></div>
 </div>
 </section>
 <section id="configuration-repository">
-<h3>Configuration repository<a class="headerlink" href="#configuration-repository" title="Permalink to this headline"></a></h3>
+<h3>Configuration repository<a class="headerlink" href="#configuration-repository" title="Link to this heading"></a></h3>
 <p>treep needs a configuration folder. We use <a class="reference external" href="https://github.com/intelligent-soft-robots/treep_isr.git">treep_isr</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>Software<span class="w"> </span><span class="c1"># or another folder name</span>
 <span class="nb">cd</span><span class="w"> </span>Software
@@ -158,28 +165,28 @@ To see the list of projects:</p>
 </div>
 </section>
 <section id="cloning">
-<h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline"></a></h3>
+<h3>Cloning<a class="headerlink" href="#cloning" title="Link to this heading"></a></h3>
 <p>You can use treep to clone a project (i.e. cloning all the repositories of the project):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span>--clone<span class="w"> </span>PAM_MUJOCO
 </pre></div>
 </div>
 </section>
 <section id="status">
-<h3>Status<a class="headerlink" href="#status" title="Permalink to this headline"></a></h3>
+<h3>Status<a class="headerlink" href="#status" title="Link to this heading"></a></h3>
 <p>The status argument is very useful to see the (git) status of each cloned repos (i.e. if they are behind origin, beyond origin, have modified files, etc.)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span>--status
 </pre></div>
 </div>
 </section>
 <section id="pull">
-<h3>Pull<a class="headerlink" href="#pull" title="Permalink to this headline"></a></h3>
+<h3>Pull<a class="headerlink" href="#pull" title="Link to this heading"></a></h3>
 <p>You can use treep to update all the repositories</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>treep<span class="w"> </span>--pull
 </pre></div>
 </div>
 </section>
 <section id="calling-from-anywhere">
-<h3>Calling from anywhere<a class="headerlink" href="#calling-from-anywhere" title="Permalink to this headline"></a></h3>
+<h3>Calling from anywhere<a class="headerlink" href="#calling-from-anywhere" title="Link to this heading"></a></h3>
 <p>Note that you do not need to be in the Software folder to call treep, you may call treep for any of its subfolder, e.g.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace/src/pam_interface
 treep<span class="w"> </span>--status<span class="w"> </span><span class="c1"># still provides the status of all repositories.</span>
@@ -188,7 +195,7 @@ treep<span class="w"> </span>--status<span class="w"> </span><span class="c1"># 
 </section>
 </section>
 <section id="ament-packages">
-<h2>Ament packages<a class="headerlink" href="#ament-packages" title="Permalink to this headline"></a></h2>
+<h2>Ament packages<a class="headerlink" href="#ament-packages" title="Link to this heading"></a></h2>
 <p>(Almost) all repositories contain the code for an ament package. An ament package is a “extended” CMake package, i.e. ament provides some cmake functionalities meant to make developers life easier. The documentation can be found <a class="reference external" href="https://docs.ros.org/en/foxy/Guides/Ament-CMake-Documentation.html">here</a>.</p>
 <p>An ament package contains typically:</p>
 <ul class="simple">
@@ -204,9 +211,9 @@ treep<span class="w"> </span>--status<span class="w"> </span><span class="c1"># 
 <p>The <a class="reference external" href="https://github.com/intelligent-soft-robots/context">context</a> and <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_interface">pam_interface</a> repositories provide examples of a packages containing most of the above.</p>
 </section>
 <section id="colcon">
-<h2>Colcon<a class="headerlink" href="#colcon" title="Permalink to this headline"></a></h2>
+<h2>Colcon<a class="headerlink" href="#colcon" title="Link to this heading"></a></h2>
 <section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
 <p>After cloning a workspace using treep, the workspace/src folder contains a collection of ament packages.
 Colcon is the tool used for compiling all these packages:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace
@@ -226,7 +233,7 @@ colcon<span class="w"> </span>build<span class="w"> </span><span class="c1"># wi
 </div>
 </section>
 <section id="compiling-only-one-package">
-<h3>Compiling only one package<a class="headerlink" href="#compiling-only-one-package" title="Permalink to this headline"></a></h3>
+<h3>Compiling only one package<a class="headerlink" href="#compiling-only-one-package" title="Link to this heading"></a></h3>
 <p>To compile only one specific package:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace
 colcon<span class="w"> </span>list<span class="w"> </span><span class="c1"># list all packages in the workspace</span>
@@ -237,7 +244,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--packages-up-to<span
 </section>
 </section>
 <section id="pybind11">
-<h2>Pybind11<a class="headerlink" href="#pybind11" title="Permalink to this headline"></a></h2>
+<h2>Pybind11<a class="headerlink" href="#pybind11" title="Link to this heading"></a></h2>
 <p>Most of the code is in C++, but made available as Python package.</p>
 <p>We use <a class="reference external" href="https://pybind11.readthedocs.io/en/master/?badge=master">pybind11</a> for creating wrappers over C++ code.</p>
 <p>By convention, the C++ binding code should be in the srcpy folder of the package, and in the file wrappers.cpp.</p>
@@ -274,7 +281,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--packages-up-to<span
 </div>
 </section>
 <section id="unit-tests">
-<h2>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline"></a></h2>
+<h2>Unit tests<a class="headerlink" href="#unit-tests" title="Link to this heading"></a></h2>
 <p>We use google tests for unit tests. See the <a class="reference external" href="https://github.com/intelligent-soft-robots/context/tree/master/tests">tests folder</a> of the context package for a simple example to follow.</p>
 <p>To run all the unit tests included in the package, run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Software/workspace

@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial 6: Bursting mode &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -90,8 +97,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorial 6: Bursting mode</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial 6: Bursting mode</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/B7_tutorial6.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,10 +108,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-6-bursting-mode">
-<h1>Tutorial 6: Bursting mode<a class="headerlink" href="#tutorial-6-bursting-mode" title="Permalink to this headline"></a></h1>
+  <section id="tutorial-6-bursting-mode">
+<h1>Tutorial 6: Bursting mode<a class="headerlink" href="#tutorial-6-bursting-mode" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>In the previous tutorial, we started the robot backend via:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o80_mujoco
 </pre></div>
@@ -150,7 +157,7 @@
 <p>When running the code, it may be seen that the iteration numbers increases to 1000, and then stop increasing again. This is because the frontend requested the backend to execute 1000 iterations only (burst function).</p>
 </section>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h2>
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
 <p>Here is a full running example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -203,7 +210,7 @@
 </div>
 </section>
 <section id="bursting-on-real-robot">
-<h2>Bursting on real robot<a class="headerlink" href="#bursting-on-real-robot" title="Permalink to this headline"></a></h2>
+<h2>Bursting on real robot<a class="headerlink" href="#bursting-on-real-robot" title="Link to this heading"></a></h2>
 <p>When the mujoco simulated robot is started in bursting mode, the whole simulation is stopped when the backend waits for bursting signals from the frontend (i.e. the mujoco’s virtual time also stops).</p>
 <p>But the real robot can also be started in bursting mode:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">o80_real</span> <span class="o">--</span><span class="n">bursting_mode</span>
@@ -212,7 +219,7 @@
 <p>In this case, while the lower level pressure controllers keep running at high frequency, the higher level control will iterate only upon burst signals. In other hand, the values of the desired pressure will be updated only upon reception of burst signals, but the efforts of the lower level control to have the values of the real pressures of the muscles converged toward the desired pressure will not stop.</p>
 </section>
 <section id="master-frequency">
-<h2>Master frequency<a class="headerlink" href="#master-frequency" title="Permalink to this headline"></a></h2>
+<h2>Master frequency<a class="headerlink" href="#master-frequency" title="Link to this heading"></a></h2>
 <p>We saw in a previous tutorial (tutorial 3) that when the bursting mode is <em>not</em> used, it is possible to have the frontend frequency matching the backend frequency, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># backend NOT running in bursting mode</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -238,7 +245,7 @@ For example:</p>
 <p>the above will have the backend running at the frequency set by this while loop.</p>
 </section>
 <section id="bursting-with-table-ball-etc">
-<h2>Bursting with table, ball, etc<a class="headerlink" href="#bursting-with-table-ball-etc" title="Permalink to this headline"></a></h2>
+<h2>Bursting with table, ball, etc<a class="headerlink" href="#bursting-with-table-ball-etc" title="Link to this heading"></a></h2>
 <p>Tutorial showed how to add table, balls, goals and hit points to the mujoco model, and how these items could be controlled via o80 frontends.</p>
 <p>The code below shows how to start mujoco with items in bursting mode:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="n">Edit</span> <span class="n">Options</span> <span class="n">Buffers</span> <span class="n">Tools</span> <span class="n">Python</span> <span class="n">Help</span>                                                                                                                                                                                                                                               

@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More info: Visual ball tracking &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -108,8 +115,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: Visual ball tracking</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More info: Visual ball tracking</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C5_visual_ball_tracking.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -119,16 +126,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="more-info-visual-ball-tracking">
-<h1>More info: Visual ball tracking<a class="headerlink" href="#more-info-visual-ball-tracking" title="Permalink to this headline"></a></h1>
+  <section id="more-info-visual-ball-tracking">
+<h1>More info: Visual ball tracking<a class="headerlink" href="#more-info-visual-ball-tracking" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Page is only useful to persons having access to the robot lab in the Max Planck Institute for Intelligent Systems</p>
 </div>
 <section id="operators">
-<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline"></a></h2>
+<h2>Operators<a class="headerlink" href="#operators" title="Link to this heading"></a></h2>
 <section id="description">
-<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h3>
+<h3>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h3>
 <p>The robot lab is equipped with four RGB cameras, which can be used to track the (3D) position of a table tennis ball.
 For the server, the software used for this is <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam">tennicam</a> which has been developed internally by Sebastian Gomez-Gonzalez.
 The desktop “rodau” is installed with the server software, and the cameras are plugged to it, ready to be used.
@@ -136,9 +143,9 @@ For the client, the software used is <a class="reference external" href="https:/
 which implements an <a class="reference external" href="http://people.tuebingen.mpg.de/mpi-is-software/o80/docs/o80/index.html" title="(in o80 v1.0.0)"><span class="xref std std-doc">o80</span></a> standalone. The client is install along the PAM software, as described <a class="reference internal" href="A1_overview_and_installation.html"><span class="doc std std-doc">here</span></a>.</p>
 </section>
 <section id="how-to">
-<h3>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline"></a></h3>
+<h3>How-to<a class="headerlink" href="#how-to" title="Link to this heading"></a></h3>
 <section id="how-to-start-the-server">
-<span id="start-tennicam"></span><h4>How to start the server?<a class="headerlink" href="#how-to-start-the-server" title="Permalink to this headline"></a></h4>
+<span id="start-tennicam"></span><h4>How to start the server?<a class="headerlink" href="#how-to-start-the-server" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Turn on the “bright” light above the table tennis.</p></li>
 <li><p>Login to rodau using the ball_tracking user. The password is written on the desktop.</p></li>
@@ -147,7 +154,7 @@ which implements an <a class="reference external" href="http://people.tuebingen.
 </ul>
 </section>
 <section id="how-to-fix-the-server">
-<h4>How to fix the server?<a class="headerlink" href="#how-to-fix-the-server" title="Permalink to this headline"></a></h4>
+<h4>How to fix the server?<a class="headerlink" href="#how-to-fix-the-server" title="Link to this heading"></a></h4>
 <p>If you experience any issue, you can try to run in a terminal:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tennicam_list_cameras</span></code>: check if the drivers detect the four cameras</p></li>
@@ -160,7 +167,7 @@ which implements an <a class="reference external" href="http://people.tuebingen.
 first.</p>
 </section>
 <section id="how-to-start-the-client">
-<h4>How to start the client?<a class="headerlink" href="#how-to-start-the-client" title="Permalink to this headline"></a></h4>
+<h4>How to start the client?<a class="headerlink" href="#how-to-start-the-client" title="Link to this heading"></a></h4>
 <p>The client can be started on any Ubuntu desktop installed with the PAM software.
 In a first terminal (you may use the default parameters):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client
@@ -178,7 +185,7 @@ to access ball informations.</p>
 <span class="n">TENNICAM_CLIENT_DEFAULT_SEGMENT_ID</span> <span class="o">=</span> <span class="s2">&quot;tennicam_client&quot;</span>
 
 <span class="n">frontend</span> <span class="o">=</span> <span class="n">tennicam_client</span><span class="o">.</span><span class="n">FrontEnd</span><span class="p">(</span><span class="n">TENNICAM_CLIENT_DEFAULT_SEGMENT_ID</span><span class="p">)</span>
-<span class="n">obs</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">iteration</span><span class="p">)</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
 <span class="n">ball</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ball</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 
@@ -194,7 +201,7 @@ to access ball informations.</p>
 <p>For an example, see the source code of <code class="docutils literal notranslate"><span class="pre">tennicam_client_print</span></code> <a class="reference external" href="https://github.com/intelligent-soft-robots/tennicam_client/blob/master/bin/tennicam_client_print">here</a>.</p>
 </section>
 <section id="how-to-display-the-tracked-ball-in-mujoco">
-<span id="display-tennicam"></span><h4>How to display the tracked ball in MuJoCo?<a class="headerlink" href="#how-to-display-the-tracked-ball-in-mujoco" title="Permalink to this headline"></a></h4>
+<span id="display-tennicam"></span><h4>How to display the tracked ball in MuJoCo?<a class="headerlink" href="#how-to-display-the-tracked-ball-in-mujoco" title="Link to this heading"></a></h4>
 <p>In a terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco<span class="w"> </span>tennicam_client_display
 <span class="c1"># or: pam_mujoco_no_xterms tennicam_client_display</span>
@@ -215,7 +222,7 @@ in this case <code class="docutils literal notranslate"><span class="pre">vicon_
 <p>To stop the mujoco simulation, type in any terminal <code class="docutils literal notranslate"><span class="pre">pam_mujoco_stop</span> <span class="pre">tennicam_client_display</span></code>.</p>
 </section>
 <section id="how-to-fix-the-transform-of-the-ball">
-<span id="tennicam-client-config-transform"></span><h4>How to fix the transform of the ball?<a class="headerlink" href="#how-to-fix-the-transform-of-the-ball" title="Permalink to this headline"></a></h4>
+<span id="tennicam-client-config-transform"></span><h4>How to fix the transform of the ball?<a class="headerlink" href="#how-to-fix-the-transform-of-the-ball" title="Link to this heading"></a></h4>
 <p>The ball is detected in a given frame, and then its position goes through a transformation (translation and rotation).
 The transformation applied is specified in the configuration file
 <code class="docutils literal notranslate"><span class="pre">~/.mpi-is/pam/tennicam_client/config.toml</span></code> (or
@@ -226,7 +233,7 @@ which has, for example, the content:</p>
 <span class="c1"># rotation is given as extrinsic xyz-Euler angles in radian</span>
 <span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
 <span class="k">[server]</span>
-<span class="n">hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rodau&quot;</span>
+<span class="n">hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rodau&quot;</span>
 <span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7660</span>
 </pre></div>
 </div>
@@ -246,7 +253,7 @@ may see the result in the mujoco simulation popped up by <code class="docutils l
 This ensure the next time <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code> is started (without <code class="docutils literal notranslate"><span class="pre">active_transform</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code>), the desired transform is applied.</p>
 </section>
 <section id="how-to-log-ball-information">
-<h4>How to log ball information?<a class="headerlink" href="#how-to-log-ball-information" title="Permalink to this headline"></a></h4>
+<h4>How to log ball information?<a class="headerlink" href="#how-to-log-ball-information" title="Link to this heading"></a></h4>
 <p>After starting <code class="docutils literal notranslate"><span class="pre">tennicam_client</span></code>, start in another terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tennicam_client_logger
 </pre></div>
@@ -275,10 +282,10 @@ ctrl+c to stop the logging.</p>
 </section>
 </section>
 <section id="installation-of-the-server">
-<h2>Installation of the server<a class="headerlink" href="#installation-of-the-server" title="Permalink to this headline"></a></h2>
+<h2>Installation of the server<a class="headerlink" href="#installation-of-the-server" title="Link to this heading"></a></h2>
 <p>In case the installation on rodau has been compromized, and you need to reinstall.</p>
 <section id="basics-requirements">
-<h3>Basics requirements<a class="headerlink" href="#basics-requirements" title="Permalink to this headline"></a></h3>
+<h3>Basics requirements<a class="headerlink" href="#basics-requirements" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Ubuntu 20.04</p></li>
 <li><p>you must be part of the Intelligent Soft Robots GitHub domain</p></li>
@@ -286,7 +293,7 @@ ctrl+c to stop the logging.</p>
 </ul>
 </section>
 <section id="requirement-cuda-10-0">
-<h3>Requirement: Cuda 10.0<a class="headerlink" href="#requirement-cuda-10-0" title="Permalink to this headline"></a></h3>
+<h3>Requirement: Cuda 10.0<a class="headerlink" href="#requirement-cuda-10-0" title="Link to this heading"></a></h3>
 <p>If you are at MPI-IS, add to /etc/bash.bashrc:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo &quot;- setup CUDA 10.0 to /is/software/nvidia/cuda-10.0/lib64&quot;
 export LD_LIBRARY_PATH=/is/software/nvidia/cuda-10.0/lib64
@@ -304,7 +311,7 @@ export CUDA_HOME=/is/software/nvidia/cuda-10.0
 </div>
 </section>
 <section id="clone-the-treep-project">
-<h3>Clone the treep project<a class="headerlink" href="#clone-the-treep-project" title="Permalink to this headline"></a></h3>
+<h3>Clone the treep project<a class="headerlink" href="#clone-the-treep-project" title="Link to this heading"></a></h3>
 <p>Install tree:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">treep</span>
 </pre></div>
@@ -318,7 +325,7 @@ treep<span class="w"> </span>--clone<span class="w"> </span>BALL_TRACKING
 </div>
 </section>
 <section id="install-additional-dependencies">
-<h3>Install additional dependencies<a class="headerlink" href="#install-additional-dependencies" title="Permalink to this headline"></a></h3>
+<h3>Install additional dependencies<a class="headerlink" href="#install-additional-dependencies" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Tennicam/workspace/src/tennicam/
 sudo<span class="w"> </span>./install_dependencies
 </pre></div>
@@ -326,14 +333,14 @@ sudo<span class="w"> </span>./install_dependencies
 <p>As, among other things, this compiles OpenCV, this runs for a while</p>
 </section>
 <section id="compile">
-<h3>Compile<a class="headerlink" href="#compile" title="Permalink to this headline"></a></h3>
+<h3>Compile<a class="headerlink" href="#compile" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Tennicam/workspace
 colcon<span class="w"> </span>build
 </pre></div>
 </div>
 </section>
 <section id="source-the-workspace">
-<h3>Source the workspace<a class="headerlink" href="#source-the-workspace" title="Permalink to this headline"></a></h3>
+<h3>Source the workspace<a class="headerlink" href="#source-the-workspace" title="Link to this heading"></a></h3>
 <p>Add to ~/.bashrc:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;-sourcing tennicam&quot;</span>
 <span class="n">source</span> <span class="o">~/</span><span class="n">Tennicam</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
@@ -342,7 +349,7 @@ colcon<span class="w"> </span>build
 <p>and start a new terminal</p>
 </section>
 <section id="global-installation-of-configuration-files">
-<h3>Global installation of configuration files<a class="headerlink" href="#global-installation-of-configuration-files" title="Permalink to this headline"></a></h3>
+<h3>Global installation of configuration files<a class="headerlink" href="#global-installation-of-configuration-files" title="Link to this heading"></a></h3>
 <p>Tennicam requires some configuration file. To install them:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">Tennicam</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">tennicam</span><span class="o">/</span><span class="n">extras</span>
 <span class="n">sudo</span> <span class="o">./</span><span class="n">install_config</span>

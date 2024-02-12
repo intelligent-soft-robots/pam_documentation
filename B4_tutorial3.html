@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial 3: Iteration commands &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -96,8 +103,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorial 3: Iteration commands</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial 3: Iteration commands</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/B4_tutorial3.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,17 +114,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-3-iteration-commands">
-<h1>Tutorial 3: Iteration commands<a class="headerlink" href="#tutorial-3-iteration-commands" title="Permalink to this headline"></a></h1>
+  <section id="tutorial-3-iteration-commands">
+<h1>Tutorial 3: Iteration commands<a class="headerlink" href="#tutorial-3-iteration-commands" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>In <a class="reference internal" href="B2_tutorial1.html"><span class="doc std std-doc">Tutorial 1</span></a>, we covered duration, speed and direct commands. This tutorial introduce the iteration command.</p>
 <p>“Iteration” refers to the backend, i.e. the control iteration of the robot. At each control iteration, the backend reads the commands queue, compute the desired pressure to apply to the robot, applies it to the robot, read the current state of the robot from sensors and write a corresponding Observation in the shared memory.</p>
 <p>Iteration commands allows to specify using a Python frontend the value of the desired pressure for upcoming iteration numbers.</p>
 <p>Tutorial 3 is started similarly to Tutorials 1 and 2.</p>
 </section>
 <section id="getting-the-current-iteration-number">
-<h2>Getting the current iteration number<a class="headerlink" href="#getting-the-current-iteration-number" title="Permalink to this headline"></a></h2>
+<h2>Getting the current iteration number<a class="headerlink" href="#getting-the-current-iteration-number" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frontend</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">frontends</span><span class="p">[</span><span class="s2">&quot;robot&quot;</span><span class="p">]</span>
 <span class="c1"># newest iteration</span>
 <span class="n">iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
@@ -125,7 +132,7 @@
 </div>
 </section>
 <section id="waiting-for-an-iteration">
-<h2>Waiting for an iteration<a class="headerlink" href="#waiting-for-an-iteration" title="Permalink to this headline"></a></h2>
+<h2>Waiting for an iteration<a class="headerlink" href="#waiting-for-an-iteration" title="Link to this heading"></a></h2>
 <p>In <a class="reference internal" href="B3_tutorial2.html"><span class="doc std std-doc">Tutorial 2</span></a>, the <em>read</em> method of the frontend was used to access from the shared memory an observation corresponding to a past iteration.
 The same method can be used to wait for an upcoming iteration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span>
@@ -136,7 +143,7 @@ The same method can be used to wait for an upcoming iteration:</p>
 </pre></div>
 </div>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frontend</span> <span class="o">=</span> <span class="n">o80_pam</span><span class="o">.</span><span class="n">FrontEnd</span><span class="p">(</span><span class="s2">&quot;o80_pam_robot&quot;</span><span class="p">)</span>
 
 
@@ -180,7 +187,7 @@ The same method can be used to wait for an upcoming iteration:</p>
 </section>
 </section>
 <section id="synchronizing-the-frontend-and-the-backend">
-<h2>Synchronizing the frontend and the backend<a class="headerlink" href="#synchronizing-the-frontend-and-the-backend" title="Permalink to this headline"></a></h2>
+<h2>Synchronizing the frontend and the backend<a class="headerlink" href="#synchronizing-the-frontend-and-the-backend" title="Link to this heading"></a></h2>
 <p>This example of usage is a bit evolved:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pressure</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">target_iteration</span> <span class="o">=</span> <span class="n">frontend</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span><span class="o">.</span><span class="n">get_iteration</span><span class="p">()</span><span class="o">+</span><span class="mi">5</span>
@@ -206,7 +213,7 @@ The same method can be used to wait for an upcoming iteration:</p>
 <p>During the time the backend applies a command, the frontend computes the control value that should be applied at the next frontend control loop. This has the frontend running at a frequency enforced by the backend. This is important because the frontend is not real-time safe (because python is not realtime), while the backend may be.</p>
 </section>
 <section id="relative-iteration">
-<h2>Relative iteration<a class="headerlink" href="#relative-iteration" title="Permalink to this headline"></a></h2>
+<h2>Relative iteration<a class="headerlink" href="#relative-iteration" title="Link to this heading"></a></h2>
 <p>So far, all iteration number were <em>absolute</em>, i.e. iteration numbers as counted since the start of the backend.</p>
 <p>It is possible to use relative iteration number, i.e. the iteration number as counted from a later time.</p>
 <p>The o80-class Iteration takes two extra boolean arguments:</p>
@@ -215,7 +222,7 @@ The same method can be used to wait for an upcoming iteration:</p>
 <li><p>reset: if True (False is the default), a command using this instance of Iteration reset the iteration counter.</p></li>
 </ul>
 <section id="id1">
-<h3>Example:<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<h3>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this corresponds to 1000 iterations counting                                                                                                                                                                                                                                            </span>
 <span class="c1"># from the moment the command is started                                                                                                                                                                                                                                                  </span>
 <span class="n">relative</span><span class="o">=</span><span class="kc">True</span>

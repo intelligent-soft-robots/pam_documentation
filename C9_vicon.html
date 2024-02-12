@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More info: Vicon &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -97,8 +104,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: Vicon</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More info: Vicon</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C9_vicon.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,7 +116,7 @@
            <div itemprop="articleBody">
              
   <section id="more-info-vicon">
-<span id="vicon"></span><h1>More info: Vicon<a class="headerlink" href="#more-info-vicon" title="Permalink to this headline"></a></h1>
+<span id="vicon"></span><h1>More info: Vicon<a class="headerlink" href="#more-info-vicon" title="Link to this heading"></a></h1>
 <img alt="Photo of the table tennis lab with Vicon cameras mounted at the ceiling" src="_images/vicon_cameras.jpg" />
 <p>The robot lab is equipped with a Vicon system for tracking positions of the
 robot, table and other things like the ball launcher.</p>
@@ -120,7 +127,7 @@ meeting giving an overview of the system.  For more detailed documentation
 see below.</p>
 </div>
 <section id="the-lab-s-world-frame">
-<span id="lab-world-frame"></span><h2>The Lab’s World Frame<a class="headerlink" href="#the-lab-s-world-frame" title="Permalink to this headline"></a></h2>
+<span id="lab-world-frame"></span><h2>The Lab’s World Frame<a class="headerlink" href="#the-lab-s-world-frame" title="Link to this heading"></a></h2>
 <p>Our goal is to have a fixed “world frame” in the lab.  Poses of all objects
 (robot, table, balls, …) should be given relative to this world frame in all
 our applications.
@@ -135,7 +142,7 @@ to the world frame needs to be determined.  To do this for tennicam, see
 <a class="reference internal" href="C9.1_tennicam_vicon_transform.html"><span class="doc">More info: Compute Transformation from Tennicam to World Frame</span></a>.</p>
 </section>
 <section id="how-to-start-the-vicon-system">
-<span id="start-vicon"></span><h2>How to Start the Vicon System<a class="headerlink" href="#how-to-start-the-vicon-system" title="Permalink to this headline"></a></h2>
+<span id="start-vicon"></span><h2>How to Start the Vicon System<a class="headerlink" href="#how-to-start-the-vicon-system" title="Link to this heading"></a></h2>
 <p>The cameras are connected to and powered through a network switch which sits on
 a desk in the lab.</p>
 <img alt="Photo of the switch and its power button." src="_images/vicon_switch.jpg" />
@@ -155,11 +162,11 @@ through this software.  See the documentation from Vicon for more information on
 this.</p>
 </section>
 <section id="how-to-access-vicon-data">
-<h2>How to Access Vicon Data<a class="headerlink" href="#how-to-access-vicon-data" title="Permalink to this headline"></a></h2>
+<h2>How to Access Vicon Data<a class="headerlink" href="#how-to-access-vicon-data" title="Link to this heading"></a></h2>
 <p>When the Vicon System is running (see above), there are a few basic tools in the
 <code class="docutils literal notranslate"><span class="pre">vicon_transformer</span></code> package to access the data.</p>
 <section id="print-data">
-<h3>Print Data<a class="headerlink" href="#print-data" title="Permalink to this headline"></a></h3>
+<h3>Print Data<a class="headerlink" href="#print-data" title="Link to this heading"></a></h3>
 <p>To simply print the current data, use the <code class="docutils literal notranslate"><span class="pre">vicon_print_data</span></code> command.
 As host name, pass the IP of the Vicon PC (see label on the PC).</p>
 <p>This will show poses of the subjects relative to Vicons internal origin (i.e.
@@ -179,7 +186,7 @@ Allowed options:
 </div>
 </section>
 <section id="record-data">
-<h3>Record Data<a class="headerlink" href="#record-data" title="Permalink to this headline"></a></h3>
+<h3>Record Data<a class="headerlink" href="#record-data" title="Link to this heading"></a></h3>
 <p>You can record data from the running system and save it to a file using the
 <code class="docutils literal notranslate"><span class="pre">vicon_record</span></code> command.  Files recorded like this can then be passed to other
 applications instead of a host name to play back the recorded data.</p>
@@ -196,7 +203,7 @@ Allowed options:
 </section>
 </section>
 <section id="o80">
-<h2>o80<a class="headerlink" href="#o80" title="Permalink to this headline"></a></h2>
+<h2>o80<a class="headerlink" href="#o80" title="Link to this heading"></a></h2>
 <p>Run <code class="docutils literal notranslate"><span class="pre">vicon_o80_standalone</span></code> to start the o80 back end:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vicon_o80_standalone</span> <span class="o">&lt;</span><span class="n">host</span> <span class="ow">or</span> <span class="n">file</span><span class="o">&gt;</span>
 </pre></div>
@@ -227,7 +234,7 @@ optional arguments:
 likewise the o80 “state” is empty.  Instead, all information is provided through
 the “extended state”.</p>
 <section id="configure-objects-for-o80">
-<h3>Configure Objects for o80<a class="headerlink" href="#configure-objects-for-o80" title="Permalink to this headline"></a></h3>
+<h3>Configure Objects for o80<a class="headerlink" href="#configure-objects-for-o80" title="Link to this heading"></a></h3>
 <p>The shared memory used by o80 requires fixed-size data structures.  Therefore,
 the number of objects as well as their names and order need to be defined at
 compile time.  For instructions on how to do this, see
@@ -235,7 +242,7 @@ compile time.  For instructions on how to do this, see
 </section>
 </section>
 <section id="relevant-packages">
-<h2>Relevant Packages<a class="headerlink" href="#relevant-packages" title="Permalink to this headline"></a></h2>
+<h2>Relevant Packages<a class="headerlink" href="#relevant-packages" title="Link to this heading"></a></h2>
 <p>The Vicon-related software is implemented in the packages
 <a class="reference external" href="https://intelligent-soft-robots.github.io/vicon_transformer/index.html" title="(in vicon_transformer v0.9.0)"><span class="xref std std-doc">vicon_transformer</span></a> (everything that is generic)
 and <a class="reference external" href="https://intelligent-soft-robots.github.io/pam_vicon/index.html" title="(in pam_vicon v0.9.0)"><span class="xref std std-doc">pam_vicon</span></a> (everything specific to our setup).</p>

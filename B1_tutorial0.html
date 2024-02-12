@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial 0: How to run tutorial demos &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -88,8 +95,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorial 0: How to run tutorial demos</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial 0: How to run tutorial demos</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/B1_tutorial0.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -99,17 +106,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-0-how-to-run-tutorial-demos">
-<h1>Tutorial 0: How to run tutorial demos<a class="headerlink" href="#tutorial-0-how-to-run-tutorial-demos" title="Permalink to this headline"></a></h1>
+  <section id="tutorial-0-how-to-run-tutorial-demos">
+<h1>Tutorial 0: How to run tutorial demos<a class="headerlink" href="#tutorial-0-how-to-run-tutorial-demos" title="Link to this heading"></a></h1>
 <p>Code for demos and tutorials can be found in the pam_demos <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_demos">repository</a>.</p>
 <p>The typical process to run a demo or a tutorial is:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Open the terminal (of your choice)</p></li>
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">pam_mujoco</span></code>-command with the corresponding “mujoco_id”</p></li>
 <li><p>Run a Python-script with the desired (control) commands.</p></li>
 </ol>
 <section id="starting-a-demonstration-or-tutorial">
-<h2>Starting a demonstration or tutorial<a class="headerlink" href="#starting-a-demonstration-or-tutorial" title="Permalink to this headline"></a></h2>
+<h2>Starting a demonstration or tutorial<a class="headerlink" href="#starting-a-demonstration-or-tutorial" title="Link to this heading"></a></h2>
 <p>First, a MuJoCo handle (in the following indicated by the mujoco_id) has to be specified. For each tutorial a tutorial-specific mujoco_id has been prepared and can be found in the corresponding Python-script.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco<span class="w"> </span>mujoco_id
 </pre></div>
@@ -130,7 +137,7 @@
 </div>
 </section>
 <section id="stopping-a-demonstration-or-tutorial">
-<h2>Stopping a demonstration or tutorial<a class="headerlink" href="#stopping-a-demonstration-or-tutorial" title="Permalink to this headline"></a></h2>
+<h2>Stopping a demonstration or tutorial<a class="headerlink" href="#stopping-a-demonstration-or-tutorial" title="Link to this heading"></a></h2>
 <p>The MuJoCo simulation can be stopped. For stopping the simulation, you may simple close the terminal from which you started the xterminal-application. Alternatively, you may call:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pam_mujoco_stop<span class="w"> </span>tutorials_1_to_3
 </pre></div>
@@ -142,7 +149,7 @@
 </div>
 </section>
 <section id="further-remarks">
-<h2>Further remarks<a class="headerlink" href="#further-remarks" title="Permalink to this headline"></a></h2>
+<h2>Further remarks<a class="headerlink" href="#further-remarks" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Note that you may run the demo several times without the need to restart pam_mujoco.</p></li>
 <li><p>The “mujoco_id” depends on the demo and is indicated in the source file of the demo or in the README-file. Further information regarding the mujoco_id can be found here: <a class="reference internal" href="C1_handle.html"><span class="doc std std-doc">MuJoCo handles and contacts</span></a>.</p></li>

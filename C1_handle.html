@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More info: MuJoCo handles and contacts &mdash; PAM Documentation 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +30,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> PAM Documentation
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PAM Documentation
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -103,8 +110,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>More info: MuJoCo handles and contacts</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">More info: MuJoCo handles and contacts</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/C1_handle.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,8 +121,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="more-info-mujoco-handles-and-contacts">
-<h1>More info: MuJoCo handles and contacts<a class="headerlink" href="#more-info-mujoco-handles-and-contacts" title="Permalink to this headline"></a></h1>
+  <section id="more-info-mujoco-handles-and-contacts">
+<h1>More info: MuJoCo handles and contacts<a class="headerlink" href="#more-info-mujoco-handles-and-contacts" title="Link to this heading"></a></h1>
 <p>In the tutorials, handles are used to configure the mujoco simulation spawed by <em>pam_mujoco</em>. The handles are also used to interface with the simulated robots, balls and other items.</p>
 <p>This page provides a more complete documentation over handles.</p>
 <p>The signature of the constructor is:</p>
@@ -136,9 +143,9 @@
 </pre></div>
 </div>
 <section id="robot-s">
-<h2>Robot(s)<a class="headerlink" href="#robot-s" title="Permalink to this headline"></a></h2>
+<h2>Robot(s)<a class="headerlink" href="#robot-s" title="Link to this heading"></a></h2>
 <section id="mujocorobot">
-<h3>MujocoRobot<a class="headerlink" href="#mujocorobot" title="Permalink to this headline"></a></h3>
+<h3>MujocoRobot<a class="headerlink" href="#mujocorobot" title="Link to this heading"></a></h3>
 <p>Currently, up to 2 robots can added to pam_mujoco.
 Robots are added by passing instances of <em>MujocoRobot</em> to the handle constructor.</p>
 <p>The signature of a MujocoRobot is:</p>
@@ -175,24 +182,24 @@ Robots are added by passing instances of <em>MujocoRobot</em> to the handle cons
 </ul>
 </section>
 <section id="interfacing-with-robots">
-<h3>Interfacing with robots<a class="headerlink" href="#interfacing-with-robots" title="Permalink to this headline"></a></h3>
+<h3>Interfacing with robots<a class="headerlink" href="#interfacing-with-robots" title="Link to this heading"></a></h3>
 <section id="pressure-controlled">
-<h4>Pressure controlled<a class="headerlink" href="#pressure-controlled" title="Permalink to this headline"></a></h4>
+<h4>Pressure controlled<a class="headerlink" href="#pressure-controlled" title="Link to this heading"></a></h4>
 <p>Usage of pressure commands are shown in <a class="reference internal" href="B2_tutorial1.html"><span class="doc std std-doc">tutorials 1 to 3</span></a></p>
 </section>
 <section id="joint-controlled">
-<h4>Joint controlled<a class="headerlink" href="#joint-controlled" title="Permalink to this headline"></a></h4>
+<h4>Joint controlled<a class="headerlink" href="#joint-controlled" title="Link to this heading"></a></h4>
 <p>Usage of joint commands are shown in <a class="reference internal" href="B5_tutorial4.html"><span class="doc std std-doc">tutorials 4 to 7</span></a></p>
 </section>
 </section>
 </section>
 <section id="items-and-contacts-balls-hit-points-goals">
-<h2>Items and contacts (balls, hit points, goals …)<a class="headerlink" href="#items-and-contacts-balls-hit-points-goals" title="Permalink to this headline"></a></h2>
+<h2>Items and contacts (balls, hit points, goals …)<a class="headerlink" href="#items-and-contacts-balls-hit-points-goals" title="Link to this heading"></a></h2>
 <p>An undefinite numbers of items can be added to the mujoco simulation, the limit being the capacities of the computer you run the simulation on.</p>
 <p>Ball are physicals object with a small weight, while hit points and goals are only graphical markers.</p>
 <p>Balls, hit points and goals are added similarly.</p>
 <section id="mujocoitem">
-<h3>MujocoItem<a class="headerlink" href="#mujocoitem" title="Permalink to this headline"></a></h3>
+<h3>MujocoItem<a class="headerlink" href="#mujocoitem" title="Link to this heading"></a></h3>
 <p>To add an item, the first step is to create an instance of MujocoItem:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="n">segment_id</span><span class="p">,</span>
                              <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -236,9 +243,9 @@ Robots are added by passing instances of <em>MujocoRobot</em> to the handle cons
 <p>See for example <a class="reference internal" href="B5_tutorial4.html"><span class="doc std std-doc">tutorial 4</span></a>.</p>
 </section>
 <section id="contacts">
-<h3>Contacts<a class="headerlink" href="#contacts" title="Permalink to this headline"></a></h3>
+<h3>Contacts<a class="headerlink" href="#contacts" title="Link to this heading"></a></h3>
 <section id="contacts-and-handle">
-<h4>Contacts and handle<a class="headerlink" href="#contacts-and-handle" title="Permalink to this headline"></a></h4>
+<h4>Contacts and handle<a class="headerlink" href="#contacts-and-handle" title="Link to this heading"></a></h4>
 <p>If contacts has been activated for an item, the handle provides method to query them:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ball</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoItem</span><span class="p">(</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span><span class="n">contact_type</span><span class="o">=</span><span class="n">pam_mujoco</span><span class="o">.</span><span class="n">ContactTypes</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
 <span class="n">handle</span> <span class="o">=</span> <span class="n">pam_mujoco</span><span class="o">.</span><span class="n">MujocoHandle</span><span class="p">(</span><span class="n">mujoco_id</span><span class="p">,</span><span class="n">table</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">balls</span><span class="o">=</span><span class="p">(</span><span class="n">ball</span><span class="p">,))</span>
@@ -273,7 +280,7 @@ The contact can be reactivated:</p>
 </div>
 </section>
 <section id="customized-contacts">
-<h4>Customized contacts<a class="headerlink" href="#customized-contacts" title="Permalink to this headline"></a></h4>
+<h4>Customized contacts<a class="headerlink" href="#customized-contacts" title="Link to this heading"></a></h4>
 <p>A side note: for modeling the contact, we override Mujoco’s engine to apply a custom contact model, see this <a class="reference external" href="https://github.com/intelligent-soft-robots/pam_mujoco/blob/master/include/pam_mujoco/recompute_state_after_contact.hpp">file</a>.</p>
 </section>
 </section>

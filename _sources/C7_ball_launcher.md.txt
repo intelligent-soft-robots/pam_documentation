@@ -18,7 +18,6 @@ to ssh to me: user pi, password: ---
 - sourcing colcon workspace
 - killing already running server
 - starting the ball launcher server on IP 10.42.--.-- and PORT 5555
-sleep() takes 1 positional argument but 2 were given
 ```
 
 Take note of the IP address.
@@ -37,24 +36,23 @@ This will start a dialog, which one completed will have a ball launched.
 ### Launch a ball (from python script)
 
 ``` python
-from ball_launcher_beepy import BallLauncher
+import time
 
-    with BallLauncher(
-        ip,
-        port,
-        phi,
-        theta,
-        top_left_motor,
-        top_right_motor,
-        bottom_motor,
-    ) as client:
-        client.launch_ball()
-	# note : the motors will keep spinning
-	# during these 5 seconds wait
-	time.sleep(5)
-        client.launch_ball()
-# the motors stop spinnning upon exit of the
-# context manager
+from ball_launcher_beepy import BallLauncherClient
+
+# Enter the correct IP here
+ip = "10.42.XX.XX"
+port = 5555
+
+phi = 0.5
+theta = 0.5
+motor_top_left = motor_top_right = motor_bottom = 0.4
+
+client = BallLauncherClient(ip, port)
+client.set_state(phi, theta, motor_top_left, motor_top_right, motor_bottom)
+time.sleep(2)
+client.launch_ball()
+time.sleep(2)
 ```
 
 All arguments are floats between 0 and 1 (except of ip which is string and port which is an int)
