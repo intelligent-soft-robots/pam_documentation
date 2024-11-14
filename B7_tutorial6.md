@@ -160,8 +160,7 @@ Tutorial showed how to add table, balls, goals and hit points to the mujoco mode
 
 The code below shows how to start mujoco with items in bursting mode:
 
-```python
-File Edit Options Buffers Tools Python Help                                                                                                                                                                                                                                               
+```python                                                                                                                                                                                                                                            
 import pam_mujoco
 import o80_pam
 
@@ -195,8 +194,7 @@ This code is similar to the one shown in tutorial 4, except that a "burster" was
 
 Consequently, the "burst" method of the robot frontend can be called to have the mujoco simulation iterating, for example:
 
-```python
-File Edit Options Buffers Tools Python Help                                                                                                                                                                                                                                               
+```python                                                                                                                                                                                                                                             
 import math
 import time
 import o80
