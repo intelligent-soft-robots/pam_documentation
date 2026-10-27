@@ -31,6 +31,7 @@ If you experience any issue, you can try to run in a terminal:
 
 - `tennicam_list_cameras`: check if the drivers detect the four cameras
 - `tennicam_ping_cameras`: check if the desktop can ping the four cameras
+- `tennicam_reset_camera <id>`: reset camera `<id>`
 - `tennicam_capture_indep`*: check if the desktop can use the drivers to capture pictures from the cameras
 - `tennicam_capture`*: check if the desktop can use the drivers of the cameras to capture synchronized pictures
 
